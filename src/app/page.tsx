@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import SlotMachine from "@/components/FunkashLoader"
 import HomePage from "@/components/home-page"
 import PageTransition from "@/components/page-transition"
+import Navbar from "@/components/navbar"
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false)
   const [showContent, setShowContent] = useState(false)
@@ -38,6 +39,7 @@ export default function Home() {
           }`}
       > */}
       <PageTransition isVisible={showContent}>
+        <Navbar />
         <HomePage startTextAnimations={showContent} />
       </PageTransition>
       {/* </div> */}

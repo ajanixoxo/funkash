@@ -1,69 +1,163 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { motion, useAnimation } from "framer-motion"
-import { cn } from "@/lib/utils"
-import Navbar from "./navbar"
+import { useEffect, useRef } from "react"
+import { motion, } from "framer-motion"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import GSAPTextAnimation from "./gsap-text-animation"
+import AnimatedShapes from "./animated-shapes"
 import FlickerText from "./fllcker_text"
 import AnimatedButton from "./animated-button"
-import { ArrowRight, Circle, Square, Triangle } from "lucide-react"
+import { ArrowRight, CheckCircle, } from "lucide-react"
+import AboutSection from "./about-sectiont"
+import FunkashFounderSection from "./funkash-founder-section"
+import StackingProjects from "./stacking-projects"
 
 interface HomePageProps {
   startTextAnimations?: boolean
 }
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 export default function HomePage({ startTextAnimations = true }: HomePageProps) {
-  const [activeBox, setActiveBox] = useState(0)
-  const controls = useAnimation()
-  const boxRefs = useRef<(HTMLDivElement | null)[]>([null, null, null])
+  const heroRef = useRef<HTMLDivElement>(null)
+  const projectsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    // Hero section animations
+    if (heroRef.current) {
+      const tl = gsap.timeline()
+
+      // Project showcases entrance
+      tl.from(".project-left", {
+        x: -200,
+        rotation: -10,
+        opacity: 0,
+        duration: 1.2,
+        ease: "back.out(1.7)",
+      }).from(
+        ".project-right",
+        {
+          x: 200,
+          rotation: 10,
+          opacity: 0,
+          duration: 1.2,
+          ease: "back.out(1.7)",
+        },
+        "-=0.8",
+      )
+    }
+
+    // Projects stacking animation
+    if (projectsRef.current) {
+      const projectCards = projectsRef.current.querySelectorAll(".project-card")
+
+      gsap.set(projectCards, { y: 100, opacity: 0, rotationX: 45 })
+
+      ScrollTrigger.create({
+        trigger: projectsRef.current,
+        start: "top 60%",
+        onEnter: () => {
+          gsap.to(projectCards, {
+            y: 0,
+            opacity: 1,
+            rotationX: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: {
+              amount: 1.2,
+              from: "start",
+            },
+          })
+        },
+      })
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [])
 
   const boxes = [
     {
       title: "Build",
       description: "We build the foundation of your vision with cutting-edge technology and innovative solutions.",
       color: "bg-[#222946]",
-      shape: "circle",
-      shapeColor: "bg-white",
-      position: "top-0 left-0 lg:left-8",
+      type: "build" as const,
     },
     {
       title: "Execution",
       description: "Skip the painful team hunt and onboarding. You build the vision, we deploy the code.",
       color: "bg-[#2A3256]",
-      shape: "square",
-      shapeColor: "bg-white",
-      position: "top-0 right-0 lg:right-8",
+      type: "execute" as const,
     },
     {
       title: "Strategic Advantage",
       description: "Tap into internal frameworks, product playbooks, and market validation tools.",
       color: "bg-[#343B64]",
-      shape: "diamond",
-      shapeColor: "bg-white",
-      position: "top-0 left-1/2 transform -translate-x-1/2",
+      type: "strategy" as const,
     },
   ]
 
-  useEffect(() => {
-    if (startTextAnimations) {
-      controls.start("visible")
+  const founderQualities = [
+    "Clear product-thinking and a bias for execution",
+    "A deep problem with technical blind spots to solve",
+    "Willingness to collaborate, not just outsource",
+    "High agency and storytelling ability",
+    "Long-term mindset with real market exposure",
+  ]
 
-      const interval = setInterval(() => {
-        setActiveBox((prev) => (prev + 1) % boxes.length)
-      }, 5000)
+  const projects = [
+    {
+      name: "Limpiar",
+      category: "PROPERTY MANAGEMENT / ON-DEMAND SERVICES",
+      status: "Active",
+      location: "United States • 2024",
+      type: "Co-built & Co-owned",
+      role: "CTO / Full Technical Infrastructure Partner",
+      metrics: [
+        { label: "Cleaner Partners", value: "85+", color: "text-green-500" },
+        { label: "Response Rate", value: "92%", color: "text-yellow-500" },
+      ],
+      color: "from-green-400 to-green-600",
+    },
+    {
+      name: "Afriprize",
+      category: "NONPROFIT / GAMIFIED FUNDRAISING",
+      status: "Live",
+      location: "Nigeria • 2023",
+      type: "Built & Owned",
+      role: "Full Product Design, Development & Strategy",
+      metrics: [
+        { label: "Active Users", value: "21000+", color: "text-blue-500" },
+        { label: "Charitable Funding", value: "20M", color: "text-green-500" },
+      ],
+      color: "from-blue-400 to-blue-600",
+    },
+    {
+      name: "AfriPay",
+      category: "FINTECH / PAYMENTS INFRASTRUCTURE",
+      status: "MVP",
+      location: "Pan-African • 2023",
+      type: "Built & Owned",
+      role: "Technical Build, Product Strategy",
+      metrics: [
+        { label: "Transaction Volume", value: "₦2.5B+", color: "text-purple-500" },
+        { label: "Success Rate", value: "99.8%", color: "text-green-500" },
+      ],
+      color: "from-purple-400 to-purple-600",
+    },
+  ]
 
-      return () => clearInterval(interval)
-    }
-  }, [controls, boxes.length, startTextAnimations])
 
-  const handleBoxClick = (index: number) => {
-    setActiveBox(index)
-  }
+
+
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
-      <Navbar />
+    <div className="bg-white overflow-hidden">
+
 
       <main className="container mx-auto px-4 pt-24 pb-32 relative">
         {/* Background decorative elements */}
@@ -160,99 +254,54 @@ export default function HomePage({ startTextAnimations = true }: HomePageProps) 
             </div>
           </div>
 
-          {/* Scroll indicator */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={startTextAnimations ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 4, duration: 0.5 }}
-          >
-            <div className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center">
-              <motion.div
-                animate={{ y: [0, 4, 0] }}
-                transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-              >
-                ↓
-              </motion.div>
-            </div>
-          </motion.div>
+
         </section>
 
-        {/* Scattered feature boxes */}
-        <motion.div
-          className="relative h-[600px] md:h-max mt-20"
-          initial={{ opacity: 0 }}
-          animate={startTextAnimations ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 2.5, duration: 0.7 }}
-        >
-          {/* Box indicators */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
-            {boxes.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleBoxClick(index)}
-                className={cn(
-                  "w-3 h-3 rounded-full transition-all duration-300",
-                  activeBox === index ? "bg-[#222946] w-8" : "bg-gray-300",
-                )}
-                aria-label={`View ${boxes[index].title}`}
-              />
-            ))}
-          </div>
-
-          {/* Animated boxes */}
-          {startTextAnimations &&
-            boxes.map((box, index) => (
-              <motion.div
-                key={box.title}
-                ref={(el) => {
-                  boxRefs.current[index] = el
-                }}
-                className={cn(
-                  "absolute w-full md:w-[350px] lg:w-[400px] rounded-2xl p-6 flex flex-col justify-between",
-                  box.color,
-                  box.position,
-                  activeBox === index ? "z-10 h-[300px]" : "z-0 h-[250px] opacity-70",
-                )}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{
-                  opacity: activeBox === index ? 1 : 0.7,
-                  scale: activeBox === index ? 1 : 0.95,
-                  y: activeBox === index ? 0 : 10,
-                }}
-                transition={{ duration: 0.5 }}
+        {/* Build, Execute, Strategy Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <GSAPTextAnimation
+                trigger=".strategy-section"
+                className="text-4xl md:text-5xl font-bold text-[#222946] mb-4"
               >
-                {/* Animated shape */}
-                <motion.div
-                  className="absolute right-8 top-8 opacity-80"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 0.8, x: 0 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                >
-                  {box.shape === "circle" && <Circle className="w-12 h-12 text-white" />}
-                  {box.shape === "square" && <Square className="w-12 h-12 text-white" />}
-                  {box.shape === "diamond" && <Triangle className="w-12 h-12 text-white rotate-45" />}
-                </motion.div>
+                Our Approach
+              </GSAPTextAnimation>
+            </div>
 
-                {/* Small decorative shapes */}
-                <motion.div
-                  className="absolute left-12 top-12"
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 0.5, scale: 1 }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
+            <div className="strategy-section grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {boxes.map((box) => (
+                <div
+                  key={box.title}
+                  className={`rounded-2xl p-8 ${box.color} text-white relative overflow-hidden group cursor-pointer`}
                 >
-                  {box.shape === "circle" && <Circle className="w-6 h-6 text-white opacity-30" />}
-                  {box.shape === "square" && <Square className="w-6 h-6 text-white opacity-30" />}
-                  {box.shape === "diamond" && <Triangle className="w-6 h-6 text-white opacity-30 rotate-45" />}
-                </motion.div>
+                  <div className="absolute top-6 right-6">
+                    <AnimatedShapes type={box.type} />
+                  </div>
 
-                <div className="mt-auto">
-                  <h2 className="text-3xl font-bold text-white mb-4">{box.title}</h2>
-                  <p className="text-white/90 text-lg">{box.description}</p>
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold mb-4">{box.title}</h3>
+                    <p className="text-white/90 leading-relaxed">{box.description}</p>
+                  </div>
+
+                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-              </motion.div>
-            ))}
-        </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Stacking Projects Section */}
+        <StackingProjects />
+
+        {/* Funkash Founder Section */}
+        <FunkashFounderSection />
+
+        
+        {/* <AboutSection /> */}
+        {/* <WhatWeDoSection />
+        <VisionSection /> */}
+
       </main>
     </div>
   )

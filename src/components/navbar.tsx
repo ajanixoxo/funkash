@@ -23,21 +23,20 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ delay: 0.5, duration: 0.5 }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <div className="w-10 h-10 bg-amber-500 rounded-md flex items-center justify-center mr-3 overflow-hidden">
-           
+          <div className=" w-16 h-16 rounded-md flex items-center justify-center mr-3 overflow-hidden">
+
             <img
-              src="https://funkash.com/assets/funkash-logo.jpeg"
+              src="/logo.png"
               alt="Funkash Logo"
-              className="w-full h-full object-cover"
+              className="w-full"
             />
           </div>
           <span className={`font-bold text-xl ${scrolled ? "text-gray-900" : "text-gray-900"}`}>
