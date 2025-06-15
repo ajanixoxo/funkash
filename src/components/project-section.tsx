@@ -625,6 +625,8 @@ export default function ProjectsSections() {
     }
   }, [])
 
+  
+
   return (
     <section className="relative bg-white">
       {/* Header Section */}
@@ -660,7 +662,7 @@ export default function ProjectsSections() {
                 <div className="container mx-auto px-4 h-full">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-full items-center">
                     {/* Image Section */}
-                    <div className={`relative ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                    <div className={`relative ${isEven ? "lg:order-1" : "lg:order-1"}`}>
                       <div className="project-image relative h-64 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
                         <img
                           src={project.image || "/placeholder.svg"}
