@@ -222,7 +222,7 @@ export default function FunkashFounderSection() {
                 <AnimatedButton
                   variant="primary"
                   size="large"
-                  className="bg-gradient-to-r from-orange-500 to-red-500 border-orange-500"
+                  className="border-gray-500 "
                 >
                   Start Building With Us
                 </AnimatedButton>

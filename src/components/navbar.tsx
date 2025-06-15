@@ -23,7 +23,7 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md py-3" : "bg-transparent py-5"
+      className={`fixed top-0 left-0 w-screen right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/50 backdrop-blur hidden shadow-md py-3 " : " block bg-transparent py-5"
         }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -31,7 +31,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <div className=" w-16 h-16 rounded-md flex items-center justify-center mr-3 overflow-hidden">
+          <div className="w-10 md:w-16 h-16 rounded-md flex items-center justify-center mr-3 overflow-hidden">
 
             <img
               src="/logo.png"
@@ -39,8 +39,11 @@ export default function Navbar() {
               className="w-full"
             />
           </div>
-          <span className={`font-bold text-xl ${scrolled ? "text-gray-900" : "text-gray-900"}`}>
+          <span className={`font-bold hidden md:flex  text-xl ${scrolled ? "text-gray-900" : "text-gray-900"}`}>
             Funkash Technology
+          </span>
+            <span className={`font-bold md:hidden   text-xl ${scrolled ? "text-gray-900" : "text-gray-900"}`}>
+            FunTech
           </span>
         </div>
 
@@ -88,8 +91,10 @@ export default function Navbar() {
             </motion.a>
           ))}
 
-          <AnimatedButton variant="primary">Get In Touch</AnimatedButton>
-        </nav>
+        
+        </nav>  
+        <div className="hidden md:flex items-center space-x-8"> <AnimatedButton variant="primary">Get In Touch</AnimatedButton></div>
+       
 
         {/* Mobile menu button */}
         <motion.button

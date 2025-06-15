@@ -1,11 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import AnimatedButton from "./animated-button"
-import { ExternalLink, Calendar, MapPin, Users, TrendingUp } from "lucide-react"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
@@ -14,14 +13,14 @@ if (typeof window !== "undefined") {
 export default function StackingProjects() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement[]>([])
-  const animationRef = useRef<gsap.core.Timeline | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   const projects = [
     {
       id: 1,
       name: "Limpiar",
       category: "Property Management",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/projects/limpiar.png",
       description: "Revolutionary cleaning marketplace connecting property managers with verified professionals",
       location: "United States",
       year: "2024",
@@ -32,13 +31,13 @@ export default function StackingProjects() {
         revenue: "$2.5M+ GMV",
       },
       tags: ["React Native", "Node.js", "PostgreSQL", "Stripe"],
-      color: "from-emerald-500 to-teal-600",
+      textColor: "text-white",
     },
     {
       id: 2,
       name: "Afriprize",
       category: "Gamified Fundraising",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/projects/afri-prize.png",
       description: "Innovative platform merging gaming with charitable giving across African communities",
       location: "Nigeria",
       year: "2023",
@@ -49,13 +48,13 @@ export default function StackingProjects() {
         revenue: "₦20M+ Raised",
       },
       tags: ["Vue.js", "Python", "MongoDB", "PayStack"],
-      color: "from-blue-500 to-indigo-600",
+      textColor: "text-white",
     },
     {
       id: 3,
       name: "AfriPay",
       category: "Fintech Infrastructure",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/projects/afri-pay.png",
       description: "Cross-border payment solution enabling seamless financial transactions across Africa",
       location: "Pan-African",
       year: "2023",
@@ -66,81 +65,89 @@ export default function StackingProjects() {
         revenue: "₦2.5B+ Volume",
       },
       tags: ["React", "Go", "Redis", "Blockchain"],
-      color: "from-purple-500 to-pink-600",
+      textColor: "text-white",
     },
   ]
 
   useEffect(() => {
-    if (!sectionRef.current || cardsRef.current.length === 0) return
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  useEffect(() => {
+    if (!sectionRef.current) return
 
     const cards = cardsRef.current.filter(Boolean)
-    const section = sectionRef.current
+    if (cards.length === 0) return
 
-    // Create timeline
-    const tl = gsap.timeline({ paused: true })
-    animationRef.current = tl
+    // Clear any existing ScrollTriggers
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
 
-    const cardHeight = 500
-    const stackOffset = 20
+    const cardHeight = isMobile ? 450 : 550
+    const stackOffset = isMobile ? 15 : 20
 
-    // Initial setup - stack cards with slight offset
-    cards.forEach((card, index) => {
-      gsap.set(card, {
-        y: index * stackOffset,
-        scale: 1 - (index * 0.05),
-        zIndex: cards.length - index,
-        transformOrigin: "center top",
+    // Initialize card positions
+    const initCards = () => {
+      cards.forEach((card, index) => {
+        gsap.set(card, {
+          y: index * stackOffset,
+          scale: 1 - index * (isMobile ? 0.03 : 0.05),
+          zIndex: cards.length - index,
+          transformOrigin: "center top",
+          opacity: 1,
+        })
       })
-    })
+    }
 
-    // Create stacking animation
+    initCards()
+
+    // Create animation timeline
+    const tl = gsap.timeline({ paused: true })
+
+    // Animate each card except the last one
     cards.forEach((card, index) => {
       if (index < cards.length - 1) {
-        // Each card (except the last) moves up and fades out
-        tl.to(card, {
-          y: -cardHeight,
-          opacity: 0,
-          scale: 0.8,
-          duration: 1,
-          ease: "power2.inOut",
-        }, index * 0.5)
+        tl.to(
+          card,
+          {
+            y: -cardHeight * 1.2,
+            opacity: 0,
+            scale: 0.7,
+            duration: 1,
+            ease: "power2.inOut",
+          },
+          index * 0.3,
+        )
       }
     })
 
     // Create ScrollTrigger
-    const scrollTrigger = ScrollTrigger.create({
-      trigger: section,
-      start: "top -20%",
-      end: `+=${cardHeight * cards.length}`,
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: isMobile ? "top 10%" : "top -10%",
+      end: `+=${cardHeight * cards.length * (isMobile ? 1.2 : 1.5)}`,
       scrub: 1,
       pin: true,
       pinSpacing: true,
       animation: tl,
-      onUpdate: (self) => {
-        // Update progress based on scroll
-        tl.progress(self.progress)
-      },
-      onRefresh: () => {
-        // Reset on refresh
-        cards.forEach((card, index) => {
-          gsap.set(card, {
-            y: index * stackOffset,
-            scale: 1 - (index * 0.05),
-            opacity: 1,
-            zIndex: cards.length - index,
-          })
-        })
-      }
+      invalidateOnRefresh: true,
+      onRefresh: initCards,
+      refreshPriority: -1,
     })
 
     return () => {
-      scrollTrigger.kill()
-      tl.kill()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
-  }, [projects.length])
+  }, [isMobile])
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen bg-gray-50 ">
+    <section ref={sectionRef} className="relative min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#222946] mb-4">Featured Projects</h2>
@@ -150,32 +157,34 @@ export default function StackingProjects() {
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          <div className="relative flex justify-center items-center" style={{ height: "600px" }}>
+          <div className="relative flex justify-center items-start" style={{ height: isMobile ? "500px" : "650px" }}>
             {projects.map((project, index) => (
               <div
                 key={project.id}
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el
                 }}
-                className="absolute w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100"
+                className={`absolute w-full ${isMobile ? "max-w-sm" : "max-w-3xl"} bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100`}
                 style={{
-                  minHeight: "500px",
+                  minHeight: isMobile ? "450px" : "550px",
                   transformOrigin: "center top",
                 }}
               >
                 {/* Project Image */}
-                <div className="relative h-64 md:h-80 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-90`} />
+                <div className={`relative ${isMobile ? "h-40" : "h-64 md:h-80"} overflow-hidden`}>
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.name}
                     className="w-full h-full object-cover"
                   />
 
+                  {/* Overlay for better text readability */}
+                  <div className="absolute inset-0 bg-black/20"></div>
+
                   {/* Status Badge */}
-                  <div className="absolute top-6 left-6">
+                  <div className="absolute top-4 left-4">
                     <span
-                      className={`px-3 py-1 rounded-full text-sm font-medium text-white ${
+                      className={`px-2 py-1 rounded-full text-xs font-medium text-white ${
                         project.status === "Active"
                           ? "bg-green-500"
                           : project.status === "Live"
@@ -188,103 +197,114 @@ export default function StackingProjects() {
                   </div>
 
                   {/* Project Title Overlay */}
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">{project.name}</h3>
-                    <p className="text-white/90 text-lg">{project.category}</p>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3
+                      className={`${isMobile ? "text-xl" : "text-3xl md:text-4xl"} font-bold ${project.textColor} mb-1`}
+                    >
+                      {project.name}
+                    </h3>
+                    <p className={`${project.textColor}/90 ${isMobile ? "text-sm" : "text-lg"}`}>{project.category}</p>
                   </div>
                 </div>
 
                 {/* Project Details */}
-                <div className="p-8">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Left Column - Description & Meta */}
-                    <div className="space-y-6">
-                      <p className="text-gray-700 text-lg leading-relaxed">{project.description}</p>
+                <div className={`${isMobile ? "p-4" : "p-8"}`}>
+                  <div className={`grid grid-cols-1 ${isMobile ? "gap-4" : "lg:grid-cols-2 gap-8"}`}>
+                    {/* Description & Meta */}
+                    <div className={`space-y-${isMobile ? "3" : "4"}`}>
+                      <p className={`text-gray-700 ${isMobile ? "text-sm" : "text-lg"} leading-relaxed`}>
+                        {isMobile ? project.description.substring(0, 120) + "..." : project.description}
+                      </p>
 
-                      <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4" />
+                      <div className="flex flex-wrap gap-3 text-sm text-gray-600">
+                        <div className="flex items-center gap-1">
+                          <span>📍</span>
                           <span>{project.location}</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4" />
+                        <div className="flex items-center gap-1">
+                          <span>📅</span>
                           <span>{project.year}</span>
                         </div>
                       </div>
 
                       {/* Tech Stack */}
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-3">Tech Stack</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.tags.map((tag) => (
+                        <h4 className={`font-semibold text-gray-900 mb-2 ${isMobile ? "text-sm" : ""}`}>Tech Stack</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {project.tags.slice(0, isMobile ? 3 : 4).map((tag) => (
                             <span
                               key={tag}
-                              className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
+                              className={`px-2 py-1 bg-gray-100 text-gray-700 rounded-full font-medium ${
+                                isMobile ? "text-xs" : "text-sm"
+                              }`}
                             >
                               {tag}
                             </span>
                           ))}
+                          {isMobile && project.tags.length > 3 && (
+                            <span className="px-2 py-1 bg-gray-100 text-gray-500 rounded-full text-xs font-medium">
+                              +{project.tags.length - 3}
+                            </span>
+                          )}
                         </div>
                       </div>
+
+                      {/* Mobile CTA */}
+                      {isMobile && (
+                        <div className="pt-2">
+                          <AnimatedButton variant="primary" size="small">
+                            View Case Study
+                          </AnimatedButton>
+                        </div>
+                      )}
                     </div>
 
-                    {/* Right Column - Metrics */}
-                    <div className="space-y-6">
-                      <h4 className="font-semibold text-gray-900 text-lg">Key Metrics</h4>
-
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-3">
-                          <Users className="w-5 h-5 text-blue-500" />
-                          <div>
-                            <div className="font-semibold text-gray-900">{project.metrics.users}</div>
-                            <div className="text-sm text-gray-600">User Base</div>
+                    {/* Desktop Metrics */}
+                    {!isMobile && (
+                      <div className="space-y-6">
+                        <h4 className="font-semibold text-gray-900 text-lg">Key Metrics</h4>
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-3">
+                            <span className="text-blue-500 text-xl">👥</span>
+                            <div>
+                              <div className="font-semibold text-gray-900">{project.metrics.users}</div>
+                              <div className="text-sm text-gray-600">User Base</div>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-green-500 text-xl">📈</span>
+                            <div>
+                              <div className="font-semibold text-gray-900">{project.metrics.growth}</div>
+                              <div className="text-sm text-gray-600">Performance</div>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <span className="text-purple-500 text-xl">💰</span>
+                            <div>
+                              <div className="font-semibold text-gray-900">{project.metrics.revenue}</div>
+                              <div className="text-sm text-gray-600">Impact</div>
+                            </div>
                           </div>
                         </div>
-
-                        <div className="flex items-center gap-3">
-                          <TrendingUp className="w-5 h-5 text-green-500" />
-                          <div>
-                            <div className="font-semibold text-gray-900">{project.metrics.growth}</div>
-                            <div className="text-sm text-gray-600">Performance</div>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-3">
-                          <ExternalLink className="w-5 h-5 text-purple-500" />
-                          <div>
-                            <div className="font-semibold text-gray-900">{project.metrics.revenue}</div>
-                            <div className="text-sm text-gray-600">Impact</div>
-                          </div>
+                        <div className="pt-4">
+                          <AnimatedButton variant="primary" size="medium">
+                            View Case Study
+                          </AnimatedButton>
                         </div>
                       </div>
-
-                      <div className="pt-4">
-                        <AnimatedButton variant="primary" size="medium">
-                          View Case Study
-                          <ExternalLink className="w-4 h-4" />
-                        </AnimatedButton>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-            <div className="flex flex-col items-center text-gray-500">
-              <div className="w-px h-16 bg-gradient-to-b from-gray-300 to-transparent mb-2"></div>
-              <span className="text-sm">Scroll to explore</span>
-            </div>
+          {/* View More Button */}
+          <div className="text-center mt-16">
+            <AnimatedButton variant="secondary" size={isMobile ? "medium" : "large"}>
+              View More Projects
+            </AnimatedButton>
           </div>
-        </div>
-
-        {/* View More Button - positioned after the stacking section */}
-        <div className="text-center mt-32">
-          <AnimatedButton variant="secondary" size="large">
-            View More Projects
-          </AnimatedButton>
         </div>
       </div>
     </section>

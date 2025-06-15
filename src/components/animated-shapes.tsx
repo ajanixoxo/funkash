@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Circle, Square, Triangle } from "lucide-react"
@@ -164,6 +164,91 @@ export default function AnimatedShapes({ type }: AnimatedShapesProps) {
   return (
     <div ref={containerRef} className="relative w-16 h-16">
       {renderShapes()}
+    </div>
+  )
+}
+
+// BuildingBlocks Component
+export function BuildingBlocks({ isActive, onComplete }: { isActive: boolean, onComplete?: () => void }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isBuilding, setIsBuilding] = useState(false)
+
+  useEffect(() => {
+    if (!containerRef.current || !isActive) return
+
+    const blocks = containerRef.current.querySelectorAll(".building-block")
+    
+    // Initial setup - blocks stacked
+    gsap.set(blocks, { 
+      y: (i) => -i * 20,
+      opacity: 1,
+      scale: 1
+    })
+
+    setIsBuilding(true)
+
+    const timeline = gsap.timeline({
+      onComplete: () => {
+        setIsBuilding(false)
+        onComplete?.()
+      }
+    })
+
+    // Animate blocks building up
+    timeline.from(blocks, {
+      y: 100,
+      opacity: 0,
+      scale: 0.5,
+      duration: 0.6,
+      ease: "back.out(1.7)",
+      stagger: 0.15
+    })
+
+    return () => {
+      timeline.kill()
+    }
+  }, [isActive, onComplete])
+
+  const handleClick = () => {
+    if (!containerRef.current || isBuilding) return
+
+    const blocks = containerRef.current.querySelectorAll(".building-block")
+    setIsBuilding(true)
+
+    // Fall animation
+    gsap.to(blocks, {
+      y: 200,
+      rotation: () => Math.random() * 360,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.in",
+      stagger: 0.1,
+      onComplete: () => {
+        // Reset and rebuild
+        gsap.set(blocks, { y: 100, rotation: 0, opacity: 0, scale: 0.5 })
+        gsap.to(blocks, {
+          y: (i) => -i * 20,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          ease: "back.out(1.7)",
+          stagger: 0.15,
+          onComplete: () => setIsBuilding(false)
+        })
+      }
+    })
+  }
+
+  return (
+    <div 
+      ref={containerRef} 
+      className="relative w-16 h-16 cursor-pointer"
+      onClick={handleClick}
+    >
+      <div className="building-block absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-4 bg-white rounded-sm"></div>
+      <div className="building-block absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-4 bg-white rounded-sm"></div>
+      <div className="building-block absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-4 bg-white rounded-sm"></div>
+      <div className="building-block absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-4 bg-white rounded-sm"></div>
     </div>
   )
 }
