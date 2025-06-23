@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import AnimatedButton from "./animated-button"
-import { ExternalLink, Calendar, MapPin, Users, TrendingUp, ArrowRight } from "lucide-react"
+import { ExternalLink, Calendar, MapPin, Users, TrendingUp, ArrowRight, ArrowDown } from "lucide-react"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
@@ -125,13 +125,14 @@ export default function ProjectsSections() {
     // Clear existing ScrollTriggers
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
 
-    // On mobile, use vertical scrolling
+    // On mobile, use vertical scrolling with stacked cards
     if (isMobile) {
-      // Reset any horizontal transforms
+      // Reset any horizontal transforms and ensure proper display
       gsap.set(scrollContainer, {
         x: 0,
         width: "100%",
         display: "block",
+        clearProps: "all"
       })
 
       sections.forEach((section) => {
@@ -139,6 +140,7 @@ export default function ProjectsSections() {
           width: "100%",
           minWidth: "auto",
           flexShrink: "initial",
+          clearProps: "width,minWidth,flexShrink"
         })
       })
 
@@ -177,6 +179,7 @@ export default function ProjectsSections() {
     const getViewportWidth = () => window.innerWidth
     const sectionWidth = getViewportWidth()
     const totalWidth = sectionWidth * sections.length
+    const scrollDistance = totalWidth - sectionWidth
 
     // Set the width of the scroll container
     gsap.set(scrollContainer, {
@@ -196,20 +199,24 @@ export default function ProjectsSections() {
 
     // Create horizontal scroll animation
     const horizontalScroll = gsap.to(scrollContainer, {
-      x: () => -(totalWidth - sectionWidth),
+      x: -scrollDistance,
       ease: "none",
     })
 
-    // Create ScrollTrigger for horizontal scroll
+    // Create ScrollTrigger for horizontal scroll with explicit positioning
     ScrollTrigger.create({
       trigger: container,
       start: "top top",
-      end: () => `+=${totalWidth}`,
+      end: () => `+=${scrollDistance}`,
       pin: true,
       scrub: 1,
       animation: horizontalScroll,
       invalidateOnRefresh: true,
       anticipatePin: 1,
+      onUpdate: (self) => {
+        // Debug: log scroll progress
+        console.log('Scroll progress:', self.progress)
+      }
     })
 
     // Add individual section animations
@@ -237,8 +244,8 @@ export default function ProjectsSections() {
             ease: "power3.out",
             scrollTrigger: {
               trigger: section,
-              start: "left 80%",
-              end: "left 20%",
+              start: "center center",
+              end: "center center",
               horizontal: true,
               containerAnimation: horizontalScroll,
               toggleActions: "play none none reverse",
@@ -261,8 +268,8 @@ export default function ProjectsSections() {
             ease: "power3.out",
             scrollTrigger: {
               trigger: section,
-              start: "left 80%",
-              end: "left 20%",
+              start: "center center",
+              end: "center center",
               horizontal: true,
               containerAnimation: horizontalScroll,
               toggleActions: "play none none reverse",
@@ -287,8 +294,8 @@ export default function ProjectsSections() {
               stagger: 0.1,
               scrollTrigger: {
                 trigger: section,
-                start: "left 70%",
-                end: "left 30%",
+                start: "center center",
+                end: "center center",
                 horizontal: true,
                 containerAnimation: horizontalScroll,
                 toggleActions: "play none none reverse",
@@ -301,11 +308,6 @@ export default function ProjectsSections() {
 
     // Handle resize
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setIsMobile(true)
-        return
-      }
-
       const newSectionWidth = getViewportWidth()
       const newTotalWidth = newSectionWidth * sections.length
 
@@ -349,27 +351,30 @@ export default function ProjectsSections() {
   return (
     <section className="relative bg-white">
       {/* Header Section */}
-      <div className="container mx-auto px-4 py-20">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#222946] mb-6">Featured Projects</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+      <div className="container mx-auto px-4 py-12 md:py-20">
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#222946] mb-4 md:mb-6">Featured Projects</h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Discover how we&apos;ve transformed ideas into successful products that impact millions of users across
             emerging markets
           </p>
-          {!isMobile && (
-            <div className="mt-8 text-sm text-gray-500">
-              <span className="inline-flex items-center gap-2">
-                <span>Scroll to explore</span>
-                <ArrowRight className="w-4 h-4" />
-              </span>
-            </div>
-          )}
+          <div className="mt-6 md:mt-8 text-sm text-gray-500">
+            <span className="grid place-content-center place-items-center  items-center gap-2">
+              <span>Scroll to explore</span>
+              <ArrowDown className="w-4 h-4" />
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Projects Container */}
-      <div ref={containerRef} className="relative overflow-hidden">
-        <div ref={scrollContainerRef} className={isMobile ? "space-y-0" : "flex"}>
+      <div ref={containerRef} className="relative overflow-hidden w-full">
+        {/* Desktop Layout */}
+        <div 
+          ref={scrollContainerRef} 
+          className={isMobile ? "hidden" : "flex w-full"}
+          style={isMobile ? {} : { display: 'flex', width: '100%' }}
+        >
           {projects.map((project, index) => {
             const isEven = index % 2 === 0
             const colors = getAccentColors(project.accentColor)
@@ -377,16 +382,14 @@ export default function ProjectsSections() {
             return (
               <div
                 key={project.id}
-                className={`project-section relative ${project.bgColor} ${
-                  isMobile ? "min-h-screen" : "flex-shrink-0"
-                }`}
-                style={isMobile ? {} : { minHeight: "100vh" }}
+                className={`project-section relative ${project.bgColor} flex-shrink-0`}
+                style={{ minHeight: "100vh" }}
               >
-                <div className="w-full h-full px-4 sm:px-6 lg:px-8">
-                  <div className="h-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-8 items-center justify-center py-8 lg:py-16">
+                <div className={`w-full h-full px-4 sm:px-6 lg:px-8`}>
+                  <div className={`h-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-8 py-8 lg:py-16`}>
                     {/* Image Section */}
-                    <div className={`w-full ${isEven ? "lg:order-1" : "lg:order-2"} mb-6 lg:mb-0`}>
-                      <div className="project-image relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-2xl overflow-hidden shadow-2xl mx-auto max-w-md lg:max-w-none">
+                    <div className={`w-full ${isEven ? "lg:order-2" : "lg:order-2"} mb-6 lg:mb-0`}>
+                      <div className={`project-image relative h-48 sm:h-64 lg:h-80 xl:h-96 rounded-2xl overflow-hidden shadow-2xl mx-auto lg:max-w-none`}>
                         <img
                           src={project.image || "/placeholder.svg"}
                           alt={project.name}
@@ -408,22 +411,16 @@ export default function ProjectsSections() {
                             {project.status}
                           </span>
                         </div>
-
-                        {/* Mobile Title Overlay */}
-                        <div className="absolute bottom-4 left-4 right-4 lg:hidden">
-                          <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{project.name}</h3>
-                          <p className="text-white/90">{project.category}</p>
-                        </div>
                       </div>
                     </div>
 
                     {/* Content Section */}
                     <div
-                      className={`w-full ${isEven ? "lg:order-2" : "lg:order-1"} max-w-md lg:max-w-xl mx-auto lg:mx-0`}
+                      className={`w-full text-left ${isEven ? "lg:order-2" : "lg:order-1"} lg:max-w-xl mx-auto lg:mx-0`}
                     >
                       <div className="project-content space-y-4 lg:space-y-6">
                         {/* Desktop Title */}
-                        <div className="hidden lg:block">
+                        <div>
                           <div className="flex items-center gap-3 mb-4">
                             <div className="flex items-center gap-2 text-sm text-gray-600">
                               <MapPin className="w-4 h-4" />
@@ -441,18 +438,6 @@ export default function ProjectsSections() {
                           <p className="text-lg xl:text-xl text-gray-600 mb-6">{project.category}</p>
                         </div>
 
-                        {/* Mobile Meta Info */}
-                        <div className="lg:hidden flex items-center gap-4 text-sm text-gray-600">
-                          <div className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            <span>{project.location}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            <span>{project.year}</span>
-                          </div>
-                        </div>
-
                         {/* Description */}
                         <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
                           {project.description}
@@ -462,7 +447,7 @@ export default function ProjectsSections() {
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-3 text-sm lg:text-base">Tech Stack</h4>
                           <div className="flex flex-wrap gap-2">
-                            {project.tags.slice(0, isMobile ? 3 : 4).map((tag) => (
+                            {project.tags.slice(0, 4).map((tag) => (
                               <span
                                 key={tag}
                                 className={`px-2 py-1 lg:px-3 lg:py-1 ${colors.light} ${colors.primary} rounded-full text-xs lg:text-sm font-medium`}
@@ -470,16 +455,16 @@ export default function ProjectsSections() {
                                 {tag}
                               </span>
                             ))}
-                            {project.tags.length > (isMobile ? 3 : 4) && (
+                            {project.tags.length > 4 && (
                               <span className="px-2 py-1 lg:px-3 lg:py-1 bg-gray-100 text-gray-500 rounded-full text-xs lg:text-sm font-medium">
-                                +{project.tags.length - (isMobile ? 3 : 4)}
+                                +{project.tags.length - 4}
                               </span>
                             )}
                           </div>
                         </div>
 
-                        {/* Metrics - Hidden on Mobile */}
-                        <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-4 pt-4">
+                        {/* Desktop Metrics */}
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-4">
                           <div className="metric-item">
                             <div className="flex items-center gap-2 mb-2">
                               <Users className={`w-4 h-4 lg:w-5 lg:h-5 ${colors.primary}`} />
@@ -518,22 +503,129 @@ export default function ProjectsSections() {
                     </div>
                   </div>
                 </div>
+              </div>
+            )
+          })}
+        </div>
 
-                {/* Progress Indicator - Only on Desktop */}
-                {!isMobile && (
-                  <div className="absolute bottom-4 lg:bottom-8 left-1/2 transform -translate-x-1/2">
-                    <div className="flex gap-2">
-                      {projects.map((_, i) => (
-                        <div
-                          key={i}
-                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                            i === index ? colors.bg : "bg-gray-300"
+        {/* Mobile Layout */}
+        <div className={isMobile ? "block" : "hidden"}>
+          {projects.map((project) => {
+            const colors = getAccentColors(project.accentColor)
+
+            return (
+              <div
+                key={`mobile-${project.id}`}
+                className={`project-section relative ${project.bgColor} mb-8 last:mb-0`}
+              >
+                <div className="w-full px-3 py-6">
+                  {/* Mobile Project Card */}
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    {/* Image */}
+                    <div className="relative h-48 w-full">
+                      <img
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.name}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      
+                      {/* Status Badge */}
+                      <div className="absolute top-3 left-3">
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs font-medium text-white ${
+                            project.status === "Active"
+                              ? "bg-green-500"
+                              : project.status === "Live"
+                                ? "bg-blue-500"
+                                : "bg-purple-500"
                           }`}
-                        />
-                      ))}
+                        >
+                          {project.status}
+                        </span>
+                      </div>
+
+                      {/* Title Overlay */}
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <h3 className="text-lg font-bold text-white mb-1">{project.name}</h3>
+                        <p className="text-white/90 text-sm">{project.category}</p>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4">
+                      {/* Meta Info */}
+                      <div className="flex items-center gap-4 text-xs text-gray-600 mb-3">
+                        <div className="flex items-center gap-1">
+                          <MapPin className="w-3 h-3" />
+                          <span>{project.location}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3" />
+                          <span>{project.year}</span>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+
+                      {/* Tech Stack */}
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-gray-900 mb-2 text-sm">Tech Stack</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {project.tags.slice(0, 3).map((tag) => (
+                            <span
+                              key={tag}
+                              className={`px-2 py-1 ${colors.light} ${colors.primary} rounded-full text-xs font-medium`}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                          {project.tags.length > 3 && (
+                            <span className="px-2 py-1 bg-gray-100 text-gray-500 rounded-full text-xs font-medium">
+                              +{project.tags.length - 3}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Metrics */}
+                      <div className=" grid-cols-3 gap-3 mb-4 hidden lg:grid">
+                        <div className="text-center">
+                          <div className="flex items-center justify-center gap-1 mb-1">
+                            <Users className={`w-3 h-3 ${colors.primary}`} />
+                            <span className="text-xs text-gray-600">Users</span>
+                          </div>
+                          <div className="font-bold text-gray-900 text-sm">{project.metrics.users}</div>
+                        </div>
+
+                        <div className="text-center">
+                          <div className="flex items-center justify-center gap-1 mb-1">
+                            <TrendingUp className={`w-3 h-3 ${colors.primary}`} />
+                            <span className="text-xs text-gray-600">Growth</span>
+                          </div>
+                          <div className="font-bold text-gray-900 text-sm">{project.metrics.growth}</div>
+                        </div>
+
+                        <div className="text-center">
+                          <div className="flex items-center justify-center gap-1 mb-1">
+                            <ExternalLink className={`w-3 h-3 ${colors.primary}`} />
+                            <span className="text-xs text-gray-600">Impact</span>
+                          </div>
+                          <div className="font-bold text-gray-900 text-sm">{project.metrics.revenue}</div>
+                        </div>
+                      </div>
+
+                      {/* CTA */}
+                      <AnimatedButton variant="primary" size="small" className="w-full">
+                        View Case Study
+                        <ArrowRight className="w-4 h-4" />
+                      </AnimatedButton>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
             )
           })}
@@ -541,11 +633,11 @@ export default function ProjectsSections() {
       </div>
 
       {/* View More Section */}
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="text-center">
-          <div className="bg-gray-50 rounded-3xl p-8 lg:p-12">
-            <h3 className="text-xl lg:text-2xl font-bold text-[#222946] mb-4">Explore More Projects</h3>
-            <p className="text-gray-600 mb-6 lg:mb-8 max-w-2xl mx-auto text-sm lg:text-base">
+          <div className="bg-gray-50 rounded-3xl p-6 md:p-8 lg:p-12">
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-[#222946] mb-4">Explore More Projects</h3>
+            <p className="text-gray-600 mb-6 lg:mb-8 max-w-2xl mx-auto text-sm md:text-base">
               These are just a few examples of our work. We&apos;ve helped dozens of startups build and scale their
               products across various industries.
             </p>

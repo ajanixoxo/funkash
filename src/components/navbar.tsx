@@ -23,7 +23,7 @@ export default function Navbar() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 w-screen right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/50 backdrop-blur hidden shadow-md py-3 " : " block bg-transparent py-5"
+      className={`fixed top-0 left-0 w-screen right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/50 backdrop-blur  shadow-md py-3 " : " block bg-transparent py-5"
         }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}

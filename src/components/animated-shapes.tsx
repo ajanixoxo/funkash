@@ -23,12 +23,12 @@ export default function AnimatedShapes({ type }: AnimatedShapesProps) {
 
     if (type === "build") {
       // Building animation - shapes come together to form a structure
-      gsap.set(shapes, { scale: 0, rotation: 0 })
+      gsap.set(shapes, { scale: 0, rotation: 0, opacity: 0 })
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 70%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       })
@@ -39,6 +39,7 @@ export default function AnimatedShapes({ type }: AnimatedShapesProps) {
           {
             scale: 1,
             rotation: 360,
+            opacity: 1,
             duration: 0.8,
             ease: "back.out(1.7)",
           },
@@ -57,12 +58,12 @@ export default function AnimatedShapes({ type }: AnimatedShapesProps) {
       })
     } else if (type === "execute") {
       // Execution animation - rapid, precise movements
-      gsap.set(shapes, { x: -100, opacity: 0 })
+      gsap.set(shapes, { x: -100, opacity: 0, scale: 0.5 })
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 70%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       })
@@ -73,6 +74,7 @@ export default function AnimatedShapes({ type }: AnimatedShapesProps) {
           {
             x: 0,
             opacity: 1,
+            scale: 1,
             duration: 0.3,
             ease: "power3.out",
           },
@@ -96,7 +98,7 @@ export default function AnimatedShapes({ type }: AnimatedShapesProps) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 70%",
+          start: "top 80%",
           toggleActions: "play none none reverse",
         },
       })
@@ -162,7 +164,7 @@ export default function AnimatedShapes({ type }: AnimatedShapesProps) {
   }
 
   return (
-    <div ref={containerRef} className="relative w-16 h-16">
+    <div ref={containerRef} className="relative w-16 h-16 flex items-center justify-center">
       {renderShapes()}
     </div>
   )

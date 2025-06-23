@@ -84,7 +84,7 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
+      className="h-screen w-screen flex flex-col items-center justify-center relative overflow-hidden"
       style={{ backgroundColor: "#FAF9F6" }}
     >
       {/* Enhanced background with vector elements */}
@@ -96,7 +96,7 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
           animate={{ opacity: 0.2, scale: 1, rotate: 0 }}
           transition={{ delay: element.delay, duration: 1, ease: "easeOut" }}
         >
-          <element.icon className="w-16 h-16 text-[#222946]" />
+          <element.icon className="w-10 h-10 md:w-16 md:h-16 text-[#222946]" />
         </motion.div>
       ))}
 
@@ -121,7 +121,7 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
       ))} */}
 
       {/* Geometric background patterns */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5 pointer-events-none select-none">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#222946] to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#222946] to-transparent" />
         <div className="absolute top-0 left-0 h-full w-px bg-gradient-to-b from-transparent via-[#222946] to-transparent" />
@@ -129,7 +129,7 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
         {/* Logo or brand mark (optional) */}
         {animationComplete && (
           <motion.div
@@ -145,9 +145,13 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
         )}
 
         {/* Slot machine animation */}
-        <div className="flex space-x-2 md:space-x-4 mb-8">
+        <div className="flex space-x-1 sm:space-x-2 md:space-x-4 mb-4 sm:mb-8 justify-center w-full px-2 sm:px-0">
           {targetText.split("").map((letter, index) => (
-            <div key={index} className="relative h-24 md:h-32 w-16 md:w-20 overflow-hidden">
+            <div
+              key={index}
+              className="relative h-[14vw] w-[10vw] sm:h-24 sm:w-16 md:h-32 md:w-20 max-h-24 max-w-16 md:max-h-32 md:max-w-20 min-h-[48px] min-w-[36px] overflow-hidden flex-shrink-0"
+              style={{ minHeight: 48, minWidth: 36 }}
+            >
               {/* Container for the scrolling letters */}
               <div
                 ref={(el) => {
@@ -158,7 +162,6 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
                   animationComplete ? "slot-stopped" : "",
                 )}
                 style={{
-                  // Position the strip so the target letter will be centered when animation ends
                   height: `${21 * 100}%`, // 20 random letters + 1 target letter
                 }}
               >
@@ -167,16 +170,14 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
                   <div
                     key={charIndex}
                     className={cn(
-                      "flex items-center justify-center h-24 md:h-32 w-16 md:w-20",
-                      "font-bold text-4xl md:text-8xl",
-                      // Black text for the target letter (last one)
+                      "flex items-center justify-center w-full",
+                      "font-bold text-[7vw] sm:text-4xl md:text-8xl leading-none",
                       charIndex === 20 ? "text-[#222946]" : "text-[#222946]/80",
-                      // Hide all other letters after animation completes
                       animationComplete && charIndex !== 20 ? "opacity-0" : "opacity-100",
                       "transition-opacity duration-300",
-                      // Add glow effect to final letters
                       animationComplete && charIndex === 20 ? "text-glow" : "",
                     )}
+                    style={{ height: "min(14vw, 6rem)", minHeight: 48 }}
                   >
                     {char}
                   </div>
@@ -188,14 +189,14 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
 
         {/* Inspirational quotes section */}
         <motion.div
-          className="text-center max-w-2xl px-4"
+          className="text-center max-w-2xl px-2 sm:px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5 }}
         >
           <motion.p
             key={currentQuote}
-            className="text-lg md:text-xl text-[#222946]/80 font-medium italic"
+            className="text-base sm:text-lg md:text-xl text-[#222946]/80 font-medium italic"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -221,7 +222,7 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
         {/* Subtle line under text */}
         {animationComplete && (
           <motion.div
-            className="mt-8 h-px w-64 bg-gradient-to-r from-transparent via-[#222946]/30 to-transparent"
+            className="mt-4 sm:mt-8 h-px w-40 sm:w-64 bg-gradient-to-r from-transparent via-[#222946]/30 to-transparent"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8 }}

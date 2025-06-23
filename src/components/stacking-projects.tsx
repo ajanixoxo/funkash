@@ -260,8 +260,8 @@ export default function StackingProjects() {
                     </div>
 
                     {/* Desktop Metrics */}
-                    {!isMobile && (
-                      <div className="space-y-6">
+                    {isMobile && (
+                      <div className="space-y-6 hidden">
                         <h4 className="font-semibold text-gray-900 text-lg">Key Metrics</h4>
                         <div className="space-y-4">
                           <div className="flex items-center gap-3">

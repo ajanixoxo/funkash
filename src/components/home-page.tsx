@@ -7,11 +7,9 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 // import GSAPTextAnimation from "./gsap-text-animation"
-import AnimatedShapes from "./animated-shapes"
 import FlickerText from "./fllcker_text"
 import AnimatedButton from "./animated-button"
 import { ArrowRight, } from "lucide-react"
-// import AboutSection from "./about-sectiont"
 import FunkashFounderSection from "./funkash-founder-section"
 // import StackingProjects from "./stacking-projects"
 import ProjectsSections from "./project-section"
@@ -28,12 +26,7 @@ export default function HomePage({ startTextAnimations = true }: HomePageProps) 
   const heroRef = useRef<HTMLDivElement>(null)
   const projectsRef = useRef<HTMLDivElement>(null)
   const mobileProjectsRef = useRef<HTMLDivElement>(null)
-  const horizontalSectionRef = useRef<HTMLDivElement>(null)
-  const horizontalContainerRef = useRef<HTMLDivElement>(null)
-  const strategyTitleRef = useRef<HTMLDivElement>(null)
   const [isMobile, setIsMobile] = useState(false)
-  const [frontCardIndex, setFrontCardIndex] = useState(0)
-  const [visibleShapeIndex, setVisibleShapeIndex] = useState(-1)
 
   useEffect(() => {
     const checkMobile = () => {
@@ -50,8 +43,6 @@ export default function HomePage({ startTextAnimations = true }: HomePageProps) 
     // Hero section animations
     if (heroRef.current) {
       const tl = gsap.timeline()
-
-      // Desktop project showcases entrance
       if (!isMobile) {
         tl.from(".project-left", {
           x: -200,
@@ -73,108 +64,10 @@ export default function HomePage({ startTextAnimations = true }: HomePageProps) 
       }
     }
 
-    // Mobile projects stacking animation - FIXED
-    if (isMobile && mobileProjectsRef.current) {
-      const mobileCards = mobileProjectsRef.current.querySelectorAll(".mobile-project-card")
-
-      // Set initial positions for X formation
-      gsap.set(mobileCards, {
-        rotation: (i) => i === 0 ? -8 : 8,
-        y: (i) => i === frontCardIndex ? 0 : 10,
-        x: (i) => i === 0 ? -5 : 5,
-        scale: (i) => i === frontCardIndex ? 1 : 0.95,
-        zIndex: (i) => i === frontCardIndex ? 10 : 5
-      })
-
-      // Animate entrance
-      ScrollTrigger.create({
-        trigger: mobileProjectsRef.current,
-        start: "top 70%",
-        onEnter: () => {
-          gsap.fromTo(mobileCards,
-            {
-              opacity: 0,
-              y: 50,
-              rotation: (i) => i === 0 ? -15 : 15
-            },
-            {
-              opacity: 1,
-              y: (i) => i === frontCardIndex ? 0 : 10,
-              rotation: (i) => i === 0 ? -8 : 8,
-              duration: 0.8,
-              ease: "back.out(1.2)",
-              stagger: 0.2
-            }
-          )
-        }
-      })
-    }
-
-    // Strategy title animation - FIXED
-    if (strategyTitleRef.current) {
-      gsap.fromTo(strategyTitleRef.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: strategyTitleRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      )
-    }
-
-    // Horizontal scrolling for mobile strategy boxes - FIXED
-    if (isMobile && horizontalSectionRef.current && horizontalContainerRef.current) {
-      const panels = horizontalContainerRef.current.querySelectorAll(".strategy-panel")
-
-      if (panels.length > 0) {
-        // Calculate proper scroll distance to show last card fully
-        const containerWidth = horizontalContainerRef.current.scrollWidth
-        const windowWidth = window.innerWidth
-        const scrollDistance = containerWidth - windowWidth + 100 // Added padding
-
-        gsap.to(panels, {
-          x: () => -scrollDistance,
-          ease: "none",
-          scrollTrigger: {
-            trigger: horizontalSectionRef.current,
-            pin: true,
-            start: "top center",
-            scrub: 1,
-            end: () => "+=" + scrollDistance,
-            onUpdate: (self) => {
-              // Determine which panel is most visible and trigger shape animation
-              const progress = self.progress
-              const panelIndex = Math.min(Math.floor(progress * panels.length), panels.length - 1)
-              if (panelIndex !== visibleShapeIndex) {
-                setVisibleShapeIndex(panelIndex)
-              }
-            }
-          }
-        })
-
-        // Trigger shape animations when cards come into view
-        panels.forEach((panel, index) => {
-          const shape = panel.querySelector('.animated-shape')
-          if (shape && index === visibleShapeIndex) {
-            // Trigger shape animation
-            shape.classList.add('active')
-          }
-        })
-      }
-    }
-
     // Regular projects stacking animation
     if (projectsRef.current) {
       const projectCards = projectsRef.current.querySelectorAll(".project-card")
-
       gsap.set(projectCards, { y: 100, opacity: 0, rotationX: 45 })
-
       ScrollTrigger.create({
         trigger: projectsRef.current,
         start: "top 60%",
@@ -197,62 +90,7 @@ export default function HomePage({ startTextAnimations = true }: HomePageProps) 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
-  }, [isMobile, frontCardIndex, visibleShapeIndex])
-
-  // Handle card tap to flip - ENHANCED
-  const handleCardTap = (cardIndex: number) => {
-    if (!isMobile) return
-
-    const newFrontIndex = cardIndex === frontCardIndex ? (frontCardIndex === 0 ? 1 : 0) : cardIndex
-    setFrontCardIndex(newFrontIndex)
-
-    const mobileCards = mobileProjectsRef.current?.querySelectorAll(".mobile-project-card")
-    if (mobileCards) {
-      mobileCards.forEach((card, index) => {
-        gsap.to(card, {
-          y: index === newFrontIndex ? 0 : 10,
-          scale: index === newFrontIndex ? 1 : 0.95,
-          zIndex: index === newFrontIndex ? 10 : 5,
-          duration: 0.4,
-          ease: "power2.out"
-        })
-      })
-    }
-  }
-
-  const boxes = [
-    {
-      title: "Build",
-      description: "We build the foundation of your vision with cutting-edge technology and innovative solutions.",
-      color: "bg-[#222946]",
-      type: "build" as const,
-    },
-    {
-      title: "Execution",
-      description: "Skip the painful team hunt and onboarding. You build the vision, we deploy the code.",
-      color: "bg-[#2A3256]",
-      type: "execute" as const,
-    },
-    {
-      title: "Strategic Advantage",
-      description: "Tap into internal frameworks, product playbooks, and market validation tools.",
-      color: "bg-[#343B64]",
-      type: "strategy" as const,
-    },
-  ]
-
-  const mobileProjects = [
-    {
-      name: "Sharp Sharp",
-      gradient: "from-gray-800 to-gray-900",
-      image: "/projects/sharp-mobile.png"
-    },
-    {
-      name: "Afri Pay",
-      gradient: "from-purple-400 to-purple-600",
-      image: "/projects/afri-mobile.png"
-    }
-  ]
+  }, [isMobile])
 
   return (
     <div className="bg-white overflow-hidden">
@@ -333,42 +171,55 @@ export default function HomePage({ startTextAnimations = true }: HomePageProps) 
                 process — giving you the technical backbone, team, and tools to build faster and smarter.
               </motion.p>
 
-              {/* Mobile project showcase - stacked cards - ENHANCED */}
+              {/* Mobile project showcase - diagonal X pattern cards */}
               <div ref={mobileProjectsRef} className="md:hidden flex justify-center mb-8">
-                <div className="relative w-[240px] h-[300px]">
-                  {mobileProjects.map((project, index) => (
-                    <div
-                      key={project.name}
-                      className={`mobile-project-card absolute inset-0 rounded-xl overflow-hidden shadow-xl bg-gradient-to-br ${project.gradient} p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl`}
-                      style={{
-                        transform: `
-                          translateY(${index === frontCardIndex ? 0 : 10}px) 
-                          translateX(${index === 0 ? -5 : 5}px)
-                          rotate(${index === 0 ? -8 : 8}deg) 
-                          scale(${index === frontCardIndex ? 1 : 0.95})
-                        `,
-                        zIndex: index === frontCardIndex ? 10 : 5
-                      }}
-                      onClick={() => handleCardTap(index)}
-                      onTouchStart={() => handleCardTap(index)}
-                    >
-                      <div className="relative h-full flex flex-col">
-                        <div className="text-white text-lg font-bold mb-2">{project.name}</div>
+                <div className="relative w-[280px] h-[200px]">
+                  {/* Left card - Afri Pay (backslash \) */}
+                  <motion.div
+                    className="mobile-project-left absolute left-0 top-0 w-[130px] h-[180px] z-10"
+                    initial={{ opacity: 0, x: -30, rotate: -25 }}
+                    animate={startTextAnimations ? { opacity: 1, x: 0, rotate: -25 } : { opacity: 0, x: -30, rotate: -25 }}
+                    transition={{ delay: 1, duration: 0.8, ease: "easeOut" }}
+                  >
+                    <div className="relative h-full rounded-xl overflow-hidden shadow-xl bg-gradient-to-br from-purple-400 to-purple-600 p-3">
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-400/90 to-purple-600/90"></div>
+                      <div className="relative z-10 h-full flex flex-col">
+                        <div className="text-white text-sm font-bold mb-2">Afri Pay</div>
                         <div className="flex-1 flex items-center justify-center">
                           <img
-                            src={project.image}
-                            alt={`${project.name} showcase`}
+                            src="/projects/afri-mobile.png"
+                            alt="Afri Pay showcase"
                             className="max-w-full max-h-full object-contain"
                           />
                         </div>
-                        {project.name === "Sharp Sharp" && (
-                          <div className="absolute bottom-4 right-4 w-12 h-12 p-1 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">S</span>
-                          </div>
-                        )}
                       </div>
                     </div>
-                  ))}
+                  </motion.div>
+
+                  {/* Right card - Sharp Sharp (forward slash /) */}
+                  <motion.div
+                    className="mobile-project-right absolute right-0 top-0 w-[130px] h-[180px] z-10"
+                    initial={{ opacity: 0, x: 30, rotate: 25 }}
+                    animate={startTextAnimations ? { opacity: 1, x: 0, rotate: 25 } : { opacity: 0, x: 30, rotate: 25 }}
+                    transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+                  >
+                    <div className="relative h-full rounded-xl overflow-hidden shadow-xl bg-gradient-to-br from-gray-800 to-gray-900 p-3">
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-800/95 to-gray-900/95"></div>
+                      <div className="relative z-10 h-full flex flex-col">
+                        <div className="text-white text-sm font-bold mb-2">Sharp Sharp</div>
+                        <div className="flex-1 flex items-center justify-center">
+                          <img
+                            src="/projects/sharp-mobile.png"
+                            alt="Sharp Sharp showcase" 
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                        <div className="absolute bottom-2 right-2 w-8 h-8 p-1 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">S</span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
 
@@ -384,73 +235,6 @@ export default function HomePage({ startTextAnimations = true }: HomePageProps) 
                 </AnimatedButton>
                 <AnimatedButton variant="secondary">View Our Projects</AnimatedButton>
               </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Build, Execute, Strategy Section - FIXED */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            {/* FIXED: Title now shows on mobile */}
-            <div className="text-center mb-16">
-              <div
-                ref={strategyTitleRef}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#222946] mb-4"
-              >
-                Our Approach
-              </div>
-            </div>
-
-            {/* Desktop grid */}
-            <div className="strategy-section hidden md:grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {boxes.map((box,) => (
-                <div
-                  key={box.title}
-                  className={`rounded-2xl p-8 ${box.color} text-white relative overflow-hidden group cursor-pointer`}
-                >
-                  <div className="absolute top-6 right-6">
-                    <AnimatedShapes type={box.type} />
-                    {/* <BuildingBlocks isActive={true} /> */}
-                  </div>
-
-                  <div className="relative z-10">
-                    <h3 className="text-2xl font-bold mb-4">{box.title}</h3>
-                    <p className="text-white/90 leading-relaxed">{box.description}</p>
-                  </div>
-
-                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile horizontal scroll - FIXED */}
-            <div
-              ref={horizontalSectionRef}
-              className="md:hidden overflow-hidden"
-            >
-              <div
-                ref={horizontalContainerRef}
-                className="flex gap-6 w-max pr-20" // Added right padding to ensure last card is fully visible
-              >
-                {boxes.map((box) => (
-                  <div
-                    key={box.title}
-                    className={`strategy-panel flex-shrink-0 w-[280px] h-[200px] rounded-2xl p-6 ${box.color} text-white relative overflow-hidden`}
-                  >
-                    <div className="absolute top-4 right-4 animated-shape">
-                      <AnimatedShapes
-                        type={box.type}
-                        // isActive={visibleShapeIndex === index} // FIXED: Shape animates when card is visible
-                      />
-                    </div>
-
-                    <div className="relative z-10 h-full flex flex-col">
-                      <h3 className="text-xl font-bold mb-3">{box.title}</h3>
-                      <p className="text-white/90 text-sm leading-relaxed flex-1">{box.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
