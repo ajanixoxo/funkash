@@ -31,24 +31,24 @@ export default function AboutSection() {
     })
 
     // Text reveal animation
-    const textElements = textRef.current?.querySelectorAll(".reveal-text")
-    if (textElements) {
-      gsap.set(textElements, { y: 100, opacity: 0 })
+    // const textElements = textRef.current?.querySelectorAll(".reveal-text")
+    // if (textElements) {
+    //   gsap.set(textElements, { y: 100, opacity: 0 })
 
-      ScrollTrigger.create({
-        trigger: textRef.current,
-        start: "top 70%",
-        onEnter: () => {
-          gsap.to(textElements, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            stagger: 0.2,
-          })
-        },
-      })
-    }
+    //   ScrollTrigger.create({
+    //     trigger: textRef.current,
+    //     start: "top 70%",
+    //     onEnter: () => {
+    //       gsap.to(textElements, {
+    //         y: 0,
+    //         opacity: 1,
+    //         duration: 1,
+    //         ease: "power3.out",
+    //         stagger: 0.2,
+    //       })
+    //     },
+    //   })
+    // }
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())

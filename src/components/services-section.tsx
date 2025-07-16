@@ -43,29 +43,28 @@ export default function ServicesSection() {
   useEffect(() => {
     if (!sectionRef.current) return
     const cards = sectionRef.current.querySelectorAll(".service-card")
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
-    if (isMobile) {
-      gsap.set(cards, { y: 0, opacity: 1 })
-      return
-    }
-    gsap.set(cards, { y: 60, opacity: 0 })
-    const trigger = ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top 90%",
-      onEnter: () => {
-        console.log("ServicesSection ScrollTrigger fired")
-        gsap.to(cards, {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          stagger: 0.2,
-        })
-      },
-    })
-    ScrollTrigger.refresh()
+    // const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+    // if (isMobile) {
+    //   gsap.set(cards, { y: 0, opacity: 1 })
+    //   return
+    // }
+    // gsap.set(cards, { y: 60, opacity: 0 })
+    // const trigger = ScrollTrigger.create({
+    //   trigger: sectionRef.current,
+    //   start: "top 90%",
+    //   onEnter: () => {
+    //     console.log("ServicesSection ScrollTrigger fired")
+    //     gsap.to(cards, {
+    //       y: 0,
+    //       opacity: 1,
+    //       duration: 1,
+    //       ease: "power3.out",
+    //       stagger: 0.2,
+    //     })
+    //   },
+    // })
+    // ScrollTrigger.refresh()
     return () => {
-      trigger && trigger.kill()
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
   }, [])

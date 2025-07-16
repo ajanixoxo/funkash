@@ -43,20 +43,20 @@ export default function ProcessSection() {
   useEffect(() => {
     if (!sectionRef.current) return
     const stepsEls = sectionRef.current.querySelectorAll(".process-step")
-    gsap.set(stepsEls, { y: 60, opacity: 0 })
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: "top 70%",
-      onEnter: () => {
-        gsap.to(stepsEls, {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          stagger: 0.2,
-        })
-      },
-    })
+    // gsap.set(stepsEls, { y: 60, opacity: 0 })
+    // ScrollTrigger.create({
+    //   trigger: sectionRef.current,
+    //   start: "top 70%",
+    //   onEnter: () => {
+    //     gsap.to(stepsEls, {
+    //       y: 0,
+    //       opacity: 1,
+    //       duration: 1,
+    //       ease: "power3.out",
+    //       stagger: 0.2,
+    //     })
+    //   },
+    // })
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
