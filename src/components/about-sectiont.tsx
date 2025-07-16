@@ -106,7 +106,7 @@ export default function AboutSection() {
           <div ref={imageRef} className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-tr02mixOtAlVqjNF8bT9PiVBMoVszk.png"
+                src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Team collaboration"
                 className="w-full h-[500px] object-cover"
               />

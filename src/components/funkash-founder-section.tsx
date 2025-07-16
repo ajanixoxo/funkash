@@ -111,7 +111,7 @@ export default function FunkashFounderSection() {
       </div>
 
       {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="grid grid-cols-12 h-full">
           {Array.from({ length: 12 }).map((_, i) => (
             <div key={i} className="border-r border-white/10 h-full"></div>
@@ -119,29 +119,53 @@ export default function FunkashFounderSection() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <div className="inline-block">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-6xl font-bold mb-2 md:mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               What Makes a
             </h2>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
               Funkash Founder
             </h2>
           </div>
 
-          <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto mb-8"></div>
+          <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto mb-4 md:mb-8"></div>
 
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Not every founder needs to code. But every Funkash founder builds with conviction, clarity, and an
-            unwavering commitment to solving real problems.
+          <p className="text-base md:text-xl text-gray-300 max-w-2xl md:max-w-4xl mx-auto leading-relaxed">
+            Not every founder needs to code. But every Funkash founder builds with conviction, clarity, and an unwavering commitment to solving real problems.
           </p>
         </div>
 
-        {/* Interactive Cards Grid */}
+        {/* Cards Section: Responsive for mobile/desktop */}
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {/* Mobile: horizontal scrollable cards */}
+          <div className="block lg:hidden mb-10">
+            <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory -mx-2 px-2">
+              {founderQualities.map((quality, index) => {
+                const IconComponent = quality.icon;
+                return (
+                  <div
+                    key={index}
+                    className={`founder-card min-w-[260px] max-w-xs flex-shrink-0 snap-center bg-white/10 border-white/20 backdrop-blur-sm rounded-2xl p-5 border transition-all duration-500 ${activeCard === index ? 'ring-2 ring-orange-400 scale-105' : ''}`}
+                    onClick={() => setActiveCard(index)}
+                  >
+                    <div className="flex flex-col items-center text-center gap-3">
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${quality.color}`}>
+                        <IconComponent className="w-7 h-7 text-white" />
+                      </div>
+                      <h4 className="font-semibold text-white text-base mb-1 leading-tight">{quality.title}</h4>
+                      <p className="text-gray-300 text-xs leading-snug">{quality.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Desktop: grid layout */}
+          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Left Side - Active Card Display */}
             <div className="relative">
               <div className="sticky top-20">
@@ -177,32 +201,18 @@ export default function FunkashFounderSection() {
                 return (
                   <div
                     key={index}
-                    className={`founder-card relative cursor-pointer transition-all duration-500 ${
-                      activeCard === index
-                        ? "bg-white/10 border-white/20 scale-105"
-                        : "bg-white/5 border-white/10 hover:bg-white/8"
-                    } backdrop-blur-sm rounded-2xl p-6 border`}
+                    className={`founder-card relative cursor-pointer transition-all duration-500 ${activeCard === index ? "bg-white/10 border-white/20 scale-105" : "bg-white/5 border-white/10 hover:bg-white/8"} backdrop-blur-sm rounded-2xl p-6 border`}
                     onClick={() => setActiveCard(index)}
                   >
                     <div className="flex items-start gap-4">
-                      <div
-                        className={`flex-shrink-0 p-3 rounded-xl bg-gradient-to-br ${quality.color} ${
-                          activeCard === index ? "scale-110" : ""
-                        } transition-transform duration-300`}
-                      >
+                      <div className={`flex-shrink-0 p-3 rounded-xl bg-gradient-to-br ${quality.color} ${activeCard === index ? "scale-110" : ""} transition-transform duration-300`}>
                         <IconComponent className="w-6 h-6 text-white" />
                       </div>
-
                       <div className="flex-1">
                         <h4 className="font-semibold text-white mb-2 leading-tight">{quality.title}</h4>
                         <p className="text-gray-400 text-sm">{quality.description.substring(0, 80)}...</p>
                       </div>
-
-                      <CheckCircle
-                        className={`w-5 h-5 transition-all duration-300 ${
-                          activeCard === index ? "text-green-400 scale-110" : "text-gray-600"
-                        }`}
-                      />
+                      <CheckCircle className={`w-5 h-5 transition-all duration-300 ${activeCard === index ? "text-green-400 scale-110" : "text-gray-600"}`} />
                     </div>
                   </div>
                 );
@@ -211,26 +221,17 @@ export default function FunkashFounderSection() {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-white/10 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-4">Ready to Build Something Extraordinary?</h3>
-              <p className="text-gray-300 mb-8">
+          <div className="text-center mt-10 md:mt-16">
+            <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/10 max-w-2xl mx-auto">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Ready to Build Something Extraordinary?</h3>
+              <p className="text-gray-300 mb-6 md:mb-8 text-sm md:text-base">
                 If you recognize yourself in these qualities, let&apos;s explore how we can build your vision together.
               </p>
-
-              <div className="flex flex-wrap gap-4 justify-center">
-                <AnimatedButton
-                  variant="primary"
-                  size="large"
-                  className="border-gray-500 "
-                >
+              <div className="flex flex-wrap gap-3 md:gap-4 justify-center">
+                <AnimatedButton variant="primary" size="large" className="border-gray-500 ">
                   Start Building With Us
                 </AnimatedButton>
-                <AnimatedButton
-                  variant="secondary"
-                  size="large"
-                  className="border-white/30 text-white hover:bg-white/10"
-                >
+                <AnimatedButton variant="secondary" size="large" className="border-white/30 text-white hover:bg-white/10">
                   Learn Our Process
                 </AnimatedButton>
               </div>

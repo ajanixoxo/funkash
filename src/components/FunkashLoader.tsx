@@ -149,8 +149,7 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
           {targetText.split("").map((letter, index) => (
             <div
               key={index}
-              className="relative h-[14vw] w-[10vw] sm:h-24 sm:w-16 md:h-32 md:w-20 max-h-24 max-w-16 md:max-h-32 md:max-w-20 min-h-[48px] min-w-[36px] overflow-hidden flex-shrink-0"
-              style={{ minHeight: 48, minWidth: 36 }}
+              className="relative h-16 w-12 overflow-hidden flex-shrink-0 border-2 border-red-500" // debug border
             >
               {/* Container for the scrolling letters */}
               <div
@@ -162,7 +161,7 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
                   animationComplete ? "slot-stopped" : "",
                 )}
                 style={{
-                  height: `${21 * 100}%`, // 20 random letters + 1 target letter
+                  height: `${21 * 4}rem`, // 21 letters, each 4rem tall
                 }}
               >
                 {/* Generate the letter strip with random letters and the target letter */}
@@ -170,14 +169,12 @@ export default function SlotMachine({ onComplete }: SlotMachineProps) {
                   <div
                     key={charIndex}
                     className={cn(
-                      "flex items-center justify-center w-full",
-                      "font-bold text-[7vw] sm:text-4xl md:text-8xl leading-none",
+                      "flex items-center justify-center w-full h-16 font-bold text-4xl leading-none border border-blue-500", // debug border
                       charIndex === 20 ? "text-[#222946]" : "text-[#222946]/80",
                       animationComplete && charIndex !== 20 ? "opacity-0" : "opacity-100",
                       "transition-opacity duration-300",
                       animationComplete && charIndex === 20 ? "text-glow" : "",
                     )}
-                    style={{ height: "min(14vw, 6rem)", minHeight: 48 }}
                   >
                     {char}
                   </div>

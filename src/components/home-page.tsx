@@ -13,6 +13,12 @@ import { ArrowRight, } from "lucide-react"
 import FunkashFounderSection from "./funkash-founder-section"
 // import StackingProjects from "./stacking-projects"
 import ProjectsSections from "./project-section"
+import AboutSection from "./about-sectiont"
+// Add new imports for new sections
+import ServicesSection from "./services-section"
+import ProcessSection from "./process-section"
+import TestimonialsSection from "./testimonials-section"
+import ContactSection from "./contact-section"
 
 interface HomePageProps {
   startTextAnimations?: boolean
@@ -239,12 +245,26 @@ export default function HomePage({ startTextAnimations = true }: HomePageProps) 
           </div>
         </section>
 
-        {/* Stacking Projects Section */}
-        {/* <StackingProjects /> */}
-        <ProjectsSections />
+        {/* About Section */}
+        <AboutSection />
+
+        {/* Services Section */}
+        <ServicesSection />
+
+        {/* Process Section */}
+        <ProcessSection />
+
+        {/* Projects Section */}
+        <ProjectsSections />    
 
         {/* Funkash Founder Section */}
         <FunkashFounderSection />
+
+        {/* Testimonials Section */}
+        <TestimonialsSection />
+
+        {/* Contact Section */}
+        <ContactSection />
       </main>
     </div>
   )
