@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import { useEffect, useRef } from "react"
@@ -42,7 +41,6 @@ export default function ProcessSection() {
 
   useEffect(() => {
     if (!sectionRef.current) return
-    const stepsEls = sectionRef.current.querySelectorAll(".process-step")
     // gsap.set(stepsEls, { y: 60, opacity: 0 })
     // ScrollTrigger.create({
     //   trigger: sectionRef.current,

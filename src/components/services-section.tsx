@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import { useEffect, useRef } from "react"
@@ -42,7 +41,6 @@ export default function ServicesSection() {
 
   useEffect(() => {
     if (!sectionRef.current) return
-    const cards = sectionRef.current.querySelectorAll(".service-card")
     // const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
     // if (isMobile) {
     //   gsap.set(cards, { y: 0, opacity: 1 })

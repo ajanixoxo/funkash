@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import { useEffect, useRef } from "react"
@@ -59,7 +58,7 @@ export default function TestimonialsSection() {
           <h2 className="text-3xl md:text-5xl font-bold text-[#222946] mb-4">What Our Partners Say</h2>
           <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-pink-500 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Real feedback from founders and teams we've helped grow.
+            Real feedback from founders and teams we&apos;ve helped grow.
           </p>
         </div>
         <div className="flex flex-col md:flex-row gap-8 max-w-4xl mx-auto">
