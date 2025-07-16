@@ -59,7 +59,7 @@ export default function ContactSection() {
             rows={5}
             className="px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-400 text-base"
           />
-          <AnimatedButton variant="primary" size="large" type="submit">
+          <AnimatedButton variant="primary" size="large">
             Send Message
           </AnimatedButton>
         </form>
