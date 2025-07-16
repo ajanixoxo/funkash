@@ -98,6 +98,26 @@ export default function HomePage({ startTextAnimations = true }: HomePageProps) 
     }
   }, [isMobile])
 
+  useEffect(() => {
+    function handleScroll() {
+      const contact = document.getElementById("contact-section");
+      if (!contact) return;
+      const rect = contact.getBoundingClientRect();
+      // If the bottom of Contact Us is at or above the viewport bottom, lock scroll
+      if (rect.bottom <= window.innerHeight) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // run on mount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   return (
     <div className="bg-white overflow-hidden">
       <main className="container mx-auto px-4 pt-24 pb-32 relative">

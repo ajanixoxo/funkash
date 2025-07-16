@@ -34,7 +34,7 @@ export default function ContactSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white overflow-hidden">
+    <section id="contact-section" ref={sectionRef} className="py-20 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-[#222946] mb-4">Let’s Connect</h2>
