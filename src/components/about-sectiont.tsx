@@ -1,124 +1,81 @@
-/* eslint-disable @next/next/no-img-element */
-"use client"
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { TextAnimate } from './ui/text-animate';
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import GSAPTextAnimation from "./gsap-text-animation"
+const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.7,
+            delay: i * 0.2, // stagger effect for paragraphs
+            ease: "easeOut",
+        },
+    }),
+};
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
-}
+const AboutSection = () => {
+    const paragraphs = [
+        `At Funkash Technology, we partner with startups to build and scale through deep tech infrastructure, enabling them to create impactful solutions across Africa, Asia, and beyond. We believe technology can be a catalyst for growth in emerging markets — our mission is to make that technology accessible, reliable, and innovative.`,
 
-export default function AboutSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const imageRef = useRef<HTMLDivElement>(null)
-  const textRef = useRef<HTMLDivElement>(null)
+        `What Funkash does: We build robust, scalable technical infrastructure, develop AI-powered solutions, and empower visionary founders to bring their ideas to life. Our innovation platforms and global expansion initiatives drive growth and solve critical challenges in emerging markets.`,
 
-  useEffect(() => {
-    if (!sectionRef.current) return
+        `We also identify, train, and deploy exceptional technical talent across our network — ensuring our partners have the expertise to scale fast and sustainably.`,
 
-    // Parallax effect for the image
-    gsap.to(imageRef.current, {
-      yPercent: -50,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    })
+        `Empowering startups through technology, talent, and innovation.`,
+    ];
 
-    // Text reveal animation
-    // const textElements = textRef.current?.querySelectorAll(".reveal-text")
-    // if (textElements) {
-    //   gsap.set(textElements, { y: 100, opacity: 0 })
+    return (
+        <section className="bg-[#222946] text-white py-20 px-6 md:px-16 overflow-hidden" id="about">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+                {/* Left Column */}
+                <div>
+                    <TextAnimate animation="blurIn" as="p"
+                        className="text-base text-white mb-2">✦  About us</TextAnimate>
+                    <h2
+                       className="text-6xl lg:text-8xl xl:text-9xl font-medium tracking-tight mb-12 lg:mb-16">
+                        <TextAnimate animation="blurIn" as="p">
+                            We are  Funkash Technology.
+                        </TextAnimate>
+                        <br />
 
-    //   ScrollTrigger.create({
-    //     trigger: textRef.current,
-    //     start: "top 70%",
-    //     onEnter: () => {
-    //       gsap.to(textElements, {
-    //         y: 0,
-    //         opacity: 1,
-    //         duration: 1,
-    //         ease: "power3.out",
-    //         stagger: 0.2,
-    //       })
-    //     },
-    //   })
-    // }
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
-
-  return (
-    <section ref={sectionRef} className="py-20 bg-white overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <GSAPTextAnimation trigger=".about-section" className="text-4xl md:text-5xl font-bold text-[#222946] mb-4">
-            About Us
-          </GSAPTextAnimation>
-          <div className="w-16 h-1 bg-orange-500 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Learn about our mission, vision, and how we&aposre transforming emerging markets through technology.
-          </p>
-        </div>
-
-        <div className="about-section grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-          <div ref={textRef} className="space-y-8">
-            <div>
-              <h3 className="reveal-text text-3xl font-bold text-[#222946] mb-6">Our Mission</h3>
-              <div className="reveal-text space-y-4 text-gray-700 leading-relaxed">
-                <p>
-                  At Funkash Technology, we partner with startups to build and scale through deep tech infrastructure,
-                  enabling them to create impactful solutions across Africa, Asia, and beyond.
-                </p>
-                <p>
-                  We believe that technology can be a powerful catalyst for growth in emerging markets, and our mission
-                  is to make that technology accessible, reliable, and innovative.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="reveal-text text-2xl font-bold text-[#222946] mb-4">What Sets Us Apart</h3>
-              <div className="reveal-text space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-700">Deep technical expertise in emerging market challenges</p>
+                    </h2>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-700">Co-building approach that ensures long-term success</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-700">Proven track record across multiple industries</p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div ref={imageRef} className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Team collaboration"
-                className="w-full h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#222946]/20 to-transparent"></div>
+                {/* Right Column with Animated Paragraphs */}
+                <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+                    {paragraphs.map((text, i) => (
+                        <motion.p
+                            key={i}
+                            custom={i}
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.3 }}
+                            className={
+                                i === 1
+                                    ? "text-gray-300 text-lg leading-relaxed"
+                                    : i === 3
+                                        ? "text-gray-400 text-base italic"
+                                        : "text-gray-300 text-lg leading-relaxed"
+                            }
+                        >
+                            {i === 1 ? (
+                                <>
+                                    <strong>What Funkash does:</strong>{" "}
+                                    {text.replace("What Funkash does: ", "")}
+                                </>
+                            ) : (
+                                text
+                            )}
+                        </motion.p>
+                    ))}
+                </div>
             </div>
+        </section>
+    );
+};
 
-            {/* Floating elements */}
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-orange-500 rounded-full opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-500 rounded-full opacity-20 animate-pulse delay-1000"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+export default AboutSection;

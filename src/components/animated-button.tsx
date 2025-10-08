@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import type React from "react"
@@ -9,7 +10,7 @@ interface AnimatedButtonProps {
   children: React.ReactNode
   variant?: "primary" | "secondary" | "success" | "danger" | "outline"
   size?: "small" | "medium" | "large"
-  onClick?: () => void
+  onClick?: (e:any) => void
   disabled?: boolean
   className?: string
 }
@@ -37,7 +38,7 @@ export default function AnimatedButton({
 
   const sizeClasses = {
     small: "px-4 py-2 text-sm rounded-md",
-    medium: "px-6 py-3 text-base rounded-lg",
+    medium: "px-6 py-3 text-base rounded-3xl",
     large: "px-8 py-4 text-lg rounded-xl",
   }
 
@@ -55,7 +56,7 @@ export default function AnimatedButton({
     secondary: isHovered ? "text-white" : "text-[#222946]",
     success: "text-white",
     danger: "text-white",
-    outline: isHovered ? "text-white" : "text-[#222946]",
+    outline: isHovered ? "text-white" : "",
   }
 
   return (
