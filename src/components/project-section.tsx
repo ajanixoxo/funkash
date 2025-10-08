@@ -178,7 +178,7 @@ const PortfolioSection: React.FC = () => {
 
                 <TextAnimate animation="blurIn" as="h1">    ✦   Our Projects</TextAnimate>
               </h1>
-              <h2 className="text-6xl text-white max-w-3xl text-right lg:text-8xl xl:text-9xl font-medium tracking-tight mb-12 lg:mb-16">
+              <h2 className="text-6xl text-white max-w-3xl text-right lg:text-7xl xl:text-9xl font-medium tracking-tight mb-12 lg:mb-16">
                 <TextAnimate animation="blurIn" as="h2"> Our Masterpieces.</TextAnimate>
               </h2>
             </div>
