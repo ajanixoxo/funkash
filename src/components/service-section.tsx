@@ -96,7 +96,7 @@ const ServicesSection: React.FC = () => {
         {/* Header */}
         <div className="mb-16 lg:mb-24">
           <h1 className="text-base text-white lg:text-lg font-light">
-            <TextAnimate animation="blurIn" as="h1"> ✦   Our Services </TextAnimate>
+            <TextAnimate animation="blurIn" as="h1"> ✦ Our Services </TextAnimate>
           </h1>
           <p className="text-6xl lg:text-8xl xl:text-9xl font-medium tracking-tight mb-12 lg:mb-16">
         <TextAnimate animation="blurIn" as="p">What We Do</TextAnimate>    

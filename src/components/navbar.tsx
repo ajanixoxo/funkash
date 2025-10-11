@@ -31,9 +31,11 @@ export default function Navbar() {
 
   const navItems = [
     { lable: "About", href: "#about" },
-    { lable: "Projects", href: "#projects" },
-    { lable: "Service", href: "#services" },
-    { lable: "Contact", href: "#contact" },
+    { lable: "Projects", href: "/projects" },
+    { lable: "About", href: "/about" },
+    { lable: "Essay", href: "/essay" },
+    { lable: "Leadership", href: "/leadership" },
+    { lable: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -122,8 +124,8 @@ export default function Navbar() {
           </motion.button>
         </div>
         {/* Mobile menu */}
-       {mobileMenuOpen && (
-          <motion.div 
+        {mobileMenuOpen && (
+          <motion.div
             className="fixed inset-0 z-[100] bg-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -147,15 +149,15 @@ export default function Navbar() {
               animate={{ opacity: 1, rotate: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="32" 
-                height="32" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <line x1="18" y1="6" x2="6" y2="18"></line>
