@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 // ==================== TYPE DEFINITIONS ====================
 // interface Project {
@@ -28,15 +29,23 @@ import React, { useState } from 'react';
 // }
 
 // ==================== LOGIN PAGE ====================
-const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
+export default function LoginPage() {
+    const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         // Add authentication logic here
-        onLogin();
+        try {
+            // Add your authentication logic here
+            // For example:
+            // await signIn(email, password);
+            router.push('/dashboard'); // Redirect after successful login
+        } catch (error) {
+            console.error('Login failed:', error);
+        }
     };
 
     return (
@@ -140,5 +149,4 @@ const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
             </div>
         </div>
     );
-};
-export default LoginPage;
+}
