@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  if (pathname.startsWith("/dashboard")) {
+  if (pathname.startsWith("/dashboard") || pathname.startsWith("/login-admin")) {
     if (!token || !verifyToken(token)) {
       return NextResponse.redirect(new URL("/login-admin", request.url))
     }

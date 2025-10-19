@@ -27,7 +27,7 @@ export default function LoginPage() {
       })
 
       if (response.data.success) {
-        router.push("/admin/dashboard")
+        router.push("/dashboard")
       }
     } catch (err: any) {
       setError(err.response?.data?.error || "Login failed. Please try again.")
