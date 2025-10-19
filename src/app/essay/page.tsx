@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client"
+import axios from 'axios';
+import { useEffect } from 'react';
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 import React, { useState } from 'react';
@@ -8,29 +10,16 @@ import { TextAnimate } from '@/components/ui/text-animate';
 
 // TypeScript interfaces
 interface Essay {
-    id: string;
-    title: string;
-    excerpt: string;
-    author: string;
-    readTime: number;
-    publishedDate: string;
-    tags: string[];
-    category: string;
+    _id: string
+    title: string
+    excerpt: string
+    author: string
+    category: string
+    readTime: number
+    tags: string[]
+    published: boolean
+    createdAt: string
 }
-
-const essays: Essay[] = [
-    // Entrepreneurship & Business
-    {
-        id: '1',
-        title: 'How to Think for Yourself',
-        excerpt: 'The most important discoveries often begin in the corners, not the center, at the edges of conversation, where curiosity outpaces, "What if?"',
-        author: 'Paul Graham',
-        readTime: 8,
-        publishedDate: 'Nov 2020',
-        tags: ['Innovation', 'Critical Thinking', 'Entrepreneurship', 'Philosophy'],
-        category: 'thinking'
-    },
-];
 
 
 
@@ -53,7 +42,9 @@ const BookCard: React.FC<{ essay: Essay; index: number }> = ({ essay, index }) =
             onMouseLeave={() => setIsHovered(false)}
             style={{ transitionDelay: isVisible ? '0ms' : `${index * 50}ms` }}
         >
-            <a href={`/essays/${essay.id}`} className="block p-8">
+            <a href={`/essay/${essay._id.replace(/ /g, "-").toLocaleLowerCase()}`} className="block p-8">
+                {/* <a href="essay/detail" className="block p-8"> */}
+
                 {/* Quote/Excerpt */}
                 <div className="mb-6">
                     <div className="border-l-4 border-purple-500 pl-4">
@@ -85,7 +76,7 @@ const BookCard: React.FC<{ essay: Essay; index: number }> = ({ essay, index }) =
                         <span>{essay.readTime} min read</span>
                     </div>
                     <div className="w-1 h-1 rounded-full bg-gray-400" />
-                    <span>{essay.publishedDate}</span>
+                    <span>{essay.published}</span>
                 </div>
 
                 {/* Tags */}
@@ -121,8 +112,30 @@ const BookCard: React.FC<{ essay: Essay; index: number }> = ({ essay, index }) =
 
 const EssayPage: React.FC = () => {
 
+    const [essays, setEssays] = useState<Essay[]>([])
+    const [loading, setLoading] = useState(true)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
-    const filteredBooks = essays
+    useEffect(() => {
+        const fetchEssays = async () => {
+            try {
+                const response = await axios.get("/api/essays/public")
+                const publishedEssays = response.data.filter((essay: Essay) => essay.published)
+                setEssays(publishedEssays)
+            } catch (error) {
+                console.error("Error fetching essays:", error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchEssays()
+    }, [])
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const categories = Array.from(new Set(essays.map((e) => e.category)))
+    const filteredEssays = selectedCategory ? essays.filter((e) => e.category === selectedCategory) : essays
 
     return (
         <div>
@@ -153,7 +166,7 @@ const EssayPage: React.FC = () => {
                                 .</TextAnimate>
                         </p>
 
-                     
+
 
                         {/* Decorative Line */}
                         <div className="flex justify-center">
@@ -168,28 +181,35 @@ const EssayPage: React.FC = () => {
                 <section className="py-16 lg:py-24 px-6 lg:px-12">
                     <div className="max-w-7xl mx-auto">
                         {/* Empty State */}
-                        {filteredBooks.length === 0 ? (
-                            <div className="text-center py-20">
-                                <div className="text-6xl mb-4">📚</div>
-                                <h3 className="text-2xl font-bold text-gray-400 mb-2">No Essay</h3>
-                               
-                            </div>
-                        ) : (
+                        {loading ? (
+                            <div className="flex items-center justify-center h-64">
+                                <div className="text-center">
+                                    <div className="w-12 h-12 rounded-full border-4 border-purple-500/30 border-t-purple-500 animate-spin mx-auto mb-4" />
+                                    <p className="text-gray-600 dark:text-gray-400">Loading essays...</p>
+                                </div>
+                            </div>) : filteredEssays.length === 0 ? (
+                                <div className="text-center py-20">
+                                    <div className="text-6xl mb-4">📚</div>
+                                    <h3 className="text-2xl font-bold text-gray-400 mb-2">No Essay</h3>
+
+                                </div>
+                            ) : (
                             <>
 
 
                                 {/* Animated Grid */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                    {filteredBooks.map((essay, index) => (
-                                        <BookCard key={essay.id} essay={essay} index={index} />
+                                    {filteredEssays.map((essay, index) => (
+                                        <BookCard key={essay._id} essay={essay} index={index} />
                                     ))}
                                 </div>
                             </>
                         )}
+
                     </div>
                 </section>
 
-               
+
 
 
             </div>

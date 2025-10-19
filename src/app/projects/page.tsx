@@ -1,4 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
+"use client"
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import CircularGallery from '@/components/CircularGallery'
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
@@ -7,80 +10,40 @@ import React from 'react'
 import SplitText from '@/components/SplitText';
 import { TextAnimate } from '@/components/ui/text-animate';
 interface Project {
-    id: string;
-    title: string;
-    client: string;
-    description: string;
-    services: string[];
-    image: string;
-    link: string;
-    techStack?: string[];
+    _id: string
+    title: string
+    description: string
+    client: string
+    services: string[]
+    techStack: string[]
+    images: string[]
+    link: string
+    featured: boolean
+    createdAt: string
 }
 
-function Projects() {
 
-    const projects: Project[] = [
-        {
-            id: '1',
-            title: 'AI Chatbot Platform',
-            client: 'TechFlow Solutions',
-            description: 'Intelligent conversational AI platform for customer support automation',
-            services: ['Branding', 'Website', 'UI/UX Design'],
-            image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
-            link: '/projects/ai-chatbot',
-            techStack: ['React', 'Node.js', 'OpenAI', 'MongoDB']
-        },
-        {
-            id: '2',
-            title: 'E-Commerce Marketplace',
-            client: 'ShopHub',
-            description: 'Modern multi-vendor marketplace with real-time inventory management',
-            services: ['Website', 'UI/UX Design', 'Backend Development'],
-            image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-            link: '/projects/ecommerce',
-            techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe']
-        },
-        {
-            id: '3',
-            title: 'HealthTech Dashboard',
-            client: 'MediCare Pro',
-            description: 'Comprehensive patient management system with analytics and reporting',
-            services: ['Branding', 'Web App', 'Data Visualization'],
-            image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop',
-            link: '/projects/healthtech',
-            techStack: ['React', 'D3.js', 'Python', 'AWS']
-        },
-        {
-            id: '4',
-            title: 'Fintech Mobile App',
-            client: 'PayFlow',
-            description: 'Secure payment processing and financial management mobile application',
-            services: ['Mobile App', 'UI/UX Design', 'Branding'],
-            image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop',
-            link: '/projects/fintech',
-            techStack: ['React Native', 'Node.js', 'Redis', 'Blockchain']
-        },
-        {
-            id: '5',
-            title: 'Travel Booking Platform',
-            client: 'WanderLust',
-            description: 'Seamless travel planning and booking experience with AI recommendations',
-            services: ['Website', 'Branding', 'Content Strategy'],
-            image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-            link: '/projects/travel',
-            techStack: ['Vue.js', 'Firebase', 'Google Maps API']
-        },
-        {
-            id: '6',
-            title: 'EdTech Learning Portal',
-            client: 'BrightMinds',
-            description: 'Interactive online learning platform with gamification features',
-            services: ['Web App', 'UI/UX Design', 'LMS Development'],
-            image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=600&fit=crop',
-            link: '/projects/edtech',
-            techStack: ['Angular', 'Django', 'WebRTC', 'MySQL']
+function Projects() {
+    const [projects, setProjects] = useState<Project[]>([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const response = await axios.get("/api/projects")
+                setProjects(response.data)
+            } catch (error) {
+                console.error("Error fetching projects:", error)
+            } finally {
+                setLoading(false)
+            }
         }
-    ];
+
+        fetchProjects()
+    }, [])
+
+
+
 
     return (
         <div>
@@ -153,7 +116,7 @@ function Projects() {
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-2 h-2 rounded-full bg-purple-600" />
                                 <h2 className="text-base text-white lg:text-lg font-light">
-                                    <TextAnimate animation="blurIn"       as="h1">
+                                    <TextAnimate animation="blurIn" as="h1">
                                         ✦ All Projects
                                     </TextAnimate>
                                 </h2>
@@ -166,24 +129,45 @@ function Projects() {
                                     </TextAnimate>
                                 </h2>
 
-                               
+
                             </div>
                         </div>
 
                         {/* Projects Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                            {projects.map((project, index) => (
-                                <div
-                                    key={project.id}
-                                    className={index % 2 === 1 ? 'md:mt-12 lg:mt-20' : ''}
-                                >
-                                    <ProjectCard project={project} />
+                            {loading ? (
+                                <div className="min-h-screen bg-white dark:bg-gray-950 flex items-center justify-center">
+                                    <div className="text-center">
+                                        <div className="w-12 h-12 rounded-full border-4 border-purple-500/30 border-t-purple-500 animate-spin mx-auto mb-4" />
+                                        <p className="text-gray-600 dark:text-gray-400">Loading project...</p>
+                                    </div>
                                 </div>
-                            ))}
+                            ) : projects.length === 0 ? (
+                                <div className="col-span-full min-h-[400px] flex items-center justify-center">
+                                    <div className="text-center">
+                                        <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-4">
+                                            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                            </svg>
+                                        </div>
+                                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No Projects Yet</h3>
+                                        <p className="text-gray-600 dark:text-gray-400">There are no projects to display at the moment.</p>
+                                    </div>
+                                </div>
+                            ) : (
+                                projects.map((project, index) => (
+                                    <div
+                                        key={project._id}
+                                        className={index % 2 === 1 ? 'md:mt-12 lg:mt-20' : ''}
+                                    >
+                                        <ProjectCard project={project} />
+                                    </div>
+                                ))
+                            )}
                         </div>
 
                         {/* Load More */}
-                    
+
                     </div>
                 </section>
 

@@ -5,6 +5,8 @@ import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import ServicesSection from '@/components/service-section';
 import { TextAnimate } from '@/components/ui/text-animate';
+import TalentForm from '@/components/talent-fill';
+import Silk from '@/components/Silk';
 // TypeScript interface for service data
 
 const AboutUsPage: React.FC = () => {
@@ -15,9 +17,14 @@ const AboutUsPage: React.FC = () => {
                 {/* HERO SECTION */}
                 <section className="relative bg-gradient-to-br from-purple-950 via-gray-900 to-blue-950 text-white py-20 lg:py-32 px-6 lg:px-12 overflow-hidden">
                     {/* Background Pattern */}
-                    <div className="absolute inset-0 opacity-10">
-                        <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl" />
-                        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl" />
+                    <div className='absolute inset-0 bg-black opacity-70 z-0'>
+                        <Silk
+                            speed={5}
+                            scale={1}
+                            color="#222946"
+                            noiseIntensity={1.5}
+                            rotation={0}
+                        />
                     </div>
 
                     <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -154,7 +161,7 @@ const AboutUsPage: React.FC = () => {
                         </div>
                     </div>
                 </section>
-
+                <TalentForm />
 
             </div>
             <Footer />

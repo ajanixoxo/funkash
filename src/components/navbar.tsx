@@ -12,9 +12,10 @@ export default function Navbar() {
 
   const menuItems = [
     { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-    { label: 'About', ariaLabel: 'Learn about us', link: '/#about' },
-    { label: 'Projects', ariaLabel: 'Check out our project', link: '/#projects' },
-    { label: 'Services', ariaLabel: 'View our services', link: '/#services' },
+    { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
+    { label: 'Projects', ariaLabel: 'Check out our project', link: '/projects' },
+    { label: 'Essay', ariaLabel: 'View our services', link: '/essay' },
+     { label: 'Leadership', ariaLabel: 'Meet Our CEO', link: '/learedership' },
     { label: 'Contact', ariaLabel: 'Get in touch', link: '/#contact' }
   ];
 
@@ -30,7 +31,7 @@ export default function Navbar() {
 
 
   const navItems = [
-    { lable: "About", href: "#about" },
+    { lable: "About", href: "/about" },
     { lable: "Projects", href: "/projects" },
     { lable: "About", href: "/about" },
     { lable: "Essay", href: "/essay" },

@@ -4,15 +4,18 @@ import { useState } from 'react';
 import React from 'react';
 
 interface Project {
-  id: string;
-  title: string;
-  client: string;
-  description: string;
-  services: string[];
-  image: string;
-  link: string;
-  techStack?: string[];
+  _id: string
+  title: string
+  description: string
+  client: string
+  services: string[]
+  techStack: string[]
+  images: string[]
+  link: string
+  featured: boolean
+  createdAt: string
 }
+
 
 
 
@@ -32,7 +35,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl bg-gradient-to-br from-purple-100 to-blue-100 dark:from-gray-800 dark:to-gray-900 mb-4">
           <div className="relative aspect-[4/3] overflow-hidden">
             <img 
-              src={project.image} 
+              src={project.images[0]} 
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />

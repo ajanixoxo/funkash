@@ -16,8 +16,7 @@ const MeetCEOSection: React.FC = () => {
     const stats = [
         { id: '01', number: '17+', label: 'Years Experience' },
         { id: '02', number: '10+', label: 'Companies Built' },
-        { id: '03', number: '$1+', label: 'Value Created' },
-        { id: '04', number: '20+', label: 'Countries' }
+        { id: '04', number: '10+', label: 'Countries' }
     ];
 
     // const achievements = [
