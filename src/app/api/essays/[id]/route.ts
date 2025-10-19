@@ -3,11 +3,11 @@ import { verifyToken } from "@/lib/auth"
 import dbConnect from "@/lib/db"
 import Essay from "@/models/Essay"
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   try {
     await dbConnect()
 
-    const essay = await Essay.findById(params.id)
+    const essay = await Essay.findById((await params).id)
 
     if (!essay) {
       return NextResponse.json({ error: "Essay not found" }, { status: 404 })
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   try {
     const token = request.cookies.get("adminToken")?.value
 
@@ -33,7 +33,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     const { title, excerpt, content, author, readTime, category, tags, published } = await request.json()
 
     const essay = await Essay.findByIdAndUpdate(
-      params.id,
+      (await params).id,
       {
         title,
         excerpt,
@@ -58,7 +58,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   try {
     const token = request.cookies.get("adminToken")?.value
 
@@ -68,7 +68,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
 
     await dbConnect()
 
-    const essay = await Essay.findByIdAndDelete(params.id)
+    const essay = await Essay.findByIdAndDelete((await params).id)
 
     if (!essay) {
       return NextResponse.json({ error: "Essay not found" }, { status: 404 })

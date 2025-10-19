@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 import mongoose from "mongoose"
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/admin-dashboard"
@@ -6,10 +7,19 @@ if (!MONGODB_URI) {
   throw new Error("Please define the MONGODB_URI environment variable")
 }
 
-let cached = global.mongoose
+interface MongooseCache {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
+}
+
+declare global {
+  var mongoose: MongooseCache;
+}
+
+let cached: MongooseCache = global.mongoose;
 
 if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null }
+  cached = global.mongoose = { conn: null, promise: null };
 }
 
 async function dbConnect() {
@@ -22,9 +32,7 @@ async function dbConnect() {
       bufferCommands: false,
     }
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-      return mongoose
-    })
+    cached.promise = mongoose.connect(MONGODB_URI, opts) as Promise<typeof mongoose>
   }
 
   try {

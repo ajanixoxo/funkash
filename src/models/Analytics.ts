@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import mongoose, { Schema, type Document } from "mongoose"
 
 export interface IAnalytics extends Document {

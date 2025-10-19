@@ -4,11 +4,11 @@ import dbConnect from "@/lib/db"
 import Project from "@/models/Project"
 import { deleteUploadedFile } from "@/lib/file-upload"
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   try {
     await dbConnect()
 
-    const project = await Project.findById(params.id)
+    const project = await Project.findById((await params).id)
 
     if (!project) {
       return NextResponse.json({ error: "Project not found" }, { status: 404 })
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   try {
     const token = request.cookies.get("adminToken")?.value
 
@@ -34,7 +34,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     const { title, client, description, services, techStack, link, images, featured } = await request.json()
 
     const project = await Project.findByIdAndUpdate(
-      params.id,
+      (await params).id,
       {
         title,
         client,
@@ -59,7 +59,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   try {
     const token = request.cookies.get("adminToken")?.value
 
@@ -69,7 +69,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
 
     await dbConnect()
 
-    const project = await Project.findByIdAndDelete(params.id)
+    const project = await Project.findByIdAndDelete((await params).id)
 
     if (!project) {
       return NextResponse.json({ error: "Project not found" }, { status: 404 })

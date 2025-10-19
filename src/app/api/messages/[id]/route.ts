@@ -3,11 +3,11 @@ import { verifyToken } from "@/lib/auth"
 import dbConnect from "@/lib/db"
 import Message from "@/models/Message"
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   try {
     await dbConnect()
 
-    const message = await Message.findById(params.id)
+    const message = await Message.findById((await params).id)
 
     if (!message) {
       return NextResponse.json({ error: "Message not found" }, { status: 404 })
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   try {
     const token = request.cookies.get("adminToken")?.value
 
@@ -32,7 +32,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 
     const { read } = await request.json()
 
-    const message = await Message.findByIdAndUpdate(params.id, { read }, { new: true })
+    const message = await Message.findByIdAndUpdate((await params).id, { read }, { new: true })
 
     if (!message) {
       return NextResponse.json({ error: "Message not found" }, { status: 404 })
@@ -45,7 +45,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }>}) {
   try {
     const token = request.cookies.get("adminToken")?.value
 
@@ -55,7 +55,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
 
     await dbConnect()
 
-    const message = await Message.findByIdAndDelete(params.id)
+    const message = await Message.findByIdAndDelete((await params).id)
 
     if (!message) {
       return NextResponse.json({ error: "Message not found" }, { status: 404 })
