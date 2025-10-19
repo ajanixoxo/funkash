@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Plus, Edit2, Trash2, Eye, EyeOff } from "lucide-react"
-import EssayForm from "@/components/admin/essay-form"
+import EssayForm from "@/components/dashboard/essay-form"
 
 interface Essay {
   _id: string

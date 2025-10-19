@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Mail, Trash2, Eye } from "lucide-react"
-import MessageDetail from "@/components/admin/message-detail"
+import MessageDetail from "@/components/dashboard/message-detail"
 import { formatDistanceToNow } from "date-fns"
 
 interface Message {

@@ -25,7 +25,7 @@ export async function sendAdminCredentials(email: string, name: string, password
       </p>
       <p>Please log in and change your password immediately for security.</p>
       <p>
-        <a href="${process.env.NEXT_PUBLIC_APP_URL}/admin/login" style="background-color: #7c3aed; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">
+        <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard/login" style="background-color: #7c3aed; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">
           Go to Admin Dashboard
         </a>
       </p>

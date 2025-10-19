@@ -97,7 +97,7 @@ export default function DashboardPage() {
         <h2 className="text-xl font-bold text-white mb-6">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <a
-            href="/admin/essays"
+            href="/dashboard/essays"
             className="p-4 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 rounded-lg hover:border-blue-500/50 transition-all text-blue-300 hover:text-blue-200"
           >
             <FileText className="w-6 h-6 mb-2" />
@@ -105,7 +105,7 @@ export default function DashboardPage() {
             <p className="text-sm text-blue-400/70">Create and edit essays</p>
           </a>
           <a
-            href="/admin/messages"
+            href="/dashboard/messages"
             className="p-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-lg hover:border-purple-500/50 transition-all text-purple-300 hover:text-purple-200"
           >
             <Mail className="w-6 h-6 mb-2" />
@@ -113,7 +113,7 @@ export default function DashboardPage() {
             <p className="text-sm text-purple-400/70">Check contact submissions</p>
           </a>
           <a
-            href="/admin/projects"
+            href="/dashboard/projects"
             className="p-4 bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-lg hover:border-green-500/50 transition-all text-green-300 hover:text-green-200"
           >
             <Briefcase className="w-6 h-6 mb-2" />
@@ -121,7 +121,7 @@ export default function DashboardPage() {
             <p className="text-sm text-green-400/70">Upload and edit projects</p>
           </a>
           <a
-            href="/admin/analytics"
+            href="/dashboard/analytics"
             className="p-4 bg-gradient-to-br from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-lg hover:border-orange-500/50 transition-all text-orange-300 hover:text-orange-200"
           >
             <BarChart3 className="w-6 h-6 mb-2" />

@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Plus, Edit2, Trash2, Star } from "lucide-react"
-import ProjectForm from "@/components/admin/project-form"
+import ProjectForm from "@/components/dashboard/project-form"
 
 interface Project {
   _id: string

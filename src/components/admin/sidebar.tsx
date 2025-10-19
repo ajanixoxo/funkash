@@ -21,7 +21,7 @@ export default function Sidebar() {
   const handleLogout = async () => {
     try {
       await axios.post("/api/auth/logout")
-      router.push("/admin/login")
+      router.push("/dashboard/login")
     } catch (error) {
       console.error("Logout error:", error)
     }

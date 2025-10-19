@@ -21,7 +21,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
           setAdmin(response.data.admin)
         }
       } catch (error) {
-        router.push("/admin/login")
+        router.push("/dashboard/login")
         console.log("Not authenticated:", error)
       } finally {
         setLoading(false)
