@@ -109,67 +109,60 @@ function Projects() {
                 </section>
 
                 {/* PROJECTS SECTION */}
-                <section className="py-16 lg:py-24 px-6 lg:px-12 bg-white dark:bg-gray-950">
-                    <div className="max-w-7xl mx-auto">
-                        {/* Section Header */}
-                        <div className="mb-12 lg:mb-20">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-2 h-2 rounded-full bg-purple-600" />
-                                <h2 className="text-base text-white lg:text-lg font-light">
-                                    <TextAnimate animation="blurIn" as="h1">
-                                        ✦ All Projects
-                                    </TextAnimate>
-                                </h2>
-                            </div>
+                <section className="py-20 lg:py-32 px-6 lg:px-12 bg-white dark:bg-gray-950">
+  <div className="max-w-7xl mx-auto">
+    {/* Section Header */}
+    <div className="mb-12 lg:mb-20">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-2 h-2 rounded-full bg-purple-600" />
+        <h2 className="text-base text-gray-700 dark:text-gray-300 lg:text-lg font-light">
+          <TextAnimate animation="blurIn" as="span">
+            ✦ All Projects
+          </TextAnimate>
+        </h2>
+      </div>
 
-                            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                                <h2 className="text-5xl  max-w-3xl t lg:text-7xl xl:text-7xl font-medium tracking-tight mb-12 lg:mb-16">
-                                    <TextAnimate animation="blurIn" as="h2">
-                                        Building tomorrow's solutions today
-                                    </TextAnimate>
-                                </h2>
+      <h2 className="text-5xl max-w-3xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-6 dark:text-white">
+        <TextAnimate animation="blurIn" as="h2">
+          Building tomorrow's solutions today
+        </TextAnimate>
+      </h2>
+    </div>
 
-
-                            </div>
-                        </div>
-
-                        {/* Projects Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                            {loading ? (
-                                <div className="min-h-screen bg-white dark:bg-gray-950 flex items-center justify-center">
-                                    <div className="text-center">
-                                        <div className="w-12 h-12 rounded-full border-4 border-purple-500/30 border-t-purple-500 animate-spin mx-auto mb-4" />
-                                        <p className="text-gray-600 dark:text-gray-400">Loading project...</p>
-                                    </div>
-                                </div>
-                            ) : projects.length === 0 ? (
-                                <div className="col-span-full min-h-[400px] flex items-center justify-center">
-                                    <div className="text-center">
-                                        <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-4">
-                                            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                                            </svg>
-                                        </div>
-                                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No Projects Yet</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">There are no projects to display at the moment.</p>
-                                    </div>
-                                </div>
-                            ) : (
-                                projects.map((project, index) => (
-                                    <div
-                                        key={project._id}
-                                        className={index % 2 === 1 ? 'md:mt-12 lg:mt-20' : ''}
-                                    >
-                                        <ProjectCard project={project} />
-                                    </div>
-                                ))
-                            )}
-                        </div>
-
-                        {/* Load More */}
-
-                    </div>
-                </section>
+    {/* Projects Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      {loading ? (
+        <div className="col-span-full min-h-[400px] flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-12 h-12 rounded-full border-4 border-purple-500/30 border-t-purple-500 animate-spin mx-auto mb-4" />
+            <p className="text-gray-600 dark:text-gray-400">Loading projects...</p>
+          </div>
+        </div>
+      ) : projects.length === 0 ? (
+        <div className="col-span-full min-h-[400px] flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No Projects Yet</h3>
+            <p className="text-gray-600 dark:text-gray-400">There are no projects to display at the moment.</p>
+          </div>
+        </div>
+      ) : (
+        projects.map((project, index) => (
+          <div
+            key={project._id}
+            className={index % 2 === 1 ? 'md:mt-12 lg:mt-20' : ''}
+          >
+            <ProjectCard project={project} />
+          </div>
+        ))
+      )}
+    </div>
+  </div>
+</section>
 
 
             </div>
