@@ -111,59 +111,93 @@ function Projects() {
                 {/* PROJECTS SECTION */}
                 <section className="py-20 lg:py-32 px-6 lg:px-12 bg-white dark:bg-gray-950">
   <div className="max-w-7xl mx-auto">
-    {/* Section Header */}
-    <div className="mb-12 lg:mb-20">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-2 h-2 rounded-full bg-purple-600" />
-        <h2 className="text-base text-gray-700 dark:text-gray-300 lg:text-lg font-light">
-          <TextAnimate animation="blurIn" as="span">
-            ✦ All Projects
-          </TextAnimate>
-        </h2>
+    {/* Tech & Startups */}
+    <div className="mb-20">
+      <h2 className="text-4xl lg:text-5xl font-bold mb-12 dark:text-white">Tech & Startups</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-12">
+        <div>
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/53b2532e0d8f58c7c83c5d79e1b238146f3b9eea?width=1296"
+            alt="Vincerebet"
+            className="w-full h-[400px] lg:h-[600px] object-cover rounded-lg mb-6"
+          />
+          <h3 className="text-2xl font-bold mb-2 dark:text-white">Vincerebet</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">Online betting with a focus on user experience and technology.</p>
+        </div>
+        <div>
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/055296757789e217cd2ba1f05e8f07f98e1ce28a?width=1296"
+            alt="Afripay"
+            className="w-full h-[400px] lg:h-[600px] object-cover rounded-lg mb-6"
+          />
+          <h3 className="text-2xl font-bold mb-2 dark:text-white">Afripay</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">A digital payment platform streamlining financial transactions across Africa.</p>
+        </div>
       </div>
-
-      <h2 className="text-5xl max-w-3xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-6 dark:text-white">
-        <TextAnimate animation="blurIn" as="h2">
-          Building tomorrow's solutions today
-        </TextAnimate>
-      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div>
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/c5f852dff2f8887b28820e05e22a90591297cd4e?width=1296"
+            alt="Limpiar"
+            className="w-full h-[400px] lg:h-[600px] object-cover rounded-lg mb-6"
+          />
+          <h3 className="text-2xl font-bold mb-2 dark:text-white">Limpiar</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">A technology-driven marketplace transforming the cleaning services industry.</p>
+        </div>
+        <div>
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/d7f0d5c805296ff9517a8549ca00390fb984516a?width=1296"
+            alt="Funkash Global Properties"
+            className="w-full h-[400px] lg:h-[600px] object-cover rounded-lg mb-6"
+          />
+          <h3 className="text-2xl font-bold mb-2 dark:text-white">Funkash Global Properties</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">Property development, modernizing real estate operations with tech.</p>
+        </div>
+      </div>
     </div>
 
-    {/* Projects Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-      {loading ? (
-        <div className="col-span-full min-h-[400px] flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-12 h-12 rounded-full border-4 border-purple-500/30 border-t-purple-500 animate-spin mx-auto mb-4" />
-            <p className="text-gray-600 dark:text-gray-400">Loading projects...</p>
-          </div>
+    {/* AI and Drone Development */}
+    <div className="mb-20">
+      <h2 className="text-4xl lg:text-5xl font-bold mb-12 dark:text-white">AI and Drone Development</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div>
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/26b595c27fc896ecf4a7aeeded362801969672ea?width=1296"
+            alt="Dunes AI"
+            className="w-full h-[400px] lg:h-[600px] object-cover rounded-lg mb-6"
+          />
+          <h3 className="text-2xl font-bold mb-2 dark:text-white">Dunes AI</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">Pioneering AI and drone solutions for agriculture and logistics.</p>
         </div>
-      ) : projects.length === 0 ? (
-        <div className="col-span-full min-h-[400px] flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No Projects Yet</h3>
-            <p className="text-gray-600 dark:text-gray-400">There are no projects to display at the moment.</p>
-          </div>
+        <div>
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/f1193f7fd5c103b421ec1d4e6b8d49ce8cd21859?width=1296"
+            alt="Nanohosting"
+            className="w-full h-[400px] lg:h-[600px] object-cover rounded-lg mb-6"
+          />
+          <h3 className="text-2xl font-bold mb-2 dark:text-white">Nanohosting</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">Our cloud hosting solution, delivers fast, reliable, and secure hosting services to businesses around the world.</p>
         </div>
-      ) : (
-        projects.map((project, index) => (
-          <div
-            key={project._id}
-            className={index % 2 === 1 ? 'md:mt-12 lg:mt-20' : ''}
-          >
-            <ProjectCard project={project} />
-          </div>
-        ))
-      )}
+      </div>
+    </div>
+
+    {/* Non-profit and Social Innovation */}
+    <div>
+      <h2 className="text-4xl lg:text-5xl font-bold mb-12 dark:text-white">Non-profit and Social Innovation</h2>
+      <div className="max-w-[648px]">
+        <div>
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/6281dd7a47bb708cc25c0cb4c73939c72d1ea49a?width=1296"
+            alt="Afriprize"
+            className="w-full h-[400px] lg:h-[600px] object-cover rounded-lg mb-6"
+          />
+          <h3 className="text-2xl font-bold mb-2 dark:text-white">Afriprize</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">A non-profit gaming platform utilizing gamification for community development and charitable initiatives.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
 
             </div>
             <Footer />
