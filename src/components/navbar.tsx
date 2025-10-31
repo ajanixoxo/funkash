@@ -13,6 +13,7 @@ export default function Navbar() {
   const menuItems = [
     { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
     { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
+    { label: 'Approach', ariaLabel: 'Our approach', link: '/approach' },
     { label: 'Projects', ariaLabel: 'Check out our project', link: '/projects' },
     { label: 'Essay', ariaLabel: 'View our services', link: '/essay' },
      { label: 'Leadership', ariaLabel: 'Meet Our CEO', link: '/learedership' },
@@ -31,9 +32,10 @@ export default function Navbar() {
 
 
   const navItems = [
+    { lable: "Home", href: "/" },
     { lable: "About", href: "/about" },
+    { lable: "Approach", href: "/approach" },
     { lable: "Projects", href: "/projects" },
-    { lable: "About", href: "/about" },
     { lable: "Essay", href: "/essay" },
     { lable: "Leadership", href: "/leadership" },
     { lable: "Contact", href: "/#contact" },
