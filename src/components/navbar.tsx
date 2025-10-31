@@ -17,7 +17,7 @@ export default function Navbar() {
     { label: 'Projects', ariaLabel: 'Check out our project', link: '/projects' },
     { label: 'Essay', ariaLabel: 'View our services', link: '/essay' },
      { label: 'Leadership', ariaLabel: 'Meet Our CEO', link: '/learedership' },
-    { label: 'Contact', ariaLabel: 'Get in touch', link: '/#contact' }
+    { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
   ];
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Navbar() {
     { lable: "Projects", href: "/projects" },
     { lable: "Essay", href: "/essay" },
     { lable: "Leadership", href: "/leadership" },
-    { lable: "Contact", href: "/#contact" },
+    { lable: "Contact", href: "/contact" },
   ];
 
   return (

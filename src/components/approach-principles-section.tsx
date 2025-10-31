@@ -8,21 +8,21 @@ const ApproachPrinciplesSection = () => {
   const principles = [
     {
       title: "Technical Expertise",
-      description: "At Funkash Family Holdings, our approach is anchored by two guiding principles. We build sustainable businesses with cutting-edge solutions, scalable APIs, and modernize legacy systems.",
+      description: "We believe that the right technology is key to building a sustainable business. Our team of seasoned developers and tech leaders works closely with founders to implement cutting-edge solutions tailored to their needs. From designing scalable APIs to modernizing legacy systems, we ensure that every company we invest in has the technical foundation to grow and compete globally.",
       image: "/principles1.png",
-      imagePosition: "right" as const,
+      imagePosition: "left" as const,
     },
     {
       title: "Data - Driven Strategy",
-      description: "We leverage data-driven decision-making through our proprietary tool, FunGPTs, enabling informed strategies, trend spotting, risk assessment, and efficient scaling.",
+      description: "At Funkash, we don't make decisions on intuition alone. Our proprietary tool, FunGPTs, leverages historical algorithms and in-depth research to craft informed strategies. This data-driven approach enables us to spot trends, assess risks, and scale businesses more efficiently. By marrying technology with insight, we create adaptable strategies that drive sustained growth.",
       image: "/principles2.png",
       imagePosition: "left" as const,
     },
     {
       title: "Long - Term Partnership",
-      description: "We are committed to lasting relationships, providing ongoing technical support, strategic guidance, and becoming a trusted partner beyond just capital investment.",
+      description: "We're not here for short-term wins. We commit to building lasting relationships with the entrepreneurs we invest in, providing ongoing technical support, strategic guidance, and resources to help them thrive. Our role goes beyond capital investment; we become a trusted partner, dedicated to supporting the vision and long-term success of every business we work with.",
       image: "/principles3.png",
-      imagePosition: "right" as const,
+      imagePosition: "left" as const,
     },
   ];
 
@@ -44,7 +44,7 @@ const ApproachPrinciplesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-gray-300 text-lg md:text-xl mb-16 max-w-4xl"
+          className="text-gray-300 text-lg md:text-xl mb-16 max-w-lg"
         >
           At Funkash Family Holdings, our approach is anchored by two guiding principles.
         </motion.p>
@@ -59,14 +59,14 @@ const ApproachPrinciplesSection = () => {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className={`flex flex-col ${
                 principle.imagePosition === "left" ? "lg:flex-row" : "lg:flex-row-reverse"
-              } gap-12 items-center`}
+              } gap-12 items-start`}
             >
               {/* Text Content */}
               <div className="flex-1">
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-6">
                   {principle.title}
                 </h3>
-                <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
+                <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
                   {principle.description}
                 </p>
               </div>
