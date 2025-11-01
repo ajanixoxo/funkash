@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const CTASection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-[#222946] via-[#222946] to-green-900/20 text-white py-20 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-l from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
@@ -34,27 +34,29 @@ const CTASection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block bg-white text-[#222946] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
               >
-                Start the Dialog
+                Pitch Your Startup
               </motion.a>
-              <div className="flex items-center  gap-4 text-sm">
-                <a
-                  href="/projects"
-                  className="text-gray-300 border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
-                >
-                  Partner With Us
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+              <div className="flex flex-col items-start  gap-4 text-sm">
+                <div className="border-t border-gray-700 pt-4 border-b border-gray-300 pb-4">
+                  <a
+                    href="/projects"
+                    className="text-gray-300 border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </a>
+                    Partner With Us
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </a></div>
+
                 <a
                   href="/projects"
                   className="text-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
@@ -91,7 +93,7 @@ const CTASection = () => {
               alt="Future Building"
               className="w-full h-full object-cover"
             />
-            
+
             {/* Overlay Text/Form */}
             <div className="absolute bottom-0 flex items-center justify-center p-8">
               <div className=" rounded-xl p-8 w-full max-w-2xl">

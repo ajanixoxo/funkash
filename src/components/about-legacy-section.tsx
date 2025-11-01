@@ -15,7 +15,7 @@ const AboutLegacySection = () => {
   const y = useTransform(scrollYProgress, [0.2, 0.5], [50, 0]);
 
   return (
-    <section ref={ref} className="bg-[#1a2332] text-white py-20 px-6">
+    <section ref={ref} className="bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - Title */}

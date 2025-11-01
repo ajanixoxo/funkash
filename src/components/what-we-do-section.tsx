@@ -38,7 +38,7 @@ const WhatWeDoSection = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-[#1a1f3a] via-[#1a1f3a] to-green-900/20 text-white py-20 px-6">
+    <section className="bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Header with Navigation */}
         <div className="flex items-start justify-between mb-16">

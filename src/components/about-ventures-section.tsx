@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const AboutVenturesSection = () => {
   return (
-    <section className="bg-[#1a2332] text-white py-20 px-6">
+    <section className="bg-gradient-to-l from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
           {/* Left Column - Text */}

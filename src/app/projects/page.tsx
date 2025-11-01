@@ -8,7 +8,7 @@ import PortfolioSections from '@/components/portfolio-sections';
 
 const ProjectsPage: React.FC = () => {
     return (
-        <div className="bg-[#1a1f3a]">
+        <div className="bg-[#222946]">
             <Navbar />
             <PortfolioHeroSection />
             <PortfolioSections />

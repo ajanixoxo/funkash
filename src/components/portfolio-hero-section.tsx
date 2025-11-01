@@ -56,7 +56,7 @@ const PortfolioHeroSection = () => {
             style={{ position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw" }}
           >
             <img
-              src="/projects/project1.png"
+              src="/project-hero.png"
               alt="Team collaboration"
               className="w-screen h-full object-cover block opacity-80"
               style={{ width: "100vw" }}

@@ -24,7 +24,7 @@ const ApproachHowWeWorkSection = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-[#1a1f3a] via-[#2a1f4a] to-[#1a1f3a] text-white py-20 md:py-32 px-6">
+    <section className="relative bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

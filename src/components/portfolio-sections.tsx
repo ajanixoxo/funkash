@@ -8,7 +8,7 @@ interface Project {
   name: string;
   description: string;
   image: string;
-  bgColor: string;
+  // bgColor: string;
 }
 
 interface ProjectSection {
@@ -24,26 +24,26 @@ const PortfolioSections = () => {
         {
           name: "VincereBet",
           description: "Vincerebet: Online betting with a focus on user experience and technology.",
-          image: "/projects/project2.png",
-          bgColor: "bg-gradient-to-br from-blue-500 to-blue-600",
+          image: "/projects/project1.png",
+          // bgColor: "bg-gradient-to-br from-blue-500 to-blue-600",
         },
         {
           name: "Afripay",
           description: "Afripay: A digital payment platform streamlining financial transactions across Africa.",
-          image: "/projects/project3.png",
-          bgColor: "bg-gradient-to-br from-orange-500 to-orange-600",
+          image: "/projects/project2.png",
+          // bgColor: "bg-gradient-to-br from-orange-500 to-orange-600",
         },
         {
           name: "Limpiador",
           description: "Limpiar: A technology-driven marketplace transforming the cleaning services industry.",
-          image: "/projects/project4.png",
-          bgColor: "bg-gradient-to-br from-purple-500 to-purple-600",
+          image: "/projects/project3.png",
+          // bgColor: "bg-gradient-to-br from-purple-500 to-purple-600",
         },
         {
           name: "Funkash Global Properties",
           description: "Funkash Global Properties: Property development, modernizing real estate operations with tech.",
-          image: "/projects/project5.png",
-          bgColor: "bg-gradient-to-br from-yellow-500 to-yellow-600",
+          image: "/projects/project4.png",
+          // bgColor: "bg-gradient-to-br from-yellow-500 to-yellow-600",
         },
       ],
     },
@@ -53,14 +53,14 @@ const PortfolioSections = () => {
         {
           name: "Dunes Ai",
           description: "Dunes Ai: Pioneering AI and drone solutions for agriculture and logistics.",
-          image: "/projects/project6.png",
-          bgColor: "bg-gradient-to-br from-gray-900 to-black",
+          image: "/projects/project5.png",
+          // bgColor: "bg-gradient-to-br from-gray-900 to-black",
         },
         {
           name: "Nanohosting",
           description: "Nanohosting: Our cloud hosting solution, delivers fast, reliable, and secure hosting services to businesses around the world.",
-          image: "/projects/project7.png",
-          bgColor: "bg-gradient-to-br from-blue-700 to-blue-900",
+          image: "/projects/project6.png",
+          // bgColor: "bg-gradient-to-br from-blue-700 to-blue-900",
         },
       ],
     },
@@ -70,8 +70,8 @@ const PortfolioSections = () => {
         {
           name: "Afriprize",
           description: "Afriprize: A non-profit gaming platform utilizing gamification for community development and charitable initiatives.",
-          image: "/projects/afri-price.png",
-          bgColor: "bg-white",
+          image: "/projects/project7.png",
+          // bgColor: "bg-white",
         },
       ],
     },
@@ -101,7 +101,7 @@ const PortfolioSections = () => {
                   ? "md:grid-cols-2 lg:grid-cols-2"
                   : section.projects.length === 2
                   ? "md:grid-cols-2"
-                  : "md:grid-cols-1 max-w-md mx-auto"
+                  : "md:grid-cols-2  mx-auto"
               } gap-8 md:gap-12`}
             >
               {section.projects.map((project, projectIndex) => (
@@ -115,7 +115,7 @@ const PortfolioSections = () => {
                 >
                   {/* Project Card */}
                   <div
-                    className={`${project.bgColor} rounded-2xl p-8 md:p-12 h-[300px] md:h-[400px] flex items-center justify-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl`}
+                    className={` rounded-2xl  flex items-center justify-start relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl`}
                   >
                     <img
                       src={project.image}
@@ -126,7 +126,8 @@ const PortfolioSections = () => {
                   </div>
 
                   {/* Project Description */}
-                  <div className="mt-6">
+                  <div className="mt-2">
+                    <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
                     <p className="text-gray-300 text-sm md:text-base leading-relaxed">
                       {project.description}
                     </p>
