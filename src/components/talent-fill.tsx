@@ -91,7 +91,7 @@ export default function EssayDetailPage() {
             </span>
           </div>
 
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">{essay.title}</h1>
+          <h1 className="text-4xl lg:text-5xl font-semibold text-gray-900 dark:text-white mb-4">{essay.title}</h1>
 
           {/* Meta Information */}
           <div className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800 pb-6">

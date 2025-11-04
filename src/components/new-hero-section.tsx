@@ -4,6 +4,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Silk from "./Silk";
+import Link from "next/link";
 
 const NewHeroSection = () => {
   const scrollRef1 = useRef<HTMLDivElement>(null);
@@ -25,26 +26,46 @@ const NewHeroSection = () => {
     let animationFrame: number;
     let scrollY1 = 0;
     let scrollY2 = 0;
+    let scrollX1 = 0; // For horizontal scrolling on mobile
 
     const animateScroll = () => {
-      // Only animate first column - scrolling up
-      if (scrollRef1.current) {
-        scrollY1 += 0.5;
-        const maxScroll = scrollRef1.current.scrollHeight / 2;
-        if (scrollY1 >= maxScroll) {
-          scrollY1 = 0;
-        }
-        scrollRef1.current.style.transform = `translateY(-${scrollY1}px)`;
-      }
+      const isMobile = window.innerWidth < 1024; // lg breakpoint
 
-      // Only animate second column - scrolling down (mirror first column)
-      if (scrollRef2.current) {
-        scrollY2 += 0.5;
-        const maxScroll = scrollRef2.current.scrollHeight / 2;
-        if (scrollY2 >= maxScroll) {
-          scrollY2 = 0;
+      if (isMobile) {
+        // Mobile: Horizontal scrolling for first column
+        if (scrollRef1.current) {
+          scrollX1 += 0.5;
+          const maxScroll = scrollRef1.current.scrollWidth / 2;
+          if (scrollX1 >= maxScroll) {
+            scrollX1 = scrollX1 - maxScroll;
+          }
+          scrollRef1.current.style.transform = `translateX(-${scrollX1}px)`;
         }
-        scrollRef2.current.style.transform = `translateY(${scrollY2}px)`;
+      } else {
+        // Desktop: Vertical scrolling
+        // Only animate first column - scrolling up
+        if (scrollRef1.current) {
+          scrollY1 += 0.5;
+          const maxScroll = scrollRef1.current.scrollHeight / 2;
+          if (scrollY1 >= maxScroll) {
+            scrollY1 = 0;
+          }
+          scrollRef1.current.style.transform = `translateY(-${scrollY1}px)`;
+        }
+
+        // Second column - scrolling down with seamless infinite loop
+        if (scrollRef2.current) {
+          scrollY2 += 0.5;
+          // Calculate the height of one set (half of total scrollHeight)
+          const maxScroll = scrollRef2.current.scrollHeight / 2;
+          
+          // Reset seamlessly when we've scrolled one complete set
+          // Instead of resetting to 0, we subtract the maxScroll to continue seamlessly
+          if (scrollY2 >= maxScroll) {
+            scrollY2 = scrollY2 - maxScroll;
+          }
+          scrollRef2.current.style.transform = `translateY(${scrollY2}px)`;
+        }
       }
 
       animationFrame = requestAnimationFrame(animateScroll);
@@ -77,18 +98,18 @@ const NewHeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="z-10"
+            className="z-10 text-center lg:text-left"
           >
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"
+              className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
             >
               Empowering Bold Ideas with{" "}
               <span className="italic font-normal">Capital,</span>
               <br />
-              <span className="italic font-normal">Technology</span> &{" "}
+              <span className="italic font-normal">Technology &</span> {" "}
               <span className="italic font-normal">Strategy</span>
             </motion.h1>
 
@@ -96,7 +117,7 @@ const NewHeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-gray-300 text-lg mb-8 max-w-lg"
+              className="text-gray-300 text-lg mb-8 max-w-lg mx-auto lg:mx-0"
             >
               Building technology that transforms industries and empowers growth
             </motion.p>
@@ -105,27 +126,29 @@ const NewHeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex justify-center lg:justify-start"
             >
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="inline-block bg-white text-[#1a1f3a] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
               >
                 Work with Us
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 
           {/* Right Column - Animated Image Grid */}
-          <div className="relative h-[600px] lg:h-[700px] overflow-hidden rounded-2xl">
+          <div className="relative h-[400px] lg:h-[700px] overflow-hidden rounded-2xl">
             <div className="grid grid-cols-2 gap-4 h-full">
-              {/* First Column - Scrolling Up */}
-              <div className="relative overflow-hidden h-full">
-                <div ref={scrollRef1} className="space-y-4">
+              {/* First Column - Scrolling Up (Desktop) / Horizontal (Mobile) */}
+              <div className="relative overflow-hidden h-full lg:col-span-1 col-span-2 lg:overflow-hidden overflow-x-hidden">
+                {/* Mobile: Horizontal layout */}
+                <div ref={scrollRef1} className="lg:space-y-4 flex lg:flex-col flex-row gap-4 h-full lg:h-auto">
                   {/* Duplicate images for infinite scroll */}
                    {[...column1Images, ...column1Images].map((item, index) => (
                      <div
                        key={index}
-                       className="relative h-[280px] rounded-xl overflow-hidden bg-gray-800"
+                       className="relative h-[280px] lg:h-[280px] w-[240px] sm:w-[280px] lg:w-full flex-shrink-0 rounded-xl overflow-hidden bg-gray-800"
                      >
                        <img
                          src={item.src}
@@ -137,8 +160,8 @@ const NewHeroSection = () => {
                 </div>
               </div>
 
-              {/* Second Column - Static */}
-              <div className="relative overflow-hidden h-full mt-8">
+              {/* Second Column - Hidden on mobile */}
+              <div className="hidden lg:block relative overflow-hidden h-full mt-8">
                 <div ref={scrollRef2} className="space-y-4">
                   {[...column2Images, ...column2Images].map((item, index) => (
                     <div
@@ -157,8 +180,12 @@ const NewHeroSection = () => {
             </div>
 
             {/* Gradient overlays for smooth fade */}
-            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#1a1f3a] to-transparent pointer-events-none z-10" />
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1f3a] to-transparent pointer-events-none z-10" />
+            {/* Vertical gradients for desktop */}
+            <div className="hidden lg:block absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#1a1f3a] to-transparent pointer-events-none z-10" />
+            <div className="hidden lg:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1f3a] to-transparent pointer-events-none z-10" />
+            {/* Horizontal gradients for mobile */}
+            <div className="lg:hidden absolute top-0 left-0 bottom-0 w-32 bg-gradient-to-r from-[#1a1f3a] to-transparent pointer-events-none z-10" />
+            <div className="lg:hidden absolute top-0 right-0 bottom-0 w-32 bg-gradient-to-l from-[#1a1f3a] to-transparent pointer-events-none z-10" />
           </div>
         </div>
       </div>

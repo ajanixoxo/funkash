@@ -34,9 +34,9 @@ const ApproachPrinciplesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+          className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
         >
-          Our Core Principles
+          Our Core <span>Principles</span>
         </motion.h2>
 
         <motion.p
@@ -54,7 +54,7 @@ const ApproachPrinciplesSection = () => {
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}nav
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className={`flex flex-col ${
@@ -63,7 +63,7 @@ const ApproachPrinciplesSection = () => {
             >
               {/* Text Content */}
               <div className="flex-1">
-                <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-6">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-6">
                   {principle.title}
                 </h3>
                 <p className="text-gray-300 text-xs md:text-sm leading-relaxed">

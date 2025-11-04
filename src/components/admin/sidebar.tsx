@@ -33,10 +33,10 @@ export default function Sidebar() {
       <div className="p-6 border-b border-white/10">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
-            <span className="text-white font-bold text-lg">F</span>
+            <span className="text-white font-semibold text-lg">F</span>
           </div>
           <div>
-            <h1 className="text-white font-bold text-lg">Funkash</h1>
+            <h1 className="text-white font-semibold text-lg">Funkash</h1>
             <p className="text-gray-400 text-xs">Admin Panel</p>
           </div>
         </div>

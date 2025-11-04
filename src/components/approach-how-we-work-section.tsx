@@ -24,16 +24,16 @@ const ApproachHowWeWorkSection = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 md:py-32 px-6">
+    <section className="relative bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-[#C78018]/30 to-90% text-white py-20 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="text-lg md:text-2xl lg:text-4xl font-bold mb-6"
+          className="text-lg md:text-2xl lg:text-4xl font-semibold mb-6"
         >
-          How We Work
+          How We <span>Work</span> 
         </motion.h2>
 
         <motion.p
@@ -41,7 +41,7 @@ const ApproachHowWeWorkSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-gray-300 text-sm mb-16 lg:max-w-xs"
+          className="text-gray-300 t mb-16 lg:max-w-xs"
         >
           Our approach is rooted in collaboration, innovation, and data-driven decisions. We partner with founders to provide technical expertise and strategic insight.
         </motion.p>
@@ -56,7 +56,7 @@ const ApproachHowWeWorkSection = () => {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="bp-6 md:p-8  transition-all duration-300"
             >
-              <h3 className="text-xl md:text-2xl font-bold mb-4">
+              <h3 className="text-xl md:text-2xl w-max font-semibold mb-4">
                 {step.title}
               </h3>
               <p className="text-gray-300 text-base md:text-lg leading-relaxed">

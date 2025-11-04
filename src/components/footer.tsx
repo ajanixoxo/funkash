@@ -18,47 +18,45 @@ const Footer: React.FC = () => {
         <footer className="bg-black text-white border-t border-gray-900">
             <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
                 {/* Main Footer Content */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-12">
                     {/* Left Side - Brand */}
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 rounded-full overflow-hidden">
+                            <div className=" overflow-hidden">
                                 <img
-                                    src="/logo.png"
+                                    src="/logo3.png"
                                     alt="Funkash Logo"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full "
                                 />
                             </div>
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">
-                            FUNKASH FAMILY HOLDINGS
-                        </h2>
+
                         <p className="text-gray-300 leading-relaxed">
                             Pioneering the Future of Tech & Investments.
                         </p>
                     </div>
-
+                    <div className="mb-8 flex items-start md:items-center justify-center flex-col">
+                        <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                            Quick Links
+                        </h3>
+                        <ul className="space-y-3">
+                            {quickLinks.map((link) => (
+                                <li key={link}>
+                                    <a
+                                        href={link === 'Home' ? '/' : link === 'Contact' ? '/contact' : `/${link.toLowerCase()}`}
+                                        onMouseEnter={() => setHoveredLink(link)}
+                                        onMouseLeave={() => setHoveredLink(null)}
+                                        className={`text-white transition-colors duration-300 ${hoveredLink === link ? 'text-gray-400' : 'hover:text-gray-300'}`}
+                                    >
+                                        {link}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                     {/* Right Side - Links and Social */}
                     <div className="flex flex-col md:items-end">
-                        <div className="mb-8">
-                            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
-                                Quick Links
-                            </h3>
-                            <ul className="space-y-3">
-                                {quickLinks.map((link) => (
-                                    <li key={link}>
-                                        <a
-                                            href={link === 'Home' ? '/' : link === 'Contact' ? '/contact' : `/${link.toLowerCase()}`}
-                                            onMouseEnter={() => setHoveredLink(link)}
-                                            onMouseLeave={() => setHoveredLink(null)}
-                                            className={`text-white transition-colors duration-300 ${hoveredLink === link ? 'text-gray-400' : 'hover:text-gray-300'}`}
-                                        >
-                                            {link}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+
 
                         <div>
                             <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
@@ -85,8 +83,8 @@ const Footer: React.FC = () => {
                     <p className="text-white text-sm">
                         © 2025 Funkash Family Holdings. All Right Reserved.
                     </p>
-                    <a 
-                        href="#" 
+                    <a
+                        href="#"
                         className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
                     >
                         Privacy Policy

@@ -62,7 +62,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             <span className="font-light">{project.client}</span>
           </div>
 
-          <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100 tracking-tight leading-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+          <h3 className="text-2xl lg:text-3xl font-semibold text-gray-900 dark:text-gray-100 tracking-tight leading-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
             {project.title}
           </h3>
 

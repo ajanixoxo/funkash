@@ -140,7 +140,7 @@ const BookCard: React.FC<{ book: Book; index: number }> = ({ book, index }) => {
         >
             {/* Badge */}
             {book.badge && (
-                <div className="absolute top-6 right-6 px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full text-white text-xs font-bold tracking-wide">
+                <div className="absolute top-6 right-6 px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full text-white text-xs font-semibold tracking-wide">
                     {book.badge}
                 </div>
             )}
@@ -153,7 +153,7 @@ const BookCard: React.FC<{ book: Book; index: number }> = ({ book, index }) => {
             </div>
 
             {/* Title */}
-            <h3 className={`text-2xl lg:text-3xl font-bold mb-3 transition-colors duration-300 ${isHovered ? 'text-purple-400' : 'text-white'
+            <h3 className={`text-2xl lg:text-3xl font-semibold mb-3 transition-colors duration-300 ${isHovered ? 'text-purple-400' : 'text-white'
                 }`}>
                 {book.title}
             </h3>
@@ -218,7 +218,7 @@ const RecommendedReadsPage: React.FC = () => {
                             </span>
                         </div>
 
-                        <h1 className="text-5xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-8 leading-tight">
+                        <h1 className="text-5xl lg:text-7xl xl:text-8xl font-semibold tracking-tight mb-8 leading-tight">
                              <TextAnimate animation="blurIn" as="h2">Recommended Reads</TextAnimate>  
                         </h1>
 
@@ -229,13 +229,13 @@ const RecommendedReadsPage: React.FC = () => {
                         {/* Stats */}
                         <div className="flex justify-center gap-12 mb-8">
                             <div>
-                                <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-2">
+                                <div className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-2">
                                     {books.length}
                                 </div>
                                 <div className="text-gray-400 text-sm">Books</div>
                             </div>
                             <div>
-                                <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-2">
+                                <div className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-2">
                                     4
                                 </div>
                                 <div className="text-gray-400 text-sm">Categories</div>
@@ -276,14 +276,14 @@ const RecommendedReadsPage: React.FC = () => {
                         {filteredBooks.length === 0 ? (
                             <div className="text-center py-20">
                                 <div className="text-6xl mb-4">📚</div>
-                                <h3 className="text-2xl font-bold text-gray-400 mb-2">No books in this category yet</h3>
+                                <h3 className="text-2xl font-semibold text-gray-400 mb-2">No books in this category yet</h3>
                                 <p className="text-gray-500">Check back soon for more recommendations!</p>
                             </div>
                         ) : (
                             <>
                                 {/* Section Header */}
                                 <div className="mb-12">
-                                    <h2 className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                                    <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-2">
                                         {categories.find(c => c.id === activeCategory)?.name || 'All Books'}
                                     </h2>
                                     <p className="text-gray-400">
@@ -307,7 +307,7 @@ const RecommendedReadsPage: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-blue-900/20" />
 
                     <div className="max-w-4xl mx-auto text-center relative z-10">
-                        <h3 className="text-3xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
+                        <h3 className="text-3xl lg:text-5xl font-semibold tracking-tight mb-6 leading-tight">
                             Have a book recommendation?
                         </h3>
                         <p className="text-xl text-gray-300 mb-8">

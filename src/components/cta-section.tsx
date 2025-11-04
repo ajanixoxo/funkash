@@ -4,10 +4,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const CTASection = () => {
   return (
-    <section className="relative bg-gradient-to-l from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-l from-[#1a1f3a] via-[#1a1f3a] via-10% to-[#C78018]/30 to-90% text-white py-20 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
@@ -17,7 +18,7 @@ const CTASection = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
               Let's Build the <span className="italic font-normal">Future</span>
               <br />
               <span className="italic font-normal">Together</span>
@@ -29,7 +30,7 @@ const CTASection = () => {
             </p>
             <div className="space-y-4 mt-4">
               <motion.a
-                href="#contact"
+                href="/contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-block bg-white text-[#222946] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
@@ -38,7 +39,7 @@ const CTASection = () => {
               </motion.a>
               <div className="flex flex-col items-start  gap-4 text-sm">
                 <div className="border-t border-gray-700 pt-4 border-b border-gray-300 pb-4">
-                  <a
+                  <Link
                     href="/projects"
                     className="text-gray-300 border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
                   >
@@ -55,7 +56,7 @@ const CTASection = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                  </a></div>
+                  </Link></div>
 
                 <a
                   href="/projects"
@@ -97,7 +98,7 @@ const CTASection = () => {
             {/* Overlay Text/Form */}
             <div className="absolute bottom-0 flex items-center justify-center p-8">
               <div className=" rounded-xl p-8 w-full max-w-2xl">
-                <h3 className="text-2xl font-bold mb-4">
+                <h3 className="text-2xl font-semibold mb-4">
                   Sign up for the alpha on the future of investing.
                 </h3>
                 <form className="space-y-4">

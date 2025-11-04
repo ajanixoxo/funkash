@@ -121,7 +121,7 @@ const EssayDetailPage: React.FC = () => {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-6 leading-tight">
+          <h1 className="text-4xl lg:text-6xl xl:text-7xl font-semibold tracking-tight mb-6 leading-tight">
             {essayData.title}
           </h1>
 
@@ -174,7 +174,7 @@ const EssayDetailPage: React.FC = () => {
           {/* Share Section */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-900 dark:to-gray-950 rounded-3xl border border-gray-700 dark:border-gray-800">
             <div>
-              <h3 className="text-xl font-bold text-white mb-2">Enjoyed this essay?</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">Enjoyed this essay?</h3>
               <p className="text-gray-400">Share it with your network</p>
             </div>
 

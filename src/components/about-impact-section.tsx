@@ -36,7 +36,7 @@ const AboutImpactSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-6">
             Our <span className="italic font-normal">Impact</span> in
             <br />
             Numbers
@@ -61,12 +61,12 @@ const AboutImpactSection = () => {
               {/* Card */}
               <div className=" rounded-2xl p-8 h-full border border-white/5 hover:border-purple-500/50 transition-all duration-300 hover:scale-[1.02]">
                 {/* Number */}
-                <div className="text-7xl md:text-8xl font-bold mb-4 ">
+                <div className="text-7xl md:text-8xl font-semibold mb-4 ">
                   {stat.number}
                 </div>
 
                 {/* Label */}
-                <h3 className="text-2xl font-bold mb-4">{stat.label}</h3>
+                <h3 className="text-2xl font-semibold mb-4">{stat.label}</h3>
 
                 {/* Description */}
                 <p className="text-gray-400 leading-relaxed">

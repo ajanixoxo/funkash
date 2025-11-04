@@ -29,7 +29,7 @@ function HeroSection() {
       <div className="relative flex flex-col items-center justify-center w-full z-10 px-6">
       
 
-        <h1 className="text-5xl text-white md:max-w-6xl md:text-8xl font-bold leading-tight mb-4">
+        <h1 className="text-5xl text-white md:max-w-6xl md:text-8xl font-semibold leading-tight mb-4">
           <SplitText
             text="We build, partner, and launch with visionaries."
 

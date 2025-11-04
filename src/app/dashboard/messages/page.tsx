@@ -71,7 +71,7 @@ export default function MessagesPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Messages</h1>
+        <h1 className="text-3xl font-semibold text-white mb-2">Messages</h1>
         <p className="text-gray-400">
           {unreadCount > 0 ? `${unreadCount} unread message${unreadCount !== 1 ? "s" : ""}` : "All messages read"}
         </p>

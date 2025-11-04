@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const AboutVenturesSection = () => {
   return (
-    <section className="bg-gradient-to-l from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 px-6">
+    <section className="bg-gradient-to-l from-[#1a1f3a] via-[#1a1f3a] via-10% to-[#C78018]/30 to-90% text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
           {/* Left Column - Text */}
@@ -17,7 +17,7 @@ const AboutVenturesSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h2 className="text-2xl md:text-3xl lg:text-6xl font-semibold mb-6 leading-tight">
               Our <span className="italic font-normal">Ventures</span>
             </h2>
             <p className="text-base text-gray-300 mb-8">
@@ -34,7 +34,7 @@ const AboutVenturesSection = () => {
 
             {/* Proprietary Tools */}
             <div className="mt-12  rounded-2xl">
-              <h3 className="text-base font-bold mb-4">Proprietary Tools</h3>
+              <h3 className="text-base font-semibold mb-4">Proprietary Tools</h3>
               <p className="text-gray-300 text-sm leading-relaxed">
                 We are equipped with patent frameworks, proprietary cutting-
                 edge technologies and AI-powered venture intelligence tools for

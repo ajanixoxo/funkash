@@ -129,7 +129,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           </div>
 
           {/* Title */}
-          <h3 className="text-2xl lg:text-3xl font-bold text-white tracking-tight leading-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+          <h3 className="text-2xl lg:text-3xl font-semibold text-white tracking-tight leading-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
             {project.title}
           </h3>
 

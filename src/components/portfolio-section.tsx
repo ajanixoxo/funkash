@@ -28,7 +28,7 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 px-6">
+    <section className="bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-[#C78018]/30 to-90% text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -38,8 +38,8 @@ const PortfolioSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Portfolio</h2>
-          <p className="text-gray-300 text-lg max-w-2xl">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4">Our <span>Portfolio</span></h2>
+          <p className="text-gray-300  text-lg max-w-2xl">
             We've invested in and built solutions with visionary companies across
             multiple sectors
           </p>
@@ -60,18 +60,18 @@ const PortfolioSection = () => {
               <div
                 className={`${item.bgColor} h-64 flex items-center justify-center relative overflow-hidden`}
               >
-                <div className="text-white text-8xl font-bold opacity-90">
+                <div className="text-white text-8xl font-semibold opacity-90">
                   {item.logo}
                 </div>
                 {/* Decorative elements */}
                 {item.name === "VincereBet" && (
-                  <div className="absolute bottom-4 left-4 text-white text-2xl font-bold">
+                  <div className="absolute bottom-4 left-4 text-white text-2xl font-semibold">
                     VincereBet
                   </div>
                 )}
                 {item.name === "LUMINEBOT" && (
                   <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-white text-xl font-bold">LUMINEBOT</div>
+                    <div className="text-white text-xl font-semibold">LUMINEBOT</div>
                     <div className="text-white text-sm opacity-80">
                       Unlocking Potential
                     </div>
@@ -81,7 +81,7 @@ const PortfolioSection = () => {
 
               {/* Content Area */}
               <div className="pt-4">
-                <h3 className="text-2xl font-bold mb-2">{item.name}</h3>
+                <h3 className="text-2xl font-semibold mb-2">{item.name}</h3>
                 <p className="text-gray-300">{item.description}</p>
               </div>
 

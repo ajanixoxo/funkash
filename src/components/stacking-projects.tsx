@@ -150,7 +150,7 @@ export default function StackingProjects() {
     <section ref={sectionRef} className="relative min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#222946] mb-4">Featured Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-semibold text-[#222946] mb-4">Featured Projects</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Discover how we&apos;ve transformed ideas into successful products that impact millions of users
           </p>
@@ -199,7 +199,7 @@ export default function StackingProjects() {
                   {/* Project Title Overlay */}
                   <div className="absolute bottom-4 left-4 right-4">
                     <h3
-                      className={`${isMobile ? "text-xl" : "text-3xl md:text-4xl"} font-bold ${project.textColor} mb-1`}
+                      className={`${isMobile ? "text-xl" : "text-3xl md:text-4xl"} font-semibold ${project.textColor} mb-1`}
                     >
                       {project.name}
                     </h3>

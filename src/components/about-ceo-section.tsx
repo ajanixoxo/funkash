@@ -16,7 +16,7 @@ const AboutCEOSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-6">
             Meet Our <span className="italic font-normal">CEO</span>
           </h2>
           <p className="text-gray-300 text-lg lg:max-w-xl mx-auto">
@@ -45,7 +45,7 @@ const AboutCEOSection = () => {
 
             {/* CEO Info */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-2">
+              <h3 className="text-2xl font-semibold mb-2">
                 Olumide Funkash Ogunwo
               </h3>
               <p className=" text-lg">Founder & CEO</p>

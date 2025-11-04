@@ -78,7 +78,7 @@ export default function EssaysPage() {
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Essays</h1>
+          <h1 className="text-3xl font-semibold text-white mb-2">Essays</h1>
           <p className="text-gray-400">Manage your blog posts and essays</p>
         </div>
         <button

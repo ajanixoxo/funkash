@@ -51,7 +51,7 @@ export default function LoginPage() {
           <div className="w-16 h-16 rounded-md flex items-center justify-center mx-auto overflow-hidden">
             <img src="/logo.png" alt="Funkash Logo" className="w-full h-full object-contain" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Admin Dashboard</h1>
+          <h1 className="text-3xl font-semibold text-white mb-2">Admin Dashboard</h1>
           <p className="text-gray-400">Sign in to manage your content</p>
         </div>
 

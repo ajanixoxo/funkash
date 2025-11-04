@@ -19,7 +19,7 @@ const TestimonialSection = () => {
     <section ref={ref} className="bg-[#1a1f3a] text-white py-24 px-6">
       <div className="max-w-5xl mx-auto text-center">
         <motion.div style={{ opacity, y }}>
-          <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed mb-8">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed mb-8 p2">
             "Funkash Technology isn't just an investor, it's a long-term
             <br className="hidden md:block" />
             partner. Their technical expertise, strategic mindset, and

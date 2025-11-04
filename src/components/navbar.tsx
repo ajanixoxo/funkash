@@ -6,6 +6,7 @@ import { ChartNoAxesColumnIncreasing } from "lucide-react"
 // import AnimatedButton from "./animated-button"
 import StaggeredMenu from "./StaggeredMenu"
 import { motion } from "framer-motion"
+import Link from "next/link"
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -48,8 +49,8 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ delay: 0.5, duration: 0.5 }}
     >
-      <div className={` mx-auto   transition-all  ${scrolled ? " transition-all max-w-5xl  border-gray-500 rounded-[50px] bg-white/20 backdrop-blur-xl  shadow-md py-3 " : " block bg-transparent py-5"
-        }   px-4  py-2`}>
+      <div className={` mx-auto   transition-all  ${scrolled ? " transition-all max-w-5xl  border-gray-500 rounded-[50px] bg-white/20 backdrop-blur-xl  shadow-md py-3 " : " block bg-transparent py-5  max-w-7xl"
+        }   px-4  py-2 `}>
         <div className="  flex justify-between rounded-4xl items-center">
           <div className="flex items-center text-white">
             <div className="w-10 md:w-16 h-16 rounded-md flex items-center justify-center mr-3 overflow-hidden">
@@ -60,10 +61,10 @@ export default function Navbar() {
                 className="w-full"
               />
             </div>
-            <span className={`font-bold hidden md:flex  text-xl ${scrolled ? "text-gray-100" : "text-white"}`}>
+            <h2 className={`font-semibold hidden md:flex  text-xl ${scrolled ? "text-gray-100" : "text-white"}`}>
               Funkash Technology
-            </span>
-            {/* <span className={`font-bold md:hidden   text-xl ${scrolled ? "text-gray-900" : "text-gray-900"}`}>
+            </h2>
+            {/* <span className={`font-semibold md:hidden   text-xl ${scrolled ? "text-gray-900" : "text-gray-900"}`}>
             FunTech
           </span> */}
           </div>
@@ -89,7 +90,7 @@ export default function Navbar() {
                 />
 
                 {/* Floating effect */}
-                <motion.span
+                <motion.p
                   className="block"
                   variants={{
                     initial: { y: 0 },
@@ -98,7 +99,7 @@ export default function Navbar() {
                   transition={{ duration: 0.2, ease: "easeOut" }}
                 >
                   {lable}
-                </motion.span>
+                </motion.p>
 
                 {/* Glowing background effect */}
                 <motion.div
@@ -116,24 +117,29 @@ export default function Navbar() {
           </nav>
           {/* <div className="hidden md:flex items-center space-x-8"> <AnimatedButton variant="primary">Get In Touch</AnimatedButton></div> */}
 
-          <a
-            href="/projects"
-            className="text-gray-900 bg-gray-300  hidden md:flex border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
-          >
-            Partner With Us
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+
+
+          <div className="hidden md:flex">
+            <Link
+              href="/contact"
+              className="text-gray-900 bg-gray-300  md:flex border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
             >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </a>
+              Partner With Us
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </Link>
+          </div>
+
           {/* Mobile menu button */}
           <motion.button
             className="md:hidden text-white"
@@ -203,6 +209,7 @@ export default function Navbar() {
               isFixed={false}
               hideHeader={true}
               isOpen={mobileMenuOpen}
+              
             />
           </motion.div>
         )}

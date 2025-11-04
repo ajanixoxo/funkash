@@ -38,7 +38,7 @@ const WhatWeDoSection = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 px-6">
+    <section className="bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-[#C78018]/30 to-90% text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Header with Navigation */}
         <div className="flex items-start justify-between mb-16">
@@ -48,7 +48,7 @@ const WhatWeDoSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">What We Do</h2>
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4"><span>What</span> We Do</h2>
             <p className="text-gray-300 text-lg max-w-2xl">
               We combine capital, technology, and strategic expertise to empower
               startups and innovators
@@ -56,7 +56,7 @@ const WhatWeDoSection = () => {
           </motion.div>
 
           {/* Navigation Arrows */}
-          <div className="flex gap-4">
+          <div className="hidden md:flex gap-4">
             <button
               onClick={handlePrev}
               className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
@@ -102,7 +102,7 @@ const WhatWeDoSection = () => {
 
                   {/* Card Content */}
                   <div className="pt-2">
-                    <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                    <h3 className="text-2xl font-semibold mb-3">{service.title}</h3>
                     <p className="text-gray-300 leading-relaxed">
                       {service.description}
                     </p>

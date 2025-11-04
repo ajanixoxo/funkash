@@ -61,12 +61,12 @@ const IndustriesSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Industries We Work
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4">
+            Industries We <span>Work</span>
             <br />
             With
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl">
+          <p className="text-gray-300 text-lg max-w-2xl font-normal">
             We invest in and support startups across diverse sectors, driving
             innovation and transformation
           </p>
@@ -85,7 +85,7 @@ const IndustriesSection = () => {
             >
               <div className="flex items-start gap-4 mb-4">
                 <span className="text-5xl">{industry.icon}</span>
-                <h3 className="text-xl font-bold mb-3 leading-tight">
+                <h3 className="text-xl font-semibold mb-3 leading-tight">
                 {industry.name}
               </h3>
               </div>

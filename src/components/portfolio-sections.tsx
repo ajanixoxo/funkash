@@ -90,7 +90,7 @@ const PortfolioSections = () => {
             className="mb-20 md:mb-32"
           >
             {/* Section Title */}
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-12 md:mb-16">
               {section.title}
             </h2>
 
@@ -127,7 +127,7 @@ const PortfolioSections = () => {
 
                   {/* Project Description */}
                   <div className="mt-2">
-                    <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
+                    <h3 className="text-2xl font-semibold mb-2">{project.name}</h3>
                     <p className="text-gray-300 text-sm md:text-base leading-relaxed">
                       {project.description}
                     </p>

@@ -15,7 +15,7 @@ const AboutLegacySection = () => {
   const y = useTransform(scrollYProgress, [0.2, 0.5], [50, 0]);
 
   return (
-    <section ref={ref} className="bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-green-900/70 to-90% text-white py-20 px-6">
+    <section ref={ref} className="bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-[#C78018]/30 to-90% text-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - Title */}
@@ -23,7 +23,7 @@ const AboutLegacySection = () => {
             style={{ opacity, y }}
             className="lg:sticky lg:top-32 h-fit"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
               Transforming <span className="italic font-normal">Ideas</span>,
               <br />
               Building <span className="italic font-normal">Legacies</span>

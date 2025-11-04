@@ -7,7 +7,7 @@ import Silk from "./Silk";
 
 const ApproachHeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-[#1a1f3a] text-white overflow-hidden pt-32 pb-16 px-6">
+    <section className="relative min-h-screen bg-[#1a1f3a] text-white overflow-hidden pt-32  px-6">
       {/* Silk Background */}
       <div className="absolute inset-0 bg-black opacity-70 z-0">
         <Silk
@@ -32,7 +32,7 @@ const ApproachHeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"
+              className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
             >
               Turning Visionary <span className="italic font-normal">Ideas</span> into Long Term <span className="italic font-normal">Success</span>
             </motion.h1>

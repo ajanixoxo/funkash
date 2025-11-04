@@ -55,7 +55,7 @@ const BookCard: React.FC<{ essay: Essay; index: number }> = ({ essay, index }) =
                 </div>
 
                 {/* Title */}
-                <h3 className={`text-2xl lg:text-3xl font-bold mb-4 tracking-tight transition-colors duration-300 ${isHovered ? 'text-purple-600 dark:text-purple-400' : 'text-gray-900 dark:text-gray-100'
+                <h3 className={`text-2xl lg:text-3xl font-semibold mb-4 tracking-tight transition-colors duration-300 ${isHovered ? 'text-purple-600 dark:text-purple-400' : 'text-gray-900 dark:text-gray-100'
                     }`}>
                     {essay.title}
                 </h3>
@@ -157,7 +157,7 @@ const EssayPage: React.FC = () => {
                     <div className="max-w-5xl mx-auto text-center relative z-10">
 
 
-                        <h1 className="text-5xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-8 leading-tight">
+                        <h1 className="text-5xl lg:text-7xl xl:text-8xl font-semibold tracking-tight mb-8 leading-tight">
                             <TextAnimate animation="blurIn" as="h2"> Essay</TextAnimate>
                         </h1>
 
@@ -190,7 +190,7 @@ const EssayPage: React.FC = () => {
                             </div>) : filteredEssays.length === 0 ? (
                                 <div className="text-center py-20">
                                     <div className="text-6xl mb-4">📚</div>
-                                    <h3 className="text-2xl font-bold text-gray-400 mb-2">No Essay</h3>
+                                    <h3 className="text-2xl font-semibold text-gray-400 mb-2">No Essay</h3>
 
                                 </div>
                             ) : (

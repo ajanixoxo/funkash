@@ -78,7 +78,7 @@ const ContactFormSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-6">
               Reach Out to Us
             </h2>
 

@@ -49,7 +49,7 @@ export default function AnalyticsPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Analytics</h1>
+        <h1 className="text-3xl font-semibold text-white mb-2">Analytics</h1>
         <p className="text-gray-400">Last 30 days performance metrics</p>
       </div>
 
@@ -62,7 +62,7 @@ export default function AnalyticsPage() {
             </div>
           </div>
           <p className="text-gray-400 text-sm mb-1">Total Page Views</p>
-          <p className="text-3xl font-bold text-white">{data?.stats.totalPageViews || 0}</p>
+          <p className="text-3xl font-semibold text-white">{data?.stats.totalPageViews || 0}</p>
         </div>
 
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
@@ -72,7 +72,7 @@ export default function AnalyticsPage() {
             </div>
           </div>
           <p className="text-gray-400 text-sm mb-1">Essay Reads</p>
-          <p className="text-3xl font-bold text-white">{data?.stats.totalEssayReads || 0}</p>
+          <p className="text-3xl font-semibold text-white">{data?.stats.totalEssayReads || 0}</p>
         </div>
 
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
@@ -82,7 +82,7 @@ export default function AnalyticsPage() {
             </div>
           </div>
           <p className="text-gray-400 text-sm mb-1">Messages Received</p>
-          <p className="text-3xl font-bold text-white">{data?.stats.totalMessages || 0}</p>
+          <p className="text-3xl font-semibold text-white">{data?.stats.totalMessages || 0}</p>
         </div>
       </div>
 
@@ -90,7 +90,7 @@ export default function AnalyticsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Page Views Chart */}
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-          <h2 className="text-xl font-bold text-white mb-6">Page Views (Last 30 Days)</h2>
+          <h2 className="text-xl font-semibold text-white mb-6">Page Views (Last 30 Days)</h2>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={data?.pageViews || []}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
@@ -111,7 +111,7 @@ export default function AnalyticsPage() {
 
         {/* Message Trends Chart */}
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-          <h2 className="text-xl font-bold text-white mb-6">Messages (Last 30 Days)</h2>
+          <h2 className="text-xl font-semibold text-white mb-6">Messages (Last 30 Days)</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={data?.messageTrends || []}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
@@ -133,7 +133,7 @@ export default function AnalyticsPage() {
 
       {/* Essay Performance */}
       <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6">
-        <h2 className="text-xl font-bold text-white mb-6">Top Essays by Reads</h2>
+        <h2 className="text-xl font-semibold text-white mb-6">Top Essays by Reads</h2>
         <div className="space-y-4">
           {data?.essayPerformance && data.essayPerformance.length > 0 ? (
             data.essayPerformance.map((essay, index) => (
@@ -142,7 +142,7 @@ export default function AnalyticsPage() {
                 className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-semibold">
                     {index + 1}
                   </div>
                   <div>

@@ -121,7 +121,7 @@ const LeadershipPage: React.FC = () => {
               </span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-8 leading-tight">
+            <h1 className="text-5xl lg:text-7xl xl:text-8xl font-semibold tracking-tight mb-8 leading-tight">
               Leadership
             </h1>
 
@@ -182,7 +182,7 @@ const LeadershipPage: React.FC = () => {
                     {/* Profile Info */}
                     <div className="lg:col-span-2 space-y-6">
                       <div>
-                        <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-gray-100 tracking-tight mb-4">
+                        <h2 className="text-4xl lg:text-5xl xl:text-6xl font-semibold text-gray-900 dark:text-gray-100 tracking-tight mb-4">
                           Olumide M. Ogunwo
                         </h2>
                         <p className="text-2xl lg:text-3xl text-purple-600 dark:text-purple-400 font-light mb-2">
@@ -199,19 +199,19 @@ const LeadershipPage: React.FC = () => {
                       {/* Stats */}
                       <div className="grid grid-cols-3 gap-6 pt-8">
                         <div className="text-center">
-                          <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
+                          <div className="text-3xl lg:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
                             17+
                           </div>
                           <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
                         </div>
                         <div className="text-center border-x border-gray-200 dark:border-gray-800">
-                          <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
+                          <div className="text-3xl lg:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
                             3
                           </div>
                           <div className="text-sm text-gray-600 dark:text-gray-400">Continents</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
+                          <div className="text-3xl lg:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
                             50+
                           </div>
                           <div className="text-sm text-gray-600 dark:text-gray-400">Companies</div>
@@ -268,7 +268,7 @@ const LeadershipPage: React.FC = () => {
           </div>
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h3 className="text-3xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-8 leading-tight">
+            <h3 className="text-3xl lg:text-5xl xl:text-6xl font-semibold tracking-tight mb-8 leading-tight">
               Ready to build the future together?
             </h3>
             <p className="text-xl lg:text-2xl text-gray-200 mb-12 leading-relaxed">

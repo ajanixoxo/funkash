@@ -7,7 +7,7 @@ import Silk from "./Silk";
 
 const AboutHeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-[#1a2332] text-white overflow-hidden pt-32 pb-16 px-6">
+    <section className="relative min-h-screen bg-[#1a2332] text-white overflow-hidden pt-32  px-6">
       {/* Silk Background */}
       <div className="absolute inset-0 bg-black opacity-70 z-0">
         <Silk
@@ -32,7 +32,7 @@ const AboutHeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"
+              className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
             >
               Visionaries <span className="italic font-normal">Driving</span>
               <br />
