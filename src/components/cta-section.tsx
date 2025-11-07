@@ -19,14 +19,12 @@ const CTASection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
-              Let's Build the <span className="italic font-normal">Future</span>
+            Let’s Build What’s <span className="italic font-normal">Next</span>
               <br />
               <span className="italic font-normal">Together</span>
             </h2>
             <p className="text-gray-300 text-lg mb-8 max-w-lg">
-              Whether you're ready to scale, raise capital, or simply explore how
-              our network and tech can help, we're here to build it with you —
-              from idea to execution, every step of the way.
+            Whether you’re reimagining enterprise systems, automating governance, or scaling a new digital product — Funkash Technology is your partner in intelligent engineering.
             </p>
             <div className="space-y-4 mt-4">
               <motion.a
@@ -35,7 +33,8 @@ const CTASection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block bg-white text-[#222946] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
               >
-                Pitch Your Startup
+               Start a Project
+
               </motion.a>
               <div className="flex flex-col items-start  gap-4 text-sm">
                 <div className="border-t border-gray-700 pt-4 border-b border-gray-300 pb-4">
@@ -43,7 +42,8 @@ const CTASection = () => {
                     href="/projects"
                     className="text-gray-300 border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
                   >
-                    Partner With Us
+                   Schedule a Demo
+
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"

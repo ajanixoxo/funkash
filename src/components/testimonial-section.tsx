@@ -20,11 +20,10 @@ const TestimonialSection = () => {
       <div className="max-w-5xl mx-auto text-center">
         <motion.div style={{ opacity, y }}>
           <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed mb-8 p2">
-            "Funkash Technology isn't just an investor, it's a long-term
+          Funkash Technology isn’t just a developer — they’re a long-term . 
             <br className="hidden md:block" />
-            partner. Their technical expertise, strategic mindset, and
-            <br className="hidden md:block" />
-            network helped us scale faster than we ever imagined."
+           innovation partner Their engineering precision and expertise
+            <br className="hidden md:block" />  helped us scale faster than we thought possible.
           </p>
           <div className="flex items-center justify-center gap-4">
             <div className="w-12 h-12 rounded-full bg-gray-700 overflow-hidden">

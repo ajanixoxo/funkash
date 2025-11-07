@@ -22,11 +22,11 @@ const MissionSection = () => {
           style={{ opacity, scale }}
           className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed p2"
         >
-         <u> "Our mission is to transform industries through strategic
+         <u> "Our mission is to power transformation through intelligent technology — combining
           <br className="hidden md:block" />
-          investments, cutting-edge technology, and a network that
+          deep engineering, data science, and design to build systems that accelerate
           <br className="hidden md:block" />
-          accelerates growth."</u>
+          growth and efficiency."</u>
         </motion.p>
       </div>
     </section>

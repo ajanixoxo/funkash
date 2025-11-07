@@ -3,8 +3,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { BuildingIcon, CodeIcon, DollarSignIcon } from "lucide-react";
-import { GamepadIcon } from "lucide-react";
+import { BuildingIcon, CodeIcon, DollarSignIcon, Handshake } from "lucide-react";
 import { ShieldIcon } from "lucide-react";
 import { HeartHandshakeIcon } from "lucide-react";
 const IndustriesSection = () => {
@@ -13,37 +12,37 @@ const IndustriesSection = () => {
       id: 1, 
       name: "Fintech & Payments", 
       icon: <DollarSignIcon/>,
-      description: "Powering Africa's digital economy with seamless financial solutions"
+      description: "Automating digital transactions and credit scoring for the next billion users."
     },
     { 
       id: 2, 
       name: "SaaS & Cloud Solutions", 
       icon:<CodeIcon/>,
-      description: "Providing software and infrastructure that scale globally"
+      description: "Building scalable tools that power businesses worldwide."
     },
     { 
       id: 3, 
       name: "Real Estate & Smart Infrastructure", 
       icon: <BuildingIcon/>,
-      description: "Investing in the future of living and business spaces"
+      description: "Enabling intelligent property and asset management."
     },
     { 
       id: 4, 
-      name: "Gaming & Gamification", 
-      icon: <GamepadIcon/>,
-      description: "Creating immersive experiences and monetization models"
+      name: "Governance & Public Systems", 
+      icon: <Handshake/>,
+      description: "Driving transparency and efficiency in administration."
     },
     { 
       id: 5, 
       name: "Defense & Security Technology", 
       icon: <ShieldIcon/>,
-      description: "Advancing AI-driven defense systems and cybersecurity"
+      description: "Advancing AI-driven protection systems and predictive analytics."
     },
     { 
       id: 6, 
       name: "Healthcare & Science", 
       icon: <HeartHandshakeIcon/>,
-      description: "Innovating in biotech, medical AI, and healthcare technology"
+      description: "Using data to make health systems more proactive and connected."
     },
   ];
 
@@ -62,13 +61,13 @@ const IndustriesSection = () => {
           className="mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-semibold mb-4">
-            Industries We <span>Work</span>
+          Industries We<span>Empower.</span>
             <br />
             With
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl font-normal">
-            We invest in and support startups across diverse sectors, driving
-            innovation and transformation
+          Our solutions cut across sectors where precision, efficiency, and intelligence matter most.
+
           </p>
         </motion.div>
 

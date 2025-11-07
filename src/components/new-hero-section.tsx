@@ -106,11 +106,9 @@ const NewHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
             >
-              Empowering Bold Ideas with{" "}
-              <span className="italic font-normal">Capital,</span>
-              <br />
-              <span className="italic font-normal">Technology &</span> {" "}
-              <span className="italic font-normal">Strategy</span>
+          Empowering Intellignet System for a {" "}
+
+              <span className="italic font-normal">Smarter World </span>
             </motion.h1>
 
             <motion.p
@@ -119,7 +117,7 @@ const NewHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-gray-300 text-lg mb-8 max-w-lg mx-auto lg:mx-0"
             >
-              Building technology that transforms industries and empowers growth
+            We engineer scalable AI and automation platforms that help governments, enterprises, and innovators move faster, think sharper, and grow stronger.
             </motion.p>
 
             <motion.div
@@ -132,7 +130,7 @@ const NewHeroSection = () => {
                 href="/contact"
                 className="inline-block bg-white text-[#1a1f3a] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
               >
-                Work with Us
+             Let’s Build Together
               </Link>
             </motion.div>
           </motion.div>

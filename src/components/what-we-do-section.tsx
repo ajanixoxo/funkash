@@ -10,21 +10,21 @@ const WhatWeDoSection = () => {
 
   const services = [
     {
-      title: "Tech Investments",
+      title: "AI Systems & Automation",
       description:
-        "Making strategic capital investments in innovative technologies that drive industry transformation",
+        "We build intelligent systems for tax, audit, finance, and credit — transforming data into real-time decisions that drive performance.",
       image: "/hero-img1.png",
     },
     {
-      title: "Product Development",
+      title: "Product Engineering",
       description:
-        "Building cutting-edge solutions that solve real-world problems and create lasting impact",
+        "From architecture to interface, our in-house engineering teams design end-to-end digital products that scale globally.",
       image: "/hero-img2.png",
     },
     {
-      title: "Strategic Partners",
+      title: " Technology Partnerships",
       description:
-        "Collaborating with visionary founders and companies to accelerate growth and scale",
+        "We collaborate with governments, enterprises, and startups to solve complex operational challenges using AI, machine learning, and cloud infrastructure.",
       image: "/hero-img3.png",
     },
   ];
@@ -48,10 +48,9 @@ const WhatWeDoSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-4"><span>What</span> We Do</h2>
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4"><span>What</span> We Build</h2>
             <p className="text-gray-300 text-lg max-w-2xl">
-              We combine capital, technology, and strategic expertise to empower
-              startups and innovators
+            We design, develop, and deploy AI-powered platforms that make operations smarter, faster, and more resilient.
             </p>
           </motion.div>
 

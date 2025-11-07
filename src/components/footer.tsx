@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                         </div>
 
                         <p className="text-gray-300 leading-relaxed">
-                            Pioneering the Future of Tech & Investments.
+                        Building the systems that power tomorrow.
                         </p>
                     </div>
                     <div className="mb-8 flex items-start md:items-center justify-center flex-col">
