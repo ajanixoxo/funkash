@@ -9,6 +9,7 @@ const ApproachPrinciplesSection = () => {
     {
       title: "Technical Mastery",
       description: "Great systems begin with great engineering. Our developers, data scientists, and AI architects build technology from the ground up — scalable, efficient, and secure. From designing APIs to deploying full automation ecosystems, we ensure every product we touch is built to evolve, not expire.",
+      image: "/principles1.png",
       imagePosition: "left" as const,
     },
     {
