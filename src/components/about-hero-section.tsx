@@ -34,9 +34,9 @@ const AboutHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
             >
-              Visionaries <span className="italic font-normal">Driving</span>
+              Visionaries <span className="italic font-normal">Building </span> the future with
               <br />
-              <span className="italic font-normal">Innovation</span> and Growth
+              <span className="italic font-normal">Intelligent Technology</span> 
             </motion.h1>
 
             <motion.p
@@ -45,8 +45,7 @@ const AboutHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-gray-300 text-lg mb-8 text-center"
             >
-              Innovating based on a proven vision for transforming ideas
-              into products, in scalable ventures.
+              We are a technology company driven by purpose: building AI systems, digital infrastructure, and scalable software that empower businesses, governments, and innovators to thrive in a connected world.
             </motion.p>
           </motion.div>
 

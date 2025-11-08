@@ -34,7 +34,7 @@ const ApproachHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
             >
-              Turning Visionary <span className="italic font-normal">Ideas</span> into Long Term <span className="italic font-normal">Success</span>
+              Turning Visionary <span className="italic font-normal">Ideas</span> into  <span className="italic font-normal">Intelligent Systems</span>
             </motion.h1>
 
             <motion.p
@@ -43,7 +43,7 @@ const ApproachHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-gray-300 text-lg mb-8 text-center lg:max-w-2xl mx-auto"
             >
-              We provide the technical expertise, strategic guidance, and data-driven decisions that fuel sustainable growth.
+             We bridge imagination and engineering: combining AI, design, and data to transform bold ideas into real-world, high-performing technology systems.
             </motion.p>
           </motion.div>
 

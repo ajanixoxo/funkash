@@ -34,7 +34,7 @@ const PortfolioHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
             >
-              Building the <span className="italic font-normal">Future</span> into One Venture at a Time
+              Building the <span className="italic font-normal">Future,</span>  One System at a time
             </motion.h1>
 
             <motion.p
@@ -43,7 +43,7 @@ const PortfolioHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-gray-300 text-lg mb-8 text-center lg:max-w-2xl mx-auto"
             >
-              Explore the diverse investments driving innovation and growth across multiple sectors.
+              Explore the intelligent platforms and AI-driven solutions we’ve engineered; transforming industries, empowering people, and redefining how technology works for the real world.
             </motion.p>
           </motion.div>
 

@@ -6,22 +6,22 @@ import { motion } from "framer-motion";
 const AboutImpactSection = () => {
   const stats = [
     {
-      number: "17",
-      label: "Years of Experience",
+      number: "17+",
+      label: "Years of Collective Engineering Experience",
       description:
-        "With over 17 years of experience in building and scaling technology companies in emerging markets.",
+        "Crafting resilient digital infrastructure for enterprise and government operations.",
     },
     {
       number: "5",
-      label: "Key Focus Areas",
+      label: " Core Domains",
       description:
-        "Our strategic focus spans fintech, gaming, and SaaS. We identify high-impact sectors for sustainable growth.",
+        "AI & Machine Learning, Fintech, Governance Systems, Cloud Infrastructure, and Education Technology.",
     },
     {
       number: "7",
-      label: "Countries of Operation",
+      label: "Active Countries",
       description:
-        "Current focus on emerging markets across four continents. Global strategies, local execution.",
+        "Operations and partnerships spanning Nigeria, Ghana, Kenya, the Netherlands, the UK, the US, and South Africa.",
     },
   ];
 

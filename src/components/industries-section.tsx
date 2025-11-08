@@ -61,8 +61,8 @@ const IndustriesSection = () => {
           className="mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-semibold mb-4">
-          Industries We<span>Empower.</span>
-            <br />
+          Industries We<span> Empower </span>
+            <br className="hidden md:block" />
             With
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl font-normal">

@@ -25,20 +25,17 @@ const AboutVenturesSection = () => {
             </p>
             <div className="space-y-6 text-gray-300 text-sm leading-relaxed">
               <p>
-                Co-invest in revolutionary and scalable startups, we're backed
-                by, building top-tier infrastructure and disruptive
-                breakthroughs in key technology sectors at a national and
-                regional scale.
+              Each product we create is designed to empower the next wave of innovation.
+From AI-powered credit scoring (AfriCredify) and digital escrow (CFG Escrow) to personalized learning (EduFlex AI), every Funkash platform is a proof point of our engineering philosophy — build once, scale infinitely.
               </p>
             </div>
 
             {/* Proprietary Tools */}
             <div className="mt-12  rounded-2xl">
-              <h3 className="text-base font-semibold mb-4">Proprietary Tools</h3>
+              <h3 className="text-base font-semibold mb-4">Let’s Build the Future</h3>
               <p className="text-gray-300 text-sm leading-relaxed">
-                We are equipped with patent frameworks, proprietary cutting-
-                edge technologies and AI-powered venture intelligence tools for
-                due diligence, market analysis, and portfolio optimization.
+              We’re shaping the infrastructure of the digital age — and we’d like you to be part of it.
+              Whether you’re a partner, innovator, or enterprise ready to scale — the future is being built here.
               </p>
             </div>
           </motion.div>

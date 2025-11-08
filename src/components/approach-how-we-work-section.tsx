@@ -7,19 +7,19 @@ const ApproachHowWeWorkSection = () => {
   const steps = [
     {
       title: "Discovery & Evaluation",
-      description: "We begin by understanding your vision, evaluating market opportunities, and identifying technical requirements for your business.",
+      description: "We map challenges, define data needs, and identify automation opportunities.",
     },
     {
-      title: "Technical Leadership",
-      description: "Our team provides hands-on technical expertise, building scalable infrastructure and implementing cutting-edge solutions.",
+      title: "Technical Architecture",
+      description: "We design scalable systems, robust APIs, and adaptive data structures.",
     },
     {
-      title: "Strategic Insights",
-      description: "Leveraging data-driven analysis through FunGPTs, we provide strategic guidance to help you make informed decisions and spot trends.",
+      title: "Strategic Integration",
+      description: "We deploy AI layers, analytics, and interface logic; ensuring every part communicates with precision",
     },
     {
-      title: "Long-Term Partnership",
-      description: "We commit to ongoing support, evolving with your business needs, and becoming a trusted partner for sustainable growth.",
+      title: "Partnership & Growth",
+      description: "We continue iterating, monitoring, and scaling systems to meet new challenges.",
     },
   ];
 
@@ -33,7 +33,7 @@ const ApproachHowWeWorkSection = () => {
           transition={{ duration: 0.8 }}
           className="text-lg md:text-2xl lg:text-4xl font-semibold mb-6"
         >
-          How We <span>Work</span> 
+          How We <span>Build</span> 
         </motion.h2>
 
         <motion.p
@@ -43,7 +43,8 @@ const ApproachHowWeWorkSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-gray-300 t mb-16 lg:max-w-xs"
         >
-          Our approach is rooted in collaboration, innovation, and data-driven decisions. We partner with founders to provide technical expertise and strategic insight.
+       Our approach blends creative vision with technical precision, ensuring every project we take moves seamlessly from idea to implementation.
+
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">

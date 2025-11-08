@@ -101,7 +101,7 @@ const ContactFormSection = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Full Name"
+                  placeholder="Full Name — Who should we thank for reaching out?"
                   required
                   className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
                 />
@@ -113,7 +113,7 @@ const ContactFormSection = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Email"
+                  placeholder="Email — Where can we send our response?"
                   required
                   className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
                 />
@@ -125,7 +125,7 @@ const ContactFormSection = () => {
                   name="businessName"
                   value={formData.businessName}
                   onChange={handleChange}
-                  placeholder="Business or Startup name"
+                  placeholder="Organization or Startup Name — Let us know where your vision lives."
                   required
                   className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
                 />
@@ -137,7 +137,7 @@ const ContactFormSection = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="Phone number"
+                  placeholder="Phone Number — Optional, if you prefer a call-back."
                   required
                   className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
                 />
@@ -148,7 +148,7 @@ const ContactFormSection = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Message"
+                  placeholder="Message — Share a bit about what you’d like to build or learn more about."
                   required
                   rows={6}
                   className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors resize-none"

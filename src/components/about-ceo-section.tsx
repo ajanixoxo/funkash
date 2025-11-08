@@ -17,10 +17,11 @@ const AboutCEOSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-semibold mb-6">
-            Meet Our <span className="italic font-normal">CEO</span>
+            Meet Our <span className="italic font-normal">Founder & CEO</span>
           </h2>
           <p className="text-gray-300 text-lg lg:max-w-xl mx-auto">
-          He brings decades of experience, blending technical expertise with strategic leadership to drive innovation and growth. Together, we’re turning visionary ideas into reality.
+          Oluwafemi Funikash Ogunwole is the Founder and CEO of Funkash Technology, a multidisciplinary engineer and visionary who leads with a simple principle — build technology that truly serves people.
+          Under his leadership, Funkash has evolved from an experimental tech lab into a global systems company delivering AI-powered platforms for finance, governance, education, and infrastructure. His focus is clear: transforming complexity into intelligent systems that drive growth across Africa and beyond.
           </p>
         </motion.div>
 

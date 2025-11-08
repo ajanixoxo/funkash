@@ -28,7 +28,7 @@ const ContactHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-6xl lg:text-7xl font-serif font-semibold leading-tight mb-8 max-w-5xl"
           >
-            Get In <span className="italic font-normal">Touch</span> With Us
+            Let's  <span className="italic font-normal">Build</span> What's Next. Together
           </motion.h1>
 
           <motion.p
@@ -37,7 +37,8 @@ const ContactHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-lg md:text-xl mb-8 max-w-3xl leading-relaxed"
           >
-            Whether you're looking to partner with us, explore investment opportunities, or simply learn more about our work, we'd love to hear from you. Reach out to our team, and we'll get back to you promptly.
+Whether you’re exploring AI solutions, looking to modernize your systems, or seeking a trusted engineering partner — our team is ready to collaborate.
+Tell us about your challenge, and we’ll help you turn it into a breakthrough.
           </motion.p>
         </div>
       </div>

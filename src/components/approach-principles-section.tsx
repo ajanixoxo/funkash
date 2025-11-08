@@ -7,20 +7,19 @@ import { motion } from "framer-motion";
 const ApproachPrinciplesSection = () => {
   const principles = [
     {
-      title: "Technical Expertise",
-      description: "We believe that the right technology is key to building a sustainable business. Our team of seasoned developers and tech leaders works closely with founders to implement cutting-edge solutions tailored to their needs. From designing scalable APIs to modernizing legacy systems, we ensure that every company we invest in has the technical foundation to grow and compete globally.",
-      image: "/principles1.png",
+      title: "Technical Mastery",
+      description: "Great systems begin with great engineering. Our developers, data scientists, and AI architects build technology from the ground up — scalable, efficient, and secure. From designing APIs to deploying full automation ecosystems, we ensure every product we touch is built to evolve, not expire.",
       imagePosition: "left" as const,
     },
     {
-      title: "Data - Driven Strategy",
-      description: "At Funkash, we don't make decisions on intuition alone. Our proprietary tool, FunGPTs, leverages historical algorithms and in-depth research to craft informed strategies. This data-driven approach enables us to spot trends, assess risks, and scale businesses more efficiently. By marrying technology with insight, we create adaptable strategies that drive sustained growth.",
+      title: "Data-Led Design",
+      description: "We don’t rely on assumptions: we rely on intelligence. Our frameworks analyze patterns, predict outcomes, and optimize performance in real time. By fusing analytics with design thinking, we craft adaptive digital systems that get smarter the more they’re used.",
       image: "/principles2.png",
       imagePosition: "left" as const,
     },
     {
-      title: "Long - Term Partnership",
-      description: "We're not here for short-term wins. We commit to building lasting relationships with the entrepreneurs we invest in, providing ongoing technical support, strategic guidance, and resources to help them thrive. Our role goes beyond capital investment; we become a trusted partner, dedicated to supporting the vision and long-term success of every business we work with.",
+      title: "Human-Centric Partnership",
+      description: "Every collaboration begins with empathy. We work closely with clients to understand their users, workflows, and ambitions — not just their technical specs. Our goal isn’t to build software for software’s sake, but to engineer solutions that empower teams and accelerate human creativity.",
       image: "/principles3.png",
       imagePosition: "left" as const,
     },
@@ -46,7 +45,7 @@ const ApproachPrinciplesSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-gray-300 text-lg md:text-xl mb-16 max-w-lg"
         >
-          At Funkash Family Holdings, our approach is anchored by two guiding principles.
+          At Funkash Technology, our philosophy is built on three enduring principles that define how we think, code, and collaborate
         </motion.p>
 
         <div className="space-y-24 md:space-y-32">
@@ -57,9 +56,8 @@ const ApproachPrinciplesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`flex flex-col ${
-                principle.imagePosition === "left" ? "lg:flex-row" : "lg:flex-row-reverse"
-              } gap-12 items-start`}
+              className={`flex flex-col ${principle.imagePosition === "left" ? "lg:flex-row" : "lg:flex-row-reverse"
+                } gap-12 items-start`}
             >
               {/* Text Content */}
               <div className="flex-1">

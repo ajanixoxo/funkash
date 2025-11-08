@@ -26,7 +26,7 @@ const AboutLegacySection = () => {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight">
               Transforming <span className="italic font-normal">Ideas</span>,
               <br />
-              Building <span className="italic font-normal">Legacies</span>
+              Engineering <span className="italic font-normal">Legacies</span>
             </h2>
           </motion.div>
 
@@ -46,24 +46,12 @@ const AboutLegacySection = () => {
             </p>
 
             <p>
-              Funkash currently is headquartered in Africa (Headquartered & Co-Located
-              in Nigeria). As a venture funding and tech company, we focus on
-              building and growing technology and infrastructure companies.
-              Our key focus is on Nigeria & West Africa, currently focusing on
-              Nigeria, Ghana, Kenya, Seychelles, Mauritius, and South
-              Africa. The Venture Investment arm focus on high Mets & Tech.
+            Funkash Technology was founded on the belief that innovation must lead to impact.
+            From building intelligent ERP and tax systems to designing AI-driven learning and governance platforms, we’ve spent years engineering solutions that solve real-world problems at scale.
             </p>
 
             <p>
-              The company is a Venture Capital firm/ tech company operating in
-              the technology and financial service spaces in Sub-Sahara Africa
-              and beyond, providing strategic venture capital and support
-              empowering startups/ventures to build sustainable and
-              profitable businesses throughout emerging economies. We invest and work with
-              early-stage and middle-stage companies, and we work with our
-              portfolio companies helping them build out their business models
-              by co-investing strong leadership teams, building commercial strategies,
-              driving growth, and innovation.
+            Our mission is to bridge the gap between imagination and execution — transforming visionary concepts into deployable systems that shape how industries operate, communicate, and grow.
             </p>
 
             <p className="font-medium">
