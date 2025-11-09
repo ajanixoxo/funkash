@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 
 "use client";
@@ -8,22 +9,19 @@ import { motion } from "framer-motion";
 const PortfolioSection = () => {
   const portfolioItems = [
     {
-      name: "VincereBet",
-      description: "Leading sports betting platform in emerging markets",
-      bgColor: "bg-cyan-500",
-      logo: "V",
+      name: "Afriprize",
+      description: "Afriprize: A non-profit gaming platform utilizing gamification for community development and charitable initiatives.",
+      image: "/projects/project7.png",
     },
     {
-      name: "OP Gaming",
-      description: "Next-gen gaming and esports ecosystem",
-      bgColor: "bg-orange-500",
-      logo: "OP",
+      name: "Limpiar",
+      description: "Limpiar: A technology-driven marketplace transforming the cleaning services industry.",
+      image: "/projects/project3.png",
     },
     {
-      name: "LUMINEBOT",
-      description: "AI-powered business automation platform",
-      bgColor: "bg-purple-600",
-      logo: "⚡",
+      name: "Funkash Global Properties",
+      description: "Funkash Global Properties: Property development, modernizing real estate operations with tech.",
+      image: "/projects/project4.png",
     },
   ];
 
@@ -58,25 +56,20 @@ const PortfolioSection = () => {
             >
               {/* Logo Area */}
               <div
-                className={`${item.bgColor} h-64 flex items-center justify-center relative overflow-hidden`}
+                className={` h-64 flex items-center justify-center relative overflow-hidden`}
               >
-                <div className="text-white text-8xl font-semibold opacity-90">
-                  {item.logo}
-                </div>
+                    <div
+                    className={` rounded-2xl  flex items-center justify-start relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl`}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 filter group-hover:brightness-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+                  </div>
                 {/* Decorative elements */}
-                {item.name === "VincereBet" && (
-                  <div className="absolute bottom-4 left-4 text-white text-2xl font-semibold">
-                    VincereBet
-                  </div>
-                )}
-                {item.name === "LUMINEBOT" && (
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-white text-xl font-semibold">LUMINEBOT</div>
-                    <div className="text-white text-sm opacity-80">
-                      Unlocking Potential
-                    </div>
-                  </div>
-                )}
+                
               </div>
 
               {/* Content Area */}
