@@ -56,11 +56,11 @@ const AboutLegacySection = () => {
 
             <p className="font-medium">
               We see venture firms as not just about startups, where growth, scalability,
-              and innovation are all  in building strong companies and value.
+              and innovation are all essential in building strong companies and value.
             </p>
           </motion.div>
         </div>
-essential      </div>
+      </div>
     </section>
   );
 };

@@ -25,25 +25,36 @@ const PortfolioSections = () => {
           name: "VincereBet",
           description: "Vincerebet: Online betting with a focus on user experience and technology.",
           image: "/projects/project1.png",
-          // bgColor: "bg-gradient-to-br from-blue-500 to-blue-600",
         },
         {
           name: "Afripay",
           description: "Afripay: A digital payment platform streamlining financial transactions across Africa.",
           image: "/projects/project2.png",
-          // bgColor: "bg-gradient-to-br from-orange-500 to-orange-600",
         },
         {
-          name: "Limpiador",
+          name: "Limpiar",
           description: "Limpiar: A technology-driven marketplace transforming the cleaning services industry.",
           image: "/projects/project3.png",
-          // bgColor: "bg-gradient-to-br from-purple-500 to-purple-600",
         },
         {
           name: "Funkash Global Properties",
           description: "Funkash Global Properties: Property development, modernizing real estate operations with tech.",
           image: "/projects/project4.png",
-          // bgColor: "bg-gradient-to-br from-yellow-500 to-yellow-600",
+        },
+        {
+          name: "Fuel Drop",
+          description: "Fuel Drop: Professional automotive services delivered to your location with certified technicians across Lagos, Abuja, and Port Harcourt.",
+          image: "/projects/project8.png",
+        },
+        {
+          name: "EduFlex AI",
+          description: "AI-powered courses, tailored to your goals, learning style, and pace. Turn any topic into a structured learning path in seconds.",
+          image: "/projects/project9.png",
+        },
+        {
+          name: "Aegismail",
+          description: "Aegismail: A secure, cloud-based email platform for businesses and individuals, providing reliable email hosting and communication services.",
+          image: "/projects/project10.png",
         },
       ],
     },
@@ -54,13 +65,21 @@ const PortfolioSections = () => {
           name: "Dunes Ai",
           description: "Dunes Ai: Pioneering AI and drone solutions for agriculture and logistics.",
           image: "/projects/project5.png",
-          // bgColor: "bg-gradient-to-br from-gray-900 to-black",
         },
         {
           name: "Nanohosting",
           description: "Nanohosting: Our cloud hosting solution, delivers fast, reliable, and secure hosting services to businesses around the world.",
           image: "/projects/project6.png",
-          // bgColor: "bg-gradient-to-br from-blue-700 to-blue-900",
+        },
+        {
+          name: "TRAD",
+          description: "TRAD: A fashion ecommerce platform for buying and selling goods and services across Africa.",
+          image: "/projects/project11.jpg",
+        },
+        {
+          name: "Digital Africa Wowen",
+          description: "DAW: A Cooperative Society for the promotion of digital technology and innovation in Africa.",
+          image: "/projects/project12.png",
         },
       ],
     },
@@ -71,7 +90,11 @@ const PortfolioSections = () => {
           name: "Afriprize",
           description: "Afriprize: A non-profit gaming platform utilizing gamification for community development and charitable initiatives.",
           image: "/projects/project7.png",
-          // bgColor: "bg-white",
+        },
+        {
+          name: "Flowpense",
+          description: "Flowpense: A platform for managing and tracking personal finances, providing insights and recommendations for financial planning and growth.",
+          image: "/projects/project13.png",
         },
       ],
     },
@@ -97,11 +120,11 @@ const PortfolioSections = () => {
             {/* Projects Grid */}
             <div
               className={`grid grid-cols-1 ${
-                section.projects.length === 4
-                  ? "md:grid-cols-2 lg:grid-cols-2"
+                section.projects.length >= 4
+                  ? "md:grid-cols-2 lg:grid-cols-3"
                   : section.projects.length === 2
                   ? "md:grid-cols-2"
-                  : "md:grid-cols-2  mx-auto"
+                  : "md:grid-cols-2 mx-auto"
               } gap-8 md:gap-12`}
             >
               {section.projects.map((project, projectIndex) => (
