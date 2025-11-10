@@ -74,7 +74,7 @@ const PortfolioSections = () => {
         {
           name: "TRAD",
           description: "TRAD: A fashion ecommerce platform for buying and selling goods and services across Africa.",
-          image: "/projects/project11.jpg",
+          image: "/projects/project11.png",
         },
         {
           name: "Digital Africa Wowen",
