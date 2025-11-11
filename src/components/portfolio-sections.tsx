@@ -56,6 +56,11 @@ const PortfolioSections = () => {
           description: "Aegismail: A secure, cloud-based email platform for businesses and individuals, providing reliable email hosting and communication services.",
           image: "/projects/project10.png",
         },
+        {
+          name: "Flowpense",
+          description: "Flowpense: A platform for managing and tracking personal finances, providing insights and recommendations for financial planning and growth.",
+          image: "/projects/project13.png",
+        },
       ],
     },
     {
@@ -91,11 +96,7 @@ const PortfolioSections = () => {
           description: "Afriprize: A non-profit gaming platform utilizing gamification for community development and charitable initiatives.",
           image: "/projects/project7.png",
         },
-        {
-          name: "Flowpense",
-          description: "Flowpense: A platform for managing and tracking personal finances, providing insights and recommendations for financial planning and growth.",
-          image: "/projects/project13.png",
-        },
+       
       ],
     },
   ];
