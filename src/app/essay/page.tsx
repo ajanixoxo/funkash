@@ -42,7 +42,7 @@ const BookCard: React.FC<{ essay: Essay; index: number }> = ({ essay, index }) =
             onMouseLeave={() => setIsHovered(false)}
             style={{ transitionDelay: isVisible ? '0ms' : `${index * 50}ms` }}
         >
-            <a href={`/essay/${essay._id.replace(/ /g, "-").toLocaleLowerCase()}`} className="block p-8">
+            <a href={`/essay/${essay._id}`} className="block p-8">
                 {/* <a href="essay/detail" className="block p-8"> */}
 
                 {/* Quote/Excerpt */}
@@ -121,8 +121,8 @@ const EssayPage: React.FC = () => {
         const fetchEssays = async () => {
             try {
                 const response = await axios.get("/api/essays/public")
-                const publishedEssays = response.data.filter((essay: Essay) => essay.published)
-                setEssays(publishedEssays)
+                // Public API already returns only published essays
+                setEssays(response.data)
             } catch (error) {
                 console.error("Error fetching essays:", error)
             } finally {
