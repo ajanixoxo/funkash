@@ -16,7 +16,7 @@ export default function Navbar() {
     { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
     { label: 'Approach', ariaLabel: 'Our approach', link: '/approach' },
     { label: 'Projects', ariaLabel: 'Check out our project', link: '/projects' },
-    // { label: 'Essay', ariaLabel: 'View our services', link: '/essay' },
+    { label: 'Essay', ariaLabel: 'Explore our essays', link: '/essay' },
     //  { label: 'Leadership', ariaLabel: 'Meet Our CEO', link: '/learedership' },
     // { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
   ];
@@ -37,7 +37,7 @@ export default function Navbar() {
     { lable: "About", href: "/about" },
     { lable: "Approach", href: "/approach" },
     { lable: "Projects", href: "/projects" },
-    // { lable: "Essay", href: "/essay" },
+    { lable: "Essay", href: "/essay" },
     // { lable: "Leadership", href: "/leadership" },
     // { lable: "Contact", href: "/contact" },
   ];

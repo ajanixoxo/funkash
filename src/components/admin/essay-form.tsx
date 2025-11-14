@@ -311,7 +311,7 @@ export default function EssayForm({ essay, onClose, onSuccess }: EssayFormProps)
               <div className="p-6">
                 <article className="prose prose-invert max-w-none">
                   <h1 className="text-4xl font-bold text-white mb-4">{formData.title || "Untitled Essay"}</h1>
-                  <p className="text-gray-300 text-lg mb-6 italic">"{formData.excerpt || "No excerpt provided"}"</p>
+                  <p className="text-gray-300 text-lg mb-6 italic">&ldquo;{formData.excerpt || "No excerpt provided"}&rdquo;</p>
                   <div
                     className="text-gray-200 leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: formData.content || "<p>Start writing to see preview...</p>" }}

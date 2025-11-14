@@ -48,8 +48,9 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
     try {
       const response = await axios.get("/api/essays")
       set({ essays: response.data, loading: false })
-    } catch (error: any) {
-      const errorMessage = error.response?.data?.error || "Failed to fetch essays"
+    } catch (error: unknown) {
+      const axiosError = error as { response?: { data?: { error?: string } } }
+      const errorMessage = axiosError.response?.data?.error || "Failed to fetch essays"
       set({ error: errorMessage, loading: false })
       console.error("Error fetching essays:", error)
     }
@@ -65,8 +66,9 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
         loading: false,
       }))
       return newEssay
-    } catch (error: any) {
-      const errorMessage = error.response?.data?.error || "Failed to create essay"
+    } catch (error: unknown) {
+      const axiosError = error as { response?: { data?: { error?: string } } }
+      const errorMessage = axiosError.response?.data?.error || "Failed to create essay"
       set({ error: errorMessage, loading: false })
       console.error("Error creating essay:", error)
       return null
@@ -83,8 +85,9 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
         loading: false,
       }))
       return updatedEssay
-    } catch (error: any) {
-      const errorMessage = error.response?.data?.error || "Failed to update essay"
+    } catch (error: unknown) {
+      const axiosError = error as { response?: { data?: { error?: string } } }
+      const errorMessage = axiosError.response?.data?.error || "Failed to update essay"
       set({ error: errorMessage, loading: false })
       console.error("Error updating essay:", error)
       return null
@@ -100,8 +103,9 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
         loading: false,
       }))
       return true
-    } catch (error: any) {
-      const errorMessage = error.response?.data?.error || "Failed to delete essay"
+    } catch (error: unknown) {
+      const axiosError = error as { response?: { data?: { error?: string } } }
+      const errorMessage = axiosError.response?.data?.error || "Failed to delete essay"
       set({ error: errorMessage, loading: false })
       console.error("Error deleting essay:", error)
       return false
@@ -129,8 +133,9 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
         loading: false,
       }))
       return true
-    } catch (error: any) {
-      const errorMessage = error.response?.data?.error || "Failed to toggle publish status"
+    } catch (error: unknown) {
+      const axiosError = error as { response?: { data?: { error?: string } } }
+      const errorMessage = axiosError.response?.data?.error || "Failed to toggle publish status"
       set({ error: errorMessage, loading: false })
       console.error("Error toggling publish:", error)
       return false

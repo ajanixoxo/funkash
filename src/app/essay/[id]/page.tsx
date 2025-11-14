@@ -1,7 +1,7 @@
 "use client"
 import Silk from "@/components/Silk"
 import React, { useState, useEffect } from "react"
-import { useParams, useRouter } from "next/navigation"
+import { useParams } from "next/navigation"
 import axios from "axios"
 import Link from "next/link"
 import Footer from "@/components/footer"
@@ -23,7 +23,6 @@ interface Essay {
 
 const EssayDetailPage: React.FC = () => {
   const params = useParams()
-  const router = useRouter()
   const [essay, setEssay] = useState<Essay | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -39,7 +38,7 @@ const EssayDetailPage: React.FC = () => {
 
       try {
         // Normalize the ID - handle both MongoDB ObjectId format and URL-friendly format
-        let essayId = params.id as string
+        const essayId = params.id as string
         
         // If the ID contains dashes or is lowercase, try to find the essay by matching
         // Otherwise use it directly
@@ -52,10 +51,11 @@ const EssayDetailPage: React.FC = () => {
         }
 
         setEssay(response.data)
-      } catch (err: any) {
-        if (err.response?.status === 404) {
+      } catch (err: unknown) {
+        const axiosError = err as { response?: { status?: number } }
+        if (axiosError.response?.status === 404) {
           setError("Essay not found")
-        } else if (err.response?.status === 403) {
+        } else if (axiosError.response?.status === 403) {
           setError("This essay is not published")
         } else {
           setError("Failed to load essay. Please try again later.")
@@ -243,7 +243,7 @@ const EssayDetailPage: React.FC = () => {
                   <path d="M0 6.646C0 3.107 2.531 1.002 4.11.032c.2-.123.416.133.262.312A8.202 8.202 0 002.92 2.777 4.023 4.023 0 110 6.647zm8.955 0c0-3.539 2.531-5.644 4.11-6.613.2-.123.416.132.263.31a8.202 8.202 0 00-1.454 2.434 4.023 4.023 0 11-2.92 3.87z" />
                 </svg>
                 <p className="text-xl lg:text-2xl text-gray-100 dark:text-gray-200 italic leading-relaxed pl-12">
-                  "{essay.excerpt}"
+                  &ldquo;{essay.excerpt}&rdquo;
                 </p>
               </div>
             )}

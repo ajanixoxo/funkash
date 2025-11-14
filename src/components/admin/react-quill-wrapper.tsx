@@ -5,6 +5,7 @@ import dynamic from "next/dynamic"
 
 // Import and execute polyfill immediately at module level
 if (typeof window !== "undefined") {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   require("@/lib/react-quill-polyfill")
 }
 
@@ -23,6 +24,7 @@ interface ReactQuillWrapperProps {
   value: string
   onChange: (value: string) => void
   placeholder?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   modules?: any
   formats?: string[]
 }

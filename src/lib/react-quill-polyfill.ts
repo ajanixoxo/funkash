@@ -6,22 +6,26 @@ if (typeof window !== "undefined") {
   const patchFindDOMNode = () => {
     try {
       // Try to get ReactDOM from various possible locations
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let ReactDOM: any = null
       
       // Try require first
       try {
+        // eslint-disable-next-line @typescript-eslint/no-require-imports
         ReactDOM = require("react-dom")
-      } catch (e) {
+      } catch {
         // Try alternative
         try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ReactDOM = (window as any).ReactDOM
-        } catch (e2) {
+        } catch {
           // Ignore
         }
       }
       
       if (ReactDOM && !ReactDOM.findDOMNode) {
         // Create a polyfill for findDOMNode
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ReactDOM.findDOMNode = function (instance: any) {
           if (instance == null) {
             return null
@@ -62,6 +66,7 @@ if (typeof window !== "undefined") {
         }
         
         // Make it available globally
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ;(window as any).ReactDOM = ReactDOM
       }
     } catch (e) {
