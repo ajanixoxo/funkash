@@ -1,0 +1,42 @@
+[33mbfd2a4d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m refactor: remove unused image files from public directory to streamline repository
+[33mdd5de87[m Resolve merge conflict in README.md
+[33mfe8c8ef[m refactor: update .gitignore to include .env and remove unused project video files for cleaner repository
+[33m30c05e3[m refactor: simplify essay API and enhance error handling in essay store, update UI components for improved text presentation
+[33m43577d2[m refactor: update essay management features with enhanced search and filter capabilities, integrate Quill for rich text editing, and improve UI for better user experience
+[33md9a94b6[m refactor: add new project "Flowpense" to portfolio sections with updated description and image for enhanced content diversity
+[33m78ed23e[m refactor: update project images in portfolio sections and correct image format for improved consistency
+[33m43f9eaa[m refactor: update portfolio section with new project entries, enhance descriptions, and improve layout with image integration for better visual appeal
+[33m46b6df5[m refactor: enhance portfolio sections with new projects, update project names and descriptions, and improve layout for better presentation
+[33m46b61fe[m refactor: improve content structure and clarity in approach principles section, and update image assets for better presentation
+[33m817ac65[m refactor: remove unused eslint rule and add image to approach principles section for improved content presentation
+[33m66a416f[m refactor: update messaging and content across various sections to enhance clarity and align with brand vision
+[33m1c93670[m refactor: clean up unused eslint rules in CTA and testimonial sections, and fix typo in approach principles section
+[33m3befbe3[m refactor: update CTA, footer, and industry sections with new messaging and improved clarity
+[33m05d85d7[m refactor: enhance typography across the application with consistent font weights and styles
+[33md976c07[m refactor: update section backgrounds and improve project image paths for consistency across the portfolio
+[33m92bc38b[m refactor: overhaul Projects page layout, integrate Portfolio sections, and streamline Navbar links
+[33m770bd52[m refactor: update approach sections with new layout, improved text content, and enhanced footer design
+[33m42e27a9[m refactor: update Home and About pages with new sections and improve Navbar links
+[33m3ed54fe[m fix logout path
+[33m2ef80b9[m fix file path
+[33mfd93f7b[m Fixed some route issues
+[33m1d1b05e[m Fixed some shit
+[33m110c14a[m Fixed  build errors
+[33mbd1ad87[m Created a comprehensive admin dashboard for funkash
+[33mec78cdb[m fix: restore eslint-disable comments for unused vars and any types in ScrollStack component
+[33m8a08521[m feat: add CircularGallery component for interactive image gallery with text overlays
+[33m2a52391[m fixed responsivness
+[33m462f875[m Fixed build errros, now depl;oying....
+[33m9663e36[m Refactored the whole page, and did a complete redesign in two days, i used one day to think like a mad man and the next day to turn the thought to this
+[33m994a068[m Removed eslint-disable comments for image elements in Contact, Process, Services, and Testimonials sections to enhance code clarity and maintainability.
+[33m5811c33[m Remove type attribute from AnimatedButton in ContactSection for improved functionality.
+[33m894319d[m Add scroll lock functionality to HomePage and assign ID to ContactSection
+[33m6939c6b[m Refactored animation code in AboutSection, ProcessSection, and ServicesSection components by commenting out GSAP and ScrollTrigger logic for improved readability and potential future use.
+[33m84d46a8[m Updated image source in AboutSection, improved layout and responsiveness in FunkashFounderSection, and added new sections (About, Services, Process, Testimonials, Contact) to HomePage.
+[33m8e8b5c2[m Fixed loder responsiveness
+[33m63b25f4[m fix stacked for desktop
+[33mdd18a9c[m still trying to maintain the responsiveess
+[33m7e5a8bb[m fixed some animation shit
+[33mab575f5[m Sections
+[33m1aea58a[m we have done a lot
+[33me10582f[m Initial commit from Create Next App
