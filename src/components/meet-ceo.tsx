@@ -109,7 +109,7 @@ const MeetCEOSection: React.FC = () => {
 
                             <div className="space-y-6 text-gray-300 leading-relaxed text-lg">
                                 <p>
-                                    Global technology entrepreneur with 17+ years building in Africa, Asia, and Europe. Founder of Funkash Holdings. Builder of technical teams, ecosystems, and frontier innovation platforms.
+                                    Global technology entrepreneur with 17+ years building in Africa, Asia, and Europe. Founder of Funkash Technology. Builder of technical teams, ecosystems, and frontier innovation platforms.
                                 </p>
 
                             </div>

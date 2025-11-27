@@ -20,21 +20,42 @@ const AboutVenturesSection = () => {
               Our <span className="italic font-normal">Ventures</span>
             </h2>
             <p className="text-base text-gray-300 mb-8">
-              At Funkash Tech Studio, we:
+              At Funkash Technology, every venture is built with one philosophy in mind:
             </p>
             <div className="space-y-6 text-gray-300 text-sm leading-relaxed">
               <p>
-              Each product we create is designed to empower the next wave of innovation.
-From AI-powered credit scoring (AfriCredify) and digital escrow (CFG Escrow) to personalized learning (EduFlex AI), every Funkash platform is a proof point of our engineering philosophy — build once, scale infinitely.
+                solve real problems with systems that can scale across continents.
+              </p>
+              <p>
+                We design products that sit at the intersection of engineering, culture, and human need tools that simplify complexity, accelerate growth, and unlock opportunity.
+              </p>
+              <p>
+                From AI-powered credit intelligence (AfriCredify) and secure digital escrow (CFG Escrow) to personalized learning ecosystems (EduFlex AI) and enterprise spend automation (Flowpense), each product is crafted with the same principle:
+              </p>
+              <p className="font-semibold text-white">
+                Build it once. Make it useful everywhere. Scale it infinitely.
               </p>
             </div>
 
-            {/* Proprietary Tools */}
-            <div className="mt-12  rounded-2xl">
-              <h3 className="text-base font-semibold mb-4">Let’s Build the Future</h3>
+            {/* Building the Infrastructure */}
+            <div className="mt-12 rounded-2xl">
+              <h3 className="text-base font-semibold mb-4">Building the Infrastructure of Tomorrow</h3>
+              <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                We are not just shipping products we are laying the digital foundation for the next decade of African and global innovation.
+              </p>
+              <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                Whether you&apos;re:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-300 text-sm leading-relaxed mb-4 ml-4">
+                <li>an enterprise expanding into the digital future,</li>
+                <li>an innovator solving real-world problems, or</li>
+                <li>a partner aligned with long-term value creation…</li>
+              </ul>
               <p className="text-gray-300 text-sm leading-relaxed">
-              We’re shaping the infrastructure of the digital age — and we’d like you to be part of it.
-              Whether you’re a partner, innovator, or enterprise ready to scale — the future is being built here.
+                You belong here.
+              </p>
+              <p className="text-gray-300 text-sm leading-relaxed mt-4">
+                The future is being engineered and it&apos;s happening at Funkash Technology.
               </p>
             </div>
           </motion.div>

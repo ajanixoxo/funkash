@@ -193,7 +193,7 @@ const LeadershipPage: React.FC = () => {
                       <div className="h-1 w-24 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full" />
 
                       <p className="text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Global technology entrepreneur with <span className="font-semibold text-purple-600 dark:text-purple-400">17+ years</span> building in Africa, Asia, and Europe. Founder of <span className="font-semibold text-purple-600 dark:text-purple-400">Funkash Holdings</span>. Builder of technical teams, ecosystems, and frontier innovation platforms.
+                        Global technology entrepreneur with <span className="font-semibold text-purple-600 dark:text-purple-400">17+ years</span> building in Africa, Asia, and Europe. Founder of <span className="font-semibold text-purple-600 dark:text-purple-400">Funkash Technology</span>. Builder of technical teams, ecosystems, and frontier innovation platforms.
                       </p>
 
                       {/* Stats */}
