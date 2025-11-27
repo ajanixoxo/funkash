@@ -15,7 +15,7 @@ const AboutImpactSection = () => {
       number: "5",
       label: " Core Domains",
       description:
-        "AI & Machine Learning, Fintech, Governance Systems, Cloud Infrastructure, and Education Technology.",
+        "AI & Machine Learning, Fintech, Governance Systems, Cloud Infrastructure, Research and Development,and Education Technology.",
     },
     {
       number: "7",
