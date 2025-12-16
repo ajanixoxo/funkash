@@ -106,7 +106,7 @@ const NewHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
             >
-          Empowering Intellignet System for a {" "}
+          Empowering Intelligent System for a {" "}
 
               <span className="italic font-normal">Smarter World </span>
             </motion.h1>
