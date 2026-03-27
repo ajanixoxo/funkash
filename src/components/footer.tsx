@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-white text-sm">
-                        © 2025 Funkash Family Holdings. All Right Reserved.
+                        © {new Date().getFullYear()} Funkash Family Holdings. All Right Reserved.
                     </p>
                     <a
                         href="#"
