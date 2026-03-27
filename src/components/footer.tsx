@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
     const quickLinks = ['Home', 'About', 'Approach', 'Portfolio', 'Contact'];
 
     const socialIcons = [
-        { Icon: Linkedin, href: '#', label: 'LinkedIn' },
-        { Icon: Twitter, href: '#', label: 'Twitter' },
-        { Icon: Instagram, href: '#', label: 'Instagram' },
+        { Icon: Linkedin, href: 'https://www.linkedin.com/company/funktech72', label: 'LinkedIn' },
+        { Icon: Twitter, href: 'https://x.com/iamfunkash', label: 'Twitter' },
+        { Icon: Instagram, href: 'https://www.instagram.com/iamfunkash/', label: 'Instagram' },
     ];
 
     return (
