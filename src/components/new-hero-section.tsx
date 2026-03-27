@@ -119,7 +119,7 @@ const NewHeroSection = () => {
             >
             We engineer scalable AI and automation platforms that help governments, enterprises, and innovators move faster, think sharper, and grow stronger.
             </motion.p>
-
+ 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
