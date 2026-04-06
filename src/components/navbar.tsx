@@ -3,10 +3,10 @@
 
 import { useState, useEffect } from "react"
 import { ChartNoAxesColumnIncreasing } from "lucide-react"
-// import AnimatedButton from "./animated-button"
 import StaggeredMenu from "./StaggeredMenu"
 import { motion } from "framer-motion"
 import Link from "next/link"
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -17,20 +17,24 @@ export default function Navbar() {
     { label: 'Approach', ariaLabel: 'Our approach', link: '/approach' },
     { label: 'Projects', ariaLabel: 'Check out our project', link: '/projects' },
     { label: 'Essay', ariaLabel: 'Explore our essays', link: '/essay' },
-    //  { label: 'Leadership', ariaLabel: 'Meet Our CEO', link: '/learedership' },
-    // { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
-  ];
+  ]
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 10)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-
 
   const navItems = [
     { lable: "Home", href: "/" },
@@ -38,99 +42,106 @@ export default function Navbar() {
     { lable: "Approach", href: "/approach" },
     { lable: "Projects", href: "/projects" },
     { lable: "Essay", href: "/essay" },
-    // { lable: "Leadership", href: "/leadership" },
-    // { lable: "Contact", href: "/contact" },
-  ];
+  ]
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 px-3 w-screen right-0 z-50 transition-all duration-300 py-5`}
+      className="fixed top-2 left-0 w-full z-50 px-3"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ delay: 0.5, duration: 0.5 }}
     >
-      <div className={` mx-auto   transition-all  ${scrolled ? " transition-all max-w-5xl  border-gray-500 rounded-[50px] bg-white/20 backdrop-blur-xl  shadow-md py-3 " : " block bg-transparent py-5  max-w-7xl"
-        }   px-4  py-2 `}>
-        <div className="  flex justify-between rounded-4xl items-center">
+      {/* GLASS CONTAINER */}
+      <motion.div
+        animate={{
+          backdropFilter: scrolled ? "blur(16px)" : "blur(0px)",
+          background: scrolled
+            ? "linear-gradient(to bottom, rgba(255,255,255,0.10), rgba(255,255,255,0.05))"
+            : "rgba(255,255,255,0)",
+          width: scrolled ? "80%" : "100%",
+          scale: scrolled ? 0.98 : 1,
+        }}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`
+          mx-auto 
+          border 
+          ${scrolled ? "border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.3)] rounded-[50px] py-3 px-4" : "border-transparent py-5 px-4 max-w-7xl"}
+        `}
+        style={{
+          maxWidth: scrolled ? "900px" : "1200px",
+          boxShadow: scrolled
+            ? "0 8px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1)"
+            : "none",
+        }}
+      >
+        <div className="flex justify-between items-center">
+          
+          {/* LOGO */}
           <div className="flex items-center text-white">
             <div className="w-10 md:w-16 h-16 rounded-md flex items-center justify-center mr-3 overflow-hidden">
-
-              <img
-                src="/logo.png"
-                alt="Funkash Logo"
-                className="w-full"
-              />
+              <img src="/logo.png" alt="Funkash Logo" className="w-full" />
             </div>
-            <h2 className={`font-semibold hidden md:flex  text-xl ${scrolled ? "text-gray-100" : "text-white"}`}>
+
+            <h2 className={`font-semibold hidden md:flex text-xl ${scrolled ? "text-white" : "text-white/80"}`}>
               Funkash Technology
             </h2>
-            {/* <span className={`font-semibold md:hidden   text-xl ${scrolled ? "text-gray-900" : "text-gray-900"}`}>
-            FunTech
-          </span> */}
           </div>
 
-          {/* Desktop menu */}
+          {/* DESKTOP MENU */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map(({ lable, href }, index) => (
               <motion.a
                 key={index}
                 href={href}
-                className={`font-medium relative transition-colors ${scrolled ? "text-white" : "text-gray-100"}`}
+                className={`font-medium relative transition-colors ${scrolled ? "text-white" : "text-white/70"}`}
                 whileHover="hover"
                 initial="initial"
               >
-                {/* Animated underline */}
+                {/* underline */}
                 <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-[#222946]"
+                  className="absolute -bottom-1 left-0 h-[1.5px] bg-white/80"
                   variants={{
                     initial: { width: "0%" },
                     hover: { width: "100%" },
                   }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.25 }}
                 />
 
-                {/* Floating effect */}
+                {/* text float */}
                 <motion.p
-                  className="block"
                   variants={{
                     initial: { y: 0 },
                     hover: { y: -2 },
                   }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  transition={{ duration: 0.2 }}
                 >
                   {lable}
                 </motion.p>
 
-                {/* Glowing background effect */}
+                {/* soft glass hover */}
                 <motion.div
-                  className="absolute inset-0 bg-[#222946]/5 rounded-md -z-10"
+                  className="absolute inset-0 rounded-md -z-10 backdrop-blur-sm"
                   variants={{
-                    initial: { scale: 0, opacity: 0 },
-                    hover: { scale: 1, opacity: 1 },
+                    initial: { opacity: 0, scale: 0.8 },
+                    hover: { opacity: 1, scale: 1 },
                   }}
                   transition={{ duration: 0.2 }}
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                  }}
                 />
               </motion.a>
             ))}
-
-
           </nav>
-          {/* <div className="hidden md:flex items-center space-x-8"> <AnimatedButton variant="primary">Get In Touch</AnimatedButton></div> */}
 
-
-
+          {/* CTA */}
           <div className="hidden md:flex">
             <Link
               href="/contact"
-              className="text-gray-900 bg-gray-300  md:flex border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
+              className="text-gray-900 bg-gray-300 border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-all duration-300 inline-flex items-center gap-2"
             >
               Partner With Us
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                 <path
                   fillRule="evenodd"
                   d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -140,7 +151,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* MOBILE BUTTON */}
           <motion.button
             className="md:hidden text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -149,46 +160,20 @@ export default function Navbar() {
             <ChartNoAxesColumnIncreasing className="rotate-270" />
           </motion.button>
         </div>
-        {/* Mobile menu */}
+
+        {/* MOBILE MENU */}
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-[100] bg-white"
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            style={{
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              width: '100vw',
-              height: '100vh'
-            }}
           >
-            {/* Close Button */}
             <motion.button
               onClick={() => setMobileMenuOpen(false)}
-              className="absolute top-6 right-6 z-[110] text-gray-800 hover:text-gray-600"
-              whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, rotate: -90 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              transition={{ delay: 0.2 }}
+              className="absolute top-6 right-6 z-[110] text-white"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
+              ✕
             </motion.button>
 
             <StaggeredMenu
@@ -201,21 +186,14 @@ export default function Navbar() {
               colors={['#B19EEF', '#5227FF']}
               logoUrl="/logo.png"
               accentColor="#ff6b6b"
-              onMenuOpen={() => console.log('Menu opened')}
-              onMenuClose={() => {
-                console.log('Menu closed')
-                setMobileMenuOpen(false)
-              }}
+              onMenuClose={() => setMobileMenuOpen(false)}
               isFixed={false}
               hideHeader={true}
               isOpen={mobileMenuOpen}
-              
             />
           </motion.div>
         )}
-      </div>
-
-
+      </motion.div>
     </motion.header>
   )
 }
