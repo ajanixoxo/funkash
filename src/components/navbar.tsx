@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { ChartNoAxesColumnIncreasing } from "lucide-react";
 import StaggeredMenu from "./StaggeredMenu";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import GlassSurface from "./GlassSurface";
 
@@ -50,8 +50,10 @@ export default function Navbar() {
   ];
 
   return (
+    <>
+    {/* DESKTOP NAVBAR */}
     <motion.header
-      className="fixed top-2 left-0 w-full z-50 px-3"
+      className="hidden md:block fixed top-2 left-0 w-full z-50 px-3"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ delay: 0.5, duration: 0.5 }}
@@ -168,50 +170,81 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* MOBILE BUTTON */}
-            <motion.button
-              className="md:hidden text-white"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ChartNoAxesColumnIncreasing className="rotate-270" />
-            </motion.button>
           </div>
 
-          {/* MOBILE MENU */}
-          {mobileMenuOpen && (
-            <motion.div
-              className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.button
-                onClick={() => setMobileMenuOpen(false)}
-                className="absolute top-6 right-6 z-[110] text-white"
-              >
-                ✕
-              </motion.button>
-
-              <StaggeredMenu
-                position="right"
-                items={menuItems}
-                displayItemNumbering={true}
-                menuButtonColor="#fff"
-                openMenuButtonColor="#fff"
-                changeMenuColorOnOpen={true}
-                colors={["#B19EEF", "#5227FF"]}
-                logoUrl="/logo.png"
-                accentColor="#ff6b6b"
-                onMenuClose={() => setMobileMenuOpen(false)}
-                isFixed={false}
-                hideHeader={true}
-                isOpen={mobileMenuOpen}
-              />
-            </motion.div>
-          )}
         </motion.div>
       </GlassSurface>
     </motion.header>
+
+    {/* MOBILE NAVBAR */}
+    <motion.header
+      className="md:hidden fixed top-0 left-0 w-full z-50 transition-all duration-300"
+      style={{
+         background: scrolled ? "rgba(255, 255, 255, 0.05)" : "transparent",
+         backdropFilter: scrolled ? "blur(16px)" : "none",
+         WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
+         borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.1)" : "transparent",
+      }}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ delay: 0.5, duration: 0.5 }}
+    >
+      <div className="flex justify-between items-center px-4 py-4">
+        {/* LOGO */}
+        <div className="flex items-center text-white">
+          <div className="w-10 h-10 rounded-md flex items-center justify-center overflow-hidden">
+            <img src="/logo.png" alt="Funkash Logo" className="w-full" />
+          </div>
+          <h2 className={`font-semibold ml-2 text-lg ${scrolled ? "text-white" : "text-white/80"}`}>
+            Funkash Technology
+          </h2>
+        </div>
+
+        {/* MOBILE BUTTON */}
+        <motion.button
+          className="text-white backdrop-blur-md bg-white/10 p-2 rounded-full border border-white/10"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          whileTap={{ scale: 0.95 }}
+        >
+          <ChartNoAxesColumnIncreasing className="rotate-270" />
+        </motion.button>
+      </div>
+    </motion.header>
+
+    <AnimatePresence>
+      {/* MOBILE MENU */}
+      {mobileMenuOpen && (
+        <motion.div
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.button
+            onClick={() => setMobileMenuOpen(false)}
+            className="absolute top-6 right-6 z-[110] text-white"
+          >
+            ✕
+          </motion.button>
+
+          <StaggeredMenu
+            position="right"
+            items={menuItems}
+            displayItemNumbering={true}
+            menuButtonColor="#fff"
+            openMenuButtonColor="#fff"
+            changeMenuColorOnOpen={true}
+            colors={["#B19EEF", "#5227FF"]}
+            logoUrl="/logo.png"
+            accentColor="#ff6b6b"
+            onMenuClose={() => setMobileMenuOpen(false)}
+            isFixed={false}
+            hideHeader={true}
+            isOpen={mobileMenuOpen}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
