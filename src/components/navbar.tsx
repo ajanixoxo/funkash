@@ -7,6 +7,7 @@ import StaggeredMenu from "./StaggeredMenu";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import GlassSurface from "./GlassSurface";
+import { LiquidButton } from "./ui/liquid-glass-button";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -150,24 +151,23 @@ export default function Navbar() {
 
             {/* CTA */}
             <div className="hidden md:flex">
-              <Link
-                href="/contact"
-                className="text-gray-900 bg-gray-300 border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-all duration-300 inline-flex items-center gap-2"
-              >
-                Partner With Us
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </Link>
+              <LiquidButton asChild variant="default" size="lg">
+                <Link href="/contact" className="flex items-center gap-2">
+                  Partner With Us
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </Link>
+              </LiquidButton>
             </div>
 
           </div>
@@ -201,13 +201,14 @@ export default function Navbar() {
         </div>
 
         {/* MOBILE BUTTON */}
-        <motion.button
-          className="text-white backdrop-blur-md bg-white/10 p-2 rounded-full border border-white/10"
+        <LiquidButton 
+          variant="default" 
+          size="icon"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          whileTap={{ scale: 0.95 }}
+          className="rounded-full overflow-hidden"
         >
           <ChartNoAxesColumnIncreasing className="rotate-270" />
-        </motion.button>
+        </LiquidButton>
       </div>
     </motion.header>
 
