@@ -1,36 +1,46 @@
 /* eslint-disable @next/next/no-img-element */
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ChartNoAxesColumnIncreasing } from "lucide-react"
-// import AnimatedButton from "./animated-button"
-import StaggeredMenu from "./StaggeredMenu"
-import { motion } from "framer-motion"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import { ChartNoAxesColumnIncreasing } from "lucide-react";
+import StaggeredMenu from "./StaggeredMenu";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import GlassSurface from "./GlassSurface";
+import { LiquidButton } from "./ui/liquid-glass-button";
+
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const menuItems = [
-    { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-    { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
-    { label: 'Approach', ariaLabel: 'Our approach', link: '/approach' },
-    { label: 'Projects', ariaLabel: 'Check out our project', link: '/projects' },
-    { label: 'Essay', ariaLabel: 'Explore our essays', link: '/essay' },
-    //  { label: 'Leadership', ariaLabel: 'Meet Our CEO', link: '/learedership' },
-    // { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+    { label: "Home", ariaLabel: "Go to home page", link: "/" },
+    { label: "About", ariaLabel: "Learn about us", link: "/about" },
+    { label: "Approach", ariaLabel: "Our approach", link: "/approach" },
+    {
+      label: "Projects",
+      ariaLabel: "Check out our project",
+      link: "/projects",
+    },
+    { label: "Essay", ariaLabel: "Explore our essays", link: "/essay" },
   ];
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 10);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { lable: "Home", href: "/" },
@@ -38,184 +48,204 @@ export default function Navbar() {
     { lable: "Approach", href: "/approach" },
     { lable: "Projects", href: "/projects" },
     { lable: "Essay", href: "/essay" },
-    // { lable: "Leadership", href: "/leadership" },
-    // { lable: "Contact", href: "/contact" },
   ];
 
   return (
+    <>
+    {/* DESKTOP NAVBAR */}
     <motion.header
-      className={`fixed top-0 left-0 px-3 w-screen right-0 z-50 transition-all duration-300 py-5`}
+      className="hidden md:block fixed top-2 left-0 w-full z-50 px-3"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ delay: 0.5, duration: 0.5 }}
     >
-      <div className={` mx-auto   transition-all  ${scrolled ? " transition-all max-w-5xl  border-gray-500 rounded-[50px] bg-white/20 backdrop-blur-xl  shadow-md py-3 " : " block bg-transparent py-5  max-w-7xl"
-        }   px-4  py-2 `}>
-        <div className="  flex justify-between rounded-4xl items-center">
-          <div className="flex items-center text-white">
-            <div className="w-10 md:w-16 h-16 rounded-md flex items-center justify-center mr-3 overflow-hidden">
+      {/* GLASS CONTAINER */}
+      <GlassSurface
+        width={"70%" as any}
+        height={"auto" as any}
+        displace={0.5}
+        distortionScale={-180}
+        redOffset={0}
+        greenOffset={10}
+        blueOffset={20}
+        brightness={50}
+        opacity={0.93}
+        mixBlendMode="screen"
+        className="w-full transition-all duration-300 mx-auto"
+        style={
+          !scrolled
+            ? {
+                background: "transparent",
+                backdropFilter: "none",
+                WebkitBackdropFilter: "none",
+                boxShadow: "none",
+                border: "none",
+              }
+            : {
+                backdropFilter: "blur(5px) var(--filter-id, url(#glass-filter))",
+                WebkitBackdropFilter: "blur(5px) var(--filter-id, url(#glass-filter))",
+              }
+        }
+      >
+        <motion.div>
+          <div className="flex justify-between gap-8  w-auto  items-center">
+            {/* LOGO */}
+            <div className="flex items-center text-white">
+              <div className="w-10 md:w-16 h-16 rounded-md flex items-center justify-center mr-3 overflow-hidden">
+                <img src="/logo.png" alt="Funkash Logo" className="w-full" />
+              </div>
 
-              <img
-                src="/logo.png"
-                alt="Funkash Logo"
-                className="w-full"
-              />
+              <h2
+                className={`font-semibold hidden md:flex text-xl ${scrolled ? "text-white" : "text-white/80"}`}
+              >
+                Funkash Technology
+              </h2>
             </div>
-            <h2 className={`font-semibold hidden md:flex  text-xl ${scrolled ? "text-gray-100" : "text-white"}`}>
-              Funkash Technology
-            </h2>
-            {/* <span className={`font-semibold md:hidden   text-xl ${scrolled ? "text-gray-900" : "text-gray-900"}`}>
-            FunTech
-          </span> */}
-          </div>
 
-          {/* Desktop menu */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map(({ lable, href }, index) => (
-              <motion.a
-                key={index}
-                href={href}
-                className={`font-medium relative transition-colors ${scrolled ? "text-white" : "text-gray-100"}`}
-                whileHover="hover"
-                initial="initial"
-              >
-                {/* Animated underline */}
-                <motion.div
-                  className="absolute -bottom-1 left-0 h-0.5 bg-[#222946]"
-                  variants={{
-                    initial: { width: "0%" },
-                    hover: { width: "100%" },
-                  }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                />
-
-                {/* Floating effect */}
-                <motion.p
-                  className="block"
-                  variants={{
-                    initial: { y: 0 },
-                    hover: { y: -2 },
-                  }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
+            {/* DESKTOP MENU */}
+            <nav className="hidden md:flex items-center space-x-8">
+              {navItems.map(({ lable, href }, index) => (
+                <motion.a
+                  key={index}
+                  href={href}
+                  className={`font-medium relative transition-colors ${scrolled ? "text-white" : "text-white/70"}`}
+                  whileHover="hover"
+                  initial="initial"
                 >
-                  {lable}
-                </motion.p>
+                  {/* underline */}
+                  <motion.div
+                    className="absolute -bottom-1 left-0 h-[1.5px] bg-white/80"
+                    variants={{
+                      initial: { width: "0%" },
+                      hover: { width: "100%" },
+                    }}
+                    transition={{ duration: 0.25 }}
+                  />
 
-                {/* Glowing background effect */}
-                <motion.div
-                  className="absolute inset-0 bg-[#222946]/5 rounded-md -z-10"
-                  variants={{
-                    initial: { scale: 0, opacity: 0 },
-                    hover: { scale: 1, opacity: 1 },
-                  }}
-                  transition={{ duration: 0.2 }}
-                />
-              </motion.a>
-            ))}
+                  {/* text float */}
+                  <motion.p
+                    variants={{
+                      initial: { y: 0 },
+                      hover: { y: -2 },
+                    }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {lable}
+                  </motion.p>
 
+                  {/* soft glass hover */}
+                  <motion.div
+                    className="absolute inset-0 rounded-md -z-10 backdrop-blur-sm"
+                    variants={{
+                      initial: { opacity: 0, scale: 0.8 },
+                      hover: { opacity: 1, scale: 1 },
+                    }}
+                    transition={{ duration: 0.2 }}
+                    style={{
+                      background: "rgba(255,255,255,0.06)",
+                    }}
+                  />
+                </motion.a>
+              ))}
+            </nav>
 
-          </nav>
-          {/* <div className="hidden md:flex items-center space-x-8"> <AnimatedButton variant="primary">Get In Touch</AnimatedButton></div> */}
+            {/* CTA */}
+            <div className="hidden md:flex">
+              <LiquidButton asChild variant="default" size="lg">
+                <Link href="/contact" className="flex items-center gap-2">
+                  Partner With Us
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </Link>
+              </LiquidButton>
+            </div>
 
-
-
-          <div className="hidden md:flex">
-            <Link
-              href="/contact"
-              className="text-gray-900 bg-gray-300  md:flex border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
-            >
-              Partner With Us
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <motion.button
-            className="md:hidden text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            whileTap={{ scale: 0.95 }}
-          >
-            <ChartNoAxesColumnIncreasing className="rotate-270" />
-          </motion.button>
-        </div>
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-[100] bg-white"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            style={{
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              width: '100vw',
-              height: '100vh'
-            }}
-          >
-            {/* Close Button */}
-            <motion.button
-              onClick={() => setMobileMenuOpen(false)}
-              className="absolute top-6 right-6 z-[110] text-gray-800 hover:text-gray-600"
-              whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, rotate: -90 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </motion.button>
-
-            <StaggeredMenu
-              position="right"
-              items={menuItems}
-              displayItemNumbering={true}
-              menuButtonColor="#fff"
-              openMenuButtonColor="#fff"
-              changeMenuColorOnOpen={true}
-              colors={['#B19EEF', '#5227FF']}
-              logoUrl="/logo.png"
-              accentColor="#ff6b6b"
-              onMenuOpen={() => console.log('Menu opened')}
-              onMenuClose={() => {
-                console.log('Menu closed')
-                setMobileMenuOpen(false)
-              }}
-              isFixed={false}
-              hideHeader={true}
-              isOpen={mobileMenuOpen}
-              
-            />
-          </motion.div>
-        )}
-      </div>
-
-
+        </motion.div>
+      </GlassSurface>
     </motion.header>
-  )
+
+    {/* MOBILE NAVBAR */}
+    <motion.header
+      className="md:hidden fixed top-0 left-0 w-full z-50 transition-all duration-300"
+      style={{
+         background: scrolled ? "rgba(255, 255, 255, 0.05)" : "transparent",
+         backdropFilter: scrolled ? "blur(16px)" : "none",
+         WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
+         borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.1)" : "transparent",
+      }}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ delay: 0.5, duration: 0.5 }}
+    >
+      <div className="flex justify-between items-center px-4 py-4">
+        {/* LOGO */}
+        <div className="flex items-center text-white">
+          <div className="w-10 h-10 rounded-md flex items-center justify-center overflow-hidden">
+            <img src="/logo.png" alt="Funkash Logo" className="w-full" />
+          </div>
+          <h2 className={`font-semibold ml-2 text-lg ${scrolled ? "text-white" : "text-white/80"}`}>
+            Funkash Technology
+          </h2>
+        </div>
+
+        {/* MOBILE BUTTON */}
+        <LiquidButton 
+          variant="default" 
+          size="icon"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="rounded-full overflow-hidden"
+        >
+          <ChartNoAxesColumnIncreasing className="rotate-270" />
+        </LiquidButton>
+      </div>
+    </motion.header>
+
+    <AnimatePresence>
+      {/* MOBILE MENU */}
+      {mobileMenuOpen && (
+        <motion.div
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.button
+            onClick={() => setMobileMenuOpen(false)}
+            className="absolute top-6 right-6 z-[110] text-white"
+          >
+            ✕
+          </motion.button>
+
+          <StaggeredMenu
+            position="right"
+            items={menuItems}
+            displayItemNumbering={true}
+            menuButtonColor="#fff"
+            openMenuButtonColor="#fff"
+            changeMenuColorOnOpen={true}
+            colors={["#B19EEF", "#5227FF"]}
+            logoUrl="/logo.png"
+            accentColor="#ff6b6b"
+            onMenuClose={() => setMobileMenuOpen(false)}
+            isFixed={false}
+            hideHeader={true}
+            isOpen={mobileMenuOpen}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
+  );
 }
