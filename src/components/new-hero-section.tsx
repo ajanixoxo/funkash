@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Silk from "./Silk";
 import Spline from '@splinetool/react-spline';
 import Link from "next/link";
-import { LiquidButton } from "./ui/liquid-glass-button";
 
 const NewHeroSection = () => {
   return (
@@ -62,11 +61,12 @@ const NewHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <LiquidButton asChild variant="default" size="xxl">
-              <Link href="/contact">
-                Let’s Build Together
-              </Link>
-            </LiquidButton>
+            <Link
+              href="/contact"
+              className="inline-block bg-white text-[#1a1f3a] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+            >
+              Let’s Build Together
+            </Link>
           </motion.div>
         </motion.div>
       </div>
