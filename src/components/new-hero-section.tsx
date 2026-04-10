@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Silk from "./Silk";
 import Spline from '@splinetool/react-spline';
 import Link from "next/link";
+import Button from "./ui/button";
 
 const NewHeroSection = () => {
   return (
@@ -23,10 +24,12 @@ const NewHeroSection = () => {
 
       {/* Full Background 3D Model Embed */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <Spline
-          scene="https://prod.spline.design/amB58F-hyJVvewnJ/scene.splinecode"
-          className="w-full h-full"
-        />
+        <div className="w-full h-full transform ">
+          <Spline
+            scene="https://prod.spline.design/amB58F-hyJVvewnJ/scene.splinecode"
+            className="w-full h-full"
+          />
+        </div>
       </div>
 
       {/* Center Text Content */}
@@ -61,12 +64,11 @@ const NewHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Link
-              href="/contact"
-              className="inline-block bg-white text-[#1a1f3a] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors shadow-lg"
-            >
-              Let’s Build Together
-            </Link>
+            <Button asChild variant="primary" size="lg" className="!rounded-full">
+              <Link href="/contact">
+                Let’s Build Together
+              </Link>
+            </Button>
           </motion.div>
         </motion.div>
       </div>
