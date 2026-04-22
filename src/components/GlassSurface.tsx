@@ -1,5 +1,28 @@
-import { useEffect, useState, useRef, useId } from 'react';
+import { useEffect, useState, useRef, useId, useCallback } from 'react';
 import './GlassSurface.css';
+
+interface GlassSurfaceProps {
+  children?: React.ReactNode;
+  width?: number | string;
+  height?: number | string;
+  borderRadius?: number;
+  borderWidth?: number;
+  brightness?: number;
+  opacity?: number;
+  blur?: number;
+  displace?: number;
+  backgroundOpacity?: number;
+  saturation?: number;
+  distortionScale?: number;
+  redOffset?: number;
+  greenOffset?: number;
+  blueOffset?: number;
+  xChannel?: string;
+  yChannel?: string;
+  mixBlendMode?: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
 
 const GlassSurface = ({
   children,
@@ -22,7 +45,7 @@ const GlassSurface = ({
   mixBlendMode = 'difference',
   className = '',
   style = {}
-}) => {
+}: GlassSurfaceProps) => {
   const uniqueId = useId().replace(/:/g, '-');
   const filterId = `glass-filter-${uniqueId}`;
   const redGradId = `red-grad-${uniqueId}`;
@@ -30,14 +53,14 @@ const GlassSurface = ({
 
   const [svgSupported, setSvgSupported] = useState(false);
 
-  const containerRef = useRef(null);
-  const feImageRef = useRef(null);
-  const redChannelRef = useRef(null);
-  const greenChannelRef = useRef(null);
-  const blueChannelRef = useRef(null);
-  const gaussianBlurRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const feImageRef = useRef<SVGFEImageElement>(null);
+  const redChannelRef = useRef<SVGFEDisplacementMapElement>(null);
+  const greenChannelRef = useRef<SVGFEDisplacementMapElement>(null);
+  const blueChannelRef = useRef<SVGFEDisplacementMapElement>(null);
+  const gaussianBlurRef = useRef<SVGFEGaussianBlurElement>(null);
 
-  const generateDisplacementMap = () => {
+  const generateDisplacementMap = useCallback(() => {
     const rect = containerRef.current?.getBoundingClientRect();
     const actualWidth = rect?.width || 400;
     const actualHeight = rect?.height || 200;
@@ -63,11 +86,11 @@ const GlassSurface = ({
     `;
 
     return `data:image/svg+xml,${encodeURIComponent(svgContent)}`;
-  };
+  }, [borderRadius, mixBlendMode, brightness, opacity, blur, borderWidth, redGradId, blueGradId]);
 
-  const updateDisplacementMap = () => {
+  const updateDisplacementMap = useCallback(() => {
     feImageRef.current?.setAttribute('href', generateDisplacementMap());
-  };
+  }, [generateDisplacementMap]);
 
   useEffect(() => {
     updateDisplacementMap();
@@ -92,14 +115,15 @@ const GlassSurface = ({
     brightness,
     opacity,
     blur,
-    displace,
     distortionScale,
     redOffset,
     greenOffset,
     blueOffset,
     xChannel,
     yChannel,
-    mixBlendMode
+    mixBlendMode,
+    updateDisplacementMap,
+    displace
   ]);
 
   useEffect(() => {
@@ -114,7 +138,7 @@ const GlassSurface = ({
     return () => {
       resizeObserver.disconnect();
     };
-  }, []);
+  }, [updateDisplacementMap]);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -128,17 +152,13 @@ const GlassSurface = ({
     return () => {
       resizeObserver.disconnect();
     };
-  }, []);
+  }, [updateDisplacementMap]);
 
   useEffect(() => {
     setTimeout(updateDisplacementMap, 0);
-  }, [width, height]);
+  }, [width, height, updateDisplacementMap]);
 
-  useEffect(() => {
-    setSvgSupported(supportsSVGFilters());
-  }, []);
-
-  const supportsSVGFilters = () => {
+  const supportsSVGFilters = useCallback(() => {
     if (typeof window === 'undefined' || typeof document === 'undefined') {
       return false;
     }
@@ -154,7 +174,11 @@ const GlassSurface = ({
     div.style.backdropFilter = `url(#${filterId})`;
 
     return div.style.backdropFilter !== '';
-  };
+  }, [filterId]);
+
+  useEffect(() => {
+    setSvgSupported(supportsSVGFilters());
+  }, [supportsSVGFilters]);
 
   const containerStyle = {
     ...style,
@@ -164,7 +188,7 @@ const GlassSurface = ({
     '--glass-frost': backgroundOpacity,
     '--glass-saturation': saturation,
     '--filter-id': `url(#${filterId})`
-  };
+  } as React.CSSProperties;
 
   return (
     <div

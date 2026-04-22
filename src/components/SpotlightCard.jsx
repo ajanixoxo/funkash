@@ -1,26 +1,12 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
-interface Position {
-  x: number;
-  y: number;
-}
+const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 255, 255, 0.25)' }) => {
+  const divRef = useRef(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
 
-interface SpotlightCardProps extends React.PropsWithChildren {
-  className?: string;
-  spotlightColor?: string;
-}
-
-const SpotlightCard: React.FC<SpotlightCardProps> = ({
-  children,
-  className = '',
-  spotlightColor = 'rgba(255, 255, 255, 0.25)'
-}) => {
-  const divRef = useRef<HTMLDivElement>(null);
-  const [isFocused, setIsFocused] = useState<boolean>(false);
-  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState<number>(0);
-
-  const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = e => {
+  const handleMouseMove = e => {
     if (!divRef.current || isFocused) return;
 
     const rect = divRef.current.getBoundingClientRect();
@@ -29,7 +15,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
 
   const handleFocus = () => {
     setIsFocused(true);
-    setOpacity(0.6);
+    setOpacity(1);
   };
 
   const handleBlur = () => {
@@ -38,7 +24,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
   };
 
   const handleMouseEnter = () => {
-    setOpacity(0.6);
+    setOpacity(1);
   };
 
   const handleMouseLeave = () => {
