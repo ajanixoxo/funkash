@@ -7,7 +7,7 @@ import StaggeredMenu from "./StaggeredMenu";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import GlassSurface from "./GlassSurface";
-import { LiquidButton } from "./ui/liquid-glass-button";
+import Button from "./ui/button";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -151,7 +151,7 @@ export default function Navbar() {
 
             {/* CTA */}
             <div className="hidden md:flex">
-              <LiquidButton asChild variant="default" size="lg">
+              <Button asChild variant="primary" size="md">
                 <Link href="/contact" className="flex items-center gap-2">
                   Partner With Us
                   <svg
@@ -167,7 +167,7 @@ export default function Navbar() {
                     />
                   </svg>
                 </Link>
-              </LiquidButton>
+              </Button>
             </div>
 
           </div>
@@ -201,14 +201,14 @@ export default function Navbar() {
         </div>
 
         {/* MOBILE BUTTON */}
-        <LiquidButton 
-          variant="default" 
-          size="icon"
+        <Button
+          variant="secondary"
+          size="sm"
+          className="rounded-full !px-3 !py-3"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="rounded-full overflow-hidden"
         >
           <ChartNoAxesColumnIncreasing className="rotate-270" />
-        </LiquidButton>
+        </Button>
       </div>
     </motion.header>
 
