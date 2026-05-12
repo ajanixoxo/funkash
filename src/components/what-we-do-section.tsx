@@ -1,13 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Binary,
-  Box,
-  Shapes
-} from "lucide-react";
 import Spline from '@splinetool/react-spline';
 
 /**

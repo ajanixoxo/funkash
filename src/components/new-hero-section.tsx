@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState } from "react";
@@ -104,7 +103,7 @@ const NewHeroSection = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg"
               >
-                Precision engineering meets adaptive intelligence. We don't just build software; we architect the future of operational autonomy.
+                Precision engineering meets adaptive intelligence. We don&apos;t just build software; we architect the future of operational autonomy.
               </motion.p>
 
               <motion.div

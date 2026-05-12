@@ -61,8 +61,8 @@ export default function Navbar() {
     >
       {/* GLASS CONTAINER */}
       <GlassSurface
-        width={"70%" as any}
-        height={"auto" as any}
+        width={"70%"}
+        height={"auto"}
         displace={0.5}
         distortionScale={-180}
         redOffset={0}
