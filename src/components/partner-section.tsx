@@ -59,6 +59,7 @@ export default function PartnerSection() {
               className="flex-shrink-0 mx-10 md:mx-20 flex flex-col items-center justify-center group"
             >
               <div className="h-20 flex items-center justify-center gap-4 w-auto px-6 relative">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`https://logo.clearbit.com/${partner.url}`}
                   alt={`${partner.name} logo`}

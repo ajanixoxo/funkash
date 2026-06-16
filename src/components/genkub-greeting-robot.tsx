@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.5.3 public/genkub_greeting_robot.gltf -o src/components/g
 import * as THREE from 'three'
 import React from 'react'
 import { useGraph } from '@react-three/fiber'
-import { useGLTF, PerspectiveCamera, OrthographicCamera } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import { GLTF, SkeletonUtils } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
@@ -33,14 +33,14 @@ type GLTFResult = GLTF & {
     Forearm_L: THREE.Mesh
     Shoulder_L: THREE.Mesh
   }
-  materials: {}
-  animations: GLTFAction[]
+  materials: Record<string, unknown>
+  animations: THREE.AnimationClip[]
 }
 
-export function Model(props: JSX.IntrinsicElements['group']) {
+export function Model(props: React.ComponentProps<'group'>) {
   const { scene } = useGLTF('/genkub_greeting_robot.gltf')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
-  const { nodes, materials } = useGraph(clone) as GLTFResult
+  const { nodes } = useGraph(clone) as unknown as GLTFResult
   // Custom Materials
   const bodyMat = <meshStandardMaterial color="#f8fafc" roughness={0.15} metalness={0.6} envMapIntensity={1} />
   const darkMat = <meshStandardMaterial color="#1e293b" roughness={0.5} metalness={0.8} />
@@ -50,17 +50,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   return (
     <group {...props} dispose={null}>
       <group scale={0.01}>
-        <group position={[59.064, 150, 96.782]}>
-          <directionalLight intensity={0.436} decay={2} color="#f8d6d0" rotation={[-1.266, -0.295, -1.48]} target={nodes.Directional_Light_3.target}>
-            <primitive object={nodes.Directional_Light_3.target} position={[0, 0, -1]} />
-          </directionalLight>
-          <directionalLight intensity={1.769} decay={2} color="#bdddf6" rotation={[-2.756, 0.519, -0.686]} target={nodes.Directional_Light_2.target}>
-            <primitive object={nodes.Directional_Light_2.target} position={[0, 0, -1]} />
-          </directionalLight>
-          <directionalLight intensity={0.29} decay={2} rotation={[-0.398, 0.51, 0.711]} target={nodes.Directional_Light.target}>
-            <primitive object={nodes.Directional_Light.target} position={[0, 0, -1]} />
-          </directionalLight>
-        </group>
+
         <group position={[27, 7.21, -12]} scale={98.043}>
           <group position={[0, -0.002, 0]} scale={0.01}>
             <group position={[-0.084, 25.17, 0]} rotation={[0, 0, -0.122]} scale={98.043}>

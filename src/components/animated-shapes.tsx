@@ -85,7 +85,7 @@ const FloatingSVG = ({ icon, color, index }: { icon: React.ReactNode, color: str
         for (const subPath of path.subPaths) {
           const points = subPath.getPoints();
           if (points.length > 1) {
-            const vec3Points = points.map((p: any) => new THREE.Vector3(p.x, p.y, 0));
+            const vec3Points = points.map((p: THREE.Vector2) => new THREE.Vector3(p.x, p.y, 0));
             const isClosed = vec3Points[0].distanceTo(vec3Points[vec3Points.length - 1]) < 0.1;
             const curve = new THREE.CatmullRomCurve3(vec3Points, isClosed, "catmullrom", 0.5);
             const tube = new THREE.TubeGeometry(curve, Math.max(vec3Points.length * 3, 20), 0.9, 8, isClosed);
