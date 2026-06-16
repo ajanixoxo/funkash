@@ -4,14 +4,14 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const partners = [
-  { name: "Invest Africa", url: "investafrica.com" },
-  { name: "Jersey Finance", url: "jerseyfinance.com" },
-  { name: "Comarch", url: "comarch.com" },
-  { name: "Kaspersky", url: "kaspersky.com" },
-  { name: "Google", url: "google.com" },
-  { name: "G42", url: "g42.ai" },
-  { name: "SenseTime", url: "sensetime.com" },
-  { name: "Hugging Face", url: "huggingface.co" },
+  { name: "Invest Africa", url: "investafrica.com", logo: "/invest-africa.webp" },
+  { name: "", url: "jerseyfinance.com", logo: "/Jersey Finance.png" },
+  { name: "", url: "comarch.com", logo: "https://www.comarch.com/files-com/file_342/logo_comarch_dark_blue_w240.svg" },
+  { name: "", url: "kaspersky.com", logo: "/kaspersky.svg" },
+  { name: "", url: "g42.ai", logo: "/custom-partner.svg" },
+  // { name: "SenseTime", url: "sensetime.com" },
+  { name: "Hugging Face", url: "huggingface.co", logo: "/huggingface.svg" },
+  { name: "MBZUAI", url: "mbzuai.ac.ae", logo: "/mohamde .svg" },
 ];
 
 export default function PartnerSection() {
@@ -61,7 +61,7 @@ export default function PartnerSection() {
               <div className="h-20 flex items-center justify-center gap-4 w-auto px-6 relative">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https://logo.clearbit.com/${partner.url}`}
+                  src={partner.logo || `https://logo.clearbit.com/${partner.url}`}
                   alt={`${partner.name} logo`}
                   className="h-10 w-auto object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out transform group-hover:scale-110"
                   onError={(e) => {
