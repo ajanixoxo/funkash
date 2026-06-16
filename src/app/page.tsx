@@ -36,15 +36,6 @@ export default function Home() {
     0.4, // End
   ]);
 
-  const rotateY = useTransform(scrollYProgress, scrollKeyframes, [
-    0,   // Hero
-    360, // Spins 360 degrees when moving to Mission
-    360, // Services 1 (Stopped)
-    360, // Services 2 (Stopped)
-    360, // Services 3 (Stopped)
-    360, // Docked (Stopped)
-    360, // End (Stopped)
-  ]);
 
   const x = useTransform(scrollYProgress, scrollKeyframes, [
     "0%", // Hero (Center-Right)
@@ -70,7 +61,7 @@ export default function Home() {
     <div ref={containerRef} className="relative w-full">
       {/* Global Persistent 3D Model */}
       <motion.div
-        style={{ scale, rotateY, x, y }}
+        style={{ scale, x, y }}
         className="fixed top-0 right-0 w-full lg:w-[50vw] h-[60vh] lg:h-[100vh] z-[50] pointer-events-none origin-center mt-20 lg:mt-0"
       >
         <Spline scene={splitScene} className="w-full h-full" />
