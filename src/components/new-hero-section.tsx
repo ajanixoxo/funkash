@@ -2,14 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Spline from '@splinetool/react-spline';
 import Link from "next/link";
 import Button from "./ui/button";
 import Silk from "./Silk";
 
 const NewHeroSection = () => {
-  const splitScene = "https://draft.spline.design/nsL-MhtdOPoyNyeZ/scene.splinecode";
-
   return (
     <section className="relative min-h-screen bg-[#1a1f3a] text-white overflow-hidden flex flex-col justify-center">
       {/* Silk Background */}
@@ -56,11 +53,9 @@ const NewHeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Right Column 3D Model */}
-        {/* Increased height and added negative margins to give the Spline canvas more vertical room for the animation */}
-        <div className="relative h-[500px] md:h-[800px] lg:h-[1000px] w-full pointer-events-none -my-12 md:-my-24 scale-125 -translate-y-20 lg:-translate-y-20 -translate-x-8 md:-translate-x-16 lg:-translate-x-24">
-          <Spline scene={splitScene} className="w-full h-full" />
-        </div>
+        {/* Right Column Layout Placeholder */}
+        {/* We keep this empty div to maintain the grid structure, since the 3D model is now global */}
+        <div className="relative h-[500px] md:h-[800px] lg:h-[1000px] w-full pointer-events-none -my-12 md:-my-24"></div>
       </div>
     </section>
   );
