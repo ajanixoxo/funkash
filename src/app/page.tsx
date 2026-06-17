@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionValueEvent } from "framer-motion";
 import Spline from "@splinetool/react-spline";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
@@ -43,22 +43,41 @@ export default function Home() {
   const springX = useSpring(mouseX, springConfig);
   const springY = useSpring(mouseY, springConfig);
 
+  const lastMousePos = useRef({ x: 0.5, y: 0.5 }); // Default to center
+
+  const updatePosition = () => {
+    const scroll = scrollYProgress.get();
+    
+    // Determine tracking influence: 0 at hero, 1 after hero
+    let influence = 0;
+    if (scroll >= 0.15) {
+      influence = 1; // Full tracking after Hero
+    } else if (scroll > 0.05) {
+      influence = (scroll - 0.05) / 0.1; // Smoothly fades in tracking as you leave the Hero
+    }
+
+    // Calculate full targets
+    const targetX = (lastMousePos.current.x * 200 - 150) * influence;
+    const targetY = (lastMousePos.current.y * 100 - 50) * influence;
+
+    mouseX.set(targetX);
+    mouseY.set(targetY);
+  };
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // The container is lg:w-[50vw] anchored to the right. Its center is naturally at 75% of the screen width.
-      // To make its center track the mouse perfectly across the full width:
-      const mouseXRatio = e.clientX / window.innerWidth;
-      const mouseYRatio = e.clientY / window.innerHeight;
-      
-      // X maps from -150% (left edge) to +50% (right edge)
-      mouseX.set(mouseXRatio * 200 - 150);
-      // Y maps from -50% (top edge) to +50% (bottom edge)
-      mouseY.set(mouseYRatio * 100 - 50);
+      lastMousePos.current = {
+        x: e.clientX / window.innerWidth,
+        y: e.clientY / window.innerHeight
+      };
+      updatePosition();
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, []); // Empty dependency array is fine since updatePosition doesn't rely on React state
+
+  useMotionValueEvent(scrollYProgress, "change", updatePosition);
 
   // Convert the numerical spring values into percentage strings for the style prop
   const x = useTransform(springX, (val) => `${val}%`);
