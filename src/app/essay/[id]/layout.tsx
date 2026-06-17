@@ -19,6 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
     }
 
+    const fallbackImage = "/logo.png"; // Standard Funkash logo as fallback
+    const imageUrl = essay.coverImage || fallbackImage;
+
     return {
       title: `${essay.title} | Funkash`,
       description: essay.excerpt,
@@ -28,11 +31,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         type: "article",
         publishedTime: essay.publishedDate?.toISOString(),
         authors: [essay.author],
+        images: [{ url: imageUrl }],
       },
       twitter: {
-        card: "summary",
+        card: "summary_large_image",
         title: essay.title,
         description: essay.excerpt,
+        images: [imageUrl],
       },
     };
   } catch (error) {
