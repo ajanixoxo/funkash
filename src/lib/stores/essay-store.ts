@@ -12,6 +12,7 @@ export interface Essay {
   tags: string[]
   category: string
   published: boolean
+  coverImage?: string
   createdAt: Date | string
   updatedAt: Date | string
 }
@@ -25,6 +26,7 @@ export interface EssayInput {
   category: string
   tags: string[]
   published: boolean
+  coverImage?: string
 }
 
 interface EssayStore {
