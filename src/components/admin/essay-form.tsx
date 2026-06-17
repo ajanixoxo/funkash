@@ -61,6 +61,7 @@ export default function EssayForm({
     category: essay?.category || "",
     tags: essay?.tags?.join(", ") || "",
     published: essay?.published || false,
+    coverImage: essay?.coverImage || "",
   });
 
   useEffect(() => {
@@ -74,6 +75,7 @@ export default function EssayForm({
         category: essay.category || "",
         tags: essay.tags?.join(", ") || "",
         published: essay.published || false,
+        coverImage: essay.coverImage || "",
       });
     }
   }, [essay]);
@@ -89,6 +91,24 @@ export default function EssayForm({
       [name]:
         type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     }));
+  };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 2 * 1024 * 1024) {
+        setError("Image size should be less than 2MB");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData((prev) => ({
+          ...prev,
+          coverImage: reader.result as string,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleContentChange = (value: string) => {
@@ -139,6 +159,7 @@ export default function EssayForm({
           .map((tag: string) => tag.trim())
           .filter((tag: string) => tag.length > 0),
         published: formData.published,
+        coverImage: formData.coverImage,
       };
 
       if (essay?._id) {
@@ -211,6 +232,35 @@ export default function EssayForm({
                   {displayError}
                 </div>
               )}
+
+              {/* Cover Image Upload */}
+              <div>
+                <label className="block text-sm font-medium text-gray-200 mb-2">
+                  Cover Image (Preview Image)
+                </label>
+                <div className="flex items-center gap-4">
+                  {formData.coverImage && (
+                    <div className="relative w-20 h-20 rounded-lg overflow-hidden border border-white/10 shrink-0">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={formData.coverImage} alt="Cover Preview" className="w-full h-full object-cover" />
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, coverImage: "" }))}
+                        className="absolute top-1 right-1 p-1 bg-black/50 hover:bg-red-500/80 rounded-full text-white transition-colors"
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
+                  )}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-600 file:text-white hover:file:bg-purple-700 cursor-pointer"
+                  />
+                </div>
+                <p className="text-xs text-gray-400 mt-2">Recommended: 1200x630px. Max size: 2MB.</p>
+              </div>
 
               {/* Title */}
               <div>
@@ -368,6 +418,12 @@ export default function EssayForm({
               </div>
               <div className="p-6">
                 <article className="prose prose-invert max-w-none">
+                  {formData.coverImage && (
+                    <div className="w-full h-64 mb-8 rounded-xl overflow-hidden border border-white/10">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={formData.coverImage} alt="Cover Preview" className="w-full h-full object-cover" />
+                    </div>
+                  )}
                   <h1 className="text-4xl font-bold text-white mb-4">
                     {formData.title || "Untitled Essay"}
                   </h1>
