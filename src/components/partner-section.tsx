@@ -63,7 +63,7 @@ export default function PartnerSection() {
                 <img
                   src={partner.logo || `https://logo.clearbit.com/${partner.url}`}
                   alt={`${partner.name} logo`}
-                  className="h-10 w-auto object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out transform group-hover:scale-110"
+                  className="h-10 w-auto object-contain filter  opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ease-out transform group-hover:scale-110"
                   onError={(e) => {
                     // Fallback if logo is not found
                     (e.target as HTMLImageElement).style.display = "none";
