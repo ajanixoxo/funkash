@@ -12,6 +12,7 @@ export interface Essay {
   tags: string[]
   category: string
   published: boolean
+  coverImage?: string
   createdAt: Date | string
   updatedAt: Date | string
 }
@@ -25,6 +26,7 @@ export interface EssayInput {
   category: string
   tags: string[]
   published: boolean
+  coverImage?: string
 }
 
 interface EssayStore {
@@ -46,7 +48,7 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
   fetchEssays: async () => {
     set({ loading: true, error: null })
     try {
-      const response = await axios.get("/api/essays")
+      const response = await axios.get("/api/essays", { timeout: 15000 })
       set({ essays: response.data, loading: false })
     } catch (error: unknown) {
       const axiosError = error as { response?: { data?: { error?: string } } }
@@ -59,7 +61,7 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
   createEssay: async (data: EssayInput) => {
     set({ loading: true, error: null })
     try {
-      const response = await axios.post("/api/essays", data)
+      const response = await axios.post("/api/essays", data, { timeout: 15000 })
       const newEssay = response.data
       set((state) => ({
         essays: [newEssay, ...state.essays],
@@ -78,7 +80,7 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
   updateEssay: async (id: string, data: Partial<EssayInput>) => {
     set({ loading: true, error: null })
     try {
-      const response = await axios.put(`/api/essays/${id}`, data)
+      const response = await axios.put(`/api/essays/${id}`, data, { timeout: 15000 })
       const updatedEssay = response.data
       set((state) => ({
         essays: state.essays.map((essay) => (essay._id === id ? updatedEssay : essay)),
@@ -97,7 +99,7 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
   deleteEssay: async (id: string) => {
     set({ loading: true, error: null })
     try {
-      await axios.delete(`/api/essays/${id}`)
+      await axios.delete(`/api/essays/${id}`, { timeout: 15000 })
       set((state) => ({
         essays: state.essays.filter((essay) => essay._id !== id),
         loading: false,
@@ -125,7 +127,7 @@ export const useEssayStore = create<EssayStore>((set, get) => ({
         ...essay,
         published,
         publishedDate: published ? new Date() : essay.publishedDate,
-      })
+      }, { timeout: 15000 })
 
       const updatedEssay = response.data
       set((state) => ({

@@ -1,9 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
+
 "use client";
 
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Quote } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const MissionSection = () => {
   const ref = useRef(null);
@@ -12,22 +14,28 @@ const MissionSection = () => {
     offset: ["start end", "end start"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0.2, 0.5], [0.8, 1]);
+  const opacity = useTransform(scrollYProgress, [0.1, 0.35, 0.65, 0.9], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0.1, 0.35, 0.65, 0.9], [0.85, 1, 1, 0.85]);
 
   return (
     <section ref={ref} className="bg-[#1a1f3a] text-white py-24 px-6">
-      <div className="max-w-5xl mx-auto text-center">
-        <motion.p
+      <div className="max-w-6xl mx-auto text-center flex flex-col items-center">
+        <motion.div
           style={{ opacity, scale }}
-          className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed p2"
+          className="mb-6"
         >
-         <u> "Our mission is to power transformation through intelligent technology — combining
-          <br className="hidden md:block" />
-          deep engineering, data science, and design to build systems that accelerate
-          <br className="hidden md:block" />
-          growth and efficiency."</u>
-        </motion.p>
+          <Quote className="w-10 h-10 text-white/70 rotate-180" />
+        </motion.div>
+        
+        <ScrollReveal
+          textClassName="text-2xl md:text-3xl lg:text-6xl font-light leading-relaxed p2 text-white"
+          containerClassName="w-full"
+          baseOpacity={0.15}
+          blurStrength={6}
+          
+        >
+          Our mission is to power transformation through intelligent technology  combining deep engineering, data science, and design to build systems that accelerate growth and efficiency.
+        </ScrollReveal>
       </div>
     </section>
   );

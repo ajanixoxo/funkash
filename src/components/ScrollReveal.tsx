@@ -15,6 +15,7 @@ interface ScrollRevealProps {
   textClassName?: string;
   rotationEnd?: string;
   wordAnimationEnd?: string;
+  start?: string;
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -27,7 +28,8 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   containerClassName = '',
   textClassName = '',
   rotationEnd = 'bottom bottom',
-  wordAnimationEnd = 'bottom bottom'
+  wordAnimationEnd = 'bottom bottom',
+  start = 'top bottom-=20%'
 }) => {
   const containerRef = useRef<HTMLHeadingElement>(null);
 
@@ -58,7 +60,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: 'top bottom',
+          start: start,
           end: rotationEnd,
           scrub: true
         }
@@ -77,7 +79,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: 'top bottom-=20%',
+          start: start,
           end: wordAnimationEnd,
           scrub: true
         }
@@ -95,7 +97,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
           scrollTrigger: {
             trigger: el,
             scroller,
-            start: 'top bottom-=20%',
+            start: start,
             end: wordAnimationEnd,
             scrub: true
           }
@@ -106,7 +108,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength, start]);
 
   return (
     <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>

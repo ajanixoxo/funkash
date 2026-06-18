@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     await dbConnect()
 
-    const { title, excerpt, content, author, readTime, category, tags, published } = await request.json()
+    const { title, excerpt, content, author, readTime, category, tags, published, coverImage } = await request.json()
 
     if (!title || !excerpt || !content || !author || !category) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
@@ -47,6 +47,7 @@ export async function POST(request: NextRequest) {
       category,
       tags: tags || [],
       published: published || false,
+      coverImage,
       publishedDate: new Date(),
     })
 

@@ -30,7 +30,7 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
 
     await dbConnect()
 
-    const { title, excerpt, content, author, readTime, category, tags, published } = await request.json()
+    const { title, excerpt, content, author, readTime, category, tags, published, coverImage } = await request.json()
 
     const essay = await Essay.findByIdAndUpdate(
       (await params).id,
@@ -43,6 +43,7 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
         category,
         tags,
         published,
+        coverImage,
       },
       { new: true },
     )

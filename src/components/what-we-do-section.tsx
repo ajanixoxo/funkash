@@ -1,131 +1,146 @@
-/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
+import { motion } from "framer-motion";
+import Spline from '@splinetool/react-spline';
+import { ArrowUpRight } from "lucide-react";
+
+/**
+ * Service Pack Card Component
+ * Inspired by the "Extend Your Packs" bento layout.
+ */
+const ServicePackCard = ({ 
+  title, 
+  description, 
+  splineScene, 
+  accentColor, 
+  index,
+  customTransform = ""
+}: { 
+  title: string; 
+  description: string; 
+  splineScene: string; 
+  accentColor: string;
+  index: number;
+  customTransform?: string;
+}) => {
+  const formattedNumber = String(index + 1).padStart(2, '0');
+
+  // Determine border styles to form a clean grid
+  const borderClasses = `
+    border-b border-white/10
+    ${index % 2 === 0 ? 'md:border-r md:border-white/10' : ''}
+    ${index >= 2 ? 'md:border-b-0' : ''}
+  `;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className={`group relative p-8 md:p-12 lg:p-16 flex justify-between items-start transition-all duration-300 hover:bg-white/[0.02] ${borderClasses}`}
+    >
+      {/* Decorative Border Layer (Commented out) */}
+      {/* <div className={`absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-500`} style={{ backgroundColor: accentColor }} /> */}
+      
+      {/* Visual / Spline scene (Commented out as requested) */}
+      {/* 
+      <div className="relative bg-white/5 flex items-center justify-center min-h-[300px] lg:min-h-[400px] overflow-hidden order-1 lg:order-2 lg:col-span-5">
+        <div className="absolute inset-0 blur-3xl opacity-10 rounded-full" style={{ backgroundColor: accentColor }} />
+        <div className={`relative z-10 w-full h-full scale-[1.3] md:scale-[1.6] ${customTransform}`}>
+          <Spline scene={splineScene} />
+        </div>
+      </div>
+      */}
+
+      {/* Main Content Layout */}
+      <div className="flex gap-6 md:gap-10 items-start">
+        {/* Step Number */}
+        <span className="text-xs md:text-sm font-mono text-gray-500 pt-2">{formattedNumber}</span>
+        
+        <div>
+          {/* Title */}
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white mb-3 group-hover:text-white/95 transition-colors">
+            {title}
+          </h3>
+          {/* Description */}
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl font-normal">
+            {description}
+          </p>
+        </div>
+      </div>
+
+      {/* Arrow Link Icon */}
+      <div className="flex-shrink-0 pt-2 pl-4">
+        <ArrowUpRight className="w-6 h-6 text-gray-500 group-hover:text-white transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+      </div>
+    </motion.div>
+  );
+};
 
 const WhatWeDoSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const services = [
     {
       title: "AI Systems & Automation",
-      description:
-        "We build intelligent systems for tax, audit, finance, and credit — transforming data into real-time decisions that drive performance.",
-      image: "/hero-img1.png",
+      description: "Engineering robust toolchains for coding, large-scale cloud debugging, and high-performance API architectures.",
+      splineScene: "https://prod.spline.design/IZjEc6A8bmB-2rNK/scene.splinecode",
+      accentColor: "#60a5fa", // Blue
     },
     {
-      title: "Product Engineering",
-      description:
-        "From architecture to interface, our in-house engineering teams design end-to-end digital products that scale globally.",
-      image: "/hero-img2.png",
+      title: "Product Engineering ",
+      description: "Powering your intelligence with specialized frameworks for deep learning, automation, and real-time data synthesis.",
+      splineScene: "https://prod.spline.design/SVIpxxTijKsP7Gpg/scene.splinecode",
+      accentColor: "#a855f7", // Purple
+      customTransform: "-translate-x-[15%] md:-translate-x-[20%]"
     },
     {
-      title: " Technology Partnerships",
-      description:
-        "We collaborate with governments, enterprises, and startups to solve complex operational challenges using AI, machine learning, and cloud infrastructure.",
-      image: "/hero-img3.png",
-    },
+      title: "Technology Partnerships",
+      description: "A comprehensive design suite for high-end digital identity, content creation, and experimental product design.",
+      splineScene: "https://prod.spline.design/IZjEc6A8bmB-2rNK/scene.splinecode",
+      accentColor: "#fb923c", // Orange
+    }
   ];
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? services.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === services.length - 1 ? 0 : prev + 1));
-  };
-
   return (
-    <section className="bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-[#C78018]/30 to-90% text-white py-20 px-6">
+    <section className="bg-[#222946] text-white py-24 md:py-32 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header with Navigation */}
-        <div className="flex items-start justify-between mb-16">
+        
+        {/* Section Header */}
+        <div className="mb-16 md:mb-24">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col md:flex-row md:items-end justify-between gap-6"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-4"><span>What</span> We Build</h2>
-            <p className="text-gray-300 text-lg max-w-2xl">
-            We design, develop, and deploy AI-powered platforms that make operations smarter, faster, and more resilient.
-            </p>
+            <div>
+              <h2 className="text-4xl md:text-6xl font-semibold mb-4 leading-tight">
+                Our Service <br /> 
+                <span className="italic font-normal opacity-80">Ecosystems</span>
+              </h2>
+              <p className="text-gray-400 text-lg md:text-xl max-w-2xl font-medium">
+                Curated technological stacks synced to your business goals; add or prune tools per ecosystem.
+              </p>
+            </div>
           </motion.div>
-
-          {/* Navigation Arrows */}
-          <div className="hidden md:flex gap-4">
-            <button
-              onClick={handlePrev}
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-              aria-label="Previous"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-              aria-label="Next"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
         </div>
 
-        {/* Carousel */}
-        <div className="relative overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            >
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="group relative  rounded-2xl transition-all duration-300 "
-                >
-                  {/* Card Image */}
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    {/* <div className="absolute inset-0 bg-gradient-to-t from-[#222946] to-transparent opacity-80" /> */}
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="pt-2">
-                    <h3 className="text-2xl font-semibold mb-3">{service.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Carousel Indicators */}
-          <div className="flex justify-center gap-2 mt-8">
-            {services.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all ${
-                  index === currentIndex
-                    ? "w-8 bg-white"
-                    : "w-2 bg-white/30 hover:bg-white/50"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
+        {/* Services Grid (Horizontal lines & vertical middle divide) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 border-t border-white/10 w-full">
+          {services.map((service, index) => (
+            <ServicePackCard 
+              key={index} 
+              index={index}
+              title={service.title}
+              description={service.description}
+              splineScene={service.splineScene}
+              accentColor={service.accentColor}
+              customTransform={service.customTransform}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -133,4 +148,3 @@ const WhatWeDoSection = () => {
 };
 
 export default WhatWeDoSection;
-
