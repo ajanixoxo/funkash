@@ -46,9 +46,13 @@ const NewHeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap gap-4"
           >
             <Button asChild variant="primary" size="lg" className="!rounded-full px-10">
               <Link href="/contact">Let’s Build Together</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="!rounded-full px-10 border-white/20 hover:bg-white/10 text-white">
+              <Link href="/portfolio">See Portfolio</Link>
             </Button>
           </motion.div>
         </div>

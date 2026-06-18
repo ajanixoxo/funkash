@@ -93,7 +93,7 @@ const PortfolioSection = () => {
           className="text-center mt-12"
         >
           <a
-            href="/projects"
+            href="/portfolio"
             className="inline-flex items-center gap-2 text-white hover:text-purple-400 transition-colors text-lg font-medium"
           >
             Explore all projects

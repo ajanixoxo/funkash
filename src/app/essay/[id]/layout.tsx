@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { headers } from "next/headers";
 import dbConnect from "@/lib/db";
 import Essay from "@/models/Essay";
 
@@ -19,7 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://funkash.com";
+    const headersList = await headers();
+    const host = headersList.get("host") || "funkash.com";
+    const protocol = host.includes("localhost") ? "http" : "https";
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || `${protocol}://${host}`;
+    
     const fallbackImage = `${baseUrl}/logo.png`; // Standard Funkash logo as fallback
     // If the essay has a coverImage, we use our API route that serves the binary image buffer.
     // Base64 strings directly in og:image are not supported by scrapers like WhatsApp.
