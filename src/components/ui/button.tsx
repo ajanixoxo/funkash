@@ -23,7 +23,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-[#222946] hover:bg-[#2c355a] text-white border-[#222946] shadow-[inset_0_3px_6px_rgba(0,0,0,0.25),0_2px_4px_rgba(34,41,70,0.3)] active:shadow-[inset_0_4px_8px_rgba(0,0,0,0.35)] hover:shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_3px_6px_rgba(34,41,70,0.4)]",
+        "bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] active:scale-95",
       secondary:
         "border-2 border-[#222946] text-[#222946] bg-transparent hover:text-white hover:bg-[#222946]",
       danger:

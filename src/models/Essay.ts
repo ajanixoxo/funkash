@@ -10,6 +10,7 @@ export interface IEssay extends Document {
   tags: string[]
   category: string
   published: boolean
+  coverImage?: string
   createdAt: Date
   updatedAt: Date
 }
@@ -48,6 +49,10 @@ const EssaySchema = new Schema<IEssay>(
     published: {
       type: Boolean,
       default: false,
+    },
+    coverImage: {
+      type: String,
+      required: false,
     },
   },
   { timestamps: true },
