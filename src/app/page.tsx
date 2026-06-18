@@ -40,8 +40,8 @@ export default function Home() {
   const mouseY = useMotionValue(0);
 
   const springConfig = { damping: 25, stiffness: 120 };
-  const springX = useSpring(mouseX as any, springConfig);
-  const springY = useSpring(mouseY as any, springConfig);
+  const springX = useSpring(mouseX as unknown as number, springConfig);
+  const springY = useSpring(mouseY as unknown as number, springConfig);
 
   const lastMousePos = useRef({ x: 0.5, y: 0.5 }); // Default to center
 
