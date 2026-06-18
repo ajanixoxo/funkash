@@ -19,6 +19,7 @@ interface Essay {
   tags: string[]
   category: string
   published: boolean
+  coverImage?: string
 }
 
 const EssayDetailPage: React.FC = () => {
@@ -232,6 +233,14 @@ const EssayDetailPage: React.FC = () => {
         {/* Content Section */}
         <section className="py-16 lg:py-24 px-6 lg:px-12 bg-white dark:bg-gray-950">
           <div className="max-w-4xl mx-auto">
+            {/* Cover Image */}
+            {essay.coverImage && (
+              <div className="w-full rounded-3xl overflow-hidden mb-12 shadow-2xl">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={essay.coverImage} alt={essay.title} className="w-full h-auto max-h-[600px] object-cover" />
+              </div>
+            )}
+
             {/* Featured Quote (Excerpt) */}
             {essay.excerpt && (
               <div className="relative bg-gradient-to-br from-purple-900/20 to-blue-900/20 border-l-4 border-purple-500 p-8 lg:p-10 rounded-r-3xl mb-16">

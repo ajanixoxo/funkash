@@ -36,7 +36,7 @@ const AboutLegacySection = () => {
             className="space-y-6 text-gray-300 text-lg leading-relaxed"
           >
             <p>
-              At Funkash Holdings, we are committed to building lasting
+              At Funkash Technology, we are committed to building lasting
               transformational impact across sectors and geographies. We
               focus on impactful and scalable startups and large companies
               with revolutionary products across Africa, Asia, and beyond. We

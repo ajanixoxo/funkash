@@ -28,14 +28,14 @@ const TestimonialSection = () => {
           <div className="flex items-center justify-center gap-4">
             <div className="w-12 h-12 rounded-full bg-gray-700 overflow-hidden">
               <img
-                src="/olumide.jpg"
+                src="/user.jpg"
                 alt="Founder"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="text-left">
-              <p className="font-semibold">— Founder, LogisticsX</p>
-              <p className="text-gray-400 text-sm">Portfolio Company</p>
+              <p className="font-semibold">— Founder, Limpair</p>
+              <p className="text-gray-400 text-sm"></p>
             </div>
           </div>
         </motion.div>
