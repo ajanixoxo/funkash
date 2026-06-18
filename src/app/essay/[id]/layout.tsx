@@ -19,10 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
     }
 
-    const fallbackImage = "/logo.png"; // Standard Funkash logo as fallback
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://funkash.com";
+    const fallbackImage = `${baseUrl}/logo.png`; // Standard Funkash logo as fallback
     // If the essay has a coverImage, we use our API route that serves the binary image buffer.
     // Base64 strings directly in og:image are not supported by scrapers like WhatsApp.
-    const imageUrl = essay.coverImage ? `/api/essays/${essay._id}/cover` : fallbackImage;
+    const imageUrl = essay.coverImage ? `${baseUrl}/api/essays/${essay._id}/cover` : fallbackImage;
 
     return {
       title: `${essay.title} | Funkash`,
