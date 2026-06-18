@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionValueEvent } from "motion/react";
 import Spline from "@splinetool/react-spline";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
@@ -40,8 +40,8 @@ export default function Home() {
   const mouseY = useMotionValue(0);
 
   const springConfig = { damping: 25, stiffness: 120 };
-  const springX = useSpring(mouseX, springConfig);
-  const springY = useSpring(mouseY, springConfig);
+  const springX = useSpring(mouseX as any, springConfig);
+  const springY = useSpring(mouseY as any, springConfig);
 
   const lastMousePos = useRef({ x: 0.5, y: 0.5 }); // Default to center
 
@@ -75,7 +75,8 @@ export default function Home() {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []); // Empty dependency array is fine since updatePosition doesn't rely on React state
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useMotionValueEvent(scrollYProgress, "change", updatePosition);
 
