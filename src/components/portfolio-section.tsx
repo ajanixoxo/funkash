@@ -9,9 +9,9 @@ import { motion } from "framer-motion";
 const PortfolioSection = () => {
   const portfolioItems = [
     {
-      name: "Afriprize",
-      description: "Afriprize: A non-profit gaming platform utilizing gamification for community development and charitable initiatives.",
-      image: "/projects/project7.png",
+      name: "Flowpense",
+      description: "Flowpense: A platform for managing and tracking personal finances, providing insights and recommendations for financial planning and growth.",
+      image: "/projects/project13.png",
     },
     {
       name: "Limpiar",
@@ -19,9 +19,9 @@ const PortfolioSection = () => {
       image: "/projects/project3.png",
     },
     {
-      name: "Funkash Global Properties",
-      description: "Funkash Global Properties: Property development, modernizing real estate operations with tech.",
-      image: "/projects/project4.png",
+      name: "Digital Africa Wowen",
+      description: "DAW: A Cooperative Society for the promotion of digital technology and innovation in Africa.",
+      image: "/projects/project12.png",
     },
   ];
 
@@ -93,7 +93,7 @@ const PortfolioSection = () => {
           className="text-center mt-12"
         >
           <a
-            href="/portfolio"
+            href="/projects"
             className="inline-flex items-center gap-2 text-white hover:text-purple-400 transition-colors text-lg font-medium"
           >
             Explore all projects

@@ -8,7 +8,7 @@ interface Project {
   name: string;
   description: string;
   image: string;
-  // bgColor: string;
+  isLogo?: boolean;
 }
 
 interface ProjectSection {
@@ -21,6 +21,12 @@ const PortfolioSections = () => {
     {
       title: "Tech & Startups",
       projects: [
+        {
+          name: "Vaulta",
+          description: "Vaulta: A secure escrow payment platform that holds a buyer’s funds until agreed conditions are met and then releases them to the seller, built to enable trusted local and diaspora transactions across Africa.",
+          image: "/projects/portfolio_logo_1.png",
+          isLogo: true,
+        },
         {
           name: "VincereBet",
           description: "Vincerebet: Online betting with a focus on user experience and technology.",
@@ -61,6 +67,12 @@ const PortfolioSections = () => {
           description: "Flowpense: A platform for managing and tracking personal finances, providing insights and recommendations for financial planning and growth.",
           image: "/projects/project13.png",
         },
+        {
+          name: "Funkash HR",
+          description: "Funkash HR: A modular HR platform managing the entire employee lifecycle recruitment, onboarding, attendance, payroll, expenses, benefits, performance, and communication.",
+          image: "/projects/portfolio_logo_8.png",
+          isLogo: true,
+        },
       ],
     },
     {
@@ -85,6 +97,12 @@ const PortfolioSections = () => {
           name: "Digital Africa Wowen",
           description: "DAW: A Cooperative Society for the promotion of digital technology and innovation in Africa.",
           image: "/projects/project12.png",
+        },
+        {
+          name: "AI Ultrasound",
+          description: "AI-Enhanced Ultrasound Breast Cancer Detection System: A low-cost, portable pulse-echo ultrasound system with AI anomaly-detection to flag possible breast tumours.",
+          image: "",
+          isLogo: true,
         },
       ],
     },
@@ -139,13 +157,19 @@ const PortfolioSections = () => {
                 >
                   {/* Project Card */}
                   <div
-                    className={` rounded-2xl  flex items-center justify-start relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl`}
+                    className={`rounded-2xl flex items-center justify-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl ${
+                      project.isLogo ? "bg-white aspect-[0.81] p-8 md:p-12" : ""
+                    }`}
                   >
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 filter group-hover:brightness-110"
-                    />
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 filter group-hover:brightness-110"
+                      />
+                    ) : (
+                      <div className="w-full h-full min-h-[200px] flex items-center justify-center text-5xl">✨</div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
                   </div>
 
