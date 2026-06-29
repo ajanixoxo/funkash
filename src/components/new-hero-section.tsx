@@ -52,7 +52,7 @@ const NewHeroSection = () => {
               <Link href="/contact">Let’s Build Together</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="!rounded-full px-10 border-white/20 hover:bg-white/10 text-white">
-              <Link href="/portfolio">See Portfolio</Link>
+              <Link href="/projects">See Projects</Link>
             </Button>
           </motion.div>
         </div>
