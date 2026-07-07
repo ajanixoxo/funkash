@@ -20,7 +20,7 @@ export default function Navbar() {
     {
       label: "Projects",
       ariaLabel: "Check out our project",
-      link: "/projects",
+      link: "/products",
     },
     { label: "Essay", ariaLabel: "Explore our essays", link: "/essay" },
   ];

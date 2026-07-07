@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
                             {quickLinks.map((link) => (
                                 <li key={link}>
                                     <a
-                                        href={link === 'Home' ? '/' : link === 'Contact' ? '/contact' : `/${link.toLowerCase()}`}
+                                        href={link === 'Home' ? '/' : link === 'Portfolio' ? '/products' : `/${link.toLowerCase()}`}
                                         onMouseEnter={() => setHoveredLink(link)}
                                         onMouseLeave={() => setHoveredLink(null)}
                                         className={`text-white transition-colors duration-300 ${hoveredLink === link ? 'text-gray-400' : 'hover:text-gray-300'}`}
