@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/no-unescaped-entities */
 
 "use client";
 
@@ -9,19 +8,34 @@ import { motion } from "framer-motion";
 const PortfolioSection = () => {
   const portfolioItems = [
     {
-      name: "Flowpense",
-      description: "Flowpense: A platform for managing and tracking personal finances, providing insights and recommendations for financial planning and growth.",
+      name: "FLOWPENSE",
+      description: "The financial control layer between an enterprise's ERP and its bank. Flowpense automates accounts payable, approvals, spend controls, and reconciliation — so finance teams move money with speed and control.",
       image: "/projects/project13.png",
+      isLogo: false,
     },
     {
-      name: "Limpiar",
-      description: "Limpiar: A technology-driven marketplace transforming the cleaning services industry.",
-      image: "/projects/project3.png",
+      name: "AEGIS BIP",
+      description: "A behavioural identity platform that detects fraud and mule networks from how people actually transact — not just who they claim to be. Aegis turns behaviour into a real-time defence layer.",
+      image: "/projects/project10.png",
+      isLogo: false,
     },
     {
-      name: "Digital Africa Wowen",
-      description: "DAW: A Cooperative Society for the promotion of digital technology and innovation in Africa.",
-      image: "/projects/project12.png",
+      name: "BOTPAA",
+      description: "AI workforce infrastructure. Botpaa lets organisations deploy reliable AI employees into real operations — trained, governed, and accountable — to do work, not just answer questions.",
+      image: "",
+      isLogo: true,
+    },
+    {
+      name: "MALTIDA",
+      description: "A policy and regulation intelligence engine. Maltida turns dense policy and regulatory text into structured, queryable insight, so teams can understand and act on the rules that govern them.",
+      image: "",
+      isLogo: true,
+    },
+    {
+      name: "EDUFLEX",
+      description: "A workforce capability system. Eduflex measures skills and builds them across an organisation through a continuous assess, train, practise, and evaluate loop.",
+      image: "/projects/project9.png",
+      isLogo: false,
     },
   ];
 
@@ -36,10 +50,9 @@ const PortfolioSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-semibold mb-4">Our <span>Portfolio</span></h2>
-          <p className="text-gray-300  text-lg max-w-2xl">
-            We've invested in and built solutions with visionary companies across
-            multiple sectors
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4 uppercase">The Funkash <span className="italic font-normal">Universe</span></h2>
+          <p className="text-gray-300 text-lg max-w-2xl">
+            Our flagship products — a connected set of platforms engineered to solve hard problems across finance, security, work, and governance.
           </p>
         </motion.div>
 
@@ -55,21 +68,23 @@ const PortfolioSection = () => {
               className="group relative overflow-hidden rounded-2xl hover:shadow-2xl transition-all duration-300"
             >
               {/* Logo Area */}
-              <div
-                className={` h-64 flex items-center justify-center relative overflow-hidden`}
-              >
-                    <div
-                    className={` rounded-2xl  flex items-center justify-start relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl`}
-                  >
+              <div className="h-64 flex items-center justify-center relative overflow-hidden">
+                <div
+                  className={`rounded-2xl w-full h-full flex items-center justify-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl ${
+                    item.isLogo || !item.image ? "bg-white/5" : ""
+                  }`}
+                >
+                  {item.image ? (
                     <img
                       src={item.image}
                       alt={item.name}
                       className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 filter group-hover:brightness-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
-                  </div>
-                {/* Decorative elements */}
-                
+                  ) : (
+                    <div className="w-full h-full min-h-[200px] flex items-center justify-center text-5xl">✨</div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+                </div>
               </div>
 
               {/* Content Area */}
@@ -93,10 +108,10 @@ const PortfolioSection = () => {
           className="text-center mt-12"
         >
           <a
-            href="/projects"
+            href="/products"
             className="inline-flex items-center gap-2 text-white hover:text-purple-400 transition-colors text-lg font-medium"
           >
-            Explore all projects
+            Explore our products
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

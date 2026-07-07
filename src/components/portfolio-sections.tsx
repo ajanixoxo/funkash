@@ -19,102 +19,38 @@ interface ProjectSection {
 const PortfolioSections = () => {
   const sections: ProjectSection[] = [
     {
-      title: "Tech & Startups",
+      title: "The Funkash Universe",
       projects: [
         {
-          name: "Vaulta",
-          description: "Vaulta: A secure escrow payment platform that holds a buyer’s funds until agreed conditions are met and then releases them to the seller, built to enable trusted local and diaspora transactions across Africa.",
-          image: "/projects/portfolio_logo_1.png",
-          isLogo: true,
-        },
-        {
-          name: "VincereBet",
-          description: "Vincerebet: Online betting with a focus on user experience and technology.",
-          image: "/projects/project1.png",
-        },
-        {
-          name: "Afripay",
-          description: "Afripay: A digital payment platform streamlining financial transactions across Africa.",
-          image: "/projects/project2.png",
-        },
-        {
-          name: "Limpiar",
-          description: "Limpiar: A technology-driven marketplace transforming the cleaning services industry.",
-          image: "/projects/project3.png",
-        },
-        {
-          name: "Funkash Global Properties",
-          description: "Funkash Global Properties: Property development, modernizing real estate operations with tech.",
-          image: "/projects/project4.png",
-        },
-        {
-          name: "Fuel Drop",
-          description: "Fuel Drop: Professional automotive services delivered to your location with certified technicians across Lagos, Abuja, and Port Harcourt.",
-          image: "/projects/project8.png",
-        },
-        {
-          name: "EduFlex AI",
-          description: "AI-powered courses, tailored to your goals, learning style, and pace. Turn any topic into a structured learning path in seconds.",
-          image: "/projects/project9.png",
-        },
-        {
-          name: "Aegismail",
-          description: "Aegismail: A secure, cloud-based email platform for businesses and individuals, providing reliable email hosting and communication services.",
-          image: "/projects/project10.png",
-        },
-        {
-          name: "Flowpense",
-          description: "Flowpense: A platform for managing and tracking personal finances, providing insights and recommendations for financial planning and growth.",
+          name: "FLOWPENSE",
+          description: "The financial control layer between an enterprise's ERP and its bank. Flowpense automates accounts payable, approvals, spend controls, and reconciliation — so finance teams move money with speed and control.",
           image: "/projects/project13.png",
+          isLogo: false,
         },
         {
-          name: "Funkash HR",
-          description: "Funkash HR: A modular HR platform managing the entire employee lifecycle recruitment, onboarding, attendance, payroll, expenses, benefits, performance, and communication.",
-          image: "/projects/portfolio_logo_8.png",
-          isLogo: true,
-        },
-      ],
-    },
-    {
-      title: "AI and Drone Development",
-      projects: [
-        {
-          name: "Dunes Ai",
-          description: "Dunes Ai: Pioneering AI and drone solutions for agriculture and logistics.",
-          image: "/projects/project5.png",
+          name: "AEGIS BIP",
+          description: "A behavioural identity platform that detects fraud and mule networks from how people actually transact — not just who they claim to be. Aegis turns behaviour into a real-time defence layer.",
+          image: "/projects/project10.png",
+          isLogo: false,
         },
         {
-          name: "Nanohosting",
-          description: "Nanohosting: Our cloud hosting solution, delivers fast, reliable, and secure hosting services to businesses around the world.",
-          image: "/projects/project6.png",
-        },
-        {
-          name: "TRAD",
-          description: "TRAD: A fashion ecommerce platform for buying and selling goods and services across Africa.",
-          image: "/projects/project11.png",
-        },
-        {
-          name: "Digital Africa Wowen",
-          description: "DAW: A Cooperative Society for the promotion of digital technology and innovation in Africa.",
-          image: "/projects/project12.png",
-        },
-        {
-          name: "AI Ultrasound",
-          description: "AI-Enhanced Ultrasound Breast Cancer Detection System: A low-cost, portable pulse-echo ultrasound system with AI anomaly-detection to flag possible breast tumours.",
+          name: "BOTPAA",
+          description: "AI workforce infrastructure. Botpaa lets organisations deploy reliable AI employees into real operations — trained, governed, and accountable — to do work, not just answer questions.",
           image: "",
           isLogo: true,
         },
-      ],
-    },
-    {
-      title: "Non-profit and Social Innovation",
-      projects: [
         {
-          name: "Afriprize",
-          description: "Afriprize: A non-profit gaming platform utilizing gamification for community development and charitable initiatives.",
-          image: "/projects/project7.png",
+          name: "MALTIDA",
+          description: "A policy and regulation intelligence engine. Maltida turns dense policy and regulatory text into structured, queryable insight, so teams can understand and act on the rules that govern them.",
+          image: "",
+          isLogo: true,
         },
-       
+        {
+          name: "EDUFLEX",
+          description: "A workforce capability system. Eduflex measures skills and builds them across an organisation through a continuous assess, train, practise, and evaluate loop.",
+          image: "/projects/project9.png",
+          isLogo: false,
+        },
       ],
     },
   ];

@@ -28,13 +28,19 @@ const MissionSection = () => {
         </motion.div>
         
         <ScrollReveal
-          textClassName="text-2xl md:text-3xl lg:text-6xl font-light leading-relaxed p2 text-white"
+          textClassName="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed p2 text-white"
           containerClassName="w-full"
           baseOpacity={0.15}
           blurStrength={6}
           
         >
-          Our mission is to power transformation through intelligent technology  combining deep engineering, data science, and design to build systems that accelerate growth and efficiency.
+          We are a product- and engineering-focused technology company. We build
+          and operate software that solves large, structural problems — in how
+          money moves, how fraud is stopped, how organisations work, and how
+          policy is understood.
+          <br /><br />
+          We build for institutions: banks, enterprises, and the public sector.
+          Our focus today is our own flagship platforms — the Funkash Universe.
         </ScrollReveal>
       </div>
     </section>

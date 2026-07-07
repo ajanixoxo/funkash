@@ -29,8 +29,7 @@ const NewHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
           >
-            Empowering Intelligent Systems for a{" "}
-            <span className="italic font-normal">Smarter World</span>
+            We engineer the systems that solve large problems.
           </motion.h1>
 
           <motion.p
@@ -39,7 +38,7 @@ const NewHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg"
           >
-            We engineer scalable AI and automation platforms that help governments, enterprises, and innovators move faster, think sharper, and grow stronger.
+            Funkash Technology is a product and engineering company building institution-grade software for finance, fraud defence, workforce, and governance.
           </motion.p>
 
           <motion.div
@@ -49,10 +48,10 @@ const NewHeroSection = () => {
             className="flex flex-wrap gap-4"
           >
             <Button asChild variant="primary" size="lg" className="!rounded-full px-10">
-              <Link href="/contact">Let’s Build Together</Link>
+              <Link href="/contact">Partner with us</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="!rounded-full px-10 border-white/20 hover:bg-white/10 text-white">
-              <Link href="/projects">See Projects</Link>
+              <Link href="/products">Explore our products</Link>
             </Button>
           </motion.div>
         </div>
