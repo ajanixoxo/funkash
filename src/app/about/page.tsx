@@ -1,6 +1,10 @@
-"use client";
-
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "About — Funkash Technology",
+  description: "A product and engineering company solving large, structural problems for banks, enterprises, and the public sector.",
+};
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import AboutHeroSection from '@/components/about-hero-section';
