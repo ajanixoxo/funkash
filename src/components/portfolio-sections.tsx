@@ -92,21 +92,27 @@ const PortfolioSections = () => {
                   className="flex flex-col"
                 >
                   {/* Project Card */}
-                  <div
-                    className={`rounded-2xl flex items-center justify-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl ${
-                      project.isLogo ? "bg-white aspect-[0.81] p-8 md:p-12" : ""
-                    }`}
-                  >
-                    {project.image ? (
-                      <img
-                        src={project.image}
-                        alt={project.name}
-                        className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 filter group-hover:brightness-110"
-                      />
-                    ) : (
-                      <div className="w-full h-full min-h-[200px] flex items-center justify-center text-5xl">✨</div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+                  <div className="h-64 sm:h-72 lg:h-80 w-full mb-4 flex items-center justify-center relative overflow-hidden">
+                    <div
+                      className={`rounded-2xl w-full h-full flex items-center justify-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl ${
+                        project.isLogo || !project.image ? "bg-white p-8 md:p-12" : ""
+                      }`}
+                    >
+                      {project.image ? (
+                        <img
+                          src={project.image}
+                          alt={project.name}
+                          className={`w-full h-full opacity-90 group-hover:opacity-100 transition-opacity duration-300 filter group-hover:brightness-110 ${
+                            project.isLogo ? "object-contain" : "object-cover"
+                          }`}
+                        />
+                      ) : (
+                        <div className="w-full h-full min-h-[200px] flex items-center justify-center">
+                          <span className="text-3xl md:text-4xl font-black text-[#1a1f3a] tracking-tight uppercase px-6 text-center">{project.name}</span>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                    </div>
                   </div>
 
                   {/* Project Description */}

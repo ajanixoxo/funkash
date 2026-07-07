@@ -71,19 +71,23 @@ const PortfolioSection = () => {
               <div className="h-64 flex items-center justify-center relative overflow-hidden">
                 <div
                   className={`rounded-2xl w-full h-full flex items-center justify-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl ${
-                    item.isLogo || !item.image ? "bg-white/5" : ""
+                    item.isLogo || !item.image ? "bg-white p-8" : ""
                   }`}
                 >
                   {item.image ? (
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300 filter group-hover:brightness-110"
+                      className={`w-full h-full opacity-90 group-hover:opacity-100 transition-opacity duration-300 filter group-hover:brightness-110 ${
+                        item.isLogo ? "object-contain" : "object-cover"
+                      }`}
                     />
                   ) : (
-                    <div className="w-full h-full min-h-[200px] flex items-center justify-center text-5xl">✨</div>
+                    <div className="w-full h-full min-h-[200px] flex items-center justify-center">
+                      <span className="text-3xl md:text-4xl font-black text-[#1a1f3a] tracking-tight uppercase px-6 text-center">{item.name}</span>
+                    </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
 
