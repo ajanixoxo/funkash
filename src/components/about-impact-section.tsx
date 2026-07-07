@@ -8,20 +8,22 @@ const AboutImpactSection = () => {
     {
       number: "17+",
       label: "Years of Collective Engineering Experience",
-      description:
-        "Crafting resilient digital infrastructure for enterprise and government operations.",
+      description: "Crafting resilient digital infrastructure for enterprise and government operations.",
+    },
+    {
+      number: "2",
+      label: "International Offices",
+      description: "Operations spanning multiple key innovation hubs with our HQ in Lagos.",
     },
     {
       number: "5",
-      label: " Core Domains",
-      description:
-        "AI & Machine Learning, Fintech, Governance Systems, Cloud Infrastructure, Research and Development,and Education Technology.",
+      label: "Partnered Countries",
+      description: "Extending our reach and partnerships across global markets.",
     },
     {
-      number: "7",
-      label: "Active Countries",
-      description:
-        "Operations and partnerships spanning Nigeria, Ghana, Kenya, the Netherlands, the UK, the US, and South Africa.",
+      number: "5",
+      label: "Flagship Products",
+      description: "The Funkash Universe: A connected set of platforms solving hard structural problems.",
     },
   ];
 

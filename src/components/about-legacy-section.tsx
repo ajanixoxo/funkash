@@ -36,27 +36,22 @@ const AboutLegacySection = () => {
             className="space-y-6 text-gray-300 text-lg leading-relaxed"
           >
             <p>
-              At Funkash Technology, we are committed to building lasting
-              transformational impact across sectors and geographies. We
-              focus on impactful and scalable startups and large companies
-              with revolutionary products across Africa, Asia, and beyond. We
-              believe in empowerment through shared economic success and that
-              innovation and creativity are about how you make it impactful at
-              scale with sound scalable execution.
+              Funkash Technology Limited is a product and engineering company that
+              builds software for large, structural problems.
             </p>
 
             <p>
-            Funkash Technology was founded on the belief that innovation must lead to impact.
-            From building intelligent ERP and tax systems to designing AI-driven learning and governance platforms, we’ve spent years engineering solutions that solve real-world problems at scale.
+              We began by building alongside founders as a venture studio; that
+              chapter is complete. Today we concentrate on engineering and operating
+              our own flagship platforms — the Funkash Universe — across financial
+              infrastructure, fraud intelligence, AI workforce, policy intelligence,
+              and workforce capability.
             </p>
 
             <p>
-            Our mission is to bridge the gap between imagination and execution — transforming visionary concepts into deployable systems that shape how industries operate, communicate, and grow.
-            </p>
-
-            <p className="font-medium">
-              We see venture firms as not just about startups, where growth, scalability,
-              and innovation are all essential in building strong companies and value.
+              We build for institutions: banks, enterprises, and the public sector.
+              Headquartered in Lagos, we work through offices and partners across
+              multiple countries.
             </p>
           </motion.div>
         </div>
