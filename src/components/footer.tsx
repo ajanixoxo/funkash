@@ -22,13 +22,16 @@ const Footer: React.FC = () => {
                     {/* Left Side - Brand */}
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <div className=" overflow-hidden">
+                            <div className="w-10 md:w-12 h-12 rounded-md flex items-center justify-center overflow-hidden">
                                 <img
-                                    src="/logo3.png"
+                                    src="/logo.png"
                                     alt="Funkash Logo"
-                                    className="w-full h-full "
+                                    className="w-full"
                                 />
                             </div>
+                            <h2 className="font-semibold text-xl text-white">
+                                Funkash Technology
+                            </h2>
                         </div>
 
                         <div className="text-gray-300 leading-relaxed space-y-1">
