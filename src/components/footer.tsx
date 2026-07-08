@@ -85,19 +85,33 @@ const Footer: React.FC = () => {
                     <p className="text-white text-sm">
                         © 2026 Funkash Technology Limited. All rights reserved.
                     </p>
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap justify-center gap-4">
                         <a
                             href="/privacy-policy"
                             className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
                         >
                             Privacy Policy
                         </a>
-                        <span className="text-gray-600">&middot;</span>
+                        <span className="text-gray-600 hidden md:inline">&middot;</span>
                         <a
                             href="/terms-of-use"
                             className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
                         >
-                            Terms of Use
+                            Terms of Service
+                        </a>
+                        <span className="text-gray-600 hidden md:inline">&middot;</span>
+                        <a
+                            href="/cookie-policy"
+                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+                        >
+                            Cookie Policy
+                        </a>
+                        <span className="text-gray-600 hidden md:inline">&middot;</span>
+                        <a
+                            href="/acceptable-use-policy"
+                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+                        >
+                            Acceptable Use Policy
                         </a>
                     </div>
                 </div>
