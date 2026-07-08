@@ -31,9 +31,11 @@ const Footer: React.FC = () => {
                             </div>
                         </div>
 
-                        <p className="text-gray-300 leading-relaxed">
-                        Building the systems that power tomorrow.
-                        </p>
+                        <div className="text-gray-300 leading-relaxed space-y-1">
+                            <p className="font-semibold text-white">Funkash Technology (RC 8114457)</p>
+                            <p>Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria</p>
+                            <p>hello@funkash.com &middot; funkash.com</p>
+                        </div>
                     </div>
                     <div className="mb-8 flex items-start md:items-center justify-center flex-col">
                         <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
@@ -43,7 +45,7 @@ const Footer: React.FC = () => {
                             {quickLinks.map((link) => (
                                 <li key={link}>
                                     <a
-                                        href={link === 'Home' ? '/' : link === 'Contact' ? '/contact' : `/${link.toLowerCase()}`}
+                                        href={link === 'Home' ? '/' : link === 'Portfolio' ? '/products' : `/${link.toLowerCase()}`}
                                         onMouseEnter={() => setHoveredLink(link)}
                                         onMouseLeave={() => setHoveredLink(null)}
                                         className={`text-white transition-colors duration-300 ${hoveredLink === link ? 'text-gray-400' : 'hover:text-gray-300'}`}
@@ -81,14 +83,37 @@ const Footer: React.FC = () => {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-white text-sm">
-                        © {new Date().getFullYear()} Funkash Family Holdings. All Right Reserved.
+                        © 2026 Funkash Technology Limited. All rights reserved.
                     </p>
-                    <a
-                        href="#"
-                        className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
-                    >
-                        Privacy Policy
-                    </a>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        <a
+                            href="/privacy-policy"
+                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+                        >
+                            Privacy Policy
+                        </a>
+                        <span className="text-gray-600 hidden md:inline">&middot;</span>
+                        <a
+                            href="/terms-of-use"
+                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+                        >
+                            Terms of Service
+                        </a>
+                        <span className="text-gray-600 hidden md:inline">&middot;</span>
+                        <a
+                            href="/cookie-policy"
+                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+                        >
+                            Cookie Policy
+                        </a>
+                        <span className="text-gray-600 hidden md:inline">&middot;</span>
+                        <a
+                            href="/acceptable-use-policy"
+                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+                        >
+                            Acceptable Use Policy
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>

@@ -78,9 +78,8 @@ const ContactPage: React.FC = () => {
   }
 
   const contactInfo = [
-    { id: "01", label: "Email", value: "hello@company.com" },
-    { id: "02", label: "Phone", value: "+1 (555) 123-4567" },
-    { id: "03", label: "Location", value: "San Francisco, CA" },
+    { id: "01", label: "Email", value: "hello@funkash.com" },
+    { id: "02", label: "Office", value: "Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria" },
   ]
 
   return (
@@ -96,7 +95,7 @@ const ContactPage: React.FC = () => {
           </h1>
           <h2 className="text-6xl text-white max-w-3xl text-right lg:text-8xl xl:text-9xl font-medium tracking-tight mb-12 lg:mb-16">
             <TextAnimate animation="blurIn" as="h2">
-              Impressed? Reach Out
+              Let's build what's next.
             </TextAnimate>
           </h2>
         </div>
@@ -152,18 +151,22 @@ const ContactPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-light text-gray-200 mb-3">Subject</label>
-                <input
-                  type="text"
+                <label className="block text-sm font-light text-gray-200 mb-3">Enquiry Type</label>
+                <select
                   name="subject"
                   value={formData.subject}
-                  onChange={handleChange}
+                  onChange={handleChange as any}
                   onFocus={() => setHoveredField("subject")}
                   onBlur={() => setHoveredField(null)}
                   className={`w-full bg-transparent border-b-2 px-2 ${hoveredField === "subject" ? "border-purple-500" : "border-gray-800"} py-3 px-0 text-white placeholder-gray-400 focus:outline-none transition-colors duration-300`}
-                  placeholder="What is this about?"
                   required
-                />
+                >
+                  <option value="" disabled className="bg-gray-900 text-gray-400">Select an enquiry type</option>
+                  <option value="Partnership" className="bg-gray-900 text-white">Partnership</option>
+                  <option value="Enterprise solution" className="bg-gray-900 text-white">Enterprise solution</option>
+                  <option value="Public sector" className="bg-gray-900 text-white">Public sector</option>
+                  <option value="Press" className="bg-gray-900 text-white">Press</option>
+                </select>
               </div>
 
               <div>

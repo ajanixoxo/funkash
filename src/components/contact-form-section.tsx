@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React, { useState } from "react";
@@ -9,6 +10,7 @@ const ContactFormSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    enquiryType: "Partnership",
     businessName: "",
     phone: "",
     message: "",
@@ -16,7 +18,7 @@ const ContactFormSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -38,7 +40,7 @@ const ContactFormSection = () => {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          subject: `Contact from ${formData.businessName}`,
+          subject: `[${formData.enquiryType}] Contact from ${formData.businessName}`,
           message: formData.message,
         }),
       });
@@ -51,6 +53,7 @@ const ContactFormSection = () => {
       setFormData({
         name: "",
         email: "",
+        enquiryType: "Partnership",
         businessName: "",
         phone: "",
         message: "",
@@ -78,19 +81,32 @@ const ContactFormSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-6">
-              Reach Out to Us
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-4">
+              Let's build what's next.
             </h2>
+            <p className="text-gray-300 text-lg mb-8">
+              Whether you're a bank, an enterprise, or a public institution, we'd like to hear from you.
+            </p>
 
-            {/* Email Address */}
-            <div className="flex items-center gap-3 mb-8">
-              <Mail className="w-5 h-5 text-white" />
-              <a
-                href="mailto:info@funkash.com"
-                className="text-white text-lg hover:text-gray-300 transition-colors"
-              >
-                info@funkash.com
-              </a>
+            <div className="space-y-4 mb-8">
+              {/* Email Address */}
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-white" />
+                <a
+                  href="mailto:hello@funkash.com"
+                  className="text-white text-lg hover:text-gray-300 transition-colors"
+                >
+                  hello@funkash.com
+                </a>
+              </div>
+              
+              {/* Office Address */}
+              <div className="flex items-start gap-3">
+                <span className="font-semibold text-white">Office:</span>
+                <span className="text-gray-300">
+                  Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria
+                </span>
+              </div>
             </div>
 
             {/* Contact Form */}
@@ -117,6 +133,21 @@ const ContactFormSection = () => {
                   required
                   className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
                 />
+              </div>
+
+              <div>
+                <select
+                  name="enquiryType"
+                  value={formData.enquiryType}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
+                >
+                  <option value="Partnership">Partnership</option>
+                  <option value="Enterprise solution">Enterprise solution</option>
+                  <option value="Public sector">Public sector</option>
+                  <option value="Press">Press</option>
+                </select>
               </div>
 
               <div>

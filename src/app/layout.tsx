@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Funkash",
-  description: "Build What You Were Born to Lead",
+  title: "Funkash Technology — Engineering Systems That Solve Large Problems",
+  description: "Funkash Technology is a product and engineering company building institution-grade software across finance, fraud defence, AI workforce, and governance.",
 };
 
 export default function RootLayout({

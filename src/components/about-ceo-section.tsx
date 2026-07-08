@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React from "react";
@@ -17,11 +18,14 @@ const AboutCEOSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-semibold mb-6">
-            Meet Our <span className="italic font-normal">Founder & CEO</span>
+            Meet Our <span className="italic font-normal">Founder</span>
           </h2>
-          <p className="text-gray-300 text-lg lg:max-w-xl mx-auto">
-          Mr Olumide Funkash Ogunwo. is the Founder and CEO of Funkash Technology, a multidisciplinary engineer and visionary who leads with a simple principle — build technology that truly serves people.
-          Under his leadership, Funkash has evolved from an experimental tech lab into a global systems company delivering AI-powered platforms for finance, governance, education, and infrastructure. His focus is clear: transforming complexity into intelligent systems that drive growth across Africa and beyond.
+          <p className="text-gray-300 text-lg lg:max-w-3xl mx-auto">
+            Olumide founded Funkash Technology to build institution-grade software
+            for problems that matter at scale — from enterprise financial control
+            to behavioural fraud defence and AI workforce infrastructure. He leads
+            the company's product and engineering direction across the Funkash
+            Universe.
           </p>
         </motion.div>
 
