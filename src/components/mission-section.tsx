@@ -32,15 +32,19 @@ const MissionSection = () => {
           containerClassName="w-full"
           baseOpacity={0.15}
           blurStrength={6}
-          
         >
-          We are a product- and engineering-focused technology company. We build
-          and operate software that solves large, structural problems — in how
-          money moves, how fraud is stopped, how organisations work, and how
-          policy is understood.
-          <br /><br />
-          We build for institutions: banks, enterprises, and the public sector.
-          Our focus today is our own flagship platforms — the Funkash Universe.
+          We are a product- and engineering-focused technology company. We build and operate software that solves large, structural problems — in how money moves, how fraud is stopped, how organisations work, and how policy is understood.
+        </ScrollReveal>
+
+        <div className="h-6 md:h-8"></div>
+
+        <ScrollReveal
+          textClassName="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed p2 text-white"
+          containerClassName="w-full"
+          baseOpacity={0.15}
+          blurStrength={6}
+        >
+          We build for institutions: banks, enterprises, and the public sector. Our focus today is our own flagship platforms — the Funkash Universe.
         </ScrollReveal>
       </div>
     </section>
