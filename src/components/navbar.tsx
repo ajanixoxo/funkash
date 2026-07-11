@@ -46,7 +46,7 @@ export default function Navbar() {
     { lable: "Home", href: "/" },
     { lable: "About", href: "/about" },
     { lable: "Approach", href: "/approach" },
-    { lable: "Projects", href: "/projects" },
+    { lable: "Projects", href: "/products" },
     { lable: "Essay", href: "/essay" },
   ];
 
