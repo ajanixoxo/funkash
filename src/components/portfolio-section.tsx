@@ -16,19 +16,20 @@ const PortfolioSection = () => {
     {
       name: "AEGIS BIP",
       description: "A behavioural identity platform that detects fraud and mule networks from how people actually transact — not just who they claim to be. Aegis turns behaviour into a real-time defence layer.",
-      image: "/projects/project10.png",
-      isLogo: false,
+      image: "/projects/aegis-bip_icon.png",
+      isLogo: true,
     },
     {
       name: "BOTPAA",
       description: "AI workforce infrastructure. Botpaa lets organisations deploy reliable AI employees into real operations — trained, governed, and accountable — to do work, not just answer questions.",
-      image: "",
+      image: "/projects/botpaa.png",
       isLogo: true,
+      bgColor: "bg-emerald-800",
     },
     {
       name: "MALTIDA",
       description: "A policy and regulation intelligence engine. Maltida turns dense policy and regulatory text into structured, queryable insight, so teams can understand and act on the rules that govern them.",
-      image: "",
+      image: "/maltida_icon.png",
       isLogo: true,
     },
     {
@@ -65,13 +66,13 @@ const PortfolioSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group relative overflow-hidden rounded-2xl hover:shadow-2xl transition-all duration-300"
+              className="group relative overflow-hidden rounded-2xl hover:shadow-2xl p-2 transition-all duration-300"
             >
               {/* Logo Area */}
               <div className="h-64 flex items-center justify-center relative overflow-hidden">
                 <div
                   className={`rounded-2xl w-full h-full flex items-center justify-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl ${
-                    item.isLogo || !item.image ? "bg-white p-8" : ""
+                    item.isLogo || !item.image ? `${item.bgColor || "bg-white"} p-8` : ""
                   }`}
                 >
                   {item.image ? (
@@ -87,7 +88,7 @@ const PortfolioSection = () => {
                       <span className="text-3xl md:text-4xl font-black text-[#1a1f3a] tracking-tight uppercase px-6 text-center">{item.name}</span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                  {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" /> */}
                 </div>
               </div>
 
