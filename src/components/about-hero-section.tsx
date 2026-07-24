@@ -58,7 +58,7 @@ const AboutHeroSection = () => {
             style={{ position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw" }}
           >
             <img
-              src="/about-hero.png"
+              src="/about.png"
               alt="Team collaboration"
               className="w-screen h-full object-cover block"
               style={{ width: "100vw" }}
