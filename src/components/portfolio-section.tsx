@@ -64,8 +64,8 @@ const PortfolioSection = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.6, delay: (index % 3) * 0.1 }}
+              viewport={{ once: true, margin: "100px" }}
+              transition={{ duration: 0.6 }}
               className="group relative overflow-hidden rounded-2xl hover:shadow-2xl p-2 transition-all duration-300"
             >
               {/* Logo Area */}
