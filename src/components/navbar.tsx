@@ -91,14 +91,14 @@ export default function Navbar() {
           <div className="flex justify-between gap-8  w-auto  items-center">
             {/* LOGO */}
             <div className="flex items-center text-white">
-              <div className="w-10 md:w-16 h-16 rounded-md flex items-center justify-center mr-3 overflow-hidden">
-                <img src="/logo.png" alt="Funkash Logo" className="w-full" />
+              <div className="w-10 h-10 rounded-full border border-white/80 flex items-center justify-center mr-3 shrink-0">
+                <span className="text-white font-medium text-sm tracking-wider" style={{ fontFamily: 'var(--font-playfair), serif' }}>TH</span>
               </div>
 
               <h2
-                className={`font-semibold hidden md:flex text-xl ${scrolled ? "text-white" : "text-white/80"}`}
+                className={`font-semibold hidden md:flex text-lg ${scrolled ? "text-white" : "text-white/90"}`}
               >
-                Funkash Technology
+                Tharwa Funkash Technology
               </h2>
             </div>
 
@@ -154,17 +154,9 @@ export default function Navbar() {
               <Button asChild variant="primary" size="md">
                 <Link href="/contact" className="flex items-center gap-2">
                   Partner With Us
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
                   </svg>
                 </Link>
               </Button>
@@ -192,11 +184,11 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-4 py-4">
         {/* LOGO */}
         <div className="flex items-center text-white">
-          <div className="w-10 h-10 rounded-md flex items-center justify-center overflow-hidden">
-            <img src="/logo.png" alt="Funkash Logo" className="w-full" />
+          <div className="w-9 h-9 rounded-full border border-white/80 flex items-center justify-center shrink-0">
+            <span className="text-white font-medium text-xs tracking-wider" style={{ fontFamily: 'var(--font-playfair), serif' }}>TH</span>
           </div>
-          <h2 className={`font-semibold ml-2 text-lg ${scrolled ? "text-white" : "text-white/80"}`}>
-            Funkash Technology
+          <h2 className={`font-semibold ml-3 text-base ${scrolled ? "text-white" : "text-white/90"}`}>
+            Tharwa Funkash Technology
           </h2>
         </div>
 
