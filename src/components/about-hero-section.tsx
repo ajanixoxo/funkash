@@ -34,18 +34,16 @@ const AboutHeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
             >
-              Visionaries <span className="italic font-normal">Building </span> the future with
-              <br />
-              <span className="italic font-normal">Intelligent Technology</span> 
+              Building Intelligent Systems for <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>Institutions</span> & <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>Businesses</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-gray-300 text-lg mb-8 text-center"
+              className="text-gray-300 text-lg mb-8 text-center max-w-2xl mx-auto"
             >
-              We are a technology company driven by purpose: building AI systems, digital infrastructure, and scalable software that empower businesses, governments, and innovators to thrive in a connected world.
+              Tharwa Funkash is a product and engineering company building software for large structural problems in financial infrastructure, fraud intelligence, AI workforce, and public systems.
             </motion.p>
           </motion.div>
 

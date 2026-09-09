@@ -1,0 +1,204 @@
+
+
+FF
+FUNKASH TECHNOLOGY
+funkash.com
+TERMS OF SERVICE
+PRIVACY POLICY
+COOKIE POLICY
+ACCEPTABLE USE POLICY
+Website Legal & Policy Documentation
+
+Effective Date: April 2026
+Funkash Technology Limited  |  RC 8114457
+Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria
+
+
+DOCUMENT 1 OF 4
+TERMS OF SERVICE
+
+Effective Date: April 2026  |  Last Updated: April 2026
+These Terms of Service ("Terms") govern your access to and use of the website funkash.com (the "Website") and any products, services, platforms, or applications (collectively, the "Services") provided by Funkash Technology Limited ("Funkash," "we," "us," or "our"), a company incorporated under the laws of the Federal Republic of Nigeria (RC 8114457).
+By accessing the Website or using any of our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to these Terms, you must not access the Website or use our Services.
+1. Company Information
+1.1  Funkash Technology Limited is a technology holding company and venture studio that designs, develops, and operates enterprise software products, AI systems, and digital infrastructure.
+1.2  Registered Address: Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria.
+1.3  Contact: oogunwo@funkash.com | +234 907 711 1176 | funkash.com
+2. Definitions
+2.1  "User," "you," or "your" refers to any individual or entity that accesses the Website or uses the Services.
+2.2  "Content" means all text, images, data, software, code, designs, documentation, and other materials available on the Website or through the Services.
+2.3  "Products" refers to the enterprise software platforms developed by Funkash, including but not limited to Flowpense, Eduflex, Aegis BIP, Botpaa, Maltida, and any future products.
+2.4  "Intellectual Property" means all patents, trademarks, trade names, service marks, copyrights, trade secrets, source code, algorithms, designs, architectures, documentation, and proprietary information owned by Funkash.
+3. Use of the Website
+3.1  The Website is provided for informational and commercial purposes. You may access the Website to learn about Funkash Technology, its products, and its services.
+3.2  You agree to use the Website only for lawful purposes and in accordance with these Terms. You shall not:
+(a)  Use the Website in any manner that could damage, disable, overburden, or impair its functioning;
+(b)  Attempt to gain unauthorised access to any part of the Website, its servers, or any systems connected to the Website;
+(c)  Use any automated system, including bots, scrapers, or crawlers, to access the Website without our prior written consent;
+(d)  Introduce any malicious code, virus, or harmful component to the Website;
+(e)  Use the Website to collect personal information about other users without their consent;
+(f)  Reproduce, duplicate, copy, sell, resell, or exploit any portion of the Website without our express written permission.
+4. Intellectual Property Rights
+4.1  All Content, Products, and Intellectual Property displayed on or accessible through the Website are the exclusive property of Funkash Technology Limited, unless otherwise indicated.
+4.2  This includes, without limitation: the Funkash name, logo, FF monogram, brand identity, product names (Flowpense, Eduflex, Aegis BIP, Botpaa, Maltida), source code, software architecture, documentation, designs, text, graphics, and all related materials.
+4.3  No licence or right is granted to you by implication, estoppel, or otherwise under any Intellectual Property rights owned or controlled by Funkash, except as expressly provided in a separate written agreement.
+4.4  You may not reproduce, modify, distribute, display, perform, create derivative works from, or commercially exploit any Content from the Website without our prior written consent.
+5. Products and Services
+5.1  Information about Funkash Products presented on the Website is for general informational purposes. Specific product terms, licensing, pricing, and service-level agreements are governed by separate agreements executed between Funkash and the client.
+5.2  Funkash reserves the right to modify, update, discontinue, or change any Product or Service at any time without prior notice.
+5.3  Access to specific Products may require registration, authentication, and execution of a separate commercial agreement.
+6. User Accounts
+6.1  Certain features of the Website or Services may require you to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.
+6.2  You agree to provide accurate, current, and complete information during registration and to update such information as necessary.
+6.3  Funkash reserves the right to suspend or terminate your account at any time, without notice, for conduct that we determine, in our sole discretion, violates these Terms or is harmful to the Website, Services, or other users.
+7. Third-Party Links and Services
+7.1  The Website may contain links to third-party websites, services, or resources. Funkash does not endorse and is not responsible for the content, products, or services available through third-party links.
+7.2  Your use of third-party websites and services is at your own risk and subject to the terms and conditions of those third parties.
+8. Disclaimer of Warranties
+8.1  The Website and all Content are provided "as is" and "as available" without warranties of any kind, whether express, implied, or statutory, including but not limited to implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.
+8.2  Funkash does not warrant that the Website will be uninterrupted, error-free, secure, or free from viruses or other harmful components.
+8.3  Funkash does not warrant the accuracy, completeness, or reliability of any Content or information provided on the Website.
+9. Limitation of Liability
+9.1  To the maximum extent permitted by applicable law, Funkash Technology, its directors, officers, employees, agents, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, business opportunities, goodwill, or other intangible losses, arising out of or in connection with your use of or inability to use the Website or Services.
+9.2  Funkash’s total aggregate liability for all claims arising from or related to these Terms or your use of the Website shall not exceed the greater of: (a) the amount you paid to Funkash in the twelve (12) months preceding the claim, or (b) One Hundred Thousand Naira (NGN 100,000).
+10. Indemnification
+10.1  You agree to indemnify, defend, and hold harmless Funkash Technology, its directors, officers, employees, and agents from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising from or related to: your use of the Website; your violation of these Terms; your violation of any third-party rights; or any Content you submit or transmit through the Website.
+11. Modifications to Terms
+11.1  Funkash reserves the right to modify these Terms at any time. Updated Terms will be posted on the Website with the revised effective date. Your continued use of the Website after any modifications constitutes acceptance of the updated Terms.
+11.2  We encourage you to review these Terms periodically.
+12. Governing Law and Dispute Resolution
+12.1  These Terms shall be governed by and construed in accordance with the laws of the Federal Republic of Nigeria.
+12.2  Any dispute arising out of or in connection with these Terms shall first be resolved through good-faith negotiation. If unresolved within thirty (30) days, the dispute shall be submitted to the exclusive jurisdiction of the courts of Lagos State, Nigeria.
+13. Severability
+13.1  If any provision of these Terms is held to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect.
+14. Entire Agreement
+14.1  These Terms, together with the Privacy Policy, Cookie Policy, and Acceptable Use Policy, constitute the entire agreement between you and Funkash regarding your use of the Website.
+
+DOCUMENT 2 OF 4
+PRIVACY POLICY
+
+Effective Date: April 2026  |  Last Updated: April 2026
+Funkash Technology Limited ("Funkash," "we," "us") is committed to protecting the privacy and personal data of individuals who visit our Website (funkash.com), use our Products, or engage with our Services. This Privacy Policy explains how we collect, use, store, share, and protect your personal information in accordance with the Nigeria Data Protection Act 2023 (NDPA) and other applicable data protection legislation.
+1. Data Controller
+1.1  The data controller for the purposes of this Privacy Policy is Funkash Technology Limited, Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria. Contact: oogunwo@funkash.com.
+2. Information We Collect
+2.1  Information You Provide Directly:
+(a)  Contact information: name, email address, phone number, company name, job title;
+(b)  Account information: username, password, and profile details;
+(c)  Communication data: messages, enquiries, and correspondence you send to us;
+(d)  Commercial information: details provided during product enquiries, proposals, or contract negotiations.
+2.2  Information Collected Automatically:
+(a)  Device information: browser type, operating system, device type, screen resolution;
+(b)  Usage data: pages visited, time spent, navigation paths, referral sources;
+(c)  Network information: IP address, approximate geographic location;
+(d)  Cookie data: as described in our Cookie Policy.
+2.3  Information from Third Parties: We may receive information about you from business partners, publicly available sources, or third-party services you authorise to share data with us.
+3. How We Use Your Information
+3.1  We process your personal data for the following purposes:
+(a)  To provide, maintain, and improve our Website and Services;
+(b)  To respond to your enquiries, requests, and communications;
+(c)  To process commercial engagements, contracts, and transactions;
+(d)  To send administrative communications, including service updates and security alerts;
+(e)  To analyse Website usage and improve user experience;
+(f)  To comply with legal obligations, regulatory requirements, and law enforcement requests;
+(g)  To protect the rights, property, and safety of Funkash, our users, and the public;
+(h)  To detect, prevent, and address fraud, security incidents, and technical issues.
+4. Legal Basis for Processing
+4.1  We process personal data on one or more of the following legal bases:
+(a)  Consent: where you have given explicit consent for a specific purpose;
+(b)  Contractual necessity: where processing is necessary for the performance of a contract with you;
+(c)  Legal obligation: where processing is required to comply with applicable law;
+(d)  Legitimate interest: where processing is necessary for our legitimate business interests, provided those interests are not overridden by your rights and freedoms.
+5. Data Sharing
+5.1  We do not sell your personal data to third parties.
+5.2  We may share your personal data with:
+(a)  Service providers who assist in operating the Website, hosting services, analytics, and communication (subject to data processing agreements);
+(b)  Professional advisors, including legal, accounting, and audit professionals;
+(c)  Law enforcement or regulatory authorities when required by law or to protect our legal rights;
+(d)  Affiliated entities within the Funkash group for operational and administrative purposes.
+5.3  Where personal data is transferred outside Nigeria, we ensure adequate safeguards are in place in accordance with the NDPA.
+6. Data Retention
+6.1  We retain personal data only for as long as necessary to fulfil the purposes for which it was collected, comply with legal obligations, resolve disputes, and enforce our agreements.
+6.2  When personal data is no longer required, it is securely deleted or anonymised.
+7. Data Security
+7.1  We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction. These measures include:
+(a)  Encryption of data at rest (AES-256) and in transit (TLS 1.3);
+(b)  Access controls and authentication mechanisms;
+(c)  Regular security assessments and vulnerability testing;
+(d)  Staff training on data protection and information security.
+8. Your Rights
+8.1  Under the Nigeria Data Protection Act 2023, you have the following rights:
+(a)  Right of access: to obtain confirmation of whether we process your personal data and to access that data;
+(b)  Right to rectification: to request correction of inaccurate or incomplete personal data;
+(c)  Right to erasure: to request deletion of your personal data, subject to legal and contractual obligations;
+(d)  Right to restrict processing: to request limitation of processing in certain circumstances;
+(e)  Right to data portability: to receive your personal data in a structured, commonly used, machine-readable format;
+(f)  Right to object: to object to processing based on legitimate interests;
+(g)  Right to withdraw consent: to withdraw consent at any time where processing is based on consent.
+8.2  To exercise any of these rights, contact us at oogunwo@funkash.com. We will respond within thirty (30) days.
+9. Children’s Privacy
+9.1  The Website and Services are not directed at individuals under the age of eighteen (18). We do not knowingly collect personal data from children. If we become aware that we have collected data from a child, we will take steps to delete it promptly.
+10. Changes to This Policy
+10.1  We may update this Privacy Policy from time to time. The updated version will be posted on the Website with a revised effective date. We encourage you to review this Policy periodically.
+
+DOCUMENT 3 OF 4
+COOKIE POLICY
+
+Effective Date: April 2026
+This Cookie Policy explains how Funkash Technology Limited uses cookies and similar tracking technologies on funkash.com.
+1. What Are Cookies
+1.1  Cookies are small text files stored on your device when you visit a website. They enable the website to recognise your device, remember your preferences, and provide a personalised experience.
+2. Types of Cookies We Use
+2.1  Strictly Necessary Cookies: Essential for the Website to function properly. These cannot be disabled. They enable core functionality such as security, network management, and accessibility.
+2.2  Analytics Cookies: Help us understand how visitors interact with the Website by collecting and reporting information anonymously. We use this data to improve the Website’s performance and user experience.
+2.3  Functional Cookies: Allow the Website to remember choices you make (such as language preferences) and provide enhanced, personalised features.
+2.4  Marketing Cookies: Used to track visitors across websites. The intention is to display advertisements that are relevant and engaging for the individual user. We currently do not use marketing cookies.
+3. Managing Cookies
+3.1  You can control and manage cookies through your browser settings. Most browsers allow you to block or delete cookies. However, disabling certain cookies may affect the functionality of the Website.
+3.2  For more information about managing cookies, visit your browser’s help documentation.
+4. Third-Party Cookies
+4.1  Some cookies may be set by third-party services that appear on our pages, including analytics providers (such as Google Analytics). We do not control these third-party cookies. Please refer to the respective third party’s cookie policy for more information.
+5. Updates
+5.1  We may update this Cookie Policy from time to time. Changes will be posted on this page with an updated effective date.
+
+DOCUMENT 4 OF 4
+ACCEPTABLE USE POLICY
+
+Effective Date: April 2026
+This Acceptable Use Policy ("AUP") sets out the rules and standards for the use of funkash.com and all services, platforms, and products provided by Funkash Technology Limited. This AUP supplements and forms part of our Terms of Service.
+1. Prohibited Activities
+1.1  You shall not use the Website, Services, or Products to:
+(a)  Engage in any activity that is illegal, fraudulent, deceptive, or harmful under Nigerian law or any other applicable jurisdiction;
+(b)  Transmit, distribute, or store material that is defamatory, obscene, threatening, abusive, or that violates the rights of any third party;
+(c)  Attempt to gain unauthorised access to systems, networks, accounts, or data belonging to Funkash or its clients;
+(d)  Interfere with, disrupt, or degrade the performance, security, or integrity of the Website, Services, or any connected systems;
+(e)  Reverse-engineer, decompile, disassemble, or attempt to derive the source code of any Funkash Product or technology;
+(f)  Use the Website or Services to distribute malware, viruses, trojans, worms, or any other harmful software;
+(g)  Scrape, harvest, or collect data from the Website using automated tools without our express written permission;
+(h)  Impersonate any person or entity, or misrepresent your affiliation with any person or entity;
+(i)  Use the Website or Services for competitive intelligence, benchmarking, or to develop a competing product without our written consent;
+(j)  Violate any applicable data protection, privacy, or intellectual property laws.
+2. Security
+2.1  You shall not attempt to probe, scan, or test the vulnerability of the Website or any associated system or network.
+2.2  You shall not attempt to breach, circumvent, or disable any security or authentication measures implemented by Funkash.
+2.3  If you discover a security vulnerability, you are encouraged to report it responsibly to oogunwo@funkash.com. Do not exploit any vulnerability.
+3. Intellectual Property Protection
+3.1  All Funkash Products, source code, designs, architectures, documentation, and proprietary materials are protected by intellectual property laws. Unauthorised use, reproduction, distribution, or modification is strictly prohibited.
+3.2  You may not use Funkash’s name, logo, trademarks, or brand elements without our prior written consent.
+4. Enforcement
+4.1  Funkash reserves the right, in its sole discretion, to investigate and take appropriate action against any violation of this AUP, including:
+(a)  Issuing warnings;
+(b)  Suspending or terminating access to the Website or Services;
+(c)  Removing or disabling access to content that violates this AUP;
+(d)  Reporting violations to law enforcement authorities;
+(e)  Pursuing legal remedies, including injunctive relief and damages.
+5. Reporting Violations
+5.1  If you become aware of any violation of this AUP, please report it to oogunwo@funkash.com. We take all reports seriously and will investigate promptly.
+6. Modifications
+6.1  Funkash reserves the right to modify this AUP at any time. Updated versions will be posted on the Website with a revised effective date.
+
+
+FUNKASH TECHNOLOGY LIMITED
+RC 8114457  |  Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria
+oogunwo@funkash.com  |  +234 907 711 1176  |  funkash.com
+These policies are effective as of April 2026 and apply to all users of funkash.com.

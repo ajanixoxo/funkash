@@ -81,11 +81,11 @@ const ContactFormSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold mb-4">
-              Let's build what's next.
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
+              Get in Touch
             </h2>
             <p className="text-gray-300 text-lg mb-8">
-              Whether you're a bank, an enterprise, or a public institution, we'd like to hear from you.
+              Whether you&apos;re a bank, an enterprise, or a public institution, we&apos;d like to hear from you.
             </p>
 
             <div className="space-y-4 mb-8">

@@ -26,9 +26,9 @@ const ContactHeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-serif font-semibold leading-tight mb-8 max-w-5xl"
+            className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8 max-w-5xl"
           >
-            Let's  <span className="italic font-normal">Build</span> What's Next. Together
+            Let&apos;s <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>Build</span> What&apos;s Next. Together
           </motion.h1>
 
           <motion.p
@@ -37,8 +37,7 @@ const ContactHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-lg md:text-xl mb-8 max-w-3xl leading-relaxed"
           >
-Whether you’re exploring AI solutions, looking to modernize your systems, or seeking a trusted engineering partner — our team is ready to collaborate.
-Tell us about your challenge, and we’ll help you turn it into a breakthrough.
+            Tell us what you are trying to solve. Our work spans financial infrastructure, fraud and identity, AI workforce deployment, regulatory intelligence, and workforce capability, and we are actively taking on problems outside that range as well
           </motion.p>
         </div>
       </div>
