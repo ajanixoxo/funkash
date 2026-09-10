@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
 
                         <div className="text-gray-300 leading-relaxed space-y-1">
                             <p className="font-semibold text-white">Funkash Technology (RC 8114457)</p>
-                            <p>Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria</p>
+                            <p>Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria</p>
                             <p>hello@funkash.com &middot; funkash.com</p>
                         </div>
                     </div>

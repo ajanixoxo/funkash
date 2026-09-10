@@ -27,7 +27,7 @@ export default function TermsOfUsePage() {
             <h2 className="text-2xl font-semibold text-white mb-4">1. Company Information</h2>
             <ul className="list-none space-y-2">
               <li><span className="font-medium text-white">1.1</span> Funkash Technology Limited is a technology holding company and venture studio that designs, develops, and operates enterprise software products, AI systems, and digital infrastructure.</li>
-              <li><span className="font-medium text-white">1.2 Registered Address:</span> Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria.</li>
+              <li><span className="font-medium text-white">1.2 Registered Address:</span> Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria.</li>
               <li><span className="font-medium text-white">1.3 Contact:</span> hello@funkash.com | +234 907 711 1176 | funkash.com</li>
             </ul>
           </section>

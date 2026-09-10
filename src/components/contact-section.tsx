@@ -79,7 +79,7 @@ const ContactPage: React.FC = () => {
 
   const contactInfo = [
     { id: "01", label: "Email", value: "hello@funkash.com" },
-    { id: "02", label: "Office", value: "Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria" },
+    { id: "02", label: "Office", value: "Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria" },
   ]
 
   return (

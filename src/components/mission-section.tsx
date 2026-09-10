@@ -33,7 +33,7 @@ const MissionSection = () => {
           baseOpacity={0.15}
           blurStrength={6}
         >
-          At Tharwa Funkash, we build and operate software that solves structural problems — in how money moves, how fraud is stopped, how organisations work, and how policy is understood.
+          At Tharwa Funkash, we build and operate software that solves structural problems for institutions and businesses; from how their money moves and how fraud gets stopped, to how their organisations run and how policy gets understood.
         </ScrollReveal>
 
         <div className="h-6 md:h-8"></div>

@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">1. Data Controller</h2>
             <ul className="list-none space-y-2">
-              <li><span className="font-medium text-white">1.1</span> The data controller for the purposes of this Privacy Policy is Funkash Technology Limited, Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria. Contact: hello@funkash.com.</li>
+              <li><span className="font-medium text-white">1.1</span> The data controller for the purposes of this Privacy Policy is Funkash Technology Limited, Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria. Contact: hello@funkash.com.</li>
             </ul>
           </section>
 

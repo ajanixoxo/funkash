@@ -7,29 +7,19 @@ import { motion } from "framer-motion";
 const ApproachPrinciplesSection = () => {
   const principles = [
     {
-      title: "Technical Mastery",
+      title: "Customer Obsession",
       description:
-        "Systems are only as good as the engineering behind them. Our developers, data scientists, and AI architects build technology from the ground up: scalable, efficient, and secure. We design every product to be maintained and extended, not replaced.",
+        "We are committed to the success of every client, and take on what we can deliver in full.",
     },
     {
-      title: "Data-Led Design",
+      title: "Innovation",
       description:
-        "We design from evidence, not assumptions. Our systems analyse patterns, predict outcomes, and optimise performance in real time, and they improve as they are used.",
+        "We invent in the product, and hold our promises to what it can do.",
     },
     {
-      title: "Human-Centric Partnership",
+      title: "Trust",
       description:
-        "We work closely with clients to understand their users, workflows, and goals, not just their technical specifications. Our goal is not software for its own sake. It is systems that make teams more effective.",
-    },
-    {
-      title: "How we build",
-      description:
-        "Every project moves through the same four stages, from idea to implementation.",
-    },
-    {
-      title: "Technical Architecture",
-      description:
-        "We design scalable systems, robust APIs, and adaptive data structures.",
+        "We commit carefully, deliver completely and can show it.",
     },
   ];
 

@@ -104,7 +104,7 @@ const ContactFormSection = () => {
               <div className="flex items-start gap-3">
                 <span className="font-semibold text-white">Office:</span>
                 <span className="text-gray-300">
-                  Flat 21, Adeline Court, Banana Island, Ikoyi, Lagos, Nigeria
+                  Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria
                 </span>
               </div>
             </div>
