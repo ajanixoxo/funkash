@@ -9,26 +9,26 @@ const PortfolioSection = () => {
   const portfolioItems = [
     {
       name: "FLOWPENSE",
-      description: "The financial control layer between an enterprise's ERP and its bank. Flowpense automates accounts payable, approvals, spend controls, and reconciliation — so finance teams move money with speed and control.",
+      description: "The financial control layer between your ERP and your bank. Flowpense automates accounts payable, receivables, approvals, spend controls, reconciliation, and much more.",
       image: "/projects/project13.png",
       isLogo: false,
     },
     {
       name: "AEGIS BIP",
-      description: "A behavioural identity platform that detects fraud and mule networks from how people actually transact — not just who they claim to be. Aegis turns behaviour into a real-time defence layer.",
+      description: "A behavioural identity platform that detects fraud and mule networks from how people actually transact. It takes behaviour patterns and converts them into a real-time defence layer.",
       image: "/projects/aegis-bip_icon.png",
       isLogo: true,
     },
     {
       name: "BOTPAA",
-      description: "AI workforce infrastructure. Botpaa lets organisations deploy reliable AI employees into real operations — trained, governed, and accountable — to do work, not just answer questions.",
+      description: "AI workforce infrastructure. Botpaa lets your organisation deploy reliable AI employees into your real operations, these agents are trained, governed, and accountable, to do work, not just answer questions.",
       image: "/projects/botpaa.png",
       isLogo: true,
       bgColor: "bg-emerald-800",
     },
     {
       name: "MALTIDA",
-      description: "A policy and regulation intelligence engine. Maltida turns dense policy and regulatory text into structured, queryable insight, so teams can understand and act on the rules that govern them.",
+      description: "A policy and regulation intelligence engine. Maltida is what turns dense policy and regulatory text into structured, queryable insight, so teams can understand and act on the rules that govern them.",
       image: "/maltida_icon.png",
       isLogo: true,
     },
@@ -55,7 +55,7 @@ const PortfolioSection = () => {
             THE THARWA FUNKASH <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>UNIVERSE</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl">
-            Our flagship products — a connected set of platforms engineered to solve hard problems across finance, security, work, and governance.
+            Our flagship products, a connected set of platforms engineered to solve problems across finance, security, work, and governance.
           </p>
         </motion.div>
 

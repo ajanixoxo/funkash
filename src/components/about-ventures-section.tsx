@@ -41,11 +41,7 @@ const AboutVenturesSection = () => {
               </p>
 
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
-                Our ventures include AfriCredify (AI-powered credit
-                intelligence), CFG Escrow (secure digital escrow), EduFlex AI
-                (workforce skills and training), Flowpense (enterprise spend
-                automation), and Botpaa (AI assisted ERP). Each is built on the
-                same principle of one initial build and constant scalability.
+                Our ventures include EduFlex AI (workforce skills and training), Flowpense (enterprise spend automation), Maltida, Aegis, and Botpaa (AI assisted ERP). Each is built on the same principle of one initial build and constant scalability.
               </p>
             </div>
 

@@ -30,7 +30,7 @@ const AboutCEOSection = () => {
             institution-grade software for problems that matter at scale:
             enterprise financial control, behavioural fraud defence, and AI
             workforce infrastructure. Olumide leads Product and Engineering,
-            while Naomi leads Operations across the Tharwa Funkash Universe.
+            while Naomi leads Operations.
           </p>
         </motion.div>
 
@@ -55,7 +55,7 @@ const AboutCEOSection = () => {
               Olumide Funkash Ogunwo
             </h3>
             <p className="text-gray-400 text-sm sm:text-base font-normal">
-              Founder &amp; CEO
+              Founder
             </p>
           </motion.div>
 
@@ -78,7 +78,7 @@ const AboutCEOSection = () => {
               Naomi Durosaro
             </h3>
             <p className="text-gray-400 text-sm sm:text-base font-normal">
-              Co-Founder &amp; COO
+              Cofounder
             </p>
           </motion.div>
         </div>

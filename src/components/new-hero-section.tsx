@@ -38,7 +38,7 @@ const NewHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg"
           >
-            Tharwa Funkash Technology is a product and engineering company building institution-grade software across finance, fraud defence, AI workforce, and governance.
+            Tharwa Funkash Technology is a product and engineering company building institution-grade software that promotes advancement, innovations and improves operation efficiency.
           </motion.p>
 
           <motion.div

@@ -37,7 +37,7 @@ const ContactHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-lg md:text-xl mb-8 max-w-3xl leading-relaxed"
           >
-            Tell us what you are trying to solve. Our work spans financial infrastructure, fraud and identity, AI workforce deployment, regulatory intelligence, and workforce capability, and we are actively taking on problems outside that range as well
+            Tell us what you are trying to solve. Our work spans financial infrastructure, fraud and identity, AI workforce deployment, regulatory intelligence, and workforce capability, and we are actively taking on problems outside that range as well. If it sits anywhere near what we build or somewhere adjacent to it, reach out and we will tell you plainly whether we are the right partner for it.
           </motion.p>
         </div>
       </div>

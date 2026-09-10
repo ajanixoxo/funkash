@@ -7,19 +7,19 @@ import { motion } from "framer-motion";
 const ApproachPrinciplesSection = () => {
   const principles = [
     {
-      title: "Customer Obsession",
+      title: "Technical Mastery",
       description:
-        "We are committed to the success of every client, and take on what we can deliver in full.",
+        "Systems are only as good as the engineering behind them. Our developers, data scientists, and AI architects build technology from the ground up: scalable, efficient, and secure. We design every product to be maintained and extended, not replaced.",
     },
     {
-      title: "Innovation",
+      title: "Data-Led Design",
       description:
-        "We invent in the product, and hold our promises to what it can do.",
+        "We design from evidence, not assumptions. Our systems analyse patterns, predict outcomes, and optimise performance in real time, and they improve as they are used.",
     },
     {
-      title: "Trust",
+      title: "Human-Centric Partnership",
       description:
-        "We commit carefully, deliver completely and can show it.",
+        "We work closely with clients to understand their users, workflows, and goals, not just their technical specifications. Our goal is not software for its own sake. It is systems that make teams more effective.",
     },
   ];
 

@@ -75,7 +75,7 @@ const IndustriesSection = () => {
       name: "Fintech & Payments", 
       icon: <DollarSignIcon className="w-6 h-6" />,
       shapeType: "torus" as const,
-      description: "Automating digital transactions and credit scoring for the next billion users.",
+      description: "We automate digital transactions and credit scoring for your next billion users.",
       accentColor: "rgba(59, 130, 246, 1)"
     },
     { 
@@ -83,7 +83,7 @@ const IndustriesSection = () => {
       name: "SaaS & Cloud Solutions", 
       icon: <CodeIcon className="w-6 h-6" />,
       shapeType: "cube" as const,
-      description: "Building scalable tools that power businesses worldwide.",
+      description: "We build scalable tools that power your businesses worldwide.",
       accentColor: "rgba(139, 92, 246, 1)"
     },
     { 
@@ -91,7 +91,7 @@ const IndustriesSection = () => {
       name: "Real Estate & Smart Infrastructure", 
       icon: <BuildingIcon className="w-6 h-6" />,
       shapeType: "cylinder" as const,
-      description: "Enabling intelligent property and asset management.",
+      description: "We enable your intelligent property and better asset management.",
       accentColor: "rgba(16, 185, 129, 1)"
     },
     { 
@@ -99,7 +99,7 @@ const IndustriesSection = () => {
       name: "Governance & Public Systems", 
       icon: <Handshake className="w-6 h-6" />,
       shapeType: "dodecahedron" as const,
-      description: "Driving transparency and efficiency in administration.",
+      description: "We drive transparency and better efficiency in administration.",
       accentColor: "rgba(245, 158, 11, 1)"
     },
     { 
@@ -107,7 +107,7 @@ const IndustriesSection = () => {
       name: "Defense & Security Technology", 
       icon: <ShieldIcon className="w-6 h-6" />,
       shapeType: "octahedron" as const,
-      description: "Advancing AI-driven protection systems and predictive analytics.",
+      description: "We advance AI-driven protection systems and predictive analytics.",
       accentColor: "rgba(239, 68, 68, 1)"
     },
     { 
@@ -115,7 +115,7 @@ const IndustriesSection = () => {
       name: "Healthcare & Science", 
       icon: <HeartHandshakeIcon className="w-6 h-6" />,
       shapeType: "icosahedron" as const,
-      description: "Using data to make health systems more proactive and connected.",
+      description: "We use data to make health systems more proactive and connected.",
       accentColor: "rgba(236, 72, 153, 1)"
     },
   ];
@@ -131,10 +131,10 @@ const IndustriesSection = () => {
           className="mb-20 max-w-3xl"
         >
           <h2 className="text-5xl md:text-6xl font-semibold mb-8 leading-tight">
-            Industries We <span className="italic font-normal opacity-80">Empower</span>
+            INDUSTRIES WE <span className="italic font-normal opacity-80" style={{ fontFamily: 'var(--font-playfair), serif' }}>EMPOWER</span>
           </h2>
           <p className="text-gray-300 text-xl md:text-2xl leading-relaxed">
-            Our solutions cut across sectors where precision, efficiency, and intelligence matter most.
+            Our solutions sit at the section where precision, efficiency, and intelligence matter most.
           </p>
         </motion.div>
 

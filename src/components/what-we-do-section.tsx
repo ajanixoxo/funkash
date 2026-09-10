@@ -118,11 +118,11 @@ const WhatWeDoSection = () => {
           >
             <div>
               <h2 className="text-4xl md:text-6xl font-semibold mb-4 leading-tight">
-                Our Service <br /> 
-                <span className="italic font-normal opacity-80">Ecosystems</span>
+                OUR <br /> 
+                <span className="italic font-normal opacity-80" style={{ fontFamily: 'var(--font-playfair), serif' }}>ECOSYSTEM</span>
               </h2>
               <p className="text-gray-400 text-lg md:text-xl max-w-2xl font-medium">
-                Curated technological stacks synced to your business goals; add or prune tools per ecosystem.
+                We have a curated list of technological stacks synced to business goals; adding or pruning tools per ecosystem.
               </p>
             </div>
           </motion.div>
