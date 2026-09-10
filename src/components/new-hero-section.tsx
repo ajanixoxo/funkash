@@ -29,7 +29,7 @@ const NewHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-8"
           >
-            We engineer the systems that solve large problems.
+            We engineer systems that institutions and businesses run on.
           </motion.h1>
 
           <motion.p
@@ -38,7 +38,7 @@ const NewHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-lg md:text-xl mb-12 max-w-lg"
           >
-            Funkash Technology is a product and engineering company building institution-grade software for finance, fraud defence, workforce, and governance.
+            Tharwa Funkash Technology is a product and engineering company building institution-grade software across finance, fraud defence, AI workforce, and governance.
           </motion.p>
 
           <motion.div
@@ -48,10 +48,10 @@ const NewHeroSection = () => {
             className="flex flex-wrap gap-4"
           >
             <Button asChild variant="primary" size="lg" className="!rounded-full px-10">
-              <Link href="/contact">Partner with us</Link>
+              <Link href="/contact">Partner with TFT</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="!rounded-full px-10 border-white/20 hover:bg-white/10 text-white">
-              <Link href="/products">Explore our products</Link>
+            <Button asChild variant="secondary" size="lg" className="!rounded-full px-10 border-white/20 hover:bg-white/10 text-white">
+              <Link href="/products">Explore TFT products</Link>
             </Button>
           </motion.div>
         </div>

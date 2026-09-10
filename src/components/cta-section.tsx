@@ -19,12 +19,12 @@ const CTASection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
-            Let’s Build What’s <span className="italic font-normal">Next</span>
+              Let&apos;s <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>Build</span> What&apos;s Next
               <br />
-              <span className="italic font-normal">Together</span>
+              <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>Together</span>
             </h2>
             <p className="text-gray-300 text-lg mb-8 max-w-lg">
-            Whether you’re reimagining enterprise systems, automating governance, or scaling a new digital product — Funkash Technology is your partner in intelligent engineering.
+              Whether you&apos;re reimagining enterprise systems, automating governance, or scaling a new digital product — Tharwa Funkash Technology is your partner in intelligent engineering.
             </p>
             <div className="space-y-4 mt-4">
               <motion.a
@@ -37,7 +37,7 @@ const CTASection = () => {
 
               </motion.a>
               <div className="flex flex-col items-start  gap-4 text-sm">
-                <div className="border-t border-gray-700 pt-4 border-b border-gray-300 pb-4">
+                <div className="border-t border-gray-700 pt-4 border-b pb-4">
                   <Link
                     href="/projects"
                     className="text-gray-300 border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"

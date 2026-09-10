@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React from "react";
@@ -6,65 +7,89 @@ import { motion } from "framer-motion";
 const ApproachHowWeWorkSection = () => {
   const steps = [
     {
-      title: "Discovery & Evaluation",
-      description: "We map challenges, define data needs, and identify automation opportunities.",
+      title: "Discovery and Evaluation",
+      description:
+        "We map the challenge, define data needs, and identify where automation can help.",
     },
     {
       title: "Technical Architecture",
-      description: "We design scalable systems, robust APIs, and adaptive data structures.",
+      description:
+        "We design scalable systems, robust APIs, and adaptive data structures.",
     },
     {
       title: "Strategic Integration",
-      description: "We deploy AI layers, analytics, and interface logic; ensuring every part communicates with precision",
+      description:
+        "We deploy AI layers, analytics, and interface logic, and make sure every part communicates correctly.",
     },
     {
-      title: "Partnership & Growth",
-      description: "We continue iterating, monitoring, and scaling systems to meet new challenges.",
+      title: "Partnership and Growth",
+      description:
+        "We keep iterating, monitoring, and scaling the system as new challenges come up.",
     },
   ];
 
   return (
-    <section className="relative bg-gradient-to-r from-[#1a1f3a] via-[#1a1f3a] via-10% to-[#C78018]/30 to-90% text-white py-20 md:py-32 px-6">
+    <section className="bg-[#463524] text-white py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <motion.h2
+        {/* Section Header */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
-          className="text-lg md:text-2xl lg:text-4xl font-semibold mb-6"
+          className="mb-16"
         >
-          How We <span>Build</span> 
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-gray-300 t mb-16 lg:max-w-xs"
-        >
-       Our approach blends creative vision with technical precision, ensuring every project we take moves seamlessly from idea to implementation.
-
-        </motion.p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bp-6 md:p-8  transition-all duration-300"
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-4 tracking-tight text-white">
+            How we{" "}
+            <span
+              className="italic font-normal"
+              style={{ fontFamily: "var(--font-playfair), serif" }}
             >
-              <h3 className="text-xl md:text-2xl w-max font-semibold mb-4">
-                {step.title}
-              </h3>
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                {step.description}
-              </p>
-            </motion.div>
-          ))}
+              Build
+            </span>
+          </h2>
+          <p className="text-gray-300 text-base sm:text-lg font-light max-w-2xl">
+            Every project moves through the same four stages, from idea to
+            implementation.
+          </p>
+        </motion.div>
+
+        {/* 2-Column Grid: 4 Stages Left, Image Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Steps List */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7 space-y-10"
+          >
+            {steps.map((step, index) => (
+              <div key={index} className="space-y-2">
+                <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
+                  {step.title}
+                </h3>
+                <p className="text-gray-200 text-base sm:text-lg leading-relaxed font-light">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 w-full h-[380px] sm:h-[480px] lg:h-[580px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black/20"
+          >
+            <img
+              src="/principles1.png"
+              alt="How we build systems at Tharwa Funkash"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
         </div>
       </div>
     </section>
@@ -72,4 +97,3 @@ const ApproachHowWeWorkSection = () => {
 };
 
 export default ApproachHowWeWorkSection;
-

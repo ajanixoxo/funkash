@@ -51,7 +51,9 @@ const PortfolioSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-semibold mb-4 uppercase">The Funkash <span className="italic font-normal">Universe</span></h2>
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4 tracking-tight">
+            THE THARWA FUNKASH <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>UNIVERSE</span>
+          </h2>
           <p className="text-gray-300 text-lg max-w-2xl">
             Our flagship products — a connected set of platforms engineered to solve hard problems across finance, security, work, and governance.
           </p>

@@ -90,15 +90,18 @@ export default function Navbar() {
         <motion.div>
           <div className="flex justify-between gap-8  w-auto  items-center">
             {/* LOGO */}
-            <div className="flex items-center text-white">
-              <div className="w-10 md:w-16 h-16 rounded-md flex items-center justify-center mr-3 overflow-hidden">
-                <img src="/logo.png" alt="Funkash Logo" className="w-full" />
-              </div>
+            <div className="flex items-center text-white mr-2">
+             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.8364 18.1363C12.1729 18.8173 10.6036 19.4377 10.6036 19.4377C10.1699 19.6094 9.6785 19.3967 9.50685 18.963C9.3352 18.5293 9.54788 18.0379 9.98157 17.8663C9.98157 17.8663 23.054 12.6866 37.9721 15.5836C38.43 15.6726 38.7295 16.1165 38.6406 16.5743C38.5517 17.0322 38.1078 17.3317 37.6499 17.2428C36.1888 16.9591 34.7459 16.7554 33.3326 16.6185V31.4996H34.2752C34.7415 31.4996 35.1203 31.8783 35.1203 32.3447C35.1203 32.8111 34.7415 33.1897 34.2752 33.1897H30.526C30.0596 33.1897 29.681 32.8111 29.681 32.3447C29.681 31.8783 30.0596 31.4996 30.526 31.4996H31.6425V16.4848C29.2936 16.3403 27.0425 16.3718 24.9442 16.5145V23.0471C25.8914 22.7255 27.402 22.4657 29.7813 22.5551C30.2474 22.5727 30.6116 22.9653 30.594 23.4313C30.5765 23.8974 30.1839 24.2616 29.7178 24.2441C27.6992 24.1682 26.4325 24.3488 25.6506 24.5828C25.3197 24.6818 25.0828 24.8017 24.9442 24.8834V31.4996H25.9858C26.4522 31.4996 26.8309 31.8783 26.8309 32.3447C26.8309 32.8111 26.4522 33.1897 25.9858 33.1897H22.2366C21.7702 33.1897 21.3916 32.8111 21.3916 32.3447C21.3916 31.8783 21.7702 31.4996 22.2366 31.4996H23.254V16.6558C20.7045 16.9081 18.4248 17.3111 16.5265 17.7329V31.4996H17.5106C17.977 31.4996 18.3557 31.8783 18.3557 32.3447C18.3557 32.8111 17.977 33.1897 17.5106 33.1897H13.7615C13.2951 33.1897 12.9165 32.8111 12.9165 32.3447C12.9165 31.8783 13.2951 31.4996 13.7615 31.4996H14.8364V18.1363Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.9827 3.08594C35.5152 3.08594 44.8782 12.4489 44.8782 23.9814C44.8782 35.5139 35.5152 44.8769 23.9827 44.8769C12.4502 44.8769 3.08716 35.5139 3.08716 23.9814C3.08716 12.4489 12.4502 3.08594 23.9827 3.08594ZM23.9827 3.36763C12.6056 3.36763 3.36885 12.6044 3.36885 23.9814C3.36885 35.3585 12.6056 44.5952 23.9827 44.5952C35.3598 44.5952 44.5965 35.3585 44.5965 23.9814C44.5965 12.6044 35.3598 3.36763 23.9827 3.36763Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.9827 0C37.2191 0 47.9654 10.7463 47.9654 23.9828C47.9654 37.2193 37.2191 47.9656 23.9827 47.9656C10.7462 47.9656 -0.00012207 37.2193 -0.00012207 23.9828C-0.00012207 10.7463 10.7462 0 23.9827 0ZM23.9827 1.12678C11.3681 1.12678 1.12665 11.3682 1.12665 23.9828C1.12665 36.5974 11.3681 46.8388 23.9827 46.8388C36.5973 46.8388 46.8387 36.5974 46.8387 23.9828C46.8387 11.3682 36.5973 1.12678 23.9827 1.12678Z" fill="white"/>
+</svg>
+
 
               <h2
-                className={`font-semibold hidden md:flex text-xl ${scrolled ? "text-white" : "text-white/80"}`}
+                className={`font-semibold hidden md:flex ml-2 text-lg ${scrolled ? "text-white" : "text-white/90"}`}
               >
-                Funkash Technology
+                Tharwa Funkash Technology
               </h2>
             </div>
 
@@ -154,17 +157,9 @@ export default function Navbar() {
               <Button asChild variant="primary" size="md">
                 <Link href="/contact" className="flex items-center gap-2">
                   Partner With Us
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
                   </svg>
                 </Link>
               </Button>
@@ -192,11 +187,11 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-4 py-4">
         {/* LOGO */}
         <div className="flex items-center text-white">
-          <div className="w-10 h-10 rounded-md flex items-center justify-center overflow-hidden">
-            <img src="/logo.png" alt="Funkash Logo" className="w-full" />
+          <div className="w-9 h-9 rounded-full border border-white/80 flex items-center justify-center shrink-0">
+            <span className="text-white font-medium text-xs tracking-wider" style={{ fontFamily: 'var(--font-playfair), serif' }}>TH</span>
           </div>
-          <h2 className={`font-semibold ml-2 text-lg ${scrolled ? "text-white" : "text-white/80"}`}>
-            Funkash Technology
+          <h2 className={`font-semibold ml-3 text-base ${scrolled ? "text-white" : "text-white/90"}`}>
+            Tharwa Funkash Technology
           </h2>
         </div>
 
