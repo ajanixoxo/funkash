@@ -1,122 +1,138 @@
 /* eslint-disable @next/next/no-img-element */
-"use client"
-import React, { useState } from 'react';
-import { Linkedin, Twitter, Instagram } from 'lucide-react';
-import Logo from './Logo';
+"use client";
+import React, { useState } from "react";
+import { Linkedin, Twitter, Instagram } from "lucide-react";
+import Logo from "./Logo";
 
 const Footer: React.FC = () => {
-    const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
-    const quickLinks = ['Home', 'About', 'Approach', 'Portfolio', 'Contact'];
+  const quickLinks = ["Home", "About", "Approach", "Portfolio", "Contact"];
 
-    const socialIcons = [
-        { Icon: Linkedin, href: 'https://www.linkedin.com/company/funktech72', label: 'LinkedIn' },
-        { Icon: Twitter, href: 'https://x.com/iamfunkash', label: 'Twitter' },
-        { Icon: Instagram, href: 'https://www.instagram.com/iamfunkash/', label: 'Instagram' },
-    ];
+  const socialIcons = [
+    {
+      Icon: Linkedin,
+      href: "https://www.linkedin.com/company/funktech72",
+      label: "LinkedIn",
+    },
+    { Icon: Twitter, href: "https://x.com/iamfunkash", label: "Twitter" },
+    {
+      Icon: Instagram,
+      href: "https://www.instagram.com/iamfunkash/",
+      label: "Instagram",
+    },
+  ];
 
-    return (
-        <footer className="bg-black text-white border-t border-gray-900">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
-                {/* Main Footer Content */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-12">
-                    {/* Left Side - Brand */}
-                    <div>
-                        <div className="flex items-center gap-3 mb-6">
-                            <Logo size={42} className="text-white shrink-0" />
-                            <h2 className="font-semibold text-xl text-white">
-                                Tharwa Funkash Technology
-                            </h2>
-                        </div>
-
-                        <div className="text-gray-300 leading-relaxed space-y-1">
-                            <p className="font-semibold text-white">Tharwa Funkash Technology (RC 8114457)</p>
-                            <p>Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria</p>
-                            <p>hello@funkash.com &middot; funkash.com</p>
-                        </div>
-                    </div>
-                    <div className="mb-8 flex items-start md:items-center justify-center flex-col">
-                        <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
-                            Quick Links
-                        </h3>
-                        <ul className="space-y-3">
-                            {quickLinks.map((link) => (
-                                <li key={link}>
-                                    <a
-                                        href={link === 'Home' ? '/' : link === 'Portfolio' ? '/products' : `/${link.toLowerCase()}`}
-                                        onMouseEnter={() => setHoveredLink(link)}
-                                        onMouseLeave={() => setHoveredLink(null)}
-                                        className={`text-white transition-colors duration-300 ${hoveredLink === link ? 'text-gray-400' : 'hover:text-gray-300'}`}
-                                    >
-                                        {link}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    {/* Right Side - Links and Social */}
-                    <div className="flex flex-col md:items-end">
-
-
-                        <div>
-                            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
-                                Follow Us
-                            </h3>
-                            <div className="flex gap-4">
-                                {socialIcons.map(({ Icon, href, label }) => (
-                                    <a
-                                        key={label}
-                                        href={href}
-                                        aria-label={label}
-                                        className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:border-white hover:bg-white/10 transition-all duration-300"
-                                    >
-                                        <Icon className="w-5 h-5 text-white" />
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Bottom Bar */}
-                <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-white text-sm">
-                        © 2026 Tharwa Funkash Technology Limited. All rights reserved.
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        <a
-                            href="/privacy-policy"
-                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
-                        >
-                            Privacy Policy
-                        </a>
-                        <span className="text-gray-600 hidden md:inline">&middot;</span>
-                        <a
-                            href="/terms-of-use"
-                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
-                        >
-                            Terms of Service
-                        </a>
-                        <span className="text-gray-600 hidden md:inline">&middot;</span>
-                        <a
-                            href="/cookie-policy"
-                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
-                        >
-                            Cookie Policy
-                        </a>
-                        <span className="text-gray-600 hidden md:inline">&middot;</span>
-                        <a
-                            href="/acceptable-use-policy"
-                            className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
-                        >
-                            Acceptable Use Policy
-                        </a>
-                    </div>
-                </div>
+  return (
+    <footer className="bg-black text-white border-t border-gray-900">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-12">
+          {/* Left Side - Brand */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <Logo size={42} className="text-white shrink-0" />
+              <h2 className="font-semibold text-xl text-white">
+                Tharwa Funkash Technology
+              </h2>
             </div>
-        </footer>
-    );
+
+            <div className="text-gray-300 leading-relaxed space-y-1">
+              <p className="font-semibold text-white">
+                Tharwa Funkash Technology (RC 8114457)
+              </p>
+              <p>
+                Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos,
+                Nigeria
+              </p>
+              <p>partnership@tharwafunkash.com &middot; funkash.com</p>
+            </div>
+          </div>
+          <div className="mb-8 flex items-start md:items-center justify-center flex-col">
+            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link}>
+                  <a
+                    href={
+                      link === "Home"
+                        ? "/"
+                        : link === "Portfolio"
+                          ? "/products"
+                          : `/${link.toLowerCase()}`
+                    }
+                    onMouseEnter={() => setHoveredLink(link)}
+                    onMouseLeave={() => setHoveredLink(null)}
+                    className={`text-white transition-colors duration-300 ${hoveredLink === link ? "text-gray-400" : "hover:text-gray-300"}`}
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Right Side - Links and Social */}
+          <div className="flex flex-col md:items-end">
+            <div>
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                Follow Us
+              </h3>
+              <div className="flex gap-4">
+                {socialIcons.map(({ Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:border-white hover:bg-white/10 transition-all duration-300"
+                  >
+                    <Icon className="w-5 h-5 text-white" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white text-sm">
+            © 2026 Tharwa Funkash Technology Limited. All rights reserved.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="/privacy-policy"
+              className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+            >
+              Privacy Policy
+            </a>
+            <span className="text-gray-600 hidden md:inline">&middot;</span>
+            <a
+              href="/terms-of-use"
+              className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+            >
+              Terms of Service
+            </a>
+            <span className="text-gray-600 hidden md:inline">&middot;</span>
+            <a
+              href="/cookie-policy"
+              className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+            >
+              Cookie Policy
+            </a>
+            <span className="text-gray-600 hidden md:inline">&middot;</span>
+            <a
+              href="/acceptable-use-policy"
+              className="text-white hover:text-gray-300 transition-colors duration-300 text-sm"
+            >
+              Acceptable Use Policy
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
-
-export default Footer
+export default Footer;

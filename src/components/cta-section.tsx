@@ -1,4 +1,3 @@
-
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
@@ -19,12 +18,27 @@ const CTASection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
-              Let&apos;s <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>Build</span> What&apos;s Next,
+              Let&apos;s{" "}
+              <span
+                className="italic font-normal"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
+                Build
+              </span>{" "}
+              What&apos;s Next,
               <br />
-              <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>Together</span>
+              <span
+                className="italic font-normal"
+                style={{ fontFamily: "var(--font-playfair), serif" }}
+              >
+                Together
+              </span>
             </h2>
             <p className="text-gray-300 text-lg mb-8 max-w-lg">
-              TharwaFunkash is not just a software company, we are the next layer of enterprise systems, automation governance and scaling digital products across the globe. We are your partner in intelligent engineering and we are ready to build with you.
+              TharwaFunkash is not just a software company, we are the next
+              layer of enterprise systems, automation governance and scaling
+              digital products across the globe. We are your partner in
+              intelligent engineering and we are ready to build with you.
             </p>
             <div className="space-y-4 mt-4">
               <motion.a
@@ -33,8 +47,7 @@ const CTASection = () => {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block bg-white text-[#222946] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors"
               >
-               Start a Project
-
+                Start a Project
               </motion.a>
               <div className="flex flex-col items-start  gap-4 text-sm">
                 <div className="border-t border-gray-700 pt-4 border-b pb-4">
@@ -42,8 +55,7 @@ const CTASection = () => {
                     href="/projects"
                     className="text-gray-300 border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
                   >
-                   Schedule a Demo
-
+                    Schedule a Demo
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
@@ -56,7 +68,8 @@ const CTASection = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                  </Link></div>
+                  </Link>
+                </div>
 
                 <a
                   href="/projects"
@@ -129,10 +142,10 @@ const CTASection = () => {
         >
           <p className="text-gray-400 mb-2">Prefer Email?</p>
           <a
-            href="mailto:hello@funkash.com"
+            href="mailto:partnership@tharwafunkash.com"
             className="text-2xl md:text-3xl font-semibold hover:text-purple-400 transition-colors"
           >
-            hello@funkash.com
+            partnership@tharwafunkash.com
           </a>
         </motion.div>
       </div>
@@ -141,4 +154,3 @@ const CTASection = () => {
 };
 
 export default CTASection;
-

@@ -1,45 +1,49 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
+"use client";
 
-import type React from "react"
-import { useState } from "react"
-import { TextAnimate } from "@/components/ui/text-animate"
-import AnimatedButton from "@/components/animated-button"
-import { Twitter, Gitlab, Instagram, Linkedin } from "lucide-react"
+import type React from "react";
+import { useState } from "react";
+import { TextAnimate } from "@/components/ui/text-animate";
+import AnimatedButton from "@/components/animated-button";
+import { Twitter, Gitlab, Instagram, Linkedin } from "lucide-react";
 
 const ContactPage: React.FC = () => {
-  const [hoveredField, setHoveredField] = useState<string | null>(null)
+  const [hoveredField, setHoveredField] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     subject: "",
     message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
-  const [errorMessage, setErrorMessage] = useState("")
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const socialIcons = [
     { Icon: Twitter, href: "#" },
     { Icon: Linkedin, href: "#" },
     { Icon: Gitlab, href: "#" },
     { Icon: Instagram, href: "#" },
-  ]
+  ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus("idle")
-    setErrorMessage("")
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
 
     try {
       const response = await fetch("/api/messages", {
@@ -48,39 +52,46 @@ const ContactPage: React.FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      });
 
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || "Failed to send message")
+        const error = await response.json();
+        throw new Error(error.error || "Failed to send message");
       }
 
-      setSubmitStatus("success")
+      setSubmitStatus("success");
       setFormData({
         name: "",
         email: "",
         phone: "",
         subject: "",
         message: "",
-      })
+      });
 
       // Reset success message after 3 seconds
       setTimeout(() => {
-        setSubmitStatus("idle")
-      }, 3000)
+        setSubmitStatus("idle");
+      }, 3000);
     } catch (error) {
-      setSubmitStatus("error")
-      setErrorMessage(error instanceof Error ? error.message : "An error occurred")
-      console.error("Form submission error:", error)
+      setSubmitStatus("error");
+      setErrorMessage(
+        error instanceof Error ? error.message : "An error occurred",
+      );
+      console.error("Form submission error:", error);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const contactInfo = [
-    { id: "01", label: "Email", value: "hello@funkash.com" },
-    { id: "02", label: "Office", value: "Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria" },
-  ]
+    { id: "01", label: "Email", value: "partnership@tharwafunkash.com" },
+    {
+      id: "02",
+      label: "Office",
+      value:
+        "Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria",
+    },
+  ];
 
   return (
     <section className="text-white py-16 lg:py-24 px-6 lg:px-12" id="contact">
@@ -106,7 +117,9 @@ const ContactPage: React.FC = () => {
             <div className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <label className="block text-sm font-light text-gray-200 mb-3">Name</label>
+                  <label className="block text-sm font-light text-gray-200 mb-3">
+                    Name
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -120,7 +133,9 @@ const ContactPage: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-light text-gray-200 mb-3">Email</label>
+                  <label className="block text-sm font-light text-gray-200 mb-3">
+                    Email
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -136,7 +151,9 @@ const ContactPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-light text-gray-200 mb-3">Phone</label>
+                <label className="block text-sm font-light text-gray-200 mb-3">
+                  Phone
+                </label>
                 <input
                   type="tel"
                   name="phone"
@@ -151,7 +168,9 @@ const ContactPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-light text-gray-200 mb-3">Enquiry Type</label>
+                <label className="block text-sm font-light text-gray-200 mb-3">
+                  Enquiry Type
+                </label>
                 <select
                   name="subject"
                   value={formData.subject}
@@ -161,16 +180,41 @@ const ContactPage: React.FC = () => {
                   className={`w-full bg-transparent border-b-2 px-2 ${hoveredField === "subject" ? "border-purple-500" : "border-gray-800"} py-3 px-0 text-white placeholder-gray-400 focus:outline-none transition-colors duration-300`}
                   required
                 >
-                  <option value="" disabled className="bg-gray-900 text-gray-400">Select an enquiry type</option>
-                  <option value="Partnership" className="bg-gray-900 text-white">Partnership</option>
-                  <option value="Enterprise solution" className="bg-gray-900 text-white">Enterprise solution</option>
-                  <option value="Public sector" className="bg-gray-900 text-white">Public sector</option>
-                  <option value="Press" className="bg-gray-900 text-white">Press</option>
+                  <option
+                    value=""
+                    disabled
+                    className="bg-gray-900 text-gray-400"
+                  >
+                    Select an enquiry type
+                  </option>
+                  <option
+                    value="Partnership"
+                    className="bg-gray-900 text-white"
+                  >
+                    Partnership
+                  </option>
+                  <option
+                    value="Enterprise solution"
+                    className="bg-gray-900 text-white"
+                  >
+                    Enterprise solution
+                  </option>
+                  <option
+                    value="Public sector"
+                    className="bg-gray-900 text-white"
+                  >
+                    Public sector
+                  </option>
+                  <option value="Press" className="bg-gray-900 text-white">
+                    Press
+                  </option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-sm font-light text-gray-200 mb-3">Message</label>
+                <label className="block text-sm font-light text-gray-200 mb-3">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -190,11 +234,17 @@ const ContactPage: React.FC = () => {
                 </div>
               )}
               {submitStatus === "error" && (
-                <div className="p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-200">{errorMessage}</div>
+                <div className="p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-200">
+                  {errorMessage}
+                </div>
               )}
 
               <div className="pt-4">
-                <AnimatedButton onClick={(e) => handleSubmit(e as any)} disabled={isSubmitting} variant="secondary">
+                <AnimatedButton
+                  onClick={(e) => handleSubmit(e as any)}
+                  disabled={isSubmitting}
+                  variant="secondary"
+                >
                   <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                   <svg
                     className="w-5 h-5 inline-block ml-2 group-hover:translate-x-1 transition-transform"
@@ -202,7 +252,12 @@ const ContactPage: React.FC = () => {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </AnimatedButton>
               </div>
@@ -222,7 +277,9 @@ const ContactPage: React.FC = () => {
                       {info.id}
                     </span>
                     <div className="flex-1">
-                      <h3 className="text-sm font-light text-gray-300 mb-2">{info.label}</h3>
+                      <h3 className="text-sm font-light text-gray-300 mb-2">
+                        {info.label}
+                      </h3>
                       <p className="text-xl lg:text-2xl font-medium text-gray-100 group-hover:text-white transition-colors duration-300">
                         {info.value}
                       </p>
@@ -234,7 +291,9 @@ const ContactPage: React.FC = () => {
 
             {/* Social Links */}
             <div className="mt-12">
-              <h3 className="text-sm font-light text-gray-400 mb-6">Follow Us</h3>
+              <h3 className="text-sm font-light text-gray-400 mb-6">
+                Follow Us
+              </h3>
               <div className="flex gap-4">
                 {socialIcons.map(({ Icon, href }, index) => (
                   <a
@@ -251,7 +310,7 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

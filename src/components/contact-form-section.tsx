@@ -16,9 +16,15 @@ const ContactFormSection = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -85,7 +91,8 @@ const ContactFormSection = () => {
               Get in Touch
             </h2>
             <p className="text-gray-300 text-lg mb-8">
-              Whether you&apos;re a bank, an enterprise, or a public institution, we&apos;d like to hear from you.
+              Whether you&apos;re a bank, an enterprise, or a public
+              institution, we&apos;d like to hear from you.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -93,18 +100,19 @@ const ContactFormSection = () => {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-white" />
                 <a
-                  href="mailto:hello@funkash.com"
+                  href="mailto:partnership@tharwafunkash.com"
                   className="text-white text-lg hover:text-gray-300 transition-colors"
                 >
-                  hello@funkash.com
+                  partnership@tharwafunkash.com
                 </a>
               </div>
-              
+
               {/* Office Address */}
               <div className="flex items-start gap-3">
                 <span className="font-semibold text-white">Office:</span>
                 <span className="text-gray-300">
-                  Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria
+                  Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos,
+                  Nigeria
                 </span>
               </div>
             </div>
@@ -144,7 +152,9 @@ const ContactFormSection = () => {
                   className="w-full px-6 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
                 >
                   <option value="Partnership">Partnership</option>
-                  <option value="Enterprise solution">Enterprise solution</option>
+                  <option value="Enterprise solution">
+                    Enterprise solution
+                  </option>
                   <option value="Public sector">Public sector</option>
                   <option value="Press">Press</option>
                 </select>
@@ -187,11 +197,15 @@ const ContactFormSection = () => {
               </div>
 
               {submitStatus === "success" && (
-                <p className="text-green-400 text-sm">Message sent successfully!</p>
+                <p className="text-green-400 text-sm">
+                  Message sent successfully!
+                </p>
               )}
 
               {submitStatus === "error" && (
-                <p className="text-red-400 text-sm">Failed to send message. Please try again.</p>
+                <p className="text-red-400 text-sm">
+                  Failed to send message. Please try again.
+                </p>
               )}
 
               <button
@@ -225,4 +239,3 @@ const ContactFormSection = () => {
 };
 
 export default ContactFormSection;
-
