@@ -90,7 +90,7 @@ const CTASection = () => {
           >
             <div className="absolute inset-0  opacity-30" />
             <img
-              src="/cta.png"
+              src="/cta copy.png"
               alt="Future Building"
               className="w-full h-full object-cover"
             />
