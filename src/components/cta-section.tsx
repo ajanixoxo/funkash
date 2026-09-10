@@ -37,7 +37,7 @@ const CTASection = () => {
 
               </motion.a>
               <div className="flex flex-col items-start  gap-4 text-sm">
-                <div className="border-t border-gray-700 pt-4 border-b border-gray-300 pb-4">
+                <div className="border-t border-gray-700 pt-4 border-b pb-4">
                   <Link
                     href="/projects"
                     className="text-gray-300 border border-gray-300 rounded-full px-8 py-4 hover:text-white transition-colors inline-flex items-center gap-2"
