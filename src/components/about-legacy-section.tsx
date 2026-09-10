@@ -7,24 +7,16 @@ import { motion } from "framer-motion";
 const AboutLegacySection = () => {
   const standForItems = [
     {
-      title: "Honour",
-      desc: "The name carries two women's legacies, so nothing bearing it may be careless.",
+      title: "Customer Obsession",
+      desc: "We are committed to the success of every client, and take on what we can deliver in full.",
     },
     {
-      title: "Stewardship",
-      desc: "We hold wealth and trust for the next generation.",
+      title: "Innovation",
+      desc: "We invent in the product, and hold our promises to what it can do.",
     },
     {
-      title: "Mastery",
-      desc: "Excellence is a habit, in code and in practice.",
-    },
-    {
-      title: "Union",
-      desc: "Partnership is the foundation of the house.",
-    },
-    {
-      title: "Motion",
-      desc: "We move forward, always.",
+      title: "Trust",
+      desc: "We commit carefully, deliver completely and can show it.",
     },
   ];
 
@@ -72,11 +64,8 @@ const AboutLegacySection = () => {
             </p>
 
             <p>
-              We began by building alongside founders, as a venture studio. That
-              chapter is complete. Today we engineer and operate our own
-              flagship platforms, the Funkash Universe, across financial
-              infrastructure, fraud intelligence, AI workforce, policy
-              intelligence, and workforce capability.
+             We began by building alongside founders, as a venture studio. That chapter is complete. Today we engineer and operate our own flagship platforms: across financial infrastructure, fraud intelligence, AI workforce, policy intelligence, and workforce capability.
+
             </p>
 
             <p>
@@ -113,9 +102,9 @@ const AboutLegacySection = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-white mt-2.5 shrink-0" />
                   <p className="text-gray-200 text-base sm:text-lg font-light">
                     <strong className="text-white font-semibold italic mr-2" style={{ fontFamily: "var(--font-playfair), serif" }}>
-                      {item.title}
+                      {item.title}:
                     </strong>
-                    – {item.desc}
+                    {item.desc}
                   </p>
                 </li>
               ))}

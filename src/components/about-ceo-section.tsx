@@ -84,7 +84,7 @@ const AboutCEOSection = () => {
         </div>
 
         {/* Origin / Legacy Story */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -99,7 +99,7 @@ const AboutCEOSection = () => {
             grandmother gave him. Read in full, Tharwa Funkash means wealth
             built on the legacy of the women who came before.
           </p>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
