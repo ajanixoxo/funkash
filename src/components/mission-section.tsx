@@ -35,17 +35,6 @@ const MissionSection = () => {
         >
           At Tharwa Funkash, we build and operate software that solves structural problems for institutions and businesses; from how their money moves and how fraud gets stopped, to how their organisations run and how policy gets understood.
         </ScrollReveal>
-
-        <div className="h-6 md:h-8"></div>
-
-        <ScrollReveal
-          textClassName="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed p2 text-white"
-          containerClassName="w-full"
-          baseOpacity={0.15}
-          blurStrength={6}
-        >
-          We build for institutions: banks, enterprises, and the public sector. Our focus today is our own flagship platforms — the Tharwa Funkash Universe.
-        </ScrollReveal>
       </div>
     </section>
   );
