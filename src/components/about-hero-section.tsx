@@ -57,7 +57,7 @@ const AboutHeroSection = () => {
           className="relative w-full h-[380px] sm:h-[480px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
         >
           <img
-            src="/about.png"
+            src="/about-hero.png"
             alt="Team collaborating at Tharwa Funkash"
             className="w-full h-full object-cover"
           />

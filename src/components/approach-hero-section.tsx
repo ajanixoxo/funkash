@@ -51,7 +51,7 @@ const ApproachHeroSection = () => {
           className="relative w-full h-[380px] sm:h-[480px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
         >
           <img
-            src="/apporach-hero.png"
+            src="/approach.jpg"
             alt="Tharwa Funkash team collaborating in meeting room"
             className="w-full h-full object-cover"
           />

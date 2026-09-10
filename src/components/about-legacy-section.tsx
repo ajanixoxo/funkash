@@ -131,7 +131,7 @@ const AboutLegacySection = () => {
             className="w-full h-[320px] sm:h-[400px] md:h-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black/20"
           >
             <img
-              src="/principles3.png"
+              src="/what-we-stand.jpg"
               alt="What We Stand For at Tharwa Funkash"
               className="w-full h-full object-cover"
             />

@@ -70,7 +70,7 @@ const ApproachPrinciplesSection = () => {
             className="lg:col-span-5 w-full h-[480px] sm:h-[600px] lg:h-[720px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black/20 lg:sticky lg:top-32"
           >
             <img
-              src="/principles1.png"
+              src="/team.jpg"
               alt="Core Principles in practice"
               className="w-full h-full object-cover"
             />
