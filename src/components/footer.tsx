@@ -25,12 +25,12 @@ const Footer: React.FC = () => {
                         <div className="flex items-center gap-3 mb-6">
                             <Logo size={42} className="text-white shrink-0" />
                             <h2 className="font-semibold text-xl text-white">
-                                Funkash Technology
+                                Tharwa Funkash Technology
                             </h2>
                         </div>
 
                         <div className="text-gray-300 leading-relaxed space-y-1">
-                            <p className="font-semibold text-white">Funkash Technology (RC 8114457)</p>
+                            <p className="font-semibold text-white">Tharwa Funkash Technology (RC 8114457)</p>
                             <p>Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria</p>
                             <p>hello@funkash.com &middot; funkash.com</p>
                         </div>
@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-white text-sm">
-                        © 2026 Funkash Technology Limited. All rights reserved.
+                        © 2026 Tharwa Funkash Technology Limited. All rights reserved.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <a
