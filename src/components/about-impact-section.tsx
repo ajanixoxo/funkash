@@ -12,10 +12,10 @@ const AboutImpactSection = () => {
         "Built across enterprise and government infrastructure work.",
     },
     {
-      number: "2",
-      label: "International Offices",
+      number: "1",
+      label: "Centralized Office",
       description:
-        "Headquartered in Lagos, with a second office extending our reach.",
+        "Headquartered in Lagos, Nigeria.",
     },
     {
       number: "5",
