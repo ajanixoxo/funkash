@@ -2,8 +2,8 @@ import React from 'react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "About — Funkash Technology",
-  description: "A product and engineering company solving large, structural problems for banks, enterprises, and the public sector.",
+  title: "About — Tharwa Funkash Technology",
+  description: "A product and engineering company building institution-grade software across finance, fraud defence, AI workforce, and governance.",
 };
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
@@ -15,7 +15,7 @@ import AboutVenturesSection from '@/components/about-ventures-section';
 
 const AboutUsPage: React.FC = () => {
     return (
-        <div className="bg-[#1a2332]">
+        <div className="bg-[#161b2e]">
             <Navbar />
             <AboutHeroSection />
             <AboutCEOSection />

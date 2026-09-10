@@ -6,56 +6,71 @@ import { motion } from "framer-motion";
 
 const AboutVenturesSection = () => {
   return (
-    <section className="bg-gradient-to-l from-[#1a1f3a] via-[#1a1f3a] via-10% to-[#C78018]/30 to-90% text-white py-20 px-6">
+    <section className="bg-[#161b2e] text-white py-24 md:py-32 px-6 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
-          {/* Left Column - Text */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left Column - Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
+            className="space-y-12"
           >
-            <h2 className="text-2xl md:text-3xl lg:text-6xl font-semibold mb-6 leading-tight">
-              Our <span className="italic font-normal">Ventures</span>
-            </h2>
-            <p className="text-base text-gray-300 mb-8">
-              At Funkash Technology, every venture is built with one philosophy in mind:
-            </p>
-            <div className="space-y-6 text-gray-300 text-sm leading-relaxed">
-              <p>
-                solve real problems with systems that can scale across continents.
+            {/* Our Ventures Block */}
+            <div className="space-y-6">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white mb-6">
+                Our{" "}
+                <span
+                  className="italic font-normal"
+                  style={{ fontFamily: "var(--font-playfair), serif" }}
+                >
+                  Ventures
+                </span>
+              </h2>
+
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+                At Tharwa Funkash, every venture is built on the same
+                philosophy: solve real problems with systems that scale across
+                continents.
               </p>
-              <p>
-                We design products that sit at the intersection of engineering, culture, and human need tools that simplify complexity, accelerate growth, and unlock opportunity.
+
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+                We design products for real workflows: tools that reduce
+                complexity and help organisations grow.
               </p>
-              <p>
-                From AI-powered credit intelligence (AfriCredify) and secure digital escrow (CFG Escrow) to personalized learning ecosystems (EduFlex AI) and enterprise spend automation (Flowpense), each product is crafted with the same principle:
-              </p>
-              <p className="font-semibold text-white">
-                Build it once. Make it useful everywhere. Scale it infinitely.
+
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+                Our ventures include AfriCredify (AI-powered credit
+                intelligence), CFG Escrow (secure digital escrow), EduFlex AI
+                (workforce skills and training), Flowpense (enterprise spend
+                automation), and Botpaa (AI assisted ERP). Each is built on the
+                same principle of one initial build and constant scalability.
               </p>
             </div>
 
-            {/* Building the Infrastructure */}
-            <div className="mt-12 rounded-2xl">
-              <h3 className="text-base font-semibold mb-4">Building the Infrastructure of Tomorrow</h3>
-              <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                We are not just shipping products we are laying the digital foundation for the next decade of African and global innovation.
+            {/* The Work Ahead Block */}
+            <div className="space-y-6 pt-6 border-t border-white/10">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white mb-6">
+                The Work{" "}
+                <span
+                  className="italic font-normal"
+                  style={{ fontFamily: "var(--font-playfair), serif" }}
+                >
+                  Ahead
+                </span>
+              </h2>
+
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+                We are building the digital infrastructure African and global
+                institutions will depend on for the next decade.
               </p>
-              <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                Whether you&apos;re:
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-300 text-sm leading-relaxed mb-4 ml-4">
-                <li>an enterprise expanding into the digital future,</li>
-                <li>an innovator solving real-world problems, or</li>
-                <li>a partner aligned with long-term value creation…</li>
-              </ul>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                You belong here.
-              </p>
-              <p className="text-gray-300 text-sm leading-relaxed mt-4">
-                The future is being engineered and it&apos;s happening at Funkash Technology.
+
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+                If you are an enterprise, an institution, or a partner building
+                for the long term, Tharwa Funkash is who you come to. We
+                already build this kind of infrastructure for others, and we hold
+                new partners to the same standard.
               </p>
             </div>
           </motion.div>
@@ -66,14 +81,14 @@ const AboutVenturesSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden"
+            className="w-full lg:sticky lg:top-32 h-[450px] sm:h-[550px] md:h-[680px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-black/20"
           >
             <img
               src="/ventures-img.png"
-              alt="Team workspace"
+              alt="Tharwa Funkash ventures workspace"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a2332]/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#161b2e]/60 via-transparent to-transparent pointer-events-none" />
           </motion.div>
         </div>
       </div>
@@ -82,4 +97,3 @@ const AboutVenturesSection = () => {
 };
 
 export default AboutVenturesSection;
-

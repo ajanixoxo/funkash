@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React from "react";
@@ -7,46 +6,57 @@ import { motion } from "framer-motion";
 
 const AboutCEOSection = () => {
   return (
-    <section className="bg-[#1a2332] text-white py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#161b2e] text-white py-24 px-6 border-t border-white/5">
+      <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6">
-            Meet Our <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>Founders</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-6 tracking-tight">
+            Meet Our{" "}
+            <span
+              className="italic font-normal"
+              style={{ fontFamily: "var(--font-playfair), serif" }}
+            >
+              Founders
+            </span>
           </h2>
-          <p className="text-gray-300 text-lg lg:max-w-3xl mx-auto">
-            Tharwa means wealth in Arabic. Funkash is a Yoruba family name associated with determination and building. Together, Tharwa Funkash Technology means creating enduring value through engineering.
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+            Naomi Durosaro and Olumide Ogunwo founded Tharwa Funkash to build
+            institution-grade software for problems that matter at scale:
+            enterprise financial control, behavioural fraud defence, and AI
+            workforce infrastructure. Olumide leads Product and Engineering,
+            while Naomi leads Operations across the Tharwa Funkash Universe.
           </p>
         </motion.div>
 
-        {/* Founders Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        {/* Founders Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto mb-20">
           {/* Olumide */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center group"
+            className="flex flex-col items-center text-center group"
           >
-            <div className="relative h-[420px] rounded-2xl overflow-hidden mb-6 bg-gray-800">
+            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-white/10 shadow-xl">
               <img
                 src="/olumide.jpg"
                 alt="Olumide Funkash Ogunwo"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a2332] via-transparent to-transparent opacity-60" />
             </div>
-            <h3 className="text-2xl font-semibold mb-1">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-1 text-white">
               Olumide Funkash Ogunwo
             </h3>
-            <p className="text-gray-400 text-base">Founder & CEO</p>
+            <p className="text-gray-400 text-sm sm:text-base font-normal">
+              Founder &amp; CEO
+            </p>
           </motion.div>
 
           {/* Naomi */}
@@ -55,26 +65,44 @@ const AboutCEOSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center group"
+            className="flex flex-col items-center text-center group"
           >
-            <div className="relative h-[420px] rounded-2xl overflow-hidden mb-6 bg-gray-800">
+            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-white/10 shadow-xl">
               <img
-                src="/user.jpg"
+                src="/olumide.jpg"
                 alt="Naomi Durosaro"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a2332] via-transparent to-transparent opacity-60" />
             </div>
-            <h3 className="text-2xl font-semibold mb-1">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-1 text-white">
               Naomi Durosaro
             </h3>
-            <p className="text-gray-400 text-base">Co-Founder & COO</p>
+            <p className="text-gray-400 text-sm sm:text-base font-normal">
+              Co-Founder &amp; COO
+            </p>
           </motion.div>
         </div>
+
+        {/* Origin / Legacy Story */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+            The name is deliberate. Tharwa is Arabic for wealth, the kind that
+            is stewarded and passed down rather than won, and it is the part of
+            the name that comes from Naomi. Funkash comes from Olumide: it joins
+            Funke, his mother&apos;s name, with Kashamadupe, the name his
+            grandmother gave him. Read in full, Tharwa Funkash means wealth
+            built on the legacy of the women who came before.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default AboutCEOSection;
-

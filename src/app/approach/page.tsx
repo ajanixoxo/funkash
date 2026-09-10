@@ -9,7 +9,7 @@ import ApproachHowWeWorkSection from '@/components/approach-how-we-work-section'
 
 const ApproachPage: React.FC = () => {
     return (
-        <div className="bg-[#1a1f3a]">
+        <div className="bg-[#161b2e]">
             <Navbar />
             <ApproachHeroSection />
             <ApproachPrinciplesSection />

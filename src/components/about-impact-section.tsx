@@ -8,27 +8,30 @@ const AboutImpactSection = () => {
     {
       number: "17+",
       label: "Years of Collective Engineering Experience",
-      description: "Crafting resilient digital infrastructure for enterprise and government operations.",
+      description:
+        "Built across enterprise and government infrastructure work.",
     },
     {
       number: "2",
       label: "International Offices",
-      description: "Operations spanning multiple key innovation hubs with our HQ in Lagos.",
+      description:
+        "Headquartered in Lagos, with a second office extending our reach.",
     },
     {
       number: "5",
       label: "Partnered Countries",
-      description: "Extending our reach and partnerships across global markets.",
+      description: "Where we operate through partners today",
     },
     {
       number: "5",
       label: "Flagship Products",
-      description: "The Funkash Universe: A connected set of platforms solving hard structural problems.",
+      description:
+        "The Tharwa Funkash Universe: our connected set of platforms.",
     },
   ];
 
   return (
-    <section className="bg-[#222946] text-white py-20 px-6">
+    <section className="bg-[#161b2e] text-white py-24 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -38,46 +41,43 @@ const AboutImpactSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6">
-            Our <span className="italic font-normal">Impact</span> in
-            <br />
-            Numbers
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-4 tracking-tight">
+            Our{" "}
+            <span
+              className="italic font-normal"
+              style={{ fontFamily: "var(--font-playfair), serif" }}
+            >
+              Impact
+            </span>{" "}
+            in Numbers
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl">
-            Measurable success in transforming startups and enterprises across
-            key innovation hubs around the world.
+          <p className="text-gray-400 text-base sm:text-lg font-light">
+            The scale of our engineering work, in numbers.
           </p>
         </motion.div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Stats Grid: 3-column top row, 1 item next row or flexible grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="relative group"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="rounded-2xl p-8 sm:p-10 border border-white/10 bg-white/[0.02] flex flex-col justify-between hover:border-white/20 transition-all duration-300"
             >
-              {/* Card */}
-              <div className=" rounded-2xl p-8 h-full border border-white/5 hover:border-purple-500/50 transition-all duration-300 hover:scale-[1.02]">
-                {/* Number */}
-                <div className="text-7xl md:text-8xl font-semibold mb-4 ">
+              <div>
+                <div className="text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight text-white mb-6">
                   {stat.number}
                 </div>
-
-                {/* Label */}
-                <h3 className="text-2xl font-semibold mb-4">{stat.label}</h3>
-
-                {/* Description */}
-                <p className="text-gray-400 leading-relaxed">
-                  {stat.description}
-                </p>
-
-                {/* Hover effect line */}
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <h3 className="text-lg sm:text-xl font-medium text-white mb-3 leading-snug">
+                  {stat.label}
+                </h3>
               </div>
+              <p className="text-gray-400 text-sm sm:text-base font-light leading-relaxed mt-4">
+                {stat.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -87,4 +87,3 @@ const AboutImpactSection = () => {
 };
 
 export default AboutImpactSection;
-
