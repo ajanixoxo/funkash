@@ -11,7 +11,6 @@ import {
   HeartHandshakeIcon 
 } from "lucide-react";
 import SpotlightCard from "./SpotlightCard";
-import { ThreeDSVGIcon } from "./animated-shapes";
 
 const IndustryCard = ({ 
   industry, 
@@ -44,23 +43,21 @@ const IndustryCard = ({
             <h3 className="text-2xl font-semibold leading-tight pt-1">
               {industry.name}
             </h3>
-            {/* <div className="w-16 h-16 flex-shrink-0 -mt-2">
-              <ThreeDSVGIcon icon={industry.icon} color={industry.accentColor} />
-            </div> */}
+            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-white">
+              {industry.icon}
+            </div>
           </div>
           
           <p className="text-gray-400 text-base leading-relaxed mb-6">
             {industry.description}
           </p>
-          
-          {/* <div 
-            className="mt-auto h-1 w-12 rounded-full transition-all duration-300 group-hover:w-full"
-            style={{ backgroundColor: industry.accentColor }}
-          /> */}
 
           {/* Large Ghosted Background Icon */}
-          <div className="absolute -bottom-10 -right-8 opacity-[0.1] pointer-events-none -z-10 transform rotate-12 transition-transform duration-500 group-hover:opacity-[0.2] group-hover:scale-110 group-hover:rotate-6 w-48 h-48">
-            <ThreeDSVGIcon icon={industry.icon} color="#ffffff" index={index} />
+          <div className="absolute -bottom-6 -right-6 opacity-[0.06] pointer-events-none -z-10 transform rotate-12 transition-transform duration-500 group-hover:opacity-[0.14] group-hover:scale-110 group-hover:rotate-6 w-36 h-36 flex items-center justify-center text-white">
+            {React.isValidElement(industry.icon) &&
+              React.cloneElement(industry.icon as React.ReactElement<{ className?: string }>, {
+                className: "w-32 h-32 text-white",
+              })}
           </div>
         </div>
       </SpotlightCard>

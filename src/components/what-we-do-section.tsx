@@ -3,7 +3,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Spline from '@splinetool/react-spline';
 import { ArrowUpRight } from "lucide-react";
 
 /**
@@ -13,17 +12,13 @@ import { ArrowUpRight } from "lucide-react";
 const ServicePackCard = ({ 
   title, 
   description, 
-  splineScene, 
   accentColor, 
   index,
-  customTransform = ""
 }: { 
   title: string; 
   description: string; 
-  splineScene: string; 
   accentColor: string;
   index: number;
-  customTransform?: string;
 }) => {
   const formattedNumber = String(index + 1).padStart(2, '0');
 
@@ -85,20 +80,16 @@ const WhatWeDoSection = () => {
     {
       title: "AI Systems & Automation",
       description: "Engineering robust toolchains for coding, large-scale cloud debugging, and high-performance API architectures.",
-      splineScene: "https://prod.spline.design/IZjEc6A8bmB-2rNK/scene.splinecode",
       accentColor: "#60a5fa", // Blue
     },
     {
       title: "Product Engineering ",
       description: "Powering your intelligence with specialized frameworks for deep learning, automation, and real-time data synthesis.",
-      splineScene: "https://prod.spline.design/SVIpxxTijKsP7Gpg/scene.splinecode",
       accentColor: "#a855f7", // Purple
-      customTransform: "-translate-x-[15%] md:-translate-x-[20%]"
     },
     {
       title: "Technology Partnerships",
       description: "A comprehensive design suite for high-end digital identity, content creation, and experimental product design.",
-      splineScene: "https://prod.spline.design/IZjEc6A8bmB-2rNK/scene.splinecode",
       accentColor: "#fb923c", // Orange
     }
   ];
@@ -136,9 +127,7 @@ const WhatWeDoSection = () => {
               index={index}
               title={service.title}
               description={service.description}
-              splineScene={service.splineScene}
               accentColor={service.accentColor}
-              customTransform={service.customTransform}
             />
           ))}
         </div>
