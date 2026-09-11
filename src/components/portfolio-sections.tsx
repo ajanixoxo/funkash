@@ -58,7 +58,7 @@ const PortfolioSections = () => {
           description: "A workforce capability system. Eduflex measures skills and builds them across an organisation through a continuous assess, train, practise, and evaluate loop.",
           image: "/projects/project9.png",
           isLogo: false,
-          url: "https://eduflex.com",
+          url: "https://myeduflex.com/",
         },
         {
           name: "VAULTA",
