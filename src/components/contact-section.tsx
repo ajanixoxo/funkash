@@ -84,12 +84,19 @@ const ContactPage: React.FC = () => {
   };
 
   const contactInfo = [
-    { id: "01", label: "Email", value: "partnership@tharwafunkash.com" },
+    {
+      id: "01",
+      label: "Email",
+      value: "info@tharwafunkash.com",
+      href: "mailto:info@tharwafunkash.com",
+    },
     {
       id: "02",
       label: "Office",
       value:
         "Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria",
+      href:
+        "https://www.google.com/maps/search/?api=1&query=Ark+Tower,+17+Ligali+Ayorinde+Street,+Victoria+Island,+Lagos,+Nigeria",
     },
   ];
 
@@ -280,9 +287,20 @@ const ContactPage: React.FC = () => {
                       <h3 className="text-sm font-light text-gray-300 mb-2">
                         {info.label}
                       </h3>
-                      <p className="text-xl lg:text-2xl font-medium text-gray-100 group-hover:text-white transition-colors duration-300">
-                        {info.value}
-                      </p>
+                      {info.href ? (
+                        <a
+                          href={info.href}
+                          target={info.href.startsWith("http") ? "_blank" : undefined}
+                          rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="text-xl lg:text-2xl font-medium text-gray-100 group-hover:text-white hover:underline transition-colors duration-300 block"
+                        >
+                          {info.value}
+                        </a>
+                      ) : (
+                        <p className="text-xl lg:text-2xl font-medium text-gray-100 group-hover:text-white transition-colors duration-300">
+                          {info.value}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>

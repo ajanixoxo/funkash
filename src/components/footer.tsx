@@ -42,10 +42,17 @@ const Footer: React.FC = () => {
                 Tharwa Funkash Technology (RC 8114457)
               </p>
               <p>
-                Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos,
-                Nigeria
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Ark+Tower,+17+Ligali+Ayorinde+Street,+Victoria+Island,+Lagos,+Nigeria"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white hover:underline transition-colors"
+                >
+                  Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos,
+                  Nigeria
+                </a>
               </p>
-              <p>partnership@tharwafunkash.com &middot; funkash.com</p>
+              <p>info@tharwafunkash.com &middot; funkash.com</p>
             </div>
           </div>
           <div className="mb-8 flex items-start md:items-center justify-center flex-col">

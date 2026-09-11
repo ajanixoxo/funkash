@@ -4,6 +4,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const PortfolioSection = () => {
   const portfolioItems = [
@@ -12,12 +13,14 @@ const PortfolioSection = () => {
       description: "The financial control layer between your ERP and your bank. Flowpense automates accounts payable, receivables, approvals, spend controls, reconciliation, and much more.",
       image: "/projects/project13.png",
       isLogo: false,
+      url: "https://flowpense.com",
     },
     {
       name: "AEGIS BIP",
       description: "A behavioural identity platform that detects fraud and mule networks from how people actually transact. It takes behaviour patterns and converts them into a real-time defence layer.",
       image: "/projects/aegis-bip_icon.png",
       isLogo: true,
+      url: "https://aegisbip.com",
     },
     {
       name: "BOTPAA",
@@ -25,18 +28,21 @@ const PortfolioSection = () => {
       image: "/projects/botpaa.png",
       isLogo: true,
       bgColor: "bg-emerald-800",
+      url: "https://botpaa.com",
     },
     {
       name: "MALTIDA",
       description: "A policy and regulation intelligence engine. Maltida is what turns dense policy and regulatory text into structured, queryable insight, so teams can understand and act on the rules that govern them.",
       image: "/maltida_icon.png",
       isLogo: true,
+      url: "https://maltida.com",
     },
     {
       name: "EDUFLEX",
       description: "A workforce capability system. Eduflex measures skills and builds them across an organisation through a continuous assess, train, practise, and evaluate loop.",
       image: "/projects/project9.png",
       isLogo: false,
+      url: "https://eduflex.com",
     },
   ];
 
@@ -62,18 +68,21 @@ const PortfolioSection = () => {
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {portfolioItems.map((item, index) => (
-            <motion.div
+            <motion.a
               key={index}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "100px" }}
               transition={{ duration: 0.6 }}
-              className="group relative overflow-hidden rounded-2xl hover:shadow-2xl p-2 transition-all duration-300"
+              className="group relative block overflow-hidden rounded-2xl p-2 transition-all duration-300 cursor-pointer"
             >
               {/* Logo Area */}
               <div className="h-64 flex items-center justify-center relative overflow-hidden">
                 <div
-                  className={`rounded-2xl w-full h-full flex items-center justify-center relative overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-xl ${
+                  className={`rounded-2xl w-full h-full flex items-center justify-center relative overflow-hidden group-hover:scale-[1.02] transition-all duration-300 shadow-lg group-hover:shadow-2xl ${
                     item.isLogo || !item.image ? `${item.bgColor || "bg-white"} p-8` : ""
                   }`}
                 >
@@ -90,19 +99,21 @@ const PortfolioSection = () => {
                       <span className="text-3xl md:text-4xl font-black text-[#1a1f3a] tracking-tight uppercase px-6 text-center">{item.name}</span>
                     </div>
                   )}
-                  {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" /> */}
                 </div>
               </div>
 
               {/* Content Area */}
               <div className="pt-4">
-                <h3 className="text-2xl font-semibold mb-2">{item.name}</h3>
-                <p className="text-gray-300">{item.description}</p>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h3 className="text-2xl font-semibold text-white group-hover:text-purple-300 transition-colors">{item.name}</h3>
+                  <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </div>
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base">{item.description}</p>
               </div>
 
               {/* Hover effect */}
-              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none" />
-            </motion.div>
+              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none rounded-2xl" />
+            </motion.a>
           ))}
         </div>
 

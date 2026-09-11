@@ -50,9 +50,6 @@ const NewHeroSection = () => {
             <Button asChild variant="primary" size="lg" className="!rounded-full px-10">
               <Link href="/contact">Partner with TFT</Link>
             </Button>
-            <Button asChild variant="secondary" size="lg" className="!rounded-full px-10 border-white/20 hover:bg-white/10 text-white">
-              <Link href="/products">Explore TFT products</Link>
-            </Button>
           </motion.div>
         </div>
 

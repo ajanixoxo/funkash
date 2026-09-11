@@ -100,20 +100,25 @@ const ContactFormSection = () => {
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-white" />
                 <a
-                  href="mailto:partnership@tharwafunkash.com"
+                  href="mailto:info@tharwafunkash.com"
                   className="text-white text-lg hover:text-gray-300 transition-colors"
                 >
-                  partnership@tharwafunkash.com
+                  info@tharwafunkash.com
                 </a>
               </div>
 
               {/* Office Address */}
               <div className="flex items-start gap-3">
                 <span className="font-semibold text-white">Office:</span>
-                <span className="text-gray-300">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Ark+Tower,+17+Ligali+Ayorinde+Street,+Victoria+Island,+Lagos,+Nigeria"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white hover:underline transition-colors"
+                >
                   Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos,
                   Nigeria
-                </span>
+                </a>
               </div>
             </div>
 
