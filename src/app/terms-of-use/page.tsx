@@ -55,7 +55,7 @@ export default function TermsOfUsePage() {
               </li>
               <li>
                 <span className="font-medium text-white">1.3 Contact:</span>{" "}
-                partnership@tharwafunkash.com | +234 907 711 1176 | funkash.com
+                info@tharwafunkash.com | +234 907 711 1176 | funkash.com
               </li>
             </ul>
           </section>

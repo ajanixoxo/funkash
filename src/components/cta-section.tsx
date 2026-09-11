@@ -142,10 +142,10 @@ const CTASection = () => {
         >
           <p className="text-gray-400 mb-2">Prefer Email?</p>
           <a
-            href="mailto:partnership@tharwafunkash.com"
+            href="mailto:info@tharwafunkash.com"
             className="text-2xl md:text-3xl font-semibold hover:text-purple-400 transition-colors"
           >
-            partnership@tharwafunkash.com
+            info@tharwafunkash.com
           </a>
         </motion.div>
       </div>

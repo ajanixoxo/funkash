@@ -39,8 +39,7 @@ export default function PrivacyPolicyPage() {
                 <span className="font-medium text-white">1.1</span> The data
                 controller for the purposes of this Privacy Policy is Funkash
                 Technology Limited, Ark Tower, 17 Ligali Ayorinde Street,
-                Victoria Island, Lagos, Nigeria. Contact:
-                partnership@tharwafunkash.com.
+                Victoria Island, Lagos, Nigeria. Contact: info@tharwafunkash.com
               </li>
             </ul>
           </section>
@@ -303,9 +302,8 @@ export default function PrivacyPolicyPage() {
               </li>
               <li>
                 <span className="font-medium text-white">8.2</span> To exercise
-                any of these rights, contact us at
-                partnership@tharwafunkash.com. We will respond within thirty
-                (30) days.
+                any of these rights, contact us at info@tharwafunkash.com We
+                will respond within thirty (30) days.
               </li>
             </ul>
           </section>

@@ -101,8 +101,8 @@ export default function AcceptableUsePolicyPage() {
               <li>
                 <span className="font-medium text-white">2.3</span> If you
                 discover a security vulnerability, you are encouraged to report
-                it responsibly to partnership@tharwafunkash.com. Do not exploit
-                any vulnerability.
+                it responsibly to info@tharwafunkash.com Do not exploit any
+                vulnerability.
               </li>
             </ul>
           </section>
@@ -164,8 +164,8 @@ export default function AcceptableUsePolicyPage() {
               <li>
                 <span className="font-medium text-white">5.1</span> If you
                 become aware of any violation of this AUP, please report it to
-                partnership@tharwafunkash.com. We take all reports seriously and
-                will investigate promptly.
+                info@tharwafunkash.com We take all reports seriously and will
+                investigate promptly.
               </li>
             </ul>
           </section>
