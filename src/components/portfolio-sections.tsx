@@ -22,44 +22,8 @@ interface ProjectSection {
 const PortfolioSections = () => {
   const sections: ProjectSection[] = [
     {
-      title: "THE THARWA FUNKASH UNIVERSE",
+      title: "Our Studio Venture",
       projects: [
-        {
-          name: "FLOWPENSE",
-          description: "The financial control layer between an enterprise’s ERP and its bank. Flowpense automates accounts payable, approvals, spend controls, and reconciliation so your finance team can finally sleep at night instead of chasing invoices.",
-          image: "/projects/project13.png",
-          isLogo: false,
-          url: "https://flowpense.com",
-        },
-        {
-          name: "AEGIS BIP",
-          description: "A behavioural identity platform that detects fraud and mule networks from how people actually transact. It takes behaviour patterns and converts them into a real-time defence layer.",
-          image: "/projects/aegis-bip_icon.png",
-          isLogo: true,
-          url: "https://aegisbip.com",
-        },
-        {
-          name: "BOTPAA",
-          description: "AI workforce infrastructure. Botpaa lets your organisation deploy reliable AI employees into your real operations, these agents are trained, governed, and accountable, to do work, not just answer questions.",
-          image: "/projects/botpaa.png",
-          isLogo: true,
-          bgColor: "bg-emerald-800",
-          url: "https://botpaa.com",
-        },
-        {
-          name: "MALTIDA",
-          description: "A policy and regulation intelligence engine. Maltida is what turns dense policy and regulatory text into structured, queryable insight, so teams can understand and act on the rules that govern them.",
-          image: "/maltida_icon.png",
-          isLogo: true,
-          url: "https://maltida.com",
-        },
-        {
-          name: "EDUFLEX",
-          description: "A workforce capability system. Eduflex measures skills and builds them across an organisation through a continuous assess, train, practise, and evaluate loop.",
-          image: "/projects/project9.png",
-          isLogo: false,
-          url: "https://myeduflex.com/",
-        },
         {
           name: "VAULTA",
           description: "A secure escrow payment platform that holds a buyer’s funds until agreed conditions are met and then releases them to the seller, built to enable trusted local and diaspora transactions across Africa.",
