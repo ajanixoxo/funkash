@@ -152,18 +152,20 @@ const PortfolioSections = () => {
     <section className="relative bg-[#1a1f3a] text-white py-20 md:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         {sections.map((section, sectionIndex) => (
-          <motion.div
+          <div
             key={sectionIndex}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: sectionIndex * 0.2 }}
             className="mb-20 md:mb-32"
           >
             {/* Section Title */}
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-12 md:mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-12 md:mb-16"
+            >
               {section.title}
-            </h2>
+            </motion.h2>
 
             {/* Projects Grid */}
             <div
@@ -181,10 +183,10 @@ const PortfolioSections = () => {
                   href={project.url || "#"}
                   target={project.url ? "_blank" : undefined}
                   rel={project.url ? "noopener noreferrer" : undefined}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "100px" }}
-                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (projectIndex % 3) * 0.1 }}
                   className="group flex flex-col cursor-pointer"
                 >
                   {/* Project Card */}
@@ -226,7 +228,7 @@ const PortfolioSections = () => {
                 </motion.a>
               ))}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

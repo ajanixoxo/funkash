@@ -92,13 +92,15 @@ export default function Navbar() {
           <div className="flex justify-between gap-8  w-auto  items-center">
             {/* LOGO */}
             <div className="flex items-center text-white mr-2">
+             <Link href="/">
               <Logo size={42} className="text-white shrink-0" />
-
+             
               <h2
                 className={`font-semibold hidden md:flex ml-3 text-lg ${scrolled ? "text-white" : "text-white/90"}`}
               >
                 Tharwa Funkash Technology
               </h2>
+              </Link>
             </div>
 
             {/* DESKTOP MENU */}

@@ -73,10 +73,10 @@ const PortfolioSection = () => {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "100px" }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
               className="group relative block overflow-hidden rounded-2xl p-2 transition-all duration-300 cursor-pointer"
             >
               {/* Logo Area */}
