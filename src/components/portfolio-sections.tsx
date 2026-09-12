@@ -22,7 +22,7 @@ interface ProjectSection {
 const PortfolioSections = () => {
   const sections: ProjectSection[] = [
     {
-      title: "What we built for Clients",
+      title: "What we built for clients",
       projects: [
         {
           name: "VAULTA",
