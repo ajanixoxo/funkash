@@ -58,7 +58,7 @@ const PortfolioSection = () => {
           className="mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-semibold mb-4 tracking-tight">
-         Our  <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>UNIVERSE</span>
+         Our  <span className="italic font-normal" style={{ fontFamily: 'var(--font-playfair), serif' }}>Venture Studio</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl">
             Our flagship products, a connected set of platforms engineered to solve problems across finance, security, work, and governance.
