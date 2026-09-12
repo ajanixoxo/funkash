@@ -184,11 +184,14 @@ export default function Navbar() {
     >
       <div className="flex justify-between items-center px-4 py-4">
         {/* LOGO */}
+
         <div className="flex items-center text-white">
+          <Link href="/" className="flex items-center text-white mr-2">
           <Logo size={36} className="text-white shrink-0" />
           <h2 className={`font-semibold ml-3 text-base ${scrolled ? "text-white" : "text-white/90"}`}>
             Tharwa Funkash Technology
           </h2>
+          </Link>
         </div>
 
         {/* MOBILE BUTTON */}
