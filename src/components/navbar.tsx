@@ -47,7 +47,7 @@ export default function Navbar() {
     { lable: "Home", href: "/" },
     { lable: "About", href: "/about" },
     { lable: "Approach", href: "/approach" },
-    { lable: "Projects", href: "/products" },
+    { lable: "Products", href: "/products" },
     { lable: "Essay", href: "/essay" },
   ];
 
@@ -92,7 +92,7 @@ export default function Navbar() {
           <div className="flex justify-between gap-8  w-auto  items-center">
             {/* LOGO */}
             <div className="flex items-center text-white mr-2">
-             <Link href="/">
+             <Link href="/"  className="flex items-center text-white mr-2">
               <Logo size={42} className="text-white shrink-0" />
              
               <h2
