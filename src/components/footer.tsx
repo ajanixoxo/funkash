@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                   Nigeria
                 </a>
               </p>
-              <p>info@tharwafunkash.com &middot; funkash.com</p>
+              <p>info@tharwafunkash.com &middot; </p>
             </div>
           </div>
           <div className="mb-8 flex items-start md:items-center justify-center flex-col">
