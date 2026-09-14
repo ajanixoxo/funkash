@@ -69,7 +69,7 @@ const AboutCEOSection = () => {
           >
             <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-white/10 shadow-xl">
               <img
-                src="/olumide.jpg"
+                src="/naomi.jpg"
                 alt="Naomi Durosaro"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
