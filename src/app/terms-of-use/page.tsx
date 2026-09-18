@@ -50,8 +50,8 @@ export default function TermsOfUsePage() {
                 <span className="font-medium text-white">
                   1.2 Registered Address:
                 </span>{" "}
-                Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos,
-                Nigeria.
+                6th Floor, Ark Towers, Plot 17, Ligali Ayorinde Street,
+                Victoria Island, Lagos, Nigeria.
               </li>
               <li>
                 <span className="font-medium text-white">1.3 Contact:</span>{" "}

@@ -43,12 +43,12 @@ const Footer: React.FC = () => {
               </p>
               <p>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Ark+Tower,+17+Ligali+Ayorinde+Street,+Victoria+Island,+Lagos,+Nigeria"
+                  href="https://www.google.com/maps/search/?api=1&query=6th+Floor,+Ark+Towers,+Plot+17,+Ligali+Ayorinde+Street,+Victoria+Island,+Lagos,+Nigeria"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white hover:underline transition-colors"
                 >
-                  Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos,
+                  6th Floor, Ark Towers, Plot 17, Ligali Ayorinde Street, Victoria Island, Lagos,
                   Nigeria
                 </a>
               </p>

@@ -94,9 +94,9 @@ const ContactPage: React.FC = () => {
       id: "02",
       label: "Office",
       value:
-        "Ark Tower, 17 Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria",
+        "6th Floor, Ark Towers, Plot 17, Ligali Ayorinde Street, Victoria Island, Lagos, Nigeria",
       href:
-        "https://www.google.com/maps/search/?api=1&query=Ark+Tower,+17+Ligali+Ayorinde+Street,+Victoria+Island,+Lagos,+Nigeria",
+        "https://www.google.com/maps/search/?api=1&query=6th+Floor,+Ark+Towers,+Plot+17,+Ligali+Ayorinde+Street,+Victoria+Island,+Lagos,+Nigeria",
     },
   ];
 
