@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   transition: opacity 0.26s ease-out;
 }
 
@@ -27,6 +27,7 @@
   border-radius: inherit;
   position: relative;
   z-index: 1;
+  overflow: visible;
 }
 
 .glass-surface--svg {

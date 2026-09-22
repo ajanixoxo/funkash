@@ -140,42 +140,44 @@ export default function Navbar() {
 
                 {/* About with Dropdown */}
                 <div
-                  className="relative"
+                  className="relative py-2"
                   onMouseEnter={handleMouseEnterAbout}
                   onMouseLeave={handleMouseLeaveAbout}
                 >
                   <Link
                     href="/about"
-                    className={`font-medium relative transition-colors flex items-center gap-1 py-1 ${scrolled ? "text-white" : "text-white/70"}`}
+                    className={`font-medium relative transition-colors flex items-center gap-1.5 py-1 ${scrolled ? "text-white" : "text-white/70"}`}
                   >
                     <p>About</p>
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${aboutDropdownOpen ? "rotate-180 text-white" : "opacity-70"}`}
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${aboutDropdownOpen ? "rotate-180 text-white" : "opacity-70"}`}
                     />
                   </Link>
 
                   <AnimatePresence>
                     {aboutDropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.18, ease: "easeOut" }}
-                        className="absolute top-full left-0 mt-2 w-48 rounded-2xl bg-[#161b2e]/95 backdrop-blur-xl border border-white/15 p-2 shadow-2xl z-50 flex flex-col gap-1"
+                        className="absolute top-[calc(100%+8px)] -left-3 w-52 rounded-2xl bg-[#0f1424] border border-white/20 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.9)] z-[999] flex flex-col gap-1 pointer-events-auto"
                       >
                         <Link
                           href="/about"
                           onClick={() => setAboutDropdownOpen(false)}
-                          className="px-4 py-2.5 rounded-xl text-sm font-medium text-gray-200 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                          className="px-4 py-2.5 rounded-xl text-sm font-medium text-gray-200 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between group/item"
                         >
                           <span>About Us</span>
+                          <span className="text-xs text-purple-400 opacity-0 group-hover/item:opacity-100 transition-opacity">→</span>
                         </Link>
                         <Link
                           href="/team"
                           onClick={() => setAboutDropdownOpen(false)}
-                          className="px-4 py-2.5 rounded-xl text-sm font-medium text-gray-200 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between"
+                          className="px-4 py-2.5 rounded-xl text-sm font-medium text-gray-200 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-between group/item"
                         >
                           <span>Team</span>
+                          <span className="text-xs text-purple-400 opacity-0 group-hover/item:opacity-100 transition-opacity">→</span>
                         </Link>
                       </motion.div>
                     )}
