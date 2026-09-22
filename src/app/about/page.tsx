@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import AboutHeroSection from '@/components/about-hero-section';
+import AboutVisionMissionSection from '@/components/about-vision-mission-section';
 import AboutCEOSection from '@/components/about-ceo-section';
 import AboutLegacySection from '@/components/about-legacy-section';
 import AboutImpactSection from '@/components/about-impact-section';
@@ -18,6 +19,7 @@ const AboutUsPage: React.FC = () => {
         <div className="bg-[#161b2e]">
             <Navbar />
             <AboutHeroSection />
+            <AboutVisionMissionSection />
             <AboutCEOSection />
             <AboutLegacySection />
             <AboutImpactSection />
