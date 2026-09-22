@@ -38,7 +38,7 @@ const MediaCard: React.FC<{ article: MediaArticle; index: number }> = ({ article
             onMouseLeave={() => setIsHovered(false)}
             style={{ transitionDelay: isVisible ? '0ms' : `${index * 50}ms` }}
         >
-            <a href={`/media/${article._id}`} className="block flex-1 flex flex-col relative z-0">
+            <a href={`/media/${article._id}`} className="flex-1 flex flex-col relative z-0">
                 {/* Cover Image Area */}
                 <div className="w-full h-48 sm:h-56 bg-gray-100 dark:bg-gray-800 relative overflow-hidden shrink-0">
                     {article.coverImage ? (
