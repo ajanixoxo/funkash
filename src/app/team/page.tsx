@@ -8,7 +8,7 @@ import Silk from "@/components/Silk";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { TeamCard, TeamMember } from "@/components/team-card";
-import { ArrowRight, Global, Flash, ShieldSecurity, Hierarchy } from "iconsax-react";
+import { ArrowRight, Global, Flash, ShieldSecurity, Hierarchy, Icon } from "iconsax-react";
 
 // Team Members Dataset - easy to edit when final names & photos land
 const teamMembers: TeamMember[] = [
@@ -92,7 +92,7 @@ interface LeadershipPillar {
   id: string;
   title: string;
   description: string[];
-  Icon: React.ComponentType<{ size?: string | number; color?: string; variant?: string }>;
+  Icon: Icon;
 }
 
 const leadershipPillars: LeadershipPillar[] = [
