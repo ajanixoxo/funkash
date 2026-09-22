@@ -16,22 +16,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!essay || !essay.published) {
       return {
-        title: "Essay Not Found | Funkash",
+        title: "Publication Not Found | Tharwa Funkash Technology",
       };
     }
 
     const headersList = await headers();
-    const host = headersList.get("host") || "funkash.com";
+    const host = headersList.get("host") || "tharwafunkash.com";
     const protocol = host.includes("localhost") ? "http" : "https";
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || `${protocol}://${host}`;
     
-    const fallbackImage = `${baseUrl}/logo.png`; // Standard Funkash logo as fallback
-    // If the essay has a coverImage, we use our API route that serves the binary image buffer.
-    // Base64 strings directly in og:image are not supported by scrapers like WhatsApp.
+    const fallbackImage = `${baseUrl}/logo.png`;
     const imageUrl = essay.coverImage ? `${baseUrl}/api/essays/${essay._id}/cover` : fallbackImage;
 
     return {
-      title: `${essay.title} | Funkash`,
+      title: `${essay.title} | Tharwa Funkash Technology`,
       description: essay.excerpt,
       openGraph: {
         title: essay.title,
@@ -49,14 +47,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch (error) {
-    console.error("Error generating metadata for essay:", error);
+    console.error("Error generating metadata for media:", error);
     return {
-      title: "Essay | Funkash",
+      title: "Media | Tharwa Funkash Technology",
     };
   }
 }
 
-export default function EssayLayout({
+export default function MediaLayout({
   children,
 }: {
   children: React.ReactNode;

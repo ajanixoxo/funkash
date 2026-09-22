@@ -62,9 +62,9 @@ export default function EssayDetailPage() {
     return (
       <div className="min-h-screen bg-white dark:bg-gray-950 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-600 dark:text-gray-400 mb-4">{error || "Essay not found"}</p>
-          <Link href="/essays" className="text-purple-600 hover:text-purple-700 font-semibold">
-            Back to Essays
+          <p className="text-gray-600 dark:text-gray-400 mb-4">{error || "Article not found"}</p>
+          <Link href="/media" className="text-purple-600 hover:text-purple-700 font-semibold">
+            Back to Media
           </Link>
         </div>
       </div>
@@ -76,11 +76,11 @@ export default function EssayDetailPage() {
       <div className="max-w-3xl mx-auto">
         {/* Back Button */}
         <Link
-          href="/essays"
+          href="/media"
           className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-8 font-semibold"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Essays
+          Back to Media
         </Link>
 
         {/* Header */}

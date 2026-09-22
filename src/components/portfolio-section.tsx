@@ -126,10 +126,10 @@ const PortfolioSection = () => {
           className="text-center mt-12"
         >
           <a
-            href="/products"
+            href="/projects"
             className="inline-flex items-center gap-2 text-white hover:text-purple-400 transition-colors text-lg font-medium"
           >
-            Explore our products
+            Explore our projects
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

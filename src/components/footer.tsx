@@ -7,7 +7,15 @@ import Logo from "./Logo";
 const Footer: React.FC = () => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
-  const quickLinks = ["Home", "About", "Approach", "Portfolio", "Contact"];
+  const quickLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Team", href: "/team" },
+    { label: "Approach", href: "/approach" },
+    { label: "Projects", href: "/projects" },
+    { label: "Media", href: "/media" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   const socialIcons = [
     {
@@ -60,21 +68,15 @@ const Footer: React.FC = () => {
               Quick Links
             </h3>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link}>
+              {quickLinks.map((item) => (
+                <li key={item.label}>
                   <a
-                    href={
-                      link === "Home"
-                        ? "/"
-                        : link === "Portfolio"
-                          ? "/products"
-                          : `/${link.toLowerCase()}`
-                    }
-                    onMouseEnter={() => setHoveredLink(link)}
+                    href={item.href}
+                    onMouseEnter={() => setHoveredLink(item.label)}
                     onMouseLeave={() => setHoveredLink(null)}
-                    className={`text-white transition-colors duration-300 ${hoveredLink === link ? "text-gray-400" : "hover:text-gray-300"}`}
+                    className={`text-white transition-colors duration-300 ${hoveredLink === item.label ? "text-gray-400" : "hover:text-gray-300"}`}
                   >
-                    {link}
+                    {item.label}
                   </a>
                 </li>
               ))}

@@ -8,7 +8,7 @@ import Footer from "@/components/footer"
 import Navbar from "@/components/navbar"
 import { format } from "date-fns"
 
-interface Essay {
+interface MediaArticle {
   _id: string
   title: string
   excerpt: string
@@ -22,59 +22,55 @@ interface Essay {
   coverImage?: string
 }
 
-const EssayDetailPage: React.FC = () => {
+const MediaDetailPage: React.FC = () => {
   const params = useParams()
-  const [essay, setEssay] = useState<Essay | null>(null)
+  const [article, setArticle] = useState<MediaArticle | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [showShareMenu, setShowShareMenu] = useState(false)
 
   useEffect(() => {
-    const fetchEssay = async () => {
+    const fetchArticle = async () => {
       if (!params.id) {
-        setError("Essay ID is required")
+        setError("Article ID is required")
         setLoading(false)
         return
       }
 
       try {
-        // Normalize the ID - handle both MongoDB ObjectId format and URL-friendly format
-        const essayId = params.id as string
-        
-        // If the ID contains dashes or is lowercase, try to find the essay by matching
-        // Otherwise use it directly
-        const response = await axios.get(`/api/essays/public/${essayId}`)
+        const articleId = params.id as string
+        const response = await axios.get(`/api/essays/public/${articleId}`)
         
         if (!response.data.published) {
-          setError("This essay is not published")
+          setError("This publication is not published")
           setLoading(false)
           return
         }
 
-        setEssay(response.data)
+        setArticle(response.data)
       } catch (err: unknown) {
         const axiosError = err as { response?: { status?: number } }
         if (axiosError.response?.status === 404) {
-          setError("Essay not found")
+          setError("Publication not found")
         } else if (axiosError.response?.status === 403) {
-          setError("This essay is not published")
+          setError("This publication is not published")
         } else {
-          setError("Failed to load essay. Please try again later.")
+          setError("Failed to load publication. Please try again later.")
         }
-        console.error("Error fetching essay:", err)
+        console.error("Error fetching article:", err)
       } finally {
         setLoading(false)
       }
     }
 
-    fetchEssay()
+    fetchArticle()
   }, [params.id])
 
   const handleShare = (platform: string) => {
-    if (!essay) return
+    if (!article) return
 
     const url = window.location.href
-    const title = essay.title
+    const title = article.title
 
     const shareUrls: { [key: string]: string } = {
       twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
@@ -109,7 +105,7 @@ const EssayDetailPage: React.FC = () => {
         <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white flex items-center justify-center">
           <div className="text-center">
             <div className="w-12 h-12 rounded-full border-4 border-purple-500/30 border-t-purple-500 animate-spin mx-auto mb-4" />
-            <p className="text-gray-400">Loading essay...</p>
+            <p className="text-gray-400">Loading publication...</p>
           </div>
         </div>
         <Footer />
@@ -117,22 +113,22 @@ const EssayDetailPage: React.FC = () => {
     )
   }
 
-  if (error || !essay) {
+  if (error || !article) {
     return (
       <div>
         <Navbar />
         <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white flex items-center justify-center">
           <div className="text-center max-w-md mx-auto px-6">
-            <h1 className="text-3xl font-semibold text-white mb-4">Essay Not Found</h1>
-            <p className="text-gray-400 mb-6">{error || "The essay you're looking for doesn't exist."}</p>
+            <h1 className="text-3xl font-semibold text-white mb-4">Publication Not Found</h1>
+            <p className="text-gray-400 mb-6">{error || "The article you're looking for doesn't exist."}</p>
             <Link
-              href="/essay"
+              href="/media"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              Back to Essays
+              Back to Media
             </Link>
           </div>
         </div>
@@ -154,13 +150,13 @@ const EssayDetailPage: React.FC = () => {
           <div className="max-w-5xl mx-auto relative z-10">
             {/* Back Button */}
             <Link
-              href="/essay"
+              href="/media"
               className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              <span className="font-medium">Back to Essays</span>
+              <span className="font-medium">Back to Media</span>
             </Link>
 
             {/* Meta Info */}
@@ -174,7 +170,7 @@ const EssayDetailPage: React.FC = () => {
                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                   />
                 </svg>
-                <span>{essay.author}</span>
+                <span>{article.author}</span>
               </div>
               <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
               <div className="flex items-center gap-2">
@@ -186,7 +182,7 @@ const EssayDetailPage: React.FC = () => {
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                <span>{formatDate(essay.publishedDate)}</span>
+                <span>{formatDate(article.publishedDate)}</span>
               </div>
               <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
               <div className="flex items-center gap-2">
@@ -198,26 +194,26 @@ const EssayDetailPage: React.FC = () => {
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>{essay.readTime} min read</span>
+                <span>{article.readTime} min read</span>
               </div>
             </div>
 
             {/* Title */}
             <h1 className="text-4xl lg:text-6xl xl:text-7xl font-semibold tracking-tight mb-6 leading-tight">
-              {essay.title}
+              {article.title}
             </h1>
 
             {/* Excerpt as Subtitle */}
-            {essay.excerpt && (
+            {article.excerpt && (
               <p className="text-xl lg:text-2xl xl:text-3xl text-gray-300 font-light leading-relaxed mb-8">
-                {essay.excerpt}
+                {article.excerpt}
               </p>
             )}
 
             {/* Tags */}
-            {essay.tags && essay.tags.length > 0 && (
+            {article.tags && article.tags.length > 0 && (
               <div className="flex flex-wrap gap-3">
-                {essay.tags.map((tag, index) => (
+                {article.tags.map((tag, index) => (
                   <span
                     key={index}
                     className="px-4 py-2 text-sm font-medium bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/20"
@@ -234,15 +230,15 @@ const EssayDetailPage: React.FC = () => {
         <section className="py-16 lg:py-24 px-6 lg:px-12 bg-white dark:bg-gray-950">
           <div className="max-w-4xl mx-auto">
             {/* Cover Image */}
-            {essay.coverImage && (
+            {article.coverImage && (
               <div className="w-full rounded-3xl overflow-hidden mb-12 shadow-2xl">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={essay.coverImage} alt={essay.title} className="w-full h-auto max-h-[600px] object-cover" />
+                <img src={article.coverImage} alt={article.title} className="w-full h-auto max-h-[600px] object-cover" />
               </div>
             )}
 
             {/* Featured Quote (Excerpt) */}
-            {essay.excerpt && (
+            {article.excerpt && (
               <div className="relative bg-gradient-to-br from-purple-900/20 to-blue-900/20 border-l-4 border-purple-500 p-8 lg:p-10 rounded-r-3xl mb-16">
                 <svg
                   className="absolute top-6 left-6 w-8 h-8 text-purple-500 opacity-50"
@@ -252,15 +248,15 @@ const EssayDetailPage: React.FC = () => {
                   <path d="M0 6.646C0 3.107 2.531 1.002 4.11.032c.2-.123.416.133.262.312A8.202 8.202 0 002.92 2.777 4.023 4.023 0 110 6.647zm8.955 0c0-3.539 2.531-5.644 4.11-6.613.2-.123.416.132.263.31a8.202 8.202 0 00-1.454 2.434 4.023 4.023 0 11-2.92 3.87z" />
                 </svg>
                 <p className="text-xl lg:text-2xl text-gray-100 dark:text-gray-200 italic leading-relaxed pl-12">
-                  &ldquo;{essay.excerpt}&rdquo;
+                  &ldquo;{article.excerpt}&rdquo;
                 </p>
               </div>
             )}
 
-            {/* Essay Content - Render HTML from Rich Text Editor */}
+            {/* Content */}
             <div
               className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-strong:text-gray-900 dark:prose-strong:text-white prose-a:text-purple-600 dark:prose-a:text-purple-400 prose-blockquote:border-purple-500 prose-blockquote:text-gray-700 dark:prose-blockquote:text-gray-300 prose-code:text-purple-600 dark:prose-code:text-purple-400"
-              dangerouslySetInnerHTML={{ __html: essay.content }}
+              dangerouslySetInnerHTML={{ __html: article.content }}
             />
 
             {/* Divider */}
@@ -271,7 +267,7 @@ const EssayDetailPage: React.FC = () => {
             {/* Share Section */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-900 dark:to-gray-950 rounded-3xl border border-gray-700 dark:border-gray-800">
               <div>
-                <h3 className="text-xl font-semibold text-white mb-2">Enjoyed this essay?</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">Enjoyed this publication?</h3>
                 <p className="text-gray-400">Share it with your network</p>
               </div>
 
@@ -288,10 +284,9 @@ const EssayDetailPage: React.FC = () => {
                       d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
                     />
                   </svg>
-                  <span>Share Essay</span>
+                  <span>Share Article</span>
                 </button>
 
-                {/* Share Dropdown */}
                 {showShareMenu && (
                   <div className="absolute right-0 mt-3 w-56 bg-gray-800 rounded-2xl border border-gray-700 shadow-2xl overflow-hidden z-10">
                     <button
@@ -347,4 +342,4 @@ const EssayDetailPage: React.FC = () => {
   )
 }
 
-export default EssayDetailPage
+export default MediaDetailPage
