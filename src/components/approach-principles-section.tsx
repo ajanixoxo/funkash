@@ -7,11 +7,6 @@ import { motion } from "framer-motion";
 const ApproachPrinciplesSection = () => {
   const principles = [
     {
-      title: "Customer Obsession",
-      description:
-        "We judge our work by whether the client succeeds. Before we take on a project, we work out exactly what it will take to deliver it in full, and we only commit once we know we can follow through.",
-    },
-    {
       title: "Innovation",
       description:
         "We put our invention into the product itself. When we tell a client a system can do something, it can already do it, not somewhere on a future roadmap. We build the capability, then we talk about it.",
@@ -20,6 +15,11 @@ const ApproachPrinciplesSection = () => {
       title: "Trust",
       description:
         "We earn trust the same way each time. We think carefully before we commit, deliver completely once we do, and keep proof clients can check for themselves, whether that is the numbers, an audit, or a system still running years later.",
+    },
+    {
+      title: "Customer Obsession",
+      description:
+        "We judge our work by whether the client succeeds. Before we take on a project, we work out exactly what it will take to deliver it in full, and we only commit once we know we can follow through.",
     },
   ];
 

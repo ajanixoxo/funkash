@@ -62,7 +62,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({ member, index = 0 }) => {
 
         {/* Department Badge */}
         <div className="absolute top-3 left-3 z-10">
-          <span className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[#111625]/90 text-gray-300 border border-white/[0.08]">
+          <span className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-[#0B1226]/90 text-[#C7A56A] border border-[#C7A56A]/20">
             {member.department}
           </span>
         </div>

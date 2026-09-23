@@ -77,6 +77,20 @@ const teamMembers: TeamMember[] = [
     department: "Operations",
     bio: "Manages government relations, tier-one bank integrations, and pan-African enterprise client deployments.",
   },
+  {
+    id: "head-of-marketing",
+    name: "Head of Marketing & Growth",
+    role: "Director of Brand & Growth Strategy",
+    department: "Marketing",
+    bio: "Directs global brand presence, developer ecosystem engagement, and pan-African institutional narratives.",
+  },
+  {
+    id: "lead-communications",
+    name: "Lead Communications Strategist",
+    role: "Brand & Content Lead",
+    department: "Marketing",
+    bio: "Shapes executive thought leadership, media publications, and technical storytelling across all Tharwa platforms.",
+  },
 ];
 
 const departments = [
@@ -84,8 +98,9 @@ const departments = [
   "Executive Leadership",
   "Engineering & AI",
   "Product & Design",
-  "Security & Governance",
+  "Marketing",
   "Operations",
+  "Security & Governance",
 ];
 
 interface LeadershipPillar {

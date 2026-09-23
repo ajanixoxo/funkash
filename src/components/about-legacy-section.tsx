@@ -7,16 +7,16 @@ import { motion } from "framer-motion";
 const AboutLegacySection = () => {
   const standForItems = [
     {
-      title: "Customer Obsession",
-      desc: "We are committed to the success of every client, and take on what we can deliver in full.",
-    },
-    {
       title: "Innovation",
       desc: "We invent in the product, and hold our promises to what it can do.",
     },
     {
       title: "Trust",
       desc: "We commit carefully, deliver completely and can show it.",
+    },
+    {
+      title: "Customer Obsession",
+      desc: "We are committed to the success of every client, and take on what we can deliver in full.",
     },
   ];
 
